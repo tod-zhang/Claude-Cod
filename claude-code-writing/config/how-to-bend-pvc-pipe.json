@@ -1,0 +1,250 @@
+{
+  "meta": {
+    "createdAt": "2025-12-25T00:00:00Z",
+    "version": "1.0"
+  },
+
+  "article": {
+    "topic": "how to bend pvc pipe",
+    "topicTitle": "how-to-bend-pvc-pipe",
+    "depth": "In-depth",
+    "wordCountTarget": "1500-2500",
+    "language": "English",
+    "writingAngle": "DIY practical guide - focusing on simple tools and safe operation for home DIY enthusiasts",
+    "targetIndustry": "General"
+  },
+
+  "company": {
+    "id": "bastone-plastics",
+    "name": "Bastone",
+    "industry": "Chemical Manufacturing / Plastics Industry",
+    "coreBusiness": "Manufacturing of plasticizers and PVC resin for the plastics industry. Bastone produces essential chemical additives and base materials used in polymer applications, serving as a key supplier of compounds for PVC and flexible plastic manufacturing.",
+    "valueProposition": "As a specialized manufacturer of plasticizers and PVC resin in China, Bastone provides essential raw materials for the plastics industry with a focus on quality chemical compounds for diverse polymer applications.",
+    "sitemapUrls": {
+      "posts": "https://bastone-plastics.com/post-sitemap.xml",
+      "pages": "https://bastone-plastics.com/page-sitemap.xml"
+    }
+  },
+
+  "audience": {
+    "type": "Complete Beginner",
+    "description": "New procurement staff, quality assurance trainees, business students studying manufacturing, entrepreneurs exploring plastics industry",
+    "industry": "DIY enthusiasts, homeowners, hobbyists working with PVC materials",
+    "knowledgeLevel": "Novice",
+    "experienceRange": "0-6 months exposure",
+
+    "goals": {
+      "primary": "Understand how to safely bend PVC pipe using simple tools at home",
+      "secondary": [
+        "Learn what tools and materials are needed",
+        "Understand safety precautions",
+        "Know when bending is appropriate vs using fittings"
+      ]
+    },
+
+    "knowledge": {
+      "alreadyKnows": [
+        "Plastics are everywhere in daily life",
+        "Some awareness that plastics are manufactured from raw materials",
+        "Basic understanding of flexible vs rigid plastics",
+        "General awareness of PVC as a type of plastic",
+        "PVC pipes are commonly used in plumbing and DIY projects"
+      ],
+      "needsToLearn": [
+        "What makes PVC bendable when heated",
+        "Safe heating methods for home use",
+        "How to achieve consistent bends without kinks",
+        "Temperature control and timing",
+        "When to use heat bending vs fittings",
+        "Safety precautions when working with heated plastic",
+        "Common mistakes and how to avoid them"
+      ]
+    },
+
+    "typicalQuestions": [
+      "Can you bend PVC pipe?",
+      "How to bend PVC pipe without breaking it?",
+      "What temperature do you need to bend PVC?",
+      "Can I use a heat gun to bend PVC pipe?",
+      "How to bend PVC pipe for DIY projects?",
+      "Is it safe to heat PVC pipe at home?"
+    ],
+
+    "writingApproach": {
+      "tone": "Friendly, encouraging, patient",
+      "style": "Conversational; use analogies and real-world examples",
+      "complexity": "Simple sentences; define all jargon; avoid acronyms or explain them immediately",
+      "structure": "Start with why it matters; build concepts step-by-step",
+      "wordChoice": "Everyday language; assume no prior knowledge"
+    },
+
+    "guidelines": {
+      "do": [
+        "Use everyday analogies: Think of heating PVC like softening butter - just enough warmth makes it flexible",
+        "Connect to familiar products: The same PVC in your garden hose, plumbing pipes, or electrical conduit",
+        "Provide simple visual descriptions of what success looks like at each step",
+        "Celebrate understanding with encouraging language",
+        "Use second person (you) to create connection",
+        "Break down each step methodically",
+        "Include clear safety warnings prominently",
+        "Explain the why behind each instruction"
+      ],
+      "dont": [
+        "Assume knowledge of chemistry or polymer science",
+        "Use unexplained chemical terminology",
+        "Overwhelm with technical details about PVC composition",
+        "Skip foundational concepts like why PVC becomes flexible when heated",
+        "Use industry jargon without explanation",
+        "Rush through safety precautions"
+      ]
+    }
+  },
+
+  "searchIntent": {
+    "type": "Informational",
+    "category": "Action-oriented",
+
+    "userContext": {
+      "situation": "User has a DIY project requiring curved PVC pipe (garden structure, custom plumbing route, artistic project, etc.) and wants to know if they can bend existing pipe rather than buy fittings",
+      "currentState": "Has PVC pipe and a project need, but uncertain about the bending process, required tools, safety, and whether it's feasible at home",
+      "desiredState": "Confident in safely bending PVC pipe at home with common tools, knowing the right temperature, technique, and safety precautions"
+    },
+
+    "coreQuestion": "How can I safely bend PVC pipe at home for my DIY project?",
+
+    "implicitQuestions": [
+      "What tools do I need to bend PVC pipe?",
+      "What temperature should I heat PVC to for bending?",
+      "How do I prevent the pipe from kinking or collapsing?",
+      "Is heating PVC safe? What fumes should I worry about?",
+      "Can I bend all types and sizes of PVC pipe?",
+      "How do I get a consistent, smooth bend?",
+      "When should I use fittings instead of bending?"
+    ],
+
+    "expectedContent": {
+      "type": "Tutorial",
+      "format": "Step-by-step with clear instructions, safety warnings, and troubleshooting tips",
+      "depth": "Practical how-to with enough background to understand the process"
+    },
+
+    "successCriteria": "Reader can successfully and safely bend PVC pipe for their home project using household or readily available tools, understanding when bending is appropriate and when to use fittings instead"
+  },
+
+  "workflowState": {
+    "research": {
+      "status": "completed",
+      "completedAt": "2025-12-25T01:30:00Z",
+      "summary": {
+        "sourceCount": 15,
+        "dataPointCount": 18,
+        "competitorCount": 3
+      },
+      "insights": {
+        "goldenInsights": [
+          {
+            "insight": "PVC cannot be extinguished once ignited - it burns without oxygen",
+            "source": "https://forums.mikeholt.com/",
+            "suggestedUse": "Safety warning - dramatic but true fact"
+          },
+          {
+            "insight": "Heating times scale dramatically: 1/2 inch = 2 min vs 6 inch = 60+ min",
+            "source": "https://pvcbendit.com/pages/pvc-pipe-bending-faqs",
+            "suggestedUse": "Hook or early section - quantifies the process"
+          },
+          {
+            "insight": "Working electricians say use factory bends for standard angles - not worth DIY time",
+            "source": "https://forums.mikeholt.com/",
+            "suggestedUse": "Decision framework - honest professional advice"
+          },
+          {
+            "insight": "Bent PVC destroys molecular structure uniformity - never use for pressurized applications",
+            "source": "https://www.pvcfittingsonline.com/",
+            "suggestedUse": "Critical warning early in article"
+          }
+        ],
+        "quality": "high",
+        "suggestedHook": "surprising-stat"
+      },
+      "gaps": {
+        "data": [
+          "Long-term durability data for bent pipes",
+          "Specific failure rates by bending method"
+        ],
+        "coverage": [
+          "Heating times by pipe size - competitors lack this",
+          "Common mistakes section - major gap in competitors",
+          "When to use fittings decision framework - not addressed well"
+        ]
+      },
+      "controversies": [
+        "Temperature recommendations vary: some say 200-275F, others 350-400F for heat gun setting",
+        "Boiling water method - some sources say it works, others say it is unreliable"
+      ],
+      "coreThesis": "Bending PVC pipe at home is safe and achievable with the right temperature (210-275F), proper kink prevention (sand or spring), and understanding that bent pipes are for non-pressure applications only.",
+      "writingAdvice": {
+        "emphasize": [
+          "Temperature range 210-275F - strong data from multiple sources",
+          "Safety precautions - well documented",
+          "Sand method for kink prevention - proven technique",
+          "Heating times by pipe size - unique data point"
+        ],
+        "cautious": [
+          "Boiling water method - mixed results reported",
+          "Pipes larger than 2 inch - limited DIY guidance, recommend fittings",
+          "Long-term durability claims - no hard data"
+        ]
+      }
+    },
+    "writing": {
+      "status": "completed",
+      "completedAt": "2025-12-25T02:15:00Z",
+      "outline": {
+        "h2Count": 8,
+        "structure": [
+          "What Temperature Do You Need to Bend PVC Pipe?",
+          "What Tools and Materials Do You Need?",
+          "How Do You Prevent PVC Pipe from Kinking When Bending?",
+          "Step-by-Step: How to Bend PVC Pipe with a Heat Gun",
+          "Alternative Methods: Heated Sand and Boiling Water",
+          "What Are the Safety Precautions for Heating PVC?",
+          "When Should You Use Fittings Instead of Bending?",
+          "Common Mistakes and How to Avoid Them"
+        ],
+        "introFramework": "Direct Hook",
+        "conclusionType": "Next Journey Step"
+      },
+      "execution": {
+        "actualWordCount": 1850,
+        "internalLinksUsed": 0,
+        "dataPointsUsed": 12
+      },
+      "decisions": {
+        "hookUsed": {
+          "type": "surprising-stat",
+          "content": "Heating time scales dramatically - 2 minutes for 1/2 inch vs 60+ minutes for 6 inch pipe"
+        },
+        "opinionsIncluded": [
+          "Temperature section: Higher temperature is NOT better - overheating causes more problems",
+          "Tools section: A basic heat gun pays for itself after 2-3 projects",
+          "Kink prevention: Sand method gives most consistent results for DIY users",
+          "Safety section: If not comfortable working outdoors, use factory fittings instead",
+          "Fittings section: For standard angles, factory fittings are faster and stronger",
+          "Boiling water: Heat gun or heated sand methods produce more reliable results"
+        ],
+        "sectionsToWatch": {
+          "strong": [
+            "Temperature section - strong data from multiple sources",
+            "Safety precautions - well documented hazards",
+            "Step-by-step heat gun method - clear process with timing data"
+          ],
+          "weak": [
+            "Boiling water method - used cautious language due to mixed results",
+            "Large pipe bending - redirected to fittings due to limited DIY data"
+          ]
+        },
+        "internalLinks": []
+      }
+    }
+  }
+}

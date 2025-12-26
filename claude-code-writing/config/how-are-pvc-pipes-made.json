@@ -1,0 +1,239 @@
+{
+  "meta": {
+    "createdAt": "2025-12-25T00:00:00.000Z",
+    "version": "1.0"
+  },
+
+  "article": {
+    "topic": "how are pvc pipes made",
+    "topicTitle": "how-are-pvc-pipes-made",
+    "depth": "Overview",
+    "wordCountTarget": "800-1200",
+    "language": "English",
+    "writingAngle": "Factory tour - taking readers inside a PVC pipe factory, revealing the production process step by step",
+    "targetIndustry": "General"
+  },
+
+  "company": {
+    "id": "bastone-plastics",
+    "name": "Bastone",
+    "industry": "Chemical Manufacturing / Plastics Industry",
+    "coreBusiness": "Manufacturing of plasticizers and PVC resin for the plastics industry. Bastone produces essential chemical additives and base materials used in polymer applications, serving as a key supplier of compounds for PVC and flexible plastic manufacturing.",
+    "valueProposition": "As a specialized manufacturer of plasticizers and PVC resin in China, Bastone provides essential raw materials for the plastics industry with a focus on quality chemical compounds for diverse polymer applications.",
+    "sitemapUrls": {
+      "posts": "https://bastone-plastics.com/post-sitemap.xml",
+      "pages": "https://bastone-plastics.com/page-sitemap.xml"
+    }
+  },
+
+  "audience": {
+    "type": "Complete Beginner",
+    "description": "New procurement staff, quality assurance trainees, business students studying manufacturing, entrepreneurs exploring plastics industry",
+    "industry": "New procurement staff, quality assurance trainees, business students studying manufacturing, entrepreneurs exploring plastics industry",
+    "knowledgeLevel": "Novice",
+    "experienceRange": "0-6 months exposure",
+
+    "goals": {
+      "primary": "Understand what plasticizers and PVC resin are",
+      "secondary": [
+        "Learn basic industry terminology",
+        "Understand how these materials are used"
+      ]
+    },
+
+    "knowledge": {
+      "alreadyKnows": [
+        "Plastics are everywhere in daily life",
+        "Some awareness that plastics are manufactured from raw materials",
+        "Basic understanding of flexible vs rigid plastics",
+        "General awareness of PVC as a type of plastic"
+      ],
+      "needsToLearn": [
+        "What plasticizers are and why they're needed",
+        "Basic PVC chemistry and properties",
+        "How plasticizers affect plastic properties",
+        "Common applications and end products",
+        "Industry terminology (phr, shore hardness, etc.)"
+      ]
+    },
+
+    "typicalQuestions": [
+      "What is a plasticizer?",
+      "What is PVC resin?",
+      "How is flexible PVC made?",
+      "Plasticizer basics explained",
+      "Types of plasticizers",
+      "PVC manufacturing process"
+    ],
+
+    "writingApproach": {
+      "tone": "Friendly, encouraging, patient",
+      "style": "Conversational; use analogies and real-world examples",
+      "complexity": "Simple sentences; define all jargon; avoid acronyms or explain them immediately",
+      "structure": "Start with 'why it matters'; build concepts step-by-step",
+      "wordChoice": "Everyday language; assume no prior knowledge"
+    },
+
+    "guidelines": {
+      "do": [
+        "Use everyday analogies: 'Think of plasticizers like adding oil to bread dough—it makes the material more flexible...'",
+        "Connect to familiar products: 'The flexible garden hose, the vinyl flooring in kitchens...'",
+        "Provide simple visual descriptions",
+        "Celebrate understanding"
+      ],
+      "dont": [
+        "Assume knowledge of chemistry or polymer science",
+        "Use unexplained chemical terminology",
+        "Overwhelm with chemical formulas",
+        "Skip foundational concepts"
+      ]
+    }
+  },
+
+  "searchIntent": {
+    "type": "Informational",
+    "category": "Educational",
+
+    "userContext": {
+      "situation": "Reader is curious about how everyday PVC pipes are manufactured, possibly considering a career in plastics, studying manufacturing processes, or evaluating suppliers",
+      "currentState": "Knows PVC pipes exist everywhere (plumbing, construction) but has no idea how they transform from raw materials into finished pipes",
+      "desiredState": "Understand the complete journey from PVC resin to finished pipe, be able to visualize the factory process, and grasp the basic steps involved"
+    },
+
+    "coreQuestion": "How do factories transform raw PVC material into the pipes we see in hardware stores and construction sites?",
+
+    "implicitQuestions": [
+      "What raw materials are used to make PVC pipes?",
+      "What machines are involved in the manufacturing process?",
+      "How do they get the pipe shape and different sizes?",
+      "How long does the manufacturing process take?",
+      "What quality checks are done during production?"
+    ],
+
+    "expectedContent": {
+      "type": "Tutorial",
+      "format": "Step-by-step",
+      "depth": "Surface overview"
+    },
+
+    "successCriteria": "Reader can describe the basic manufacturing steps (mixing, extrusion, cooling, cutting) to someone else and visualize what happens inside a PVC pipe factory"
+  },
+
+  "workflowState": {
+    "research": {
+      "status": "completed",
+      "completedAt": "2025-12-25T01:30:00.000Z",
+      "summary": {
+        "sourceCount": 18,
+        "dataPointCount": 16,
+        "competitorCount": 3
+      },
+      "insights": {
+        "goldenInsights": [
+          {
+            "insight": "PVC doesn't melt like other plastics - it 'fuses' at 65-70% optimal level, explaining why processing is more demanding",
+            "source": "ResearchGate",
+            "suggestedUse": "hook - challenges common assumption"
+          },
+          {
+            "insight": "Without additives, every single PVC part would come out degraded - stabilizers aren't optional enhancements, they're survival mechanisms",
+            "source": "madisongroup.com",
+            "suggestedUse": "section opener for additives explanation"
+          },
+          {
+            "insight": "Modern PVC lines produce pipe at 16-28 meters per minute - almost one football field of pipe every 3-4 minutes",
+            "source": "beisumachine.com",
+            "suggestedUse": "wow factor for production speed section"
+          },
+          {
+            "insight": "Temperature window is razor-thin: 180-210C or the pipe either won't fuse properly OR will decompose and turn yellow",
+            "source": "Multiple sources",
+            "suggestedUse": "quality control section emphasis"
+          }
+        ],
+        "quality": "high",
+        "suggestedHook": "surprising-stat"
+      },
+      "gaps": {
+        "data": [
+          "Exact production timeline from start to finish",
+          "Detailed cost breakdown per meter of pipe"
+        ],
+        "coverage": [
+          "Factory tour narrative perspective - competitors all use dry technical descriptions",
+          "Troubleshooting/what can go wrong explanations",
+          "Production metrics and line speeds",
+          "Twin screw extruder advantages for PVC"
+        ]
+      },
+      "controversies": [],
+      "coreThesis": "PVC pipe manufacturing is a precisely orchestrated process where temperature control, chemical additives, and mechanical precision must work together - understanding each station reveals why PVC pipes are both ubiquitous and reliable",
+      "writingAdvice": {
+        "emphasize": [
+          "Factory tour narrative structure - differentiation opportunity",
+          "The 180-210C temperature window - strong data",
+          "Why additives are essential not optional - compelling angle",
+          "Production speed metrics (16-28 m/min) - impressive figures",
+          "Fusion vs melting distinction - educational hook"
+        ],
+        "cautious": [
+          "Market size figures - vary significantly by source (use 'multi-billion dollar' instead of specific number)",
+          "Exact production timeline - not well documented in sources"
+        ]
+      }
+    },
+    "writing": {
+      "status": "completed",
+      "completedAt": "2025-12-25T02:00:00.000Z",
+      "outline": {
+        "h2Count": 6,
+        "structure": [
+          "How Does a PVC Pipe Factory Turn Raw Resin Into Finished Pipes?",
+          "What Raw Materials Go Into PVC Pipes?",
+          "What Happens During PVC Pipe Extrusion?",
+          "How Do Manufacturers Control Pipe Size and Shape?",
+          "What Quality Checks Ensure Reliable PVC Pipes?",
+          "How Fast Can Modern PVC Pipe Lines Produce?"
+        ],
+        "introFramework": "Direct Hook",
+        "conclusionType": "Next Journey Step"
+      },
+      "execution": {
+        "actualWordCount": 1350,
+        "internalLinksUsed": 2,
+        "dataPointsUsed": 12
+      },
+      "decisions": {
+        "hookUsed": {
+          "type": "surprising-stat",
+          "content": "PVC doesn't melt like other plastics - it fuses at 65-70% optimal level"
+        },
+        "opinionsIncluded": [
+          "What Raw Materials Go Into PVC Pipes?: Additives are survival mechanisms, not optional enhancements",
+          "What Happens During PVC Pipe Extrusion?: Twin screw extruders recommended over single screw for PVC"
+        ],
+        "sectionsToWatch": {
+          "strong": [
+            "What Happens During PVC Pipe Extrusion? - solid temperature data",
+            "How Fast Can Modern PVC Pipe Lines Produce? - good production metrics",
+            "What Quality Checks Ensure Reliable PVC Pipes? - specific standards cited"
+          ],
+          "weak": [
+            "Market size mention - used fuzzy language as advised",
+            "Production timeline - avoided specific times due to data gap"
+          ]
+        },
+        "internalLinks": [
+          {
+            "anchor": "Different grades of PVC resin",
+            "url": "https://bastone-plastics.com/blogs/different-grades-of-pvc-resin/"
+          },
+          {
+            "anchor": "how PVC resin is made",
+            "url": "https://bastone-plastics.com/blogs/how-is-pvc-resin-made/"
+          }
+        ]
+      }
+    }
+  }
+}
