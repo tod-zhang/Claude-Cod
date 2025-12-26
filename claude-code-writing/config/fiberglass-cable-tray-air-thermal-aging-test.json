@@ -1,0 +1,287 @@
+{
+  "meta": {
+    "createdAt": "2025-12-26T00:00:00.000Z",
+    "version": "1.0"
+  },
+
+  "article": {
+    "topic": "fiberglass cable tray air thermal aging test",
+    "topicTitle": "fiberglass-cable-tray-air-thermal-aging-test",
+    "depth": "In-depth",
+    "wordCountTarget": "1500-2500",
+    "language": "English",
+    "writingAngle": "testing standards and compliance, testing methods and procedures, selection guide",
+    "targetIndustry": "General"
+  },
+
+  "company": {
+    "id": "apextray",
+    "name": "APEXTRAY Technology Co., Ltd",
+    "industry": "Cable Management / Electrical Infrastructure Manufacturing",
+    "coreBusiness": "Manufacturing of cable trays and complete cable management solutions. APEXTRAY produces a comprehensive range of cable tray systems including solid bottom, ladder, perforated, wire mesh, fiberglass, aluminum, and polymer cable trays, along with strut channel systems and fiber raceway solutions.",
+    "valueProposition": "One-stop cable tray manufacturer providing customizable solutions with CAD design support, comprehensive accessories, and technical consultation. Certified to ISO 9001, ISO 45001, and CE standards with integrated powder coating and fabrication capabilities.",
+    "sitemapUrls": {
+      "posts": null,
+      "pages": null
+    }
+  },
+
+  "audience": {
+    "type": "Practitioner / Implementer",
+    "description": "Electrical contractors, installation technicians, MEP engineers, cable tray installers",
+    "industry": "Electrical contractors, installation technicians, MEP engineers, cable tray installers",
+    "knowledgeLevel": "Intermediate-Advanced",
+    "experienceRange": "2-5 years",
+
+    "goals": {
+      "primary": "Install correctly; troubleshoot issues; ensure code compliance; optimize installations",
+      "secondary": [
+        "Learn advanced installation techniques",
+        "Stay current on new products and technologies",
+        "Understand code updates and compliance details"
+      ]
+    },
+
+    "knowledge": {
+      "alreadyKnows": [
+        "Cable tray installation fundamentals",
+        "Electrical codes and standards",
+        "Load calculation basics",
+        "Common installation challenges"
+      ],
+      "needsToLearn": [
+        "Advanced installation techniques",
+        "Troubleshooting methods for specific issues",
+        "New products and technologies",
+        "Code updates and compliance details",
+        "Support system design optimization"
+      ]
+    },
+
+    "typicalQuestions": [
+      "Cable tray support spacing requirements",
+      "NEC cable tray fill calculations",
+      "Cable tray grounding methods",
+      "Expansion joint installation cable tray",
+      "Cable tray load capacity chart",
+      "Fiberglass cable tray installation guide"
+    ],
+
+    "writingApproach": {
+      "tone": "Technical, precise, matter-of-fact",
+      "style": "Procedural; detailed technical guidance",
+      "complexity": "High; assume technical competence; include specifications",
+      "structure": "Technical procedures; specifications; code references",
+      "wordChoice": "Full technical vocabulary; use industry shorthand freely"
+    },
+
+    "guidelines": {
+      "do": [
+        "Provide precise specifications: 'Support spacing shall not exceed 5 ft for ladder tray per NEC 392.30'",
+        "Include troubleshooting logic: 'If deflection exceeds 1/200 of span, reduce support spacing or...'",
+        "Use technical vocabulary freely (fill ratio, derating, bonding, etc.)",
+        "Reference applicable codes (NEC, NEMA VE 1, UL 2277)"
+      ],
+      "dont": [
+        "Don't over-simplify technical concepts",
+        "Don't avoid necessary technical terminology",
+        "Don't omit critical safety or code requirements"
+      ]
+    }
+  },
+
+  "searchIntent": {
+    "type": "Informational",
+    "category": "Educational / Technical Reference",
+
+    "userContext": {
+      "situation": "Practitioner needs to understand or verify thermal aging test requirements for fiberglass (FRP) cable trays, likely for specification review, quality assurance, or code compliance purposes",
+      "currentState": "May be unclear on specific test procedures, acceptance criteria, or which standards apply to air thermal aging tests for FRP cable trays",
+      "desiredState": "Comprehensive understanding of thermal aging test methods, relevant standards (UL, NEMA), test parameters, pass/fail criteria, and how to interpret or specify these requirements"
+    },
+
+    "coreQuestion": "What are the air thermal aging test requirements and procedures for fiberglass cable trays, and how do they ensure long-term performance?",
+
+    "implicitQuestions": [
+      "Which standards govern thermal aging tests for FRP cable trays (UL 2277, NEMA VE 1)?",
+      "What temperature and duration parameters are used in thermal aging tests?",
+      "What properties are measured before and after aging (flexural strength, color stability)?",
+      "How do thermal aging test results affect product selection and specification?",
+      "What is the correlation between accelerated aging tests and real-world service life?"
+    ],
+
+    "expectedContent": {
+      "type": "Technical Reference / Guide",
+      "format": "Procedural with tables and specifications",
+      "depth": "Practical how-to with technical depth"
+    },
+
+    "successCriteria": "Reader can understand thermal aging test procedures, interpret test reports, and specify appropriate requirements for FRP cable tray procurement or quality verification"
+  },
+
+  "workflowState": {
+    "research": {
+      "status": "completed",
+      "completedAt": "2025-12-26T12:00:00.000Z",
+      "summary": {
+        "sourceCount": 18,
+        "dataPointCount": 13,
+        "competitorCount": 3
+      },
+      "insights": {
+        "goldenInsights": [
+          {
+            "insight": "50% strength retention rate is regarded as end-of-life indicator for FRP, while 90%+ retention after 5000h aging is considered far from end of life",
+            "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6432212/",
+            "suggestedUse": "Section opener for acceptance criteria"
+          },
+          {
+            "insight": "IEC 61537 requires 60C for 240 hours pre-aging for non-metallic cable tray components - this specific requirement is rarely mentioned in competitor content",
+            "source": "IEC 61537:2023",
+            "suggestedUse": "Core technical content - test procedure section"
+          },
+          {
+            "insight": "Advanced FRP shows only 11.5% strength drop at 125F vs NEMA guideline of 22% - NEMA values are conservative",
+            "source": "https://www.eaton.com/us/en-us/products/support-systems/cable-tray-and-ladder-systems/non-metallic-cable-trays-performance-at-elevated-temperatures.html",
+            "suggestedUse": "Hook - challenge industry assumptions"
+          },
+          {
+            "insight": "Vinyl ester Tg (~128C) vs Polyester Tg (~80C) explains the 30-point difference in strength retention at 150F",
+            "source": "Technical synthesis from multiple sources",
+            "suggestedUse": "Resin selection guidance section"
+          }
+        ],
+        "quality": "high",
+        "suggestedHook": "surprising-stat"
+      },
+      "differentiation": {
+        "score": "moderate-strong",
+        "primaryDifferentiator": "Comprehensive coverage of actual test procedures (IEC 61537 pre-aging requirements) combined with clear pass/fail criteria that competitors do not provide",
+        "irreplicableInsights": [
+          {
+            "insight": "IEC 61537 requires 60C/240h pre-aging before mechanical testing",
+            "sourceType": "standards-technical",
+            "source": "IEC 61537:2023",
+            "intentAlignment": "aligned"
+          },
+          {
+            "insight": "90% strength retention = pass, 50% = end of life threshold",
+            "sourceType": "research-data",
+            "source": "PMC research articles",
+            "intentAlignment": "aligned"
+          },
+          {
+            "insight": "FRP equipment fit for service at 60-70% original strength based on decades of field experience",
+            "sourceType": "practitioner-experience",
+            "source": "API/ASME FFS development",
+            "intentAlignment": "aligned"
+          }
+        ],
+        "avoidList": [
+          "Generic statements about thermal resistance without specific data",
+          "Focusing only on manufacturer-specific products",
+          "Ignoring the connection between test results and real-world decisions"
+        ]
+      },
+      "gaps": {
+        "data": [
+          "Exact NEMA FG 1 Table 4-3 values not publicly available",
+          "UL 568 specific thermal aging procedures not detailed in public sources"
+        ],
+        "coverage": [
+          "Test report interpretation guidance",
+          "Correlation between accelerated aging and service life",
+          "Cold temperature testing after thermal aging"
+        ]
+      },
+      "controversies": [
+        "NEMA FG 1 was rescinded in 2017 but values still widely referenced",
+        "Accelerated aging tests cannot reliably predict exact service life without validation correlations"
+      ],
+      "coreThesis": "Air thermal aging tests validate that FRP cable trays can maintain structural integrity over decades of service - understanding the test procedures, acceptance criteria, and how to interpret results enables engineers to confidently specify and verify fiberglass cable tray systems",
+      "writingAdvice": {
+        "emphasize": [
+          "IEC 61537 60C/240h pre-aging requirement",
+          "Clear acceptance criteria (90%+ retention = pass)",
+          "Vinyl ester vs polyester Tg and temperature performance",
+          "ASTM D3045 air oven methodology"
+        ],
+        "cautious": [
+          "Exact NEMA FG 1 table values - use approximate language",
+          "Service life predictions from accelerated testing - note limitations"
+        ],
+        "differentiateWith": [
+          "Specific test procedure steps from IEC 61537",
+          "Clear pass/fail thresholds with sources",
+          "Connection between Tg and practical temperature performance"
+        ]
+      }
+    },
+    "writing": {
+      "status": "completed",
+      "completedAt": "2025-12-26T13:00:00.000Z",
+      "outline": {
+        "h2Count": 6,
+        "structure": [
+          "What Does Air Thermal Aging Test for FRP Cable Trays?",
+          "Which Standards Govern FRP Cable Tray Thermal Aging Tests?",
+          "How Is the Air Thermal Aging Test Performed?",
+          "What Constitutes Pass or Fail in Thermal Aging Tests?",
+          "How Does Resin Type Affect Thermal Aging Performance?",
+          "How Do You Interpret Thermal Aging Test Reports?"
+        ],
+        "introFramework": "AIDA",
+        "conclusionType": "Next Journey Step"
+      },
+      "execution": {
+        "actualWordCount": 1650,
+        "internalLinksUsed": 0,
+        "dataPointsUsed": 10
+      },
+      "decisions": {
+        "hookUsed": {
+          "type": "surprising-stat",
+          "content": "NEMA guidelines suggest 22% strength drop at 125F, but independent testing shows only 11.5% for advanced FRP"
+        },
+        "differentiationApplied": {
+          "primaryDifferentiatorUsed": "IEC 61537 pre-aging requirement (60C/240h) featured prominently in test procedure section; clear pass/fail thresholds provided in dedicated section",
+          "irreplicableInsightsUsed": [
+            {"insight": "IEC 61537 60C/240h pre-aging requirement", "location": "H2-3"},
+            {"insight": "90%/50% strength retention thresholds", "location": "H2-4"},
+            {"insight": "60-70% fit-for-service based on field experience", "location": "H2-4"}
+          ],
+          "avoidedPatterns": [
+            "No generic thermal resistance claims without data",
+            "Article covers standards/procedures not specific products",
+            "Connected test results to real-world decisions throughout"
+          ],
+          "titleDifferentiation": "Title references 90% strength retention - a specific threshold from research that competitors do not mention"
+        },
+        "opinionsIncluded": [
+          "H2-1: Accelerated tests are predictions, not guarantees - practitioners should understand limitations",
+          "H2-2: IEC 61537 provides most complete framework yet rarely cited in product literature",
+          "H2-4: 50% threshold is conservative for cable management; 60-70% remains fit for service",
+          "H2-5: Vinyl ester worth cost premium for applications above 120F continuous",
+          "H2-6: Use thermal data for derating, not absolute limits"
+        ],
+        "sectionsToWatch": {
+          "strong": [
+            "H2-3 Test Procedure - detailed IEC 61537 requirements",
+            "H2-4 Pass/Fail Criteria - clear thresholds with sources",
+            "H2-5 Resin Type - specific Tg data from sources"
+          ],
+          "weak": [
+            "H2-6 Test Report Interpretation - NEMA FG 1 values approximate only",
+            "Conclusion - generic CTA without internal links"
+          ],
+          "differentiated": [
+            "H2-2 Standards section - IEC 61537 prominence",
+            "H2-4 Acceptance criteria with 60-70% practitioner threshold",
+            "H2-5 Tg-based resin selection guidance"
+          ]
+        },
+        "internalLinks": []
+      }
+    }
+  }
+}
