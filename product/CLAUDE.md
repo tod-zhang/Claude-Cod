@@ -4,12 +4,104 @@
 
 This document defines a reusable workflow for creating SEO-optimized product pages that rank well on Google while providing genuine value to users. The workflow is designed for metal-castings.com but can be adapted for any B2B industrial manufacturing website.
 
+## Language Protocol
+
+- **Tool/Model interactions**: English
+- **User interactions**: 中文
+
+---
+
+## Multi-Company Workflow（多公司工作流程）
+
+> **此工作流程支持多个不同行业的公司网站**
+
+### 工作原理
+
+```
+CLAUDE.md (通用工作流程)
+    ↓
+/companies/{domain}.md (公司特定上下文)
+    ↓
+产品页根据公司行业配置生成
+```
+
+### 切换公司
+
+创建产品页时，先确认是为哪个公司：
+
+1. **确认公司** — "这是为哪个网站创建的？"
+2. **读取公司文件** — 获取行业配置、规格模板、案例问题
+3. **按配置生成** — 产品页内容根据行业调整
+
+### 已配置的公司
+
+| 公司 | 文件 | 行业 |
+|------|------|------|
+| metal-castings.com | `/companies/metal-castings-com.md` | 铸造 |
+| *(新公司)* | `/companies/{domain}.md` | *(待配置)* |
+
+### 添加新公司
+
+1. 复制 `/companies/_template.md`
+2. 重命名为 `{domain}.md`
+3. 填写公司信息和**行业配置（Section 3）**
+4. 行业配置决定：
+   - 产品页应包含哪些规格
+   - 案例收集应问哪些问题
+   - 竞争对手搜索用什么关键词
+
+---
+
 ## Core Principles
 
 1. **Differentiation over Imitation** - Don't copy competitors; create unique value
 2. **Depth over Breadth** - Go deeper on fewer topics rather than shallow coverage
 3. **E-E-A-T Focus** - Experience, Expertise, Authoritativeness, Trustworthiness
 4. **User Intent First** - Serve the buyer's decision-making journey
+
+---
+
+## Phase 0: Company Analysis (Foundation)
+
+> **Before creating any product pages, complete the company analysis first.**
+
+### Purpose
+
+Company analysis establishes the foundation for all content. It defines:
+- Who the company is and what makes them unique
+- Who the target customers are and what they need
+- How to position content for maximum impact
+
+### Process
+
+1. **Create company file**: Copy `/companies/_template.md` to `/companies/{domain}.md`
+2. **Research the company**: Website, about page, capabilities, certifications
+3. **Define positioning**: What is their unique value proposition?
+4. **Analyze target customers**:
+   - Segment customers by type (OEM, aftermarket, engineers, end users)
+   - Document pain points for each segment
+   - Identify buying criteria (ranked)
+   - Map the customer journey
+5. **Content strategy implications**: What content will resonate with these customers?
+
+### Key Outputs
+
+| Output | Description | Location |
+|--------|-------------|----------|
+| Company Profile | Basic info, capabilities, certifications | Section 1-2 |
+| Positioning Statement | One-sentence market position | Section 3.1 |
+| Customer Segments | 3-4 detailed buyer personas | Section 4.1 |
+| Ideal Customer Profile | Primary target description | Section 4.2 |
+| Content Pillars | 3-4 themes for all content | Section 5.2 |
+| Trust Signals | Priority list of credibility elements | Section 5.3 |
+
+### Template Location
+
+```
+/companies/
+├── _template.md              # Master template for new companies
+└── metal-castings-com.md     # Example: KT Metal Castings analysis
+```
 
 ---
 
@@ -59,6 +151,19 @@ Create a gap analysis using this template:
 - [ ] Gap 2: ___
 ```
 
+### Step 1.4: Save Competitor Analysis
+
+**Output all competitor research to a file:**
+
+```
+/competitors/{product-name}.md
+```
+
+Use the template at `/competitors/_template.md`. This creates:
+- Reusable research for future content updates
+- Documentation of differentiation strategy
+- Keyword insights for SEO optimization
+
 ---
 
 ## Phase 2: Differentiation Strategy
@@ -99,68 +204,59 @@ These require investment but create sustainable competitive advantages:
 
 ## Phase 3: Page Structure Template
 
-### 3.1 Optimal Page Architecture
+> **设计原则：** 模块化、可扫描、转化导向。用表格和视觉元素代替大段文字。
+
+### 3.1 产品页架构（转化导向）
 
 ```
-[Hero Section]
-├── H1: Primary Keyword + Differentiator
-├── Hero Image (high-quality, custom)
-├── Value Proposition (1-2 sentences)
-└── Primary CTA (Request Quote)
+[Hero Section] ─────────────────────────────────
+├── H1: 产品关键词 + 差异化
+├── 一句话价值主张（20字以内）
+├── 3个核心卖点（图标+短语）
+├── Primary CTA: [获取报价]
+└── 产品主图
 
-[Overview Section]
-├── H2: What is [Product]?
-├── Clear definition (2-3 paragraphs)
-├── Key benefits list
-└── Inline image/diagram
+[Specifications Section] ────────────────────────
+├── H2: 规格参数
+├── 核心规格表（5-8行）
+├── 材料选项表（带对比）
+└── [下载规格书] 按钮
 
-[Specifications Section]
-├── H2: [Product] Specifications
-├── Technical specs table
-├── Materials options
-├── Tolerance information
-└── Downloadable spec sheet
+[Applications Section] ──────────────────────────
+├── H2: 应用行业
+├── 6个行业图标网格（图标+名称+一句话）
+└── 不需要大段描述
 
-[Applications Section]
-├── H2: Industries & Applications
-├── Industry-specific subsections (H3)
-├── Use case examples
-└── Application images
+[Why Choose Us Section] ─────────────────────────
+├── H2: 为什么选择我们
+├── 4个差异化卡片（图标+标题+一句话）
+├── 认证logo条
+└── 客户logo条（可选）
 
-[Manufacturing Process Section]
-├── H2: Our [Product] Manufacturing Process
-├── Step-by-step process
-├── Quality control points
-├── Process images/video
-└── Differentiating capabilities
+[CTA Section] ───────────────────────────────────
+├── 询价表单 或 联系方式
+└── 辅助信息（交期、最小起订量等）
 
-[Why Choose Us Section]
-├── H2: Why Choose [Company] for [Product]
-├── Key differentiators
-├── Certifications/credentials
-├── Testimonials
-└── Trust badges
-
-[Technical Resources Section]
-├── H2: [Product] Resources
-├── Design guides
-├── Material comparison charts
-├── FAQ section
-└── Related content links
-
-[CTA Section]
-├── Secondary CTA
-├── Contact information
-└── Lead capture form
+[FAQ Section]（可选，折叠式）──────────────────
+└── 3-5个常见问题（点击展开）
 ```
 
-### 3.2 Word Count Guidelines
+### 3.2 不要在产品页重复的内容
 
-| Page Type | Minimum Words | Target Words |
-|-----------|---------------|--------------|
-| Main Product Page | 1,500 | 2,500+ |
-| Product Variant Page | 800 | 1,200+ |
-| Application Page | 1,000 | 1,500+ |
+| 内容类型 | 放在哪里 | 产品页处理 |
+|----------|----------|------------|
+| 制造流程 | /manufacturing/ 单独页面 | 链接过去 |
+| 公司介绍 | /about/ 页面 | 不需要 |
+| 详细技术指南 | /resources/ 资源页 | 链接或折叠 |
+| 材料深度对比 | /resources/material-guide/ | 链接 |
+
+### 3.3 内容量指南
+
+| 页面类型 | 字数范围 | 说明 |
+|----------|----------|------|
+| 产品页 | 400-800 | 精简、模块化、转化导向 |
+| 资源/指南页 | 1,500-2,500 | 深度内容、SEO导向 |
+| 行业应用页 | 800-1,200 | 针对特定行业的详细内容 |
 
 ---
 
@@ -190,9 +286,82 @@ These require investment but create sustainable competitive advantages:
 
 ---
 
-## Phase 5: Content Creation Workflow
+## Phase 5: Case Study Collection
 
-### 5.1 Research Phase
+> **产品页的差异化来自真实案例，而不是空洞的声称。**
+
+### 5.1 为什么需要案例
+
+| 方式 | 可信度 |
+|------|--------|
+| "我们经验丰富" | 低 — 任何人都可以说 |
+| "已交付500+规格" | 中 — 无法验证 |
+| 真实项目 + 照片 | 高 — 具体可信 |
+
+### 5.2 案例信息收集清单
+
+创建产品页时，向客户询问以下信息：
+
+**基本信息：**
+| 问题 | 示例 |
+|------|------|
+| 产品名称 | 飞轮、配重、壳体 |
+| 客户行业 | 农业机械、工程机械、发电设备 |
+| 客户国家/地区 | 美国、欧洲、澳大利亚 |
+| 可否透露客户名称？ | 是/否（匿名也可） |
+
+**产品规格：**
+| 问题 | 示例 |
+|------|------|
+| 材料 | 灰铁 HT250、球铁 QT450-10 |
+| 重量 | 500 lbs / 230 kg |
+| 尺寸 | 直径 36"，厚度 4" |
+| 年订单量 | 200件/年 |
+
+**项目故事（关键）：**
+| 问题 | 示例 |
+|------|------|
+| 客户之前遇到什么问题？ | 之前供应商交期太长 / 质量不稳定 / 价格太高 |
+| 这个项目有什么挑战？ | 公差要求紧 / 尺寸大 / 特殊材料 |
+| 我们怎么解决的？ | 优化模具设计 / 调整浇注工艺 / 提供DFM建议 |
+| 最终结果如何？ | 交期缩短30% / 成本降低25% / 连续合作3年 |
+
+**照片素材：**
+| 需要的照片 | 说明 |
+|------------|------|
+| 产品照片 | 成品照片，最好有尺寸参照物 |
+| 生产过程照片 | 浇注、机加工等（可选） |
+| 包装/发货照片 | 展示交付能力（可选） |
+
+### 5.3 案例输出格式
+
+**产品页简短版（3-5句）：**
+```
+## Project Example
+
+**Application:** Diesel generator flywheel
+**Customer:** Leading US power equipment manufacturer
+**Specs:** Ductile iron, 36" dia, 850 lbs, G6.3 balance
+**Result:** 200 pcs/year, 3-year ongoing partnership
+
+[产品照片]
+```
+
+**单独案例研究页（如素材丰富）：**
+保存到 `/cases/{product}-{customer}.md`
+
+### 5.4 没有案例时的处理
+
+如果暂时无法获取案例信息：
+1. 产品页不放案例模块
+2. 只保留规格和CTA
+3. 后续获取素材后再补充
+
+---
+
+## Phase 6: Content Creation Workflow
+
+### 6.1 Research Phase
 
 1. **Keyword Research**
    - Primary keyword: Main product term
@@ -209,7 +378,7 @@ These require investment but create sustainable competitive advantages:
    - What do they miss?
    - What can we do better?
 
-### 5.2 Writing Phase
+### 6.2 Writing Phase
 
 1. **Outline Creation** (based on Phase 3 template)
 2. **Draft Writing** (focus on unique value)
@@ -217,7 +386,7 @@ These require investment but create sustainable competitive advantages:
 4. **SEO Optimization** (keywords, structure)
 5. **Final Edit** (readability, flow)
 
-### 5.3 Asset Creation
+### 6.3 Asset Creation
 
 | Asset Type | Purpose | Priority |
 |------------|---------|----------|
@@ -260,12 +429,24 @@ For each product page, ensure at least 3 unique differentiators:
 ```
 /product/
 ├── CLAUDE.md                    # This file - main workflow
+├── companies/
+│   ├── _template.md             # Company analysis template
+│   └── {domain}.md              # Company-specific analysis files
+├── competitors/
+│   ├── _template.md             # Competitor analysis template
+│   └── {product-name}.md        # Product-specific competitor analysis
+├── pages/
+│   ├── _template.md             # Product page template
+│   └── {product-name}.md        # Product page content files
+├── cases/
+│   ├── _template.md             # Case study template
+│   └── {product}-{customer}.md  # Individual case studies
 ├── skills/
 │   └── seo-product-page.md      # Skill for creating product pages
 ├── agents/
 │   └── competitor-analyzer.md   # Agent for competitive analysis
 └── data/
-    ├── competitor-template.md   # Competitor analysis template
+    ├── competitor-template.md   # (Legacy) Competitor analysis template
     └── page-structure.md        # Page structure reference
 ```
 
@@ -273,17 +454,34 @@ For each product page, ensure at least 3 unique differentiators:
 
 ## Usage Examples
 
-### Example: Creating a Custom Metal Coupling Page
+### Example 1: Onboarding a New Company
 
 ```
-1. Run competitor analysis using /competitor-analyze "custom metal coupling"
-2. Identify gaps: Most competitors lack video content, interactive tools
-3. Create differentiated content:
-   - Original manufacturing process video
-   - Material selection calculator
-   - Torque capacity comparison chart
-4. Follow page structure template
-5. Track and iterate
+User: "Help me create content for example-foundry.com"
+
+1. Create company analysis: /companies/example-foundry-com.md
+   - Research website, capabilities, certifications
+   - Define 3-4 customer segments with pain points
+   - Identify ideal customer profile (ICP)
+   - Establish content pillars and trust signals
+
+2. Now ready to create product pages using the company context
+```
+
+### Example 2: Creating a Product Page (with company file)
+
+```
+User: "write: custom metal coupling"
+
+1. Reference company file for positioning and target customer context
+2. Run competitor analysis for "custom metal coupling"
+3. Identify gaps: Most competitors lack video content, interactive tools
+4. Create differentiated content:
+   - Address specific pain points from customer analysis
+   - Include trust signals prioritized in company file
+   - Use messaging aligned with company positioning
+5. Follow page structure template
+6. Output to /pages/custom-metal-coupling.md
 ```
 
 ---
