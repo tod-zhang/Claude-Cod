@@ -112,6 +112,7 @@ Focus verification on these sections FIRST:
 | Anchor text mismatch | Required | Does anchor text INTENT match an entry in internal-links.md? Remove if not |
 | Forced link sentences | Required | Sentences added just for links? **Delete and report each deletion in summary** |
 | Meta-commentary | Required | Sentences about competitors/other guides? **Delete immediately** |
+| Announcing phrases | Required | "The key insight:", "The key takeaway:", etc.? **Rewrite to remove prefix** |
 
 <meta_commentary_detection>
 **Why meta-commentary must be deleted:** It exposes internal research perspective to readers, making the article feel like marketing rather than genuine expertise. Readers trust articles that deliver value directly, not ones that criticize competitors.
@@ -131,6 +132,25 @@ Focus verification on these sections FIRST:
 
 **Report in summary:** List each deleted meta-commentary sentence.
 </meta_commentary_detection>
+
+<announcing_phrase_detection>
+**Why announcing phrases must be fixed:** They tell readers what to think instead of letting content speak for itself. Good writing delivers value directly without labeling it.
+
+**Detection Patterns - REWRITE if sentence starts with:**
+
+| Pattern | Example | Fix |
+|---------|---------|-----|
+| "The key insight:" | "The key insight: LiFePO4 needs heating below 0C" | "LiFePO4 needs heating below 0C." |
+| "The key takeaway:" | "The key takeaway: always size for winter" | "Always size for winter." |
+| "The main point:" | "The main point: temperature affects capacity" | "Temperature affects capacity." |
+| "Here's why this matters:" | "Here's why this matters: cold reduces output" | "Cold reduces output." |
+| "What you need to know:" | "What you need to know: BMS is critical" | "BMS is critical." |
+| "The bottom line:" | "The bottom line: invest in quality" | "Invest in quality." |
+
+**Action:** Remove the announcing phrase prefix, keep the insight. Rewrite to state the insight directly.
+
+**Report in summary:** List each announcing phrase that was fixed.
+</announcing_phrase_detection>
 
 <forced_link_detection>
 **Why forced links must be deleted:** They signal to readers (and search engines) that the link was inserted for SEO, not for value. This damages trust and can hurt rankings.
@@ -544,6 +564,7 @@ Write THREE files:
 
 **元评论检查:**
 - 删除的元评论句: [列出每个被删除的句子，或写"无"]
+- 修复的宣告式短语: [列出每个被修复的短语，或写"无"]
 
 **修改摘要:**
 - [Change 1]

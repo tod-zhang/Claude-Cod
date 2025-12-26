@@ -221,6 +221,8 @@ The conclusion should NOT recap. Instead:
 - "The calculation is simple:" → just show the calculation
 - "The answer is straightforward:" → just give the answer
 - "The reality is...", "What this means is...", "Put simply..."
+- "The key insight:", "The key takeaway:", "The main point:" → just state the insight directly
+- "Here's why this matters:", "What you need to know:" → let content speak for itself
 
 **Self-reference:**
 - "In this article, we will discuss..."

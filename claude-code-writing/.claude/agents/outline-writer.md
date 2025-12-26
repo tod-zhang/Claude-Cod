@@ -544,3 +544,20 @@ cat config/[topic-title].json | jq '.workflowState.writing = {
 
 **Rule:** If a sentence references what others do/don't do, DELETE it and rewrite to deliver the insight directly.
 </no_meta_commentary>
+
+<no_announcing_phrases>
+**Why announcing phrases are banned:** They tell readers what to think instead of letting content speak for itself. Good writing delivers value directly without labeling it.
+
+**Banned Patterns:**
+
+| ❌ Wrong | ✅ Right |
+|---------|---------|
+| "The key insight: LiFePO4 needs heating below 0C" | "LiFePO4 needs heating below 0C." |
+| "The key takeaway: always size for winter" | "Always size for winter." |
+| "The main point: temperature affects capacity" | "Temperature affects capacity." |
+| "Here's why this matters: cold reduces output" | "Cold reduces output." |
+| "What you need to know: BMS is critical" | "BMS is critical." |
+| "The bottom line: invest in quality" | "Invest in quality." |
+
+**Rule:** State insights directly. If it's important, the structure and context should make that clear—don't label it.
+</no_announcing_phrases>
