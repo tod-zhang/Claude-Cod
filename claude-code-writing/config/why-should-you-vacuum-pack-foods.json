@@ -1,0 +1,274 @@
+{
+  "meta": {
+    "createdAt": "2025-12-27T12:00:00Z",
+    "version": "1.0"
+  },
+
+  "article": {
+    "topic": "why should you vacuum pack foods",
+    "topicTitle": "why-should-you-vacuum-pack-foods",
+    "depth": "Overview",
+    "wordCountTarget": "800-1200",
+    "language": "English",
+    "writingAngle": "Benefits-focused (focusing on vacuum packing extending shelf life, preserving freshness, and other core benefits)",
+    "targetIndustry": "General"
+  },
+
+  "company": {
+    "id": "soontact",
+    "name": "Soontact Intelligent Equipment",
+    "industry": "Automated Packaging Machinery Manufacturing",
+    "coreBusiness": "Design, manufacturing, and distribution of automated packaging solutions for global markets. With 30 years of experience, Soontact provides comprehensive packaging machinery from single machines to complete production line systems.",
+    "valueProposition": "A trusted global partner in automated packaging machinery, emphasizing reliability, customization, and comprehensive support. In-house R&D, manufacturing, and support operations ensure quality control and responsive customer service.",
+    "sitemapUrls": {
+      "posts": "https://www.soontact.com/post-sitemap.xml",
+      "pages": "https://www.soontact.com/page-sitemap.xml"
+    }
+  },
+
+  "audience": {
+    "type": "Complete Beginner",
+    "description": "New production managers, small food business owners, entrepreneurs considering automation, students studying packaging",
+    "industry": "New production managers, small food business owners, entrepreneurs considering automation, students studying packaging",
+    "knowledgeLevel": "Novice",
+    "experienceRange": "0-6 months exposure",
+
+    "goals": {
+      "primary": "Understand packaging automation basics; evaluate if automation is right for their business; learn terminology",
+      "secondary": [
+        "Learn types of packaging machines and their applications",
+        "Understand benefits and costs of automation",
+        "How to evaluate packaging solutions for their products"
+      ]
+    },
+
+    "knowledge": {
+      "alreadyKnows": [
+        "Products need to be packaged",
+        "Manual packaging is labor-intensive",
+        "Machines exist that can automate packaging",
+        "Basic awareness of different package types (bags, boxes, pouches)"
+      ],
+      "needsToLearn": [
+        "Types of packaging machines and their applications",
+        "Benefits and costs of automation",
+        "Basic packaging terminology (VFFS, flow wrap, etc.)",
+        "How to evaluate packaging solutions for their products"
+      ]
+    },
+
+    "typicalQuestions": [
+      "What is a flow packaging machine?",
+      "Automated packaging for small business",
+      "Types of packaging machines",
+      "How does VFFS machine work?",
+      "Packaging automation benefits",
+      "Sachet packaging machine explained"
+    ],
+
+    "writingApproach": {
+      "tone": "Friendly, encouraging, patient",
+      "style": "Conversational; use analogies and real-world examples",
+      "complexity": "Simple sentences; define all jargon; avoid acronyms or explain them immediately",
+      "structure": "Start with 'why it matters'; build concepts step-by-step",
+      "wordChoice": "Everyday language; assume no prior knowledge"
+    },
+
+    "guidelines": {
+      "do": [
+        "Use everyday analogies: 'A flow wrapper works like gift-wrapping a present, but at high speed...'",
+        "Show practical examples: 'For example, the granola bars you see at the store...'",
+        "Connect concepts to familiar products they use daily",
+        "Celebrate understanding milestones"
+      ],
+      "dont": [
+        "Assume knowledge of packaging industry terms",
+        "Use unexplained acronyms (VFFS, HFFS, OPP, etc.)",
+        "Present too many machine types at once without clear categorization"
+      ]
+    }
+  },
+
+  "searchIntent": {
+    "type": "Informational",
+    "category": "Educational",
+
+    "userContext": {
+      "situation": "Someone is considering vacuum packing for home use, small food business, or is curious about food preservation methods. They may have heard about vacuum packing but don't fully understand why it's beneficial.",
+      "currentState": "They know vacuum packing exists but are uncertain about whether it's worth the effort, what specific benefits it offers, or how it compares to other storage methods.",
+      "desiredState": "After reading, they should clearly understand the key benefits of vacuum packing (extended shelf life, freshness preservation, reduced waste, cost savings) and feel confident about whether to adopt this method."
+    },
+
+    "coreQuestion": "What are the main benefits of vacuum packing foods, and is it worth doing?",
+
+    "implicitQuestions": [
+      "How much longer do vacuum-packed foods last compared to regular storage?",
+      "Does vacuum packing actually preserve freshness and flavor?",
+      "What foods can be vacuum packed?",
+      "Will vacuum packing save me money in the long run?",
+      "Is vacuum packing safe for food storage?"
+    ],
+
+    "expectedContent": {
+      "type": "Guide",
+      "format": "Narrative with lists",
+      "depth": "Surface overview"
+    },
+
+    "successCriteria": "Reader can list 4-5 key benefits of vacuum packing and explain to someone else why vacuum packing extends shelf life and preserves food quality."
+  },
+
+  "workflowState": {
+    "research": {
+      "status": "completed",
+      "completedAt": "2025-12-27T12:30:00Z",
+      "summary": {
+        "sourceCount": 15,
+        "dataPointCount": 12,
+        "competitorCount": 3
+      },
+      "insights": {
+        "goldenInsights": [
+          {
+            "insight": "Dry goods last 24x longer when vacuum sealed vs pantry storage - the highest multiplier of any food category",
+            "source": "https://uspackagingandwrapping.com/vacuum-sealed-foods-shelf-life.html",
+            "suggestedUse": "hook"
+          },
+          {
+            "insight": "Botulism has no smell, no taste, no visible clues - vacuum sealing creates ideal conditions for it in moist room-temp foods",
+            "source": "https://www.canr.msu.edu/news/vacuum-sealed-food-what-are-the-food-safety-concerns",
+            "suggestedUse": "safety-section-opener"
+          },
+          {
+            "insight": "Fish must be removed from vacuum packaging BEFORE thawing to prevent toxin formation",
+            "source": "https://www.canr.msu.edu/news/vacuum-sealed-food-what-are-the-food-safety-concerns",
+            "suggestedUse": "practical-tip"
+          },
+          {
+            "insight": "If you plan to use food within a few weeks, the difference between vacuum sealing and traditional freezing is minimal",
+            "source": "Consumer forums",
+            "suggestedUse": "expectation-management"
+          }
+        ],
+        "quality": "high",
+        "suggestedHook": "surprising-stat"
+      },
+      "differentiation": {
+        "score": "strong",
+        "primaryDifferentiator": "Balanced trust-building coverage that includes safety considerations competitors completely ignore - readers get the full picture, not just marketing claims",
+        "irreplicableInsights": [
+          {
+            "insight": "Botulism thrives in vacuum-sealed foods at room temp - competitors do not mention this",
+            "sourceType": "authoritative",
+            "source": "https://nchfp.uga.edu/resources/entry/should-i-vacuum-package-food-at-home",
+            "intentAlignment": "aligned"
+          },
+          {
+            "insight": "Raw garlic, mushrooms, onions should NOT be sealed - counter-intuitive since they seem like ideal candidates",
+            "sourceType": "practitioner",
+            "source": "https://www.canr.msu.edu/news/vacuum-sealed-food-what-are-the-food-safety-concerns",
+            "intentAlignment": "aligned"
+          },
+          {
+            "insight": "Cheese gets 16x shelf life improvement vs meat at 6x - specific multipliers by food category",
+            "sourceType": "data",
+            "source": "https://uspackagingandwrapping.com/vacuum-sealed-foods-shelf-life.html",
+            "intentAlignment": "aligned"
+          }
+        ],
+        "avoidList": [
+          "Generic 15 advantages lists with no sources",
+          "Marketing claims without data",
+          "Ignoring safety concerns entirely",
+          "Vague lasts longer without specific comparisons"
+        ]
+      },
+      "gaps": {
+        "data": [],
+        "coverage": [
+          "Food safety and botulism concerns",
+          "Foods NOT to vacuum seal",
+          "Specific shelf life by food type with sources"
+        ]
+      },
+      "controversies": [
+        "Botulism risk in anaerobic environments - often ignored by marketing content"
+      ],
+      "coreThesis": "Vacuum packing extends food shelf life 3-5x longer and prevents freezer burn, but only when combined with proper temperature control - understanding both the benefits AND safety requirements helps you use this method effectively",
+      "writingAdvice": {
+        "emphasize": [
+          "Specific shelf life data (cheese 16x, dry goods 24x, meat 6x)",
+          "Safety considerations competitors ignore",
+          "Practical tips like freeze before sealing moist foods"
+        ],
+        "cautious": [],
+        "differentiateWith": [
+          "Balanced coverage including what NOT to seal",
+          "Authoritative sources (university extensions)",
+          "Honest expectation management for short-term storage"
+        ]
+      }
+    },
+    "writing": {
+      "status": "completed",
+      "completedAt": "2025-12-27T13:00:00Z",
+      "outline": {
+        "h2Count": 5,
+        "structure": [
+          "What Are the Main Benefits of Vacuum Packing Foods?",
+          "How Much Longer Does Vacuum-Sealed Food Actually Last?",
+          "What Foods Should You NOT Vacuum Seal?",
+          "Is Vacuum Packing Safe? What You Need to Know About Botulism",
+          "Practical Tips for Better Vacuum Sealing"
+        ],
+        "introFramework": "Direct Hook",
+        "conclusionType": "Next Journey Step"
+      },
+      "execution": {
+        "actualWordCount": 1150,
+        "internalLinksUsed": 4,
+        "dataPointsUsed": 8
+      },
+      "decisions": {
+        "hookUsed": {
+          "type": "surprising-stat",
+          "content": "Dry goods like flour and rice last 24 times longer when vacuum sealed compared to pantry storage"
+        },
+        "differentiationApplied": {
+          "primaryDifferentiatorUsed": "Dedicated safety section on botulism that competitors completely ignore, plus 'what NOT to seal' section",
+          "irreplicableInsightsUsed": [
+            {"insight": "Dry goods 24x shelf life multiplier", "location": "intro/hook"},
+            {"insight": "Botulism has no smell/taste/visible clues", "location": "H2-4 safety section"},
+            {"insight": "Fish must be removed before thawing", "location": "H2-4 and H2-5"},
+            {"insight": "Raw garlic/mushrooms/onions should not be sealed", "location": "H2-3"}
+          ],
+          "avoidedPatterns": [
+            "Generic advantages lists without sources",
+            "Marketing claims without data",
+            "Ignoring safety concerns",
+            "Vague 'lasts longer' without specifics"
+          ],
+          "titleDifferentiation": "Title includes 'Safety Rules' and 'What NOT to Seal' - competitors only focus on benefits"
+        },
+        "opinionsIncluded": [
+          "H2-1: Vacuum sealing worth it for bulk buyers, minimal benefit for short-term use",
+          "H2-2: Cheese and dry goods show highest returns",
+          "H2-3: These restrictions are based on food safety science",
+          "H2-4: Temperature control is non-negotiable",
+          "H2-5: Most failures come from moisture in seal area"
+        ],
+        "sectionsToWatch": {
+          "strong": ["H2-2 shelf life data", "H2-4 safety section"],
+          "weak": [],
+          "differentiated": ["H2-3 what NOT to seal", "H2-4 botulism safety"]
+        },
+        "internalLinks": [
+          {"anchor": "vacuum packing in food preservation", "url": "https://soontact.com/what-is-vacuum-packing-in-food-preservation/"},
+          {"anchor": "vacuum sealed meat specifically", "url": "https://soontact.com/how-long-does-vacuum-sealed-meat-last/"},
+          {"anchor": "signs that vacuum sealed meat has gone bad", "url": "https://soontact.com/how-to-tell-if-vacuum-sealed-meat-is-bad-a-complete-safety-guide/"},
+          {"anchor": "vacuum packaging equipment", "url": "https://soontact.com/product/vacuum-pre-made-bag-packing-machine-sc-gdsz130l-160l-210l-260l/"}
+        ]
+      }
+    }
+  }
+}

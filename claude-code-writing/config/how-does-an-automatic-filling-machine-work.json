@@ -1,0 +1,266 @@
+{
+  "meta": {
+    "createdAt": "2025-12-27T00:00:00.000Z",
+    "version": "1.0"
+  },
+
+  "article": {
+    "topic": "how does an automatic filling machine work",
+    "topicTitle": "how-does-an-automatic-filling-machine-work",
+    "depth": "In-depth",
+    "wordCountTarget": "1500-2500",
+    "language": "English",
+    "writingAngle": "Working Principle & Components - deep dive into core components and operating mechanisms",
+    "targetIndustry": "General"
+  },
+
+  "company": {
+    "id": "soontact",
+    "name": "Soontact Intelligent Equipment",
+    "industry": "Automated Packaging Machinery Manufacturing",
+    "coreBusiness": "Design, manufacturing, and distribution of automated packaging solutions for global markets. With 30 years of experience, Soontact provides comprehensive packaging machinery from single machines to complete production line systems.",
+    "valueProposition": "A trusted global partner in automated packaging machinery, emphasizing reliability, customization, and comprehensive support. In-house R&D, manufacturing, and support operations ensure quality control and responsive customer service.",
+    "sitemapUrls": {
+      "posts": "https://www.soontact.com/post-sitemap.xml",
+      "pages": "https://www.soontact.com/page-sitemap.xml"
+    }
+  },
+
+  "audience": {
+    "type": "Complete Beginner",
+    "description": "New production managers, small food business owners, entrepreneurs considering automation, students studying packaging",
+    "industry": "New production managers, small food business owners, entrepreneurs considering automation, students studying packaging",
+    "knowledgeLevel": "Novice",
+    "experienceRange": "0-6 months exposure",
+
+    "goals": {
+      "primary": "Understand packaging automation basics; evaluate if automation is right for their business; learn terminology",
+      "secondary": [
+        "Learn how filling machines actually work",
+        "Understand different types of filling mechanisms",
+        "Evaluate if automatic filling suits their production needs"
+      ]
+    },
+
+    "knowledge": {
+      "alreadyKnows": [
+        "Products need to be packaged",
+        "Manual packaging is labor-intensive",
+        "Machines exist that can automate packaging",
+        "Basic awareness of different package types (bags, boxes, pouches)"
+      ],
+      "needsToLearn": [
+        "Types of packaging machines and their applications",
+        "Benefits and costs of automation",
+        "Basic packaging terminology (VFFS, flow wrap, etc.)",
+        "How to evaluate packaging solutions for their products",
+        "How automatic filling machines actually operate",
+        "Core components that make up a filling machine",
+        "Different filling mechanisms for various product types"
+      ]
+    },
+
+    "typicalQuestions": [
+      "What is a flow packaging machine?",
+      "Automated packaging for small business",
+      "Types of packaging machines",
+      "How does VFFS machine work?",
+      "Packaging automation benefits",
+      "Sachet packaging machine explained"
+    ],
+
+    "writingApproach": {
+      "tone": "Friendly, encouraging, patient",
+      "style": "Conversational; use analogies and real-world examples",
+      "complexity": "Simple sentences; define all jargon; avoid acronyms or explain them immediately",
+      "structure": "Start with 'why it matters'; build concepts step-by-step",
+      "wordChoice": "Everyday language; assume no prior knowledge"
+    },
+
+    "guidelines": {
+      "do": [
+        "Use everyday analogies: 'A flow wrapper works like gift-wrapping a present, but at high speed...'",
+        "Show practical examples: 'For example, the granola bars you see at the store...'",
+        "Connect concepts to familiar products they use daily",
+        "Celebrate understanding milestones"
+      ],
+      "dont": [
+        "Assume knowledge of packaging industry terms",
+        "Use unexplained acronyms (VFFS, HFFS, OPP, etc.)",
+        "Present too many machine types at once without clear categorization"
+      ]
+    }
+  },
+
+  "searchIntent": {
+    "type": "Informational",
+    "category": "Educational",
+
+    "userContext": {
+      "situation": "The searcher is exploring packaging automation, possibly for a business decision or general learning. They want to understand the mechanics behind automatic filling machines before making further decisions about equipment.",
+      "currentState": "They know automatic filling machines exist but don't understand HOW they actually work. They may be confused about the different components, filling mechanisms, or how the automation is achieved.",
+      "desiredState": "After reading, they want a clear mental picture of how an automatic filling machine operates - from product entry to filled container exit. They want to understand core components and basic working principles."
+    },
+
+    "coreQuestion": "What are the key components of an automatic filling machine and how do they work together to fill containers automatically?",
+
+    "implicitQuestions": [
+      "What are the main parts/components of an automatic filling machine?",
+      "What are the different types of filling mechanisms (volumetric, gravimetric, piston, etc.)?",
+      "How does the machine know when a container is ready to be filled?",
+      "What makes the filling 'automatic' versus manual?",
+      "What products can automatic filling machines handle?"
+    ],
+
+    "expectedContent": {
+      "type": "Guide",
+      "format": "Step-by-step with component explanations",
+      "depth": "Practical how-to"
+    },
+
+    "successCriteria": "Reader can explain to someone else the basic working principle of an automatic filling machine, name at least 3-4 key components, and understand why different filling mechanisms exist for different products."
+  },
+
+  "workflowState": {
+    "research": {
+      "status": "completed",
+      "completedAt": "2025-12-27T12:00:00.000Z",
+      "summary": {
+        "sourceCount": 20,
+        "dataPointCount": 16,
+        "competitorCount": 3
+      },
+      "insights": {
+        "goldenInsights": [
+          {
+            "insight": "Automatic filling machines can fill 40-120 bottles per minute with +/-0.5% accuracy - compared to 10-20 bottles per hour with manual labor",
+            "source": "Industry data",
+            "suggestedUse": "hook"
+          },
+          {
+            "insight": "Accuracy and speed do not come together. Auger filling is precise but slow. Volumetric filling is fast but rough.",
+            "source": "https://www.cnhanyoo.com/blog/dry-powder-filling-machines-the-ugly-truths-sellers-wont-tell-you/",
+            "suggestedUse": "section opener - mechanism comparison"
+          },
+          {
+            "insight": "ROI of 214% with 18-month payback from automation",
+            "source": "https://www.acefilling.com/blog/what-is-the-roi-of-automating-your-manual-filling-process",
+            "suggestedUse": "benefits section - concrete numbers"
+          },
+          {
+            "insight": "Most common problem is simply the machine not sitting level on the production floor",
+            "source": "https://www.liquidpackagingsolution.com/news/troubleshooting-inconsistent-fills",
+            "suggestedUse": "troubleshooting - practical tip"
+          }
+        ],
+        "quality": "high",
+        "suggestedHook": "surprising-stat"
+      },
+      "differentiation": {
+        "score": "strong",
+        "primaryDifferentiator": "Combining technical how-it-works explanation with real performance data (speed/accuracy specs) and practitioner wisdom that beginners cannot find elsewhere",
+        "irreplicableInsights": [
+          {
+            "insight": "Your machines can have all the guards in the world, but if operators are not trained or do not follow procedures, accidents will still happen",
+            "sourceType": "practitioner",
+            "source": "https://suntertech.com/what-safety-hazards-exist-in-filling-machine-operation/",
+            "intentAlignment": "aligned"
+          },
+          {
+            "insight": "Accuracy and speed do not come together - auger is precise but slow, volumetric is fast but rough",
+            "sourceType": "counter-intuitive",
+            "source": "https://www.cnhanyoo.com/blog/dry-powder-filling-machines-the-ugly-truths-sellers-wont-tell-you/",
+            "intentAlignment": "aligned"
+          },
+          {
+            "insight": "OEE improved 13.10% and unplanned failures dropped 62.38% with predictive maintenance implementation",
+            "sourceType": "original-data",
+            "source": "https://www.mdpi.com/2504-4494/6/5/108",
+            "intentAlignment": "partial"
+          }
+        ],
+        "avoidList": [
+          "Generic descriptions without specific performance data",
+          "No decision guidance for readers on when to choose which type",
+          "Promotional language without substance",
+          "Missing troubleshooting section"
+        ]
+      },
+      "gaps": {
+        "data": [],
+        "coverage": ["Competitors lack ROI data", "No speed/accuracy benchmarks in competitor articles", "Missing real user experiences"]
+      },
+      "controversies": ["Semi-automatic vs automatic - depends on production volume and budget", "Accuracy vs speed tradeoff in filling mechanisms"],
+      "coreThesis": "An automatic filling machine works through a synchronized dance of sensors, nozzles, and control systems - but understanding which filling mechanism matches your product is the key to getting it right.",
+      "writingAdvice": {
+        "emphasize": [
+          "5-stage operating sequence with clear explanation",
+          "Component breakdown with functions",
+          "Filling mechanism comparison table with accuracy specs",
+          "ROI and cost savings data"
+        ],
+        "cautious": [],
+        "differentiateWith": [
+          "Include specific speed benchmarks (40-120 BPM vs 10-20 manual)",
+          "Accuracy by pump type (+/-0.5% piston vs 1-2% peristaltic)",
+          "Practitioner quotes about training and safety",
+          "Decision framework for semi-auto vs automatic"
+        ]
+      }
+    },
+    "writing": {
+      "status": "completed",
+      "completedAt": "2025-12-27T13:00:00.000Z",
+      "outline": {
+        "h2Count": 7,
+        "structure": [
+          "What Are the Key Components of an Automatic Filling Machine?",
+          "How Does the Filling Process Work Step by Step?",
+          "What Types of Filling Mechanisms Exist and Which Should You Choose?",
+          "How Fast and Accurate Are Automatic Filling Machines?",
+          "What Is the ROI of Automatic Filling Machines?",
+          "When Should You Choose Automatic vs Semi-Automatic?",
+          "What Are Common Problems and How Do You Troubleshoot Them?"
+        ],
+        "introFramework": "Direct Hook",
+        "conclusionType": "Next Journey Step"
+      },
+      "execution": {
+        "actualWordCount": 1650,
+        "internalLinksUsed": 2,
+        "dataPointsUsed": 12
+      },
+      "decisions": {
+        "hookUsed": {
+          "type": "surprising-stat",
+          "content": "40-120 bottles per minute with +/-0.5% accuracy vs 10-20 bottles per hour manual"
+        },
+        "differentiationApplied": {
+          "primaryDifferentiatorUsed": "Combined technical explanation with specific performance data (speed/accuracy benchmarks) throughout article, plus practitioner wisdom on training and mechanism selection",
+          "irreplicableInsightsUsed": [
+            {"insight": "Accuracy and speed do not come together - tradeoff is central reality", "location": "H2-3 opener"},
+            {"insight": "Practitioner quote on training mattering as much as equipment", "location": "H2-7 troubleshooting"},
+            {"insight": "OEE improvement 13.10% and failures down 62.38%", "location": "H2-5 ROI table"}
+          ],
+          "avoidedPatterns": ["No generic descriptions - included specific benchmarks", "Included decision guidance table for semi-auto vs automatic", "Included troubleshooting section", "No promotional language - data-driven throughout"],
+          "titleDifferentiation": "Title includes specific performance promise (40-120 bottles per minute) that competitors lack"
+        },
+        "opinionsIncluded": [
+          "H2-3: Match mechanism to product characteristics, not budget or brand",
+          "H2-4: Piston pumps offer best balance for most food/beverage applications",
+          "H2-6: Start semi-automatic if unsure - don't chase full automation prematurely",
+          "H2-7: Training matters as much as equipment"
+        ],
+        "sectionsToWatch": {
+          "strong": ["H2-1 Components", "H2-2 Process Steps", "H2-3 Mechanisms", "H2-5 ROI"],
+          "weak": [],
+          "differentiated": ["H2-3 Mechanism comparison with accuracy specs", "H2-5 ROI data table", "H2-7 Practitioner insight on training"]
+        },
+        "internalLinks": [
+          {"anchor": "automatic filling machine", "url": "https://soontact.com/what-is-an-automatic-filling-machine/"},
+          {"anchor": "type of filling mechanism", "url": "https://soontact.com/types-of-packaging-machinery/"}
+        ]
+      }
+    }
+  }
+}

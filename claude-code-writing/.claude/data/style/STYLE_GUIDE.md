@@ -147,8 +147,20 @@ Challenge at least one common assumption per article.
 - **Numbers**: Sequential steps, ranked items
 
 ### 4.3 Tables
-**Use for:** 3+ items with 3+ shared attributes, specifications, comparisons
-**Don't use for:** Only 2 items, varying attributes, content needing explanation
+
+**Limit: Maximum 2 tables per article.** Prose is the default; tables are exceptions.
+
+**ONLY use tables for:**
+- Numeric specifications (dimensions, weights, capacities, tolerances)
+- Technical parameters with 3+ items sharing 3+ quantifiable attributes
+
+**DO NOT use tables for:**
+- Conceptual comparisons (use prose with contrast words: "Unlike X, Y does...")
+- Decision guides (use bullet lists or prose)
+- Feature lists (use bullets)
+- Anything explainable in 2-3 sentences
+
+**If you can describe it in prose, use prose.** Tables interrupt reading flow.
 
 **Rules:** Brief cells (1-5 words), consistent units, left-align text, right-align numbers
 
@@ -218,11 +230,19 @@ The conclusion should NOT recap. Instead:
 - "Let me be honest:", "The bottom line?", "Long story short..."
 
 **Announcing phrases (say it, don't announce it):**
-- "The calculation is simple:" → just show the calculation
-- "The answer is straightforward:" → just give the answer
-- "The reality is...", "What this means is...", "Put simply..."
-- "The key insight:", "The key takeaway:", "The main point:" → just state the insight directly
-- "Here's why this matters:", "What you need to know:" → let content speak for itself
+
+Rule: Any "[Noun]:" followed by a complete sentence is an announcing phrase.
+
+Common patterns to avoid:
+- The result:, The answer:, The solution:, The reason:, The point:
+- The truth:, The reality:, The fact:, The problem:, The issue:
+- The key insight:, The key takeaway:, The main point:, The bottom line:
+- Here's why this matters:, What you need to know:, What this means:
+- The calculation is simple:, The answer is straightforward:, Put simply...
+
+Examples:
+- "The result: every bottle looks identical" → "Every bottle looks identical."
+- "The answer: use stainless steel" → "Use stainless steel."
 
 **Self-reference:**
 - "In this article, we will discuss..."

@@ -108,6 +108,7 @@ Focus verification on these sections FIRST:
 | Framework compliance | Required | Does intro/conclusion match selected framework? |
 | Opinion presence | Required | Do H2 sections contain opinions? |
 | Section redundancy | Required | Are any sections covering the same content? |
+| **Table count** | Required | **Max 2 tables.** If 3+, convert extras to prose (keep only specs tables) |
 | Duplicate internal links | Required | Does any URL appear more than once? Remove duplicates |
 | Anchor text mismatch | Required | Does anchor text INTENT match an entry in internal-links.md? Remove if not |
 | Forced link sentences | Required | Sentences added just for links? **Delete and report each deletion in summary** |
@@ -136,21 +137,56 @@ Focus verification on these sections FIRST:
 <announcing_phrase_detection>
 **Why announcing phrases must be fixed:** They tell readers what to think instead of letting content speak for itself. Good writing delivers value directly without labeling it.
 
-**Detection Patterns - REWRITE if sentence starts with:**
+**Rule: Any "[Noun]:" followed by a complete sentence is an announcing phrase.**
+
+**Detection Patterns - REWRITE if sentence matches "[The/Here's] [noun]:" pattern:**
+
+Common patterns:
+- The result:, The answer:, The solution:, The reason:, The point:
+- The truth:, The reality:, The fact:, The problem:, The issue:
+- The key insight:, The key takeaway:, The main point:, The bottom line:
+- Here's why this matters:, What you need to know:, What this means:
 
 | Pattern | Example | Fix |
 |---------|---------|-----|
-| "The key insight:" | "The key insight: LiFePO4 needs heating below 0C" | "LiFePO4 needs heating below 0C." |
-| "The key takeaway:" | "The key takeaway: always size for winter" | "Always size for winter." |
-| "The main point:" | "The main point: temperature affects capacity" | "Temperature affects capacity." |
+| "The result:" | "The result: every bottle looks identical" | "Every bottle looks identical." |
+| "The answer:" | "The answer: use stainless steel" | "Use stainless steel." |
+| "The reason:" | "The reason: corrosion resistance" | "Stainless steel resists corrosion." |
+| "The key insight:" | "The key insight: LiFePO4 needs heating" | "LiFePO4 needs heating." |
 | "Here's why this matters:" | "Here's why this matters: cold reduces output" | "Cold reduces output." |
-| "What you need to know:" | "What you need to know: BMS is critical" | "BMS is critical." |
-| "The bottom line:" | "The bottom line: invest in quality" | "Invest in quality." |
 
 **Action:** Remove the announcing phrase prefix, keep the insight. Rewrite to state the insight directly.
 
 **Report in summary:** List each announcing phrase that was fixed.
 </announcing_phrase_detection>
+
+<table_to_prose_conversion>
+**When article has 3+ tables, convert extras to prose.** Keep only tables with numeric specifications.
+
+**Priority for keeping tables (keep first 2 that qualify):**
+1. Tables with numeric specs (dimensions, weights, accuracy %, tolerances)
+2. Tables with quantifiable comparisons (speeds, capacities, prices)
+
+**Priority for converting to prose:**
+1. Component/function lists → describe in narrative paragraphs
+2. Decision guides → use bullet format: "Choose X when..." / "Choose Y if..."
+3. Feature comparisons → write contrast sentences: "Unlike X which does..., Y provides..."
+4. ROI/benefit lists → integrate metrics into narrative
+
+**Example conversion:**
+```markdown
+❌ TABLE:
+| Type | Best For |
+|------|----------|
+| Gravity | Thin liquids |
+| Piston | Viscous products |
+
+✅ PROSE:
+Gravity fillers work best for thin, free-flowing liquids. For viscous products or those with particulates, piston fillers deliver better accuracy.
+```
+
+**Report in summary:** "Tables converted to prose: [X]" with list of which tables were converted.
+</table_to_prose_conversion>
 
 <forced_link_detection>
 **Why forced links must be deleted:** They signal to readers (and search engines) that the link was inserted for SEO, not for value. This damages trust and can hurt rankings.

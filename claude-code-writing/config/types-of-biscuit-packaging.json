@@ -1,0 +1,281 @@
+{
+  "meta": {
+    "createdAt": "2025-12-27T12:00:00Z",
+    "version": "1.0"
+  },
+
+  "article": {
+    "topic": "types of Biscuit Packaging",
+    "topicTitle": "types-of-biscuit-packaging",
+    "depth": "In-depth",
+    "wordCountTarget": "1500-2500",
+    "language": "English",
+    "writingAngle": "Packaging Type Overview - systematically introduce various biscuit packaging forms, their characteristics, and application scenarios",
+    "targetIndustry": "General"
+  },
+
+  "company": {
+    "id": "soontact",
+    "name": "Soontact Intelligent Equipment",
+    "industry": "Automated Packaging Machinery Manufacturing",
+    "coreBusiness": "Design, manufacturing, and distribution of automated packaging solutions for global markets. With 30 years of experience, Soontact provides comprehensive packaging machinery from single machines to complete production line systems.",
+    "valueProposition": "A trusted global partner in automated packaging machinery, emphasizing reliability, customization, and comprehensive support. In-house R&D, manufacturing, and support operations ensure quality control and responsive customer service.",
+    "sitemapUrls": {
+      "posts": "https://www.soontact.com/post-sitemap.xml",
+      "pages": "https://www.soontact.com/page-sitemap.xml"
+    }
+  },
+
+  "audience": {
+    "type": "Informed Non-Expert",
+    "description": "Production supervisors, operations managers, procurement specialists, quality assurance managers",
+    "industry": "Food manufacturers, bakery companies, confectionery producers",
+    "knowledgeLevel": "Basic-Intermediate",
+    "experienceRange": "6 months - 2 years exposure",
+
+    "goals": {
+      "primary": "Select appropriate machinery for products",
+      "secondary": [
+        "Compare vendor options",
+        "Plan production line capacity",
+        "Justify equipment purchases"
+      ]
+    },
+
+    "knowledge": {
+      "alreadyKnows": [
+        "General types of packaging machines",
+        "Basic packaging terminology",
+        "Production requirements and constraints",
+        "Budget and timeline considerations"
+      ],
+      "needsToLearn": [
+        "How to match machines to specific product requirements",
+        "Key specifications to compare (speed, film compatibility, etc.)",
+        "Vendor evaluation criteria",
+        "Integration considerations for production lines",
+        "ROI calculations for automation investments"
+      ]
+    },
+
+    "typicalQuestions": [
+      "How to choose packaging machine",
+      "Flow wrapper vs vertical bagger comparison",
+      "Packaging machine speed requirements",
+      "Best packaging machine for [product type]",
+      "Packaging line layout planning",
+      "Film types for flow packaging"
+    ],
+
+    "writingApproach": {
+      "tone": "Professional, practical, direct",
+      "style": "Action-oriented; focus on decision-making frameworks",
+      "complexity": "Moderate; can use industry terms with brief clarification",
+      "structure": "Problem-solution format; comparison tables; numbered lists",
+      "wordChoice": "Industry-standard terms; occasional technical vocabulary"
+    },
+
+    "guidelines": {
+      "do": [
+        "Provide selection frameworks: 'Consider these factors when choosing...'",
+        "Use comparison tables for machine types and specifications",
+        "Offer concrete criteria: 'For products over 500g, consider...'",
+        "Include capacity planning and integration guidance"
+      ],
+      "dont": [
+        "Over-explain basic packaging concepts",
+        "Provide deep technical engineering details",
+        "Overwhelm with options without clear recommendations"
+      ]
+    }
+  },
+
+  "searchIntent": {
+    "type": "Informational",
+    "category": "Educational",
+
+    "userContext": {
+      "situation": "Researching biscuit packaging options to understand available formats before selecting machinery or evaluating suppliers",
+      "currentState": "Knows biscuits need packaging but unclear on which packaging type suits different product types, production volumes, or market positioning",
+      "desiredState": "Comprehensive understanding of biscuit packaging options with clear criteria for matching packaging type to product requirements"
+    },
+
+    "coreQuestion": "What are the different types of biscuit packaging and when should each be used?",
+
+    "implicitQuestions": [
+      "Which packaging type best protects biscuit freshness and prevents breakage?",
+      "What packaging machines are needed for each packaging format?",
+      "How do packaging types affect production speed and costs?",
+      "Which packaging formats are best for retail vs. bulk vs. premium positioning?",
+      "What materials are used for different biscuit packaging types?"
+    ],
+
+    "expectedContent": {
+      "type": "Guide",
+      "format": "Table",
+      "depth": "Practical how-to"
+    },
+
+    "successCriteria": "Reader can identify the right packaging type for their biscuit products based on product characteristics, target market, and production requirements"
+  },
+
+  "workflowState": {
+    "research": {
+      "status": "completed",
+      "completedAt": "2025-12-27T12:30:00Z",
+      "summary": {
+        "sourceCount": 18,
+        "dataPointCount": 17,
+        "competitorCount": 3
+      },
+      "insights": {
+        "goldenInsights": [
+          {
+            "insight": "If your oven pumps out 500 biscuits a minute, but your packing team can only handle 200, you have a bottleneck that kills profitability",
+            "source": "https://litianpacking.com/en/2025/05/27/biscuit-packaging-machine-guide/",
+            "suggestedUse": "hook/opener - production reality"
+          },
+          {
+            "insight": "72% of consumers say packaging design influences purchase decisions; 81% tried a new product just because of appealing packaging",
+            "source": "https://tolunacorporate.com/9-best-practices-for-creating-powerful-packaging-designs/",
+            "suggestedUse": "evidence - why packaging matters"
+          },
+          {
+            "insight": "Tim Tam shrinkflation backlash shows packaging volume perception affects brand trust",
+            "source": "https://seniorsdiscountclub.com.au/",
+            "suggestedUse": "consumer perspective - positioning consideration"
+          }
+        ],
+        "quality": "high",
+        "suggestedHook": "problem - production bottleneck or consumer perception angle"
+      },
+      "differentiation": {
+        "score": "moderate-strong",
+        "primaryDifferentiator": "Product-to-packaging decision framework that matches specific biscuit types (plain, cream-filled, wafer, premium/gift) to optimal packaging formats with machine and material recommendations",
+        "irreplicableInsights": [
+          {
+            "insight": "Capacity matching is critical - 500 vs 200/min bottleneck kills profitability",
+            "sourceType": "practitioner",
+            "source": "https://litianpacking.com/en/2025/05/27/biscuit-packaging-machine-guide/",
+            "intentAlignment": "aligned"
+          },
+          {
+            "insight": "Crumbs accumulate around photo-eye sensors causing mis-cuts - daily cleaning required",
+            "sourceType": "practitioner",
+            "source": "https://litianpacking.com/en/2025/05/27/biscuit-packaging-machine-guide/",
+            "intentAlignment": "aligned"
+          },
+          {
+            "insight": "Jacob White case: changeovers in a few minutes for >200 cartons/min",
+            "sourceType": "case-study",
+            "source": "https://www.jacobwhite.com/case-studies/first-phase-success-biscuit-packaging",
+            "intentAlignment": "aligned"
+          },
+          {
+            "insight": "ITC launched 100% paper bag packaging for biscuits in Jan 2024 - first major brand example",
+            "sourceType": "case-study",
+            "source": "https://www.confectionerynews.com/Article/2024/05/15/Sustainable-Trends-Transforming-Confectionery-Industry/",
+            "intentAlignment": "aligned"
+          }
+        ],
+        "avoidList": [
+          "Generic lists of packaging types without selection guidance",
+          "Missing cost and performance data",
+          "No shelf life or barrier property comparisons",
+          "Ignoring sustainability trends and regulations"
+        ]
+      },
+      "gaps": {
+        "data": [
+          "Exact cost breakdown by packaging type (have ranges only)",
+          "Regional pricing differences"
+        ],
+        "coverage": [
+          "Competitors lack product-to-packaging decision framework",
+          "Competitors lack cost analysis",
+          "Competitors lack real case studies",
+          "Competitors weak on sustainability specifics"
+        ]
+      },
+      "controversies": [],
+      "coreThesis": "The right biscuit packaging balances three factors - product protection, production efficiency, and market positioning - and the optimal choice depends on matching your specific biscuit type to the appropriate format, material, and machinery",
+      "writingAdvice": {
+        "emphasize": [
+          "Product-to-packaging matching (cream-filled vs plain vs wafer)",
+          "Machine comparison (HFFS vs VFFS) with speed/cost data",
+          "Material barrier properties (BOPP, metallized BOPP)",
+          "Sustainability trends (2024 regulations, brand examples)"
+        ],
+        "cautious": [
+          "Exact cost figures (use ranges, not absolutes)",
+          "Regional market data (focus on global)"
+        ],
+        "differentiateWith": [
+          "Decision framework table matching biscuit type to packaging format",
+          "HFFS vs VFFS comparison with specific speed and cost ranges",
+          "Case study references (Jacob White, ITC Sunfeast)",
+          "Consumer perception data (72% packaging influence stat)"
+        ]
+      }
+    },
+    "writing": {
+      "status": "completed",
+      "completedAt": "2025-12-27T13:00:00Z",
+      "outline": {
+        "h2Count": 4,
+        "structure": [
+          "What Are the Main Types of Biscuit Packaging?",
+          "What Materials Work Best for Biscuit Packaging?",
+          "How Do You Choose Between HFFS and VFFS Machines?",
+          "What Are the Latest Trends in Biscuit Packaging?"
+        ],
+        "introFramework": "PAS",
+        "conclusionType": "Next Journey Step"
+      },
+      "execution": {
+        "actualWordCount": 1650,
+        "internalLinksUsed": 4,
+        "dataPointsUsed": 12
+      },
+      "decisions": {
+        "hookUsed": {
+          "type": "problem",
+          "content": "500 vs 200/min capacity bottleneck kills profitability"
+        },
+        "differentiationApplied": {
+          "primaryDifferentiatorUsed": "Decision framework matching biscuit types (plain, cream-filled, wafer, premium) to optimal packaging formats with material and machine recommendations",
+          "irreplicableInsightsUsed": [
+            {"insight": "500 vs 200/min bottleneck", "location": "intro"},
+            {"insight": "Crumbs around sensors causing mis-cuts", "location": "H3 Maintenance"},
+            {"insight": "Jacob White >200 cartons/min changeovers", "location": "H2 HFFS vs VFFS"},
+            {"insight": "ITC 100% paper bag Jan 2024", "location": "H2 Trends"}
+          ],
+          "avoidedPatterns": [
+            "Generic lists without selection guidance - added decision matrix",
+            "Missing cost data - included machine and film cost ranges",
+            "No shelf life comparisons - included 6-month BOPP data and barrier properties",
+            "Ignoring sustainability - dedicated section with 2024 regulations and examples"
+          ],
+          "titleDifferentiation": "Added 'How to Match Your Product to the Right Format' to signal decision framework value"
+        },
+        "opinionsIncluded": [
+          "H2-1: Flow wrap dominates for good reason - balances speed, cost, and protection",
+          "H2-2: Metallized BOPP is worth the premium for cream-filled products",
+          "H2-3: Start with capacity matching before features",
+          "H2-4: Paper-based packaging is no longer experimental"
+        ],
+        "sectionsToWatch": {
+          "strong": ["H2-3 HFFS vs VFFS (good data)", "H2-4 Trends (case studies)", "H2-2 Materials (barrier specs)"],
+          "weak": ["H3 Maintenance (limited data points)"],
+          "differentiated": ["H3 Decision Matrix", "H2-3 with Jacob White case", "H2-4 with ITC example"]
+        },
+        "internalLinks": [
+          {"anchor": "flow wrapping", "url": "https://soontact.com/what-is-flow-wrapping-and-how-does-it-work/"},
+          {"anchor": "horizontal and vertical form fill seal machines", "url": "https://soontact.com/horizontal-vs-vertical-form-fill-seal-machines/"},
+          {"anchor": "Types of form fill seal machines", "url": "https://soontact.com/types-of-form-fill-seal-ffs-machines/"},
+          {"anchor": "packaging machine for cookies", "url": "https://soontact.com/packaging-machine-for-cookies/"}
+        ]
+      }
+    }
+  }
+}

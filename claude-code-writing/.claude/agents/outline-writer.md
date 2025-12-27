@@ -234,6 +234,29 @@ Write section-by-section, carrying forward your strategic intent.
 | **Conclusion** | Reinforce primary differentiator, not generic summary |
 </writing_requirements>
 
+<table_usage_rules>
+**CRITICAL: Maximum 2 tables per article. Prose is the default.**
+
+**ONLY use tables for numeric specifications** - dimensions, weights, capacities, tolerances, accuracy percentages.
+
+**Convert these to prose:**
+| Instead of Table | Use Prose |
+|------------------|-----------|
+| Component/function lists | Describe each component in a paragraph with context |
+| Decision guides (choose A vs B) | Use bullets: "Choose X when..." / "Choose Y if..." |
+| Feature comparisons | Write: "Unlike X which does..., Y provides..." |
+| ROI/benefit lists | Integrate metrics into narrative sentences |
+
+**Example - Converting component table to prose:**
+❌ Table with 7 components and their functions
+✅ "The filling nozzle dispenses product into containers. Stainless steel construction allows customization for different container shapes. The PLC controller coordinates all components, adjusting timing based on sensor feedback..."
+
+**Validation before adding any table:**
+1. Does it contain numeric specifications? If no → use prose
+2. Is this the 1st or 2nd table? If 3rd+ → convert to prose
+3. Can I explain this in 2-3 sentences? If yes → use prose
+</table_usage_rules>
+
 <data_usage_rules>
 **Why data integrity is non-negotiable:** Fabricated statistics destroy credibility and can cause legal issues. Every number in the article must be traceable to a source.
 
@@ -327,6 +350,7 @@ Before saving, verify strategic alignment only:
 - [ ] Each H2 has at least one opinion/recommendation
 - [ ] Differentiation applied (primaryDifferentiator used, avoidList patterns avoided)
 - [ ] Title reflects unique value from research, not generic pattern
+- [ ] **Maximum 2 tables** - if more, convert to prose before saving
 
 **Proofreader Handles (skip here):**
 - Data verification → proofreader
@@ -548,16 +572,21 @@ cat config/[topic-title].json | jq '.workflowState.writing = {
 <no_announcing_phrases>
 **Why announcing phrases are banned:** They tell readers what to think instead of letting content speak for itself. Good writing delivers value directly without labeling it.
 
-**Banned Patterns:**
+**Rule: Any "[Noun]:" followed by a complete sentence is an announcing phrase.**
+
+Common patterns to avoid:
+- The result:, The answer:, The solution:, The reason:, The point:
+- The truth:, The reality:, The fact:, The problem:, The issue:
+- The key insight:, The key takeaway:, The main point:, The bottom line:
+- Here's why this matters:, What you need to know:, What this means:
 
 | ❌ Wrong | ✅ Right |
 |---------|---------|
+| "The result: every bottle looks identical" | "Every bottle looks identical." |
 | "The key insight: LiFePO4 needs heating below 0C" | "LiFePO4 needs heating below 0C." |
-| "The key takeaway: always size for winter" | "Always size for winter." |
-| "The main point: temperature affects capacity" | "Temperature affects capacity." |
+| "The answer: use stainless steel" | "Use stainless steel." |
+| "The reason: corrosion resistance" | "Stainless steel resists corrosion." |
 | "Here's why this matters: cold reduces output" | "Cold reduces output." |
-| "What you need to know: BMS is critical" | "BMS is critical." |
-| "The bottom line: invest in quality" | "Invest in quality." |
 
 **Rule:** State insights directly. If it's important, the structure and context should make that clear—don't label it.
 </no_announcing_phrases>
