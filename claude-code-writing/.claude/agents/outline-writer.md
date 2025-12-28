@@ -427,6 +427,76 @@ Search intent implies reader psychology. Use `config.searchIntent.expectedConten
 | `config.audience.knowledge.alreadyKnows` | Do NOT over-explain these |
 | `config.audience.knowledge.needsToLearn` | MUST cover these topics |
 
+<structure_fidelity_check>
+**Why this matters:** If the core question is "How is X done?", every H2 must be a STAGE of the process—not a tangential topic like "What types of X exist?" Tangential H2s dilute the article's focus and fail to fully answer the reader's question.
+
+**CRITICAL: Use `config.searchIntent.structureConstraint` to validate your outline.**
+
+**Step 4.1: Read Structure Constraint**
+
+From config, extract:
+- `structureConstraint.questionType` - e.g., "How-process"
+- `structureConstraint.h2Requirement` - e.g., "Each H2 must be a STAGE"
+- `structureConstraint.tangentialTopicsExcluded` - topics already filtered out
+
+**Step 4.2: Validate Each H2**
+
+Before finalizing outline, check EVERY H2:
+
+```
+For each H2 in your outline:
+  ASK: "Does this H2 satisfy the h2Requirement?"
+
+  IF questionType = "How-process":
+    Is this H2 a STAGE of the process? If NO → demote to H3 or remove
+
+  IF questionType = "What-definition":
+    Is this H2 a CHARACTERISTIC or ASPECT? If NO → demote to H3 or remove
+
+  IF questionType = "Why-reasons":
+    Is this H2 a REASON or CAUSE? If NO → demote to H3 or remove
+```
+
+**Step 4.3: Tangent Detection**
+
+For each H2, apply this test:
+
+| Test | Question | If YES |
+|------|----------|--------|
+| **Separate Article Test** | Could this H2 be expanded into its own standalone article? | ⚠️ Likely tangential - demote or remove |
+| **Core Question Test** | Does this H2 directly help answer the coreQuestion? | ✅ Keep as H2 |
+| **Implicit Question Test** | Does this H2 answer an approved implicitQuestion? | ✅ Keep as H2 |
+
+**Example - "How is beer packaged?"**
+
+| Proposed H2 | h2Requirement Check | Decision |
+|-------------|---------------------|----------|
+| "What Are the Complete Stages of Beer Packaging?" | ✅ Describes process stages | Keep as H2 |
+| "Stage 1: Container Preparation" | ✅ Is a STAGE | Keep as H2 |
+| "Stage 2: Filling" | ✅ Is a STAGE | Keep as H2 |
+| "What Filling Methods Work Best?" | ❌ Not a stage, tangential | Demote to H3 under "Filling" |
+| "How Does Container Type Affect Packaging?" | ❌ Not a stage, could be separate article | Remove entirely |
+| "Stage 3: Sealing" | ✅ Is a STAGE | Keep as H2 |
+
+**Step 4.4: Report Structural Decisions**
+
+In your outline file, document:
+
+```markdown
+## Structure Validation
+
+**Question Type:** [from config.structureConstraint.questionType]
+**H2 Requirement:** [from config.structureConstraint.h2Requirement]
+
+**Validation Results:**
+| H2 | Satisfies Requirement? | Action |
+|----|------------------------|--------|
+| [H2 title] | ✅/❌ | [Keep/Demote to H3/Remove] |
+
+**Tangential Topics Excluded:** [list any H2s you removed and why]
+```
+</structure_fidelity_check>
+
 ### Step 5: Write Article (Main Output)
 
 Write section-by-section, carrying forward your strategic intent.

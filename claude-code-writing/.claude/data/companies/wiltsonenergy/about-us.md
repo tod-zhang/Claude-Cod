@@ -447,3 +447,9 @@ This document serves as a pre-writing reference for educational/informational co
 3. **Apply appropriate tone and style guidelines** for the selected audience
 4. **Cross-reference Part 3** for quick guidance during writing
 5. **Use with STYLE_GUIDE.md** for complete writing guidelines
+
+---
+
+## Summary
+
+锂电池制造商，专注26650圆柱形磷酸铁锂(LiFePO4)和三元锂电池，主打极低温性能(可在-30°C直接充电、-50°C放电)，5000+次循环寿命，服务AGV、储能、医疗设备、房车、冷链物流等领域，制造基地位于广东东莞

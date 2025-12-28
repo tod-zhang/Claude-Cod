@@ -459,3 +459,9 @@ This document serves as a pre-writing reference for educational/informational co
 3. **Apply appropriate tone and style guidelines** for the selected audience
 4. **Cross-reference Part 3** for quick guidance during writing
 5. **Use with STYLE_GUIDE.md** for complete writing guidelines
+
+---
+
+## Summary
+
+SEO和数字营销SaaS平台，提供关键词研究、竞品分析、网站审计、内容营销、社交媒体管理等一站式工具，服务全球143个国家约1000万用户，总部位于美国波士顿

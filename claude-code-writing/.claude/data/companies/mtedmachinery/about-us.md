@@ -604,3 +604,9 @@ This document serves as a pre-writing reference for educational/informational co
 4. **Cross-reference Part 3** for quick guidance during writing
 5. **Reference Part 4** for natural product mention opportunities
 6. **Use with STYLE_GUIDE.md** for complete writing guidelines (structure, formatting, voice, banned phrases)
+
+---
+
+## Summary
+
+铝箔餐盒设备制造商，近30年行业经验，产品涵盖C型/H型铝箔容器冲压机、定制模具及完整生产线，70+项发明专利，5000+台设备销往全球75+国家，2024年营收2.2亿美元，服务外卖餐饮包装行业，制造基地位于浙江瑞安

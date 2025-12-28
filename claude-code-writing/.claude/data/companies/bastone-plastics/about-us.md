@@ -549,3 +549,9 @@ This document serves as a pre-writing reference for educational/informational co
 4. **Cross-reference Part 3** for quick guidance during writing
 5. **Reference Part 4** for natural product mention opportunities
 6. **Use with STYLE_GUIDE.md** for complete writing guidelines (structure, formatting, voice, banned phrases)
+
+---
+
+## Summary
+
+增塑剂和PVC树脂制造商，产品包括DOP、DOTP、DINP等增塑剂及悬浮法/糊树脂PVC，提供邻苯和非邻苯类增塑剂选择，服务电线电缆、地板、汽车内饰、建材、鞋材、包装等行业，制造基地位于中国

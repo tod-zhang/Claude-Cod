@@ -469,3 +469,9 @@ This document serves as a pre-writing reference for educational/informational co
 3. **Apply appropriate tone and style guidelines** for the selected audience
 4. **Cross-reference Part 3** for quick guidance during writing
 5. **Use with STYLE_GUIDE.md** for complete writing guidelines (structure, formatting, voice, banned phrases)
+
+---
+
+## Summary
+
+智能云混合能源解决方案供应商，专注柴油/燃气发电机组(9kVA-2500kVA)、电池储能系统、混合动力系统及微电网解决方案，拥有107项专利，服务全球120+国家，总部位于上海，新工厂位于江苏扬中

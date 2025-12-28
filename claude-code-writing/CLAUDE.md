@@ -50,9 +50,29 @@ When user provides a topic (e.g., "帮我写一篇关于 steel heat treatment �
 **分步收集用户输入（不要一次性询问所有选项）：**
 
 #### Step 1a: 选择公司
+
+1. **读取所有公司目录**: `.claude/data/companies/*/`
+2. **读取每个公司的 about-us.md**: 检查是否已有 `## Summary` 缓存描述
+3. **处理描述**:
+   - 如已有 `## Summary` → 直接使用
+   - 如没有 → 生成详细描述（主营业务、核心产品/服务、目标市场），并追加到 about-us.md 末尾：
+     ```markdown
+     ## Summary
+     [详细描述]
+     ```
+
+**展示格式：**
+```
+可选公司：
+- semrush - SEO和数字营销工具平台，提供关键词研究、竞品分析、网站审计等服务
+- mpmc-group - 移动电源和发电机组制造商，专注柴油/燃气发电机、储能系统，服务全球市场
+- apextray - 电缆桥架系统供应商，产品涵盖梯式、槽式、网格式桥架，面向工业和商业项目
+...
+```
+
 ```
 AskUserQuestion: 选择公司
-Options: List from `.claude/data/companies/*/`
+Options: [公司名] - [详细描述]
 ```
 
 #### Step 1b: 分析并提供后续选项

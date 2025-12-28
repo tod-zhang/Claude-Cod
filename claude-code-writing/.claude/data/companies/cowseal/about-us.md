@@ -606,3 +606,9 @@ This document serves as a pre-writing reference for educational/informational co
 4. **Cross-reference Part 3** for quick guidance during writing
 5. **Reference Part 4** for natural product mention opportunities
 6. **Use with STYLE_GUIDE.md** for complete writing guidelines
+
+---
+
+## Summary
+
+工业机械密封解决方案供应商，专注泵用机械密封的设计与制造，产品涵盖 Type 1/21 密封、Grundfos/Burgmann 兼容密封、卡箍式密封及定制加工服务，服务水处理、化工、HVAC、食品饮料等行业，制造基地位于中国宁波

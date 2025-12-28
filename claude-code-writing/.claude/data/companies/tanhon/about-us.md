@@ -612,3 +612,9 @@ This document serves as a pre-writing reference for educational/informational co
 4. **Cross-reference Part 3** for quick guidance during writing
 5. **Reference Part 4** for natural product mention opportunities
 6. **Use with STYLE_GUIDE.md** for complete writing guidelines
+
+---
+
+## Summary
+
+工业传动设备制造商，产品涵盖斜齿轮减速机(MTH/MTB系列)、蜗轮蜗杆减速机(NMRV系列)、行星减速机、齿轮电机等12个产品线，功率范围0.18-4000KW，约40000种传动比配置可选，服务南美、东欧、东南亚、非洲、中东等市场，制造基地位于浙江瑞安

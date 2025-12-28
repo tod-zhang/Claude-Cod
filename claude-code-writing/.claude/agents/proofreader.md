@@ -929,8 +929,22 @@ del /q config\[topic-title].json knowledge\[topic-title]-sources.md outline\[top
 **Execution checklist:**
 1. ✅ All 3 output files written successfully
 2. ✅ Differentiation Score is Strong or Moderate
-3. → **NOW delete the intermediate files**
-4. → **THEN return summary**
+3. → **NOW delete the intermediate files using Bash tool**
+4. → **Verify deletion using Glob tool** (check that files no longer exist)
+5. → **THEN return summary**
+
+**Cleanup Command (use Bash tool):**
+```bash
+rm -f "config/[topic-title].json" "knowledge/[topic-title]-sources.md" "outline/[topic-title].md" "drafts/[topic-title].md"
+```
+
+**Verification (use Glob tool after deletion):**
+```
+Glob: config/[topic-title].json
+Expected result: No matches (file deleted)
+```
+
+If Glob still finds files after rm command → report as cleanup failure in summary.
 
 **DO NOT skip cleanup.** If you return summary without deleting files, the workflow is incomplete.
 
@@ -938,7 +952,7 @@ del /q config\[topic-title].json knowledge\[topic-title]-sources.md outline\[top
 - Differentiation Score is Weak (article needs rewriting)
 - Any output file failed to write
 
-**Report in summary:** List deleted files or "跳过清理 - 文章需要重写"
+**Report in summary:** List deleted files or "跳过清理 - 文章需要重写" or "⚠️ 清理失败 - 文件仍存在"
 </cleanup_execution>
 
 ### Step 9: Return Summary Only
@@ -1012,23 +1026,23 @@ del /q config\[topic-title].json knowledge\[topic-title]-sources.md outline\[top
 <critical_rules>
 **Why these rules are non-negotiable:**
 
-1. **DO NOT output the full article in conversation** - Only the summary above; saves context and prevents confusion
-2. **DO NOT ignore unverified data** - Convert to fuzzy language; credibility is everything
-3. **DO track all changes** - Report in summary; transparency builds trust
-4. **DO write all three output files** - Article, sources, images; all are required for delivery
-5. **DO score honestly** - Don't inflate scores; hidden problems hurt the user
-6. **USE workflowState** - Focus on flagged weak sections; efficient use of your verification time
-7. **VALIDATE differentiation** - Verify title, intro, conclusion reflect primaryDifferentiator; differentiation is the whole point
-8. **CHECK irreplicable insights** - Verify they're used in designated locations; these are the article's secret weapons
-9. **DETECT avoided patterns** - Flag if article follows patterns from avoidList; defeats differentiation purpose
-10. **CHECK pattern library** - Scan for garbage patterns from competitive-patterns.md; fix or delete violations
-11. **DELETE meta-commentary** - Any sentence referencing competitors/other guides; exposes internal perspective
-12. **DELETE forced link sentences** - Apply Removable Test; forced links damage trust
-13. **VERIFY anchor text intent** - Remove links with no match; mismatched links confuse readers
-14. **VERIFY required links** - Supporting articles MUST link to pillar; fix if missing
-15. **VALIDATE product mentions** - No promotional language; solution-focused only; fix or delete if promotional
-16. **UPDATE article history** - Add new article entry if history file exists; enables future cross-referencing
-17. **UPDATE hook/conclusion tracking** - Update distribution tables and sequence tables; enables diversity enforcement
-18. **GENERATE backlink report** - Create backlinks.md if opportunities exist; enables bidirectional linking
-19. **CLEANUP before summary** - Run rm commands BEFORE returning; incomplete cleanup = incomplete workflow
+1. **⚠️ CLEANUP IS MANDATORY** - Delete intermediate files BEFORE returning summary; this is NOT optional; incomplete cleanup = incomplete workflow; if you skip this step, the entire workflow fails
+2. **DO NOT output the full article in conversation** - Only the summary above; saves context and prevents confusion
+3. **DO NOT ignore unverified data** - Convert to fuzzy language; credibility is everything
+4. **DO track all changes** - Report in summary; transparency builds trust
+5. **DO write all three output files** - Article, sources, images; all are required for delivery
+6. **DO score honestly** - Don't inflate scores; hidden problems hurt the user
+7. **USE workflowState** - Focus on flagged weak sections; efficient use of your verification time
+8. **VALIDATE differentiation** - Verify title, intro, conclusion reflect primaryDifferentiator; differentiation is the whole point
+9. **CHECK irreplicable insights** - Verify they're used in designated locations; these are the article's secret weapons
+10. **DETECT avoided patterns** - Flag if article follows patterns from avoidList; defeats differentiation purpose
+11. **CHECK pattern library** - Scan for garbage patterns from competitive-patterns.md; fix or delete violations
+12. **DELETE meta-commentary** - Any sentence referencing competitors/other guides; exposes internal perspective
+13. **DELETE forced link sentences** - Apply Removable Test; forced links damage trust
+14. **VERIFY anchor text intent** - Remove links with no match; mismatched links confuse readers
+15. **VERIFY required links** - Supporting articles MUST link to pillar; fix if missing
+16. **VALIDATE product mentions** - No promotional language; solution-focused only; fix or delete if promotional
+17. **UPDATE article history** - Add new article entry if history file exists; enables future cross-referencing
+18. **UPDATE hook/conclusion tracking** - Update distribution tables and sequence tables; enables diversity enforcement
+19. **GENERATE backlink report** - Create backlinks.md if opportunities exist; enables bidirectional linking
 </critical_rules>

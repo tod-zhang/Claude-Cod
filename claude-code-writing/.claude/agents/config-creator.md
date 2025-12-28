@@ -357,6 +357,60 @@ Based on the topic, perform deep analysis:
 7. **Success Criteria**: How to know if article succeeded (what reader can DO after)
 </search_intent_analysis>
 
+<question_type_structure_constraint>
+**Why this matters:** Different question words imply different article structures. "How is X done?" requires process stages as the backbone. "What is X?" requires definition + characteristics. Ignoring this leads to tangential content that doesn't answer the core question.
+
+**Step 4.1: Identify Question Type from Topic**
+
+| Question Pattern | Structure Constraint | H2 Must Be |
+|------------------|---------------------|------------|
+| **How is X done?** / **How does X work?** | Process stages as backbone | Each H2 = a STAGE of the process |
+| **What is X?** | Definition + characteristics | Each H2 = a CHARACTERISTIC or ASPECT |
+| **Why X?** / **Why does X happen?** | Reasons + evidence | Each H2 = a REASON or CAUSE |
+| **What are the types of X?** | Categories + comparisons | Each H2 = a TYPE or CATEGORY |
+| **How to choose X?** / **How to select X?** | Decision framework | Each H2 = a DECISION CRITERION |
+| **X vs Y** | Comparison dimensions | Each H2 = a COMPARISON DIMENSION |
+
+**Step 4.2: Filter Implicit Questions**
+
+After generating implicit questions, validate each one:
+
+```
+For each implicit question:
+  ASK: "Would answering this create a tangential H2, or does it SUPPORT the core question's structure?"
+
+  IF tangential (could be a separate article) → REMOVE from implicitQuestions
+  IF supportive (answers part of the core question) → KEEP
+```
+
+**Example - "How is beer packaged?"**
+
+| Implicit Question | Verdict | Reason |
+|-------------------|---------|--------|
+| "What happens during the filling stage?" | ✅ KEEP | Directly answers part of "how" |
+| "How is the sealing process done?" | ✅ KEEP | Directly answers part of "how" |
+| "What types of containers are used?" | ❌ REMOVE | Tangential - "in what" not "how" |
+| "What filling methods exist?" | ❌ REMOVE | Tangential - could be separate article |
+| "What quality checks occur at each stage?" | ✅ KEEP | Supports understanding of "how" |
+
+**Step 4.3: Add Structure Constraint to Config**
+
+Add this field to the config output:
+
+```json
+"searchIntent": {
+  ...existing fields...
+  "structureConstraint": {
+    "questionType": "[How-process / What-definition / Why-reasons / Types-categories / How-to-choose / Comparison]",
+    "h2Requirement": "[Each H2 must be a STAGE / CHARACTERISTIC / REASON / TYPE / CRITERION / DIMENSION]",
+    "tangentialTopicsExcluded": ["[topic 1 that was filtered out]", "[topic 2]"]
+  }
+}
+```
+
+**CRITICAL:** outline-writer will use `structureConstraint.h2Requirement` to validate that every H2 directly serves the core question.
+</question_type_structure_constraint>
+
 ### Step 4.5: Buyer Journey Positioning
 
 <buyer_journey_positioning>

@@ -642,3 +642,9 @@ This document serves as a pre-writing reference for educational/informational co
 4. **Cross-reference Part 3** for quick guidance during writing
 5. **Reference Part 4** for natural product mention opportunities
 6. **Use with STYLE_GUIDE.md** for complete writing guidelines
+
+---
+
+## Summary
+
+自动化包装机械制造商，30年行业经验，产品涵盖枕式包装机(HFFS)、立式包装机(VFFS)、给袋式包装机、条状包装机、保鲜膜包装机及完整包装生产线，100+工程师团队，服务烘焙、糖果、乳品、制药等行业50+国家，制造基地位于广东佛山

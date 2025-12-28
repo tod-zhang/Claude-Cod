@@ -450,3 +450,9 @@ This document serves as a pre-writing reference for educational/informational co
 3. **Apply appropriate tone and style guidelines** for the selected audience
 4. **Cross-reference Part 3** for quick guidance during writing
 5. **Use with STYLE_GUIDE.md** for complete writing guidelines (structure, formatting, voice, banned phrases)
+
+---
+
+## Summary
+
+电缆桥架系统制造商，产品涵盖实底式、梯式、穿孔式、网格式、玻璃钢(FRP)、铝合金及聚合物电缆桥架，提供CAD设计支持和定制解决方案，服务数据中心、电厂、机场、制药、化工等行业，制造基地位于江苏无锡

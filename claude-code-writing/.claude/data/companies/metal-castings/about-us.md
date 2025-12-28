@@ -627,3 +627,9 @@ This document serves as a pre-writing reference for educational/informational co
 4. **Cross-reference Part 3** for quick guidance during writing
 5. **Reference Part 4** for natural product mention opportunities
 6. **Use with STYLE_GUIDE.md** for complete writing guidelines (structure, formatting, voice, banned phrases)
+
+---
+
+## Summary
+
+金属铸造厂，提供砂型铸造和熔模(失蜡)铸造服务，材料涵盖碳钢、合金钢、不锈钢、灰铸铁、球墨铸铁、铝合金、黄铜，产品包括配重块、飞轮、电机壳体、阀门铸件等，提供从模具制造到机加工的一站式服务，制造基地位于山东潍坊
