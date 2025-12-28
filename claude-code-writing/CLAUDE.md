@@ -47,19 +47,30 @@ When user provides a topic (e.g., "帮我写一篇关于 steel heat treatment �
 
 ### Step 1: Collect Inputs & Create Config
 
-**Before launching agent, collect 4 inputs using AskUserQuestion:**
+**分步收集用户输入（不要一次性询问所有选项）：**
 
-| # | Question | Options |
-|---|----------|---------|
-| 1 | Company | List from `.claude/data/companies/*/` |
-| 2 | Audience | beginner / intermediate / practitioner / expert |
-| 3 | Depth | 入门科普 / 实用指南 / 深度技术 |
-| 4 | Writing Angle | Generate 3-4 topic-specific angles |
+#### Step 1a: 选择公司
+```
+AskUserQuestion: 选择公司
+Options: List from `.claude/data/companies/*/`
+```
+
+#### Step 1b: 分析并提供后续选项
+用户选择公司后：
+1. **读取公司文档**: `.claude/data/companies/[company]/about-us.md`
+2. **分析搜索意图**: 结合题目理解用户搜索目的
+3. **基于以上信息**，使用 AskUserQuestion 提供后续选项：
+
+| # | Question | Options | 如何生成 |
+|---|----------|---------|----------|
+| 1 | Audience | beginner / intermediate / practitioner / expert | 根据公司定位和搜索意图推荐 |
+| 2 | Depth | 入门科普 / 实用指南 / 深度技术 | 根据搜索意图推荐 |
+| 3 | Writing Angle | 3-4个角度 | 结合公司优势和搜索意图生成 |
 
 **Tips:**
-- Analyze search intent first, add "(推荐)" to best options
+- 分析搜索意图后，为每个选项添加 "(推荐)" 标记
 - Language: semrush → 中文, others → English
-- Topic from user's message
+- 写作角度应体现公司的独特优势和专业领域
 
 **Then launch agent:**
 ```
