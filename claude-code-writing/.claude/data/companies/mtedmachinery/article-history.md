@@ -2,8 +2,8 @@
 
 This document tracks all published articles for cross-referencing, internal linking, and content strategy.
 
-**Last Updated:** 2025-12-27
-**Total Articles:** ~95
+**Last Updated:** 2025-12-28
+**Total Articles:** ~96
 
 ---
 
@@ -154,6 +154,7 @@ This document tracks all published articles for cross-referencing, internal link
 #### Cluster: Aluminum Properties
 ```
 ├── density-chart-of-aluminum-alloy
+├── is-aluminium-foil-magnetic (NEW - 2025-12-28)
 └── [GAP] aluminum-alloy-grades-for-foil-production
 ```
 
@@ -195,16 +196,16 @@ Conclusion Rules:
 ### Hook Distribution (All Time)
 | Hook Type | Total Count | Last Used | Status |
 |-----------|-------------|-----------|--------|
-| surprising-stat | 0 | - | - |
-| practitioner-quote | 0 | - | - |
-| question | 0 | - | - |
-| problem | 0 | - | - |
-| direct | 0 | - | - |
+| surprising-stat | 0 | - | Available |
+| practitioner-quote | 0 | - | Available |
+| question | 1 | 2025-12-28 | BLOCKED next |
+| problem | 0 | - | Available |
+| direct | 0 | - | Available |
 
 ### Recent Hook Sequence (Last 10)
 | # | Article | Hook Type | Date |
 |---|---------|-----------|------|
-| 1 | - | - | - |
+| 1 | is-aluminium-foil-magnetic | question | 2025-12-28 |
 | 2 | - | - | - |
 | 3 | - | - | - |
 | 4 | - | - | - |
@@ -213,15 +214,15 @@ Conclusion Rules:
 ### Conclusion Distribution (All Time)
 | Conclusion Type | Total Count | Last Used | Status |
 |-----------------|-------------|-----------|--------|
-| next-journey-step | 0 | - | - |
-| action-checklist | 0 | - | - |
-| key-takeaways | 0 | - | - |
-| contact-cta | 0 | - | - |
+| next-journey-step | 0 | - | Available |
+| action-checklist | 0 | - | Available |
+| key-takeaways | 1 | 2025-12-28 | BLOCKED if used 2 more |
+| contact-cta | 0 | - | Available |
 
 ### Recent Conclusion Sequence (Last 10)
 | # | Article | Conclusion Type | Date |
 |---|---------|-----------------|------|
-| 1 | - | - | - |
+| 1 | is-aluminium-foil-magnetic | key-takeaways | 2025-12-28 |
 | 2 | - | - | - |
 | 3 | - | - | - |
 | 4 | - | - | - |
@@ -230,7 +231,7 @@ Conclusion Rules:
 ### Audience Distribution (All Time)
 | Audience | Total Count | Last Used |
 |----------|-------------|-----------|
-| beginner | 0 | - |
+| beginner | 1 | 2025-12-28 |
 | intermediate | 0 | - |
 | practitioner | 0 | - |
 | expert | 0 | - |
@@ -274,19 +275,27 @@ Conclusion Rules:
 | can-i-reuse-foil-containers | "reuse foil containers", "foil container reuse" |
 | how-to-recycle-aluminum-foil-containers | "recycle foil", "foil recycling" |
 
+### Properties (NEW)
+| Topic | Linkable Anchors |
+|-------|------------------|
+| is-aluminium-foil-magnetic | "aluminum is not magnetic", "eddy currents", "aluminum magnetism" |
+| density-chart-of-aluminum-alloy | "aluminum density", "alloy properties" |
+
 ---
 
 ## Backlink Queue
 
 | Target Article | Source Article | Suggested Anchor | Status |
 |----------------|----------------|------------------|--------|
-| (empty) | | | |
+| is-aluminium-foil-magnetic | does-aluminum-set-off-metal-detectors | "why aluminum is non-magnetic" | Pending |
+| is-aluminium-foil-magnetic | what-is-aluminum-foil-made-of | "aluminum's magnetic properties" | Pending |
 
 ---
 
 ## Notes
 
 - Initialized 2025-12-27 from sitemap data
+- 2025-12-28: Added is-aluminium-foil-magnetic to Aluminum Properties cluster
 - Good balance of machine content and consumer/usage content
 - Strong coverage of safety and usage questions
 - Consider adding more B2B manufacturing content

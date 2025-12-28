@@ -194,29 +194,41 @@ Challenge at least one common assumption per article.
 
 | Article Type | Hook | Conclusion |
 |--------------|------|------------|
-| How-To / Tutorial | Direct Answer | Next Journey Step |
-| Reference / Chart | Direct Answer | Next Journey Step |
-| Problem-Solving | Problem Statement (PAS) | Next Journey Step |
-| Comparison / Decision | Surprising Fact (AIDA) | Next Journey Step |
+| How-To / Tutorial | Direct Answer | Next step or verification |
+| Reference / Chart | Direct Answer | Practical takeaway |
+| Problem-Solving | Problem Statement (PAS) | Prevention or next consideration |
+| Comparison / Decision | Surprising Fact (AIDA) | Clear verdict |
 
 **Opening Rule:** Never start with definitions, history, or "In this article..."
-**Closing Rule:** Never summarize. Guide the reader to their next step.
+**Closing Rule:** End naturally. Sometimes summarize, sometimes guide to next step.
 
-### 5.1 Conclusion: Next Journey Step
+### 5.1 Conclusion: Natural Closure
 
-The conclusion should NOT recap. Instead:
-1. **Extend the journey** - What should the reader do next?
-2. **Be action-oriented** - Provide a clear next action
-3. **Be brief** - 2-3 sentences maximum
+The conclusion should feel like a natural ending, not a forced template.
 
-| Reader State | Next Journey Example |
-|--------------|---------------------|
-| Just learned a concept | "Ready to apply this? [Contact/Explore]" |
-| Compared options | "Made your choice? [Get a quote]" |
-| Solved a problem | "Need help implementing? [Our team can help]" |
+**Choose based on article content:**
+
+| When... | Natural Ending |
+|---------|----------------|
+| Article is actionable (How-to, Tutorial) | Next step for reader |
+| Article is informational (What is, Technical) | Brief synthesis + practical takeaway |
+| Article solved a problem | Verification method or next consideration |
+| Reader compared options | Clear verdict or decision criteria |
+
+**Core principles:**
+1. **Be brief** - 2-4 sentences maximum
+2. **Add value** - Don't just repeat H2 headers
+3. **Match the tone** - Informational → calm close; Decision → confident recommendation
+
+**Avoid:**
+- "In conclusion", "In summary", "To wrap up"
+- Mechanical recap of every section
+- Forcing a CTA when none fits naturally
 
 ```
 ❌ WRONG: "In conclusion, we covered the types of forging, their advantages..."
+❌ WRONG: Forcing "Contact us!" when article is purely informational
+✅ RIGHT: "The choice between hot and cold forging comes down to your tolerance requirements. For parts under 0.5mm tolerance, cold forging eliminates post-machining."
 ✅ RIGHT: "Ready to discuss your forging requirements? Our engineering team can help."
 ```
 

@@ -30,8 +30,11 @@ SEO article writing workflow. Creates high-quality, well-researched articles thr
 │   └── proofreader.md
 └── data/
     ├── companies/    # Company about-us.md and internal-links.md
+    │   └── index.md  # 公司索引（必须同步更新）
     └── style/        # STYLE_GUIDE.md and STYLE_EXAMPLES.md
 ```
+
+**规则：创建新公司 `about-us.md` 时，必须同步更新 `index.md`**
 
 ## Language Protocol
 
@@ -47,56 +50,19 @@ When user provides a topic (e.g., "帮我写一篇关于 steel heat treatment �
 
 ### Step 1: Collect Inputs & Create Config
 
-**分步收集用户输入（不要一次性询问所有选项）：**
+1. **展示公司列表**: `Read .claude/data/companies/index.md` → 展示所有公司名称和描述（列表形式，不是选项）
+2. **等待用户输入**: 用户直接告诉你公司名
+3. **读取公司文档**: `.claude/data/companies/[selected]/about-us.md`
+4. **分析搜索意图** → 为后续选项生成推荐
+5. **AskUserQuestion**: Audience / Depth / Writing Angle（带推荐标记）
+6. **Launch agent**:
+   ```
+   Task: subagent_type="config-creator"
+   Prompt: Create config for [company], [topic], [audience], [depth], [angle], [language]
+   ```
+7. **✅ 验证**: `Glob config/[topic-title].json` 存在 → 继续
 
-#### Step 1a: 选择公司
-
-1. **读取所有公司目录**: `.claude/data/companies/*/`
-2. **读取每个公司的 about-us.md**: 检查是否已有 `## Summary` 缓存描述
-3. **处理描述**:
-   - 如已有 `## Summary` → 直接使用
-   - 如没有 → 生成详细描述（主营业务、核心产品/服务、目标市场），并追加到 about-us.md 末尾：
-     ```markdown
-     ## Summary
-     [详细描述]
-     ```
-
-**展示格式：**
-```
-可选公司：
-- semrush - SEO和数字营销工具平台，提供关键词研究、竞品分析、网站审计等服务
-- mpmc-group - 移动电源和发电机组制造商，专注柴油/燃气发电机、储能系统，服务全球市场
-- apextray - 电缆桥架系统供应商，产品涵盖梯式、槽式、网格式桥架，面向工业和商业项目
-...
-```
-
-```
-AskUserQuestion: 选择公司
-Options: [公司名] - [详细描述]
-```
-
-#### Step 1b: 分析并提供后续选项
-用户选择公司后：
-1. **读取公司文档**: `.claude/data/companies/[company]/about-us.md`
-2. **分析搜索意图**: 结合题目理解用户搜索目的
-3. **基于以上信息**，使用 AskUserQuestion 提供后续选项：
-
-| # | Question | Options | 如何生成 |
-|---|----------|---------|----------|
-| 1 | Audience | beginner / intermediate / practitioner / expert | 根据公司定位和搜索意图推荐 |
-| 2 | Depth | 入门科普 / 实用指南 / 深度技术 | 根据搜索意图推荐 |
-| 3 | Writing Angle | 3-4个角度 | 结合公司优势和搜索意图生成 |
-
-**Tips:**
-- 分析搜索意图后，为每个选项添加 "(推荐)" 标记
-- Language: semrush → 中文, others → English
-- 写作角度应体现公司的独特优势和专业领域
-
-**Then launch agent:**
-```
-Task: subagent_type="config-creator"
-Prompt: Create config for [company], [topic], [audience], [depth], [angle], [language]
-```
+**Tips:** Language: semrush → 中文, others → English
 
 ### Step 2: Research (Auto)
 
@@ -107,6 +73,13 @@ Prompt: Conduct research for: [topic-title]
 
 Agent writes `knowledge/[topic-title]-sources.md` and updates config with `workflowState.research`.
 
+**⚠️ 验证检查点（必须执行）：**
+```
+Glob: knowledge/[topic-title]-sources.md
+```
+- ✅ 文件存在 → 继续 Step 3
+- ❌ 文件不存在 → 重新运行 web-researcher 或手动从 config.workflowState.research 提取内容写入文件
+
 ### Step 3: Write (Auto)
 
 ```
@@ -115,6 +88,14 @@ Prompt: Create outline and write article for: [topic-title]
 ```
 
 Agent writes `outline/[topic-title].md`, `drafts/[topic-title].md`, and updates config with `workflowState.writing`.
+
+**⚠️ 验证检查点（必须执行）：**
+```
+Glob: outline/[topic-title].md
+Glob: drafts/[topic-title].md
+```
+- ✅ 两个文件都存在 → 继续 Step 4
+- ❌ 任一文件缺失 → 重新运行 outline-writer
 
 ### Step 4: Proofread & Deliver (Auto)
 
@@ -128,55 +109,29 @@ Agent writes to `output/`:
 - `[topic-title]-sources.md` - Source citations
 - `[topic-title]-images.md` - Image plan
 
+**⚠️ 验证检查点（必须执行）：**
+```
+Glob: output/[topic-title].md
+Glob: output/[topic-title]-sources.md
+Glob: output/[topic-title]-images.md
+```
+- ✅ 三个文件都存在 → 流程完成，向用户报告
+- ❌ 任一文件缺失 → 重新运行 proofreader
+
 ---
 
 ## workflowState
 
-Agents pass decisions via config file. Each agent adds to workflowState:
-
-```json
-{
-  "workflowState": {
-    "research": {
-      "status": "completed",
-      "summary": { "sourceCount": X, "dataPointCount": X, "competitorCount": X },
-      "competitorAnalysis": {
-        "stances": { "consensus": [...], "implicitAssumptions": [...] },
-        "dataSourcing": { "strongSources": [...], "weakClaims": [...] },
-        "terminology": { "standardTerms": {...}, "readerExpectations": "..." }
-      },
-      "insights": { "goldenInsights": [...], "quality": "high/medium/limited", "suggestedHook": "..." },
-      "differentiation": {
-        "score": "strong/moderate/weak",
-        "primaryDifferentiator": "...",
-        "irreplicableInsights": [...],
-        "avoidList": [...]
-      },
-      "writingAdvice": { "emphasize": [...], "cautious": [...], "differentiateWith": [...] },
-      "userVoices": { "audienceMatch": "...", "terminologyMap": [...], "quotableVoices": [...] },
-      "visualStrategy": { "requiredVisuals": [...], "differentiationOpportunity": "..." },
-      "authorityStrategy": { "sourcesFound": { "tier1_academic": [...], "tier4_practitioners": [...] } }
-    },
-    "writing": {
-      "status": "completed",
-      "outline": { "h2Count": X, "structure": [...] },
-      "decisions": {
-        "hookUsed": { "type": "...", "content": "..." },
-        "differentiationApplied": { "primaryDifferentiatorUsed": "...", "irreplicableInsightsUsed": [...] },
-        "sectionsToWatch": { "strong": [...], "weak": [...], "differentiated": [...] },
-        "visualPlan": { "imagesNeeded": [...], "markdownTablesUsed": [...] },
-        "productMentions": { "used": [...], "count": X }
-      }
-    }
-  }
-}
-```
+Agents pass decisions via config file. Full schema: @.claude/data/workflow-state-schema.md
 
 **Key fields for downstream agents:**
-- `research.differentiation` → outline-writer uses for title & content differentiation
-- `research.writingAdvice.cautious` → outline-writer uses fuzzy language here
-- `writing.decisions.sectionsToWatch.weak` → proofreader focuses verification here
-- `writing.decisions.visualPlan.markdownTablesUsed` → proofreader skips image generation for these
+
+| Field | Used By | Purpose |
+|-------|---------|---------|
+| `research.differentiation.primaryDifferentiator` | outline-writer | Lead with this |
+| `research.writingAdvice.cautious` | outline-writer | Use fuzzy language |
+| `writing.decisions.sectionsToWatch.weak` | proofreader | Focus verification |
+| `writing.decisions.visualPlan.markdownTablesUsed` | proofreader | Skip image generation |
 
 ---
 

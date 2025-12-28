@@ -42,7 +42,7 @@ This document tracks all published articles for cross-referencing, internal link
   - [Angle/insight that differentiates this article]
   - [Another unique perspective used]
 - **Hook Type**: [surprising-stat/practitioner-quote/question/problem/direct]
-- **Conclusion Type**: [next-journey-step/summary/call-to-action]
+- **Conclusion Type**: [next-step/synthesis/verdict/prevention/action-checklist]
 - **Internal Links Received**: [X] (from: [article-slug-1], [article-slug-2])
 - **Linkable Anchors** (phrases other articles can link TO this one):
   - "[anchor phrase 1]"
@@ -105,10 +105,11 @@ Conclusion Rules:
 ### Conclusion Distribution (All Time)
 | Conclusion Type | Total Count | Last Used | Status |
 |-----------------|-------------|-----------|--------|
-| next-journey-step | 0 | - | - |
+| next-step | 0 | - | - |
+| synthesis | 0 | - | - |
+| verdict | 0 | - | - |
+| prevention | 0 | - | - |
 | action-checklist | 0 | - | - |
-| key-takeaways | 0 | - | - |
-| contact-cta | 0 | - | - |
 
 ### Recent Conclusion Sequence (Last 10)
 | # | Article | Conclusion Type | Date |
