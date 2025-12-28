@@ -458,10 +458,187 @@ This document serves as a pre-writing reference for educational/informational co
 
 ---
 
+## Part 4: Products & Services Context
+
+**Purpose:** Enable natural product mentions in educational content by understanding what problems each product solves and when to mention it.
+
+### Product Categories
+
+#### Category: Flow Packaging Machines (HFFS)
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Horizontal flow wrappers, pillow pack machines, flow pack systems |
+| **Problems Solved** | High-speed wrapping of individual products; creating pillow-style packages; handling products with irregular shapes |
+| **Technical Advantages** | High speed (up to 300+ ppm); handles various product sizes; clean film cutting; adjustable for different products |
+| **Applicable Standards** | CE marking, food-grade contact materials |
+| **Typical Applications** | Bakery products, biscuits, candy bars, soap, hardware items, medical devices, individual snacks |
+
+**Topic Relevance:**
+- "flow wrapping" → High relevance
+- "pillow packaging" → High relevance
+- "bakery packaging" → High relevance
+- "horizontal packaging" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Individual product wrapping | "Flow wrappers create tight, sealed pillow packages for individual items" |
+| Bakery packaging | "Horizontal flow packaging maintains product freshness while enabling high throughput" |
+| Choosing packaging methods | "Flow packaging suits products that benefit from tight, contoured wrapping" |
+
+---
+
+#### Category: Vertical Form Fill Seal (VFFS)
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Vertical packing machines, VFFS systems, multi-head weigher combinations |
+| **Problems Solved** | Packaging granular and powder products; creating bags from film roll; high-speed filling of free-flowing products |
+| **Technical Advantages** | Forms bags from roll stock; integrates with weighing systems; handles various bag styles; efficient film usage |
+| **Applicable Standards** | CE marking, food safety compliance |
+| **Typical Applications** | Snacks, chips, nuts, coffee, powders, granular products, frozen foods, pet food |
+
+**Topic Relevance:**
+- "VFFS packaging" → High relevance
+- "snack packaging" → High relevance
+- "powder packaging" → High relevance
+- "bag forming" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Packaging snacks or granules | "Vertical form fill seal machines create bags directly from film while simultaneously filling" |
+| Powder packaging | "VFFS systems with auger fillers handle powders with consistent fill weights" |
+| Bag style options | "VFFS machines can produce pillow bags, gusseted bags, or quad-seal pouches" |
+
+---
+
+#### Category: Sachet & Stick Pack Machines
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Sachet packing machines, stick pack machines, multi-lane sachet systems |
+| **Problems Solved** | Single-serve packaging; portion control; creating slim stick packs; high-volume sachet production |
+| **Technical Advantages** | Multi-lane operation for high output; precise dosing; compact footprint; suitable for liquids and powders |
+| **Applicable Standards** | CE marking, pharmaceutical GMP (where applicable) |
+| **Typical Applications** | Coffee sticks, sugar sachets, condiments, pharmaceutical powders, cosmetic samples, instant drink mixes |
+
+**Topic Relevance:**
+- "sachet packaging" → High relevance
+- "stick pack" → High relevance
+- "single serve packaging" → High relevance
+- "portion packaging" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Single-serve portions | "Sachet machines deliver precise, single-use portions in sealed pouches" |
+| Coffee or condiment packaging | "Stick pack machines create the slim, elongated packages common for coffee and sugar" |
+| High-volume small packages | "Multi-lane sachet systems multiply output by running multiple packages simultaneously" |
+
+---
+
+#### Category: Pre-made Bag Packaging
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Pre-made pouch filling machines, doypack packaging machines, stand-up pouch systems |
+| **Problems Solved** | Filling premium pre-made pouches; handling stand-up bags; zipper and spout pouches |
+| **Technical Advantages** | Handles complex pouch formats; maintains pouch aesthetics; accommodates various closures |
+| **Applicable Standards** | CE marking, food safety compliance |
+| **Typical Applications** | Pet food, dried fruits, nuts, liquid pouches, premium snacks, resealable products |
+
+**Topic Relevance:**
+- "pre-made pouch" → High relevance
+- "doypack packaging" → High relevance
+- "stand-up pouch" → High relevance
+- "zipper pouch filling" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Premium packaging formats | "Pre-made bag machines handle the complex shapes and features of premium pouches" |
+| Stand-up pouches | "Doypack filling machines maintain bag stability while filling stand-up pouches" |
+| Resealable packaging | "Pre-made pouch systems accommodate zipper closures and resealable features" |
+
+---
+
+#### Category: Complete Packaging Lines
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Feeding systems, weighing systems, packaging line integration, palletizing robots, carton packaging |
+| **Problems Solved** | End-to-end automation; integrating multiple packaging stages; material handling; case packing |
+| **Technical Advantages** | Turnkey solutions; optimized line efficiency; single-source responsibility |
+| **Applicable Standards** | CE marking, machine safety standards |
+| **Typical Applications** | Large-scale food production, integrated manufacturing, high-volume operations |
+
+**Topic Relevance:**
+- "packaging line automation" → High relevance
+- "turnkey packaging" → High relevance
+- "end-to-end packaging" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Full automation | "Complete packaging lines integrate feeding, weighing, filling, and case packing" |
+| Scaling production | "Turnkey line solutions coordinate multiple machines for optimized throughput" |
+| Reducing handling | "Integrated systems minimize manual intervention between packaging stages" |
+
+---
+
+### Product Mention Guidelines
+
+| Guideline | Rule |
+|-----------|------|
+| **Max Mentions** | 1-2 product references per article (solution-focused) |
+| **Style** | Educational, not promotional. Product is THE SOLUTION, not the hero |
+| **Placement** | Within relevant technical discussion, not intro/conclusion |
+| **Tone** | "This can be addressed by..." NOT "Our product is..." |
+| **Linking** | Link to product page only if genuinely helpful for reader |
+
+**What Makes a Good Product Mention:**
+- ✅ Appears where reader is looking for a solution
+- ✅ Phrased as industry solution, not company advertisement
+- ✅ Provides technical value (specs, capabilities)
+- ✅ Reader would find it helpful even without buying
+
+**What Makes a Bad Product Mention:**
+- ❌ Feels inserted/forced into unrelated content
+- ❌ Uses promotional language ("best", "leading", "superior")
+- ❌ Appears in intro or conclusion (too promotional)
+- ❌ Multiple mentions of same product
+
+---
+
+### Product-Topic Matching Reference
+
+| Topic Keywords | Relevant Product Category | Mention Priority |
+|----------------|---------------------------|------------------|
+| flow wrap, pillow pack, HFFS | Flow Packaging Machines | High |
+| bakery packaging, biscuit wrapping | Flow Packaging Machines | High |
+| VFFS, vertical packing, bag forming | Vertical Form Fill Seal | High |
+| snack packaging, chip bags | Vertical Form Fill Seal | High |
+| sachet, stick pack, single serve | Sachet & Stick Pack Machines | High |
+| coffee packaging, condiment portions | Sachet & Stick Pack Machines | High |
+| pre-made pouch, doypack, stand-up bag | Pre-made Bag Packaging | High |
+| pet food packaging, resealable | Pre-made Bag Packaging | High |
+| packaging line, automation, integration | Complete Packaging Lines | High |
+| palletizing, case packing | Complete Packaging Lines | Medium |
+
+---
+
 ## How to Use This Template
 
 1. **Reference Part 1** to understand Soontact's business context and product focus
 2. **Identify target audience** from Part 2 based on article topic and intent
 3. **Apply appropriate tone and style guidelines** for the selected audience
 4. **Cross-reference Part 3** for quick guidance during writing
-5. **Use with STYLE_GUIDE.md** for complete writing guidelines
+5. **Reference Part 4** for natural product mention opportunities
+6. **Use with STYLE_GUIDE.md** for complete writing guidelines

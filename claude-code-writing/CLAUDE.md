@@ -101,24 +101,51 @@ Agent writes to `output/`:
 
 ## workflowState
 
-Agents pass decisions via config file:
+Agents pass decisions via config file. Each agent adds to workflowState:
 
 ```json
 {
   "workflowState": {
     "research": {
-      "insights": { "goldenInsights": [...], "suggestedHook": "..." },
-      "writingAdvice": { "emphasize": [...], "cautious": [...] }
+      "status": "completed",
+      "summary": { "sourceCount": X, "dataPointCount": X, "competitorCount": X },
+      "competitorAnalysis": {
+        "stances": { "consensus": [...], "implicitAssumptions": [...] },
+        "dataSourcing": { "strongSources": [...], "weakClaims": [...] },
+        "terminology": { "standardTerms": {...}, "readerExpectations": "..." }
+      },
+      "insights": { "goldenInsights": [...], "quality": "high/medium/limited", "suggestedHook": "..." },
+      "differentiation": {
+        "score": "strong/moderate/weak",
+        "primaryDifferentiator": "...",
+        "irreplicableInsights": [...],
+        "avoidList": [...]
+      },
+      "writingAdvice": { "emphasize": [...], "cautious": [...], "differentiateWith": [...] },
+      "userVoices": { "audienceMatch": "...", "terminologyMap": [...], "quotableVoices": [...] },
+      "visualStrategy": { "requiredVisuals": [...], "differentiationOpportunity": "..." },
+      "authorityStrategy": { "sourcesFound": { "tier1_academic": [...], "tier4_practitioners": [...] } }
     },
     "writing": {
+      "status": "completed",
+      "outline": { "h2Count": X, "structure": [...] },
       "decisions": {
-        "hookUsed": {...},
-        "sectionsToWatch": { "strong": [...], "weak": [...] }
+        "hookUsed": { "type": "...", "content": "..." },
+        "differentiationApplied": { "primaryDifferentiatorUsed": "...", "irreplicableInsightsUsed": [...] },
+        "sectionsToWatch": { "strong": [...], "weak": [...], "differentiated": [...] },
+        "visualPlan": { "imagesNeeded": [...], "markdownTablesUsed": [...] },
+        "productMentions": { "used": [...], "count": X }
       }
     }
   }
 }
 ```
+
+**Key fields for downstream agents:**
+- `research.differentiation` → outline-writer uses for title & content differentiation
+- `research.writingAdvice.cautious` → outline-writer uses fuzzy language here
+- `writing.decisions.sectionsToWatch.weak` → proofreader focuses verification here
+- `writing.decisions.visualPlan.markdownTablesUsed` → proofreader skips image generation for these
 
 ---
 

@@ -1,0 +1,285 @@
+{
+  "meta": {
+    "createdAt": "2025-12-27T10:00:00Z",
+    "version": "1.0"
+  },
+  "article": {
+    "topic": "How to Select Mayonnaise Packaging Machines",
+    "topicTitle": "how-to-select-mayonnaise-packaging-machines",
+    "depth": "In-depth",
+    "wordCountTarget": "1500-2500",
+    "language": "English",
+    "writingAngle": "Product Properties Focus - examining mayonnaise's unique properties (viscosity, air sensitivity, emulsion stability) and how these characteristics directly influence machine selection criteria",
+    "targetIndustry": "General"
+  },
+  "company": {
+    "id": "soontact",
+    "name": "Soontact Intelligent Equipment",
+    "industry": "Automated Packaging Machinery Manufacturing",
+    "coreBusiness": "Design, manufacturing, and distribution of automated packaging solutions for global markets. With 30 years of experience, Soontact provides comprehensive packaging machinery from single machines to complete production line systems.",
+    "valueProposition": "A trusted global partner in automated packaging machinery, emphasizing reliability, customization, and comprehensive support. In-house R&D, manufacturing, and support operations ensure quality control and responsive customer service.",
+    "sitemapUrls": {
+      "posts": "https://www.soontact.com/post-sitemap.xml",
+      "pages": "https://www.soontact.com/page-sitemap.xml"
+    }
+  },
+  "audience": {
+    "type": "Practitioner / Implementer",
+    "description": "Packaging line operators, maintenance technicians, production engineers, line supervisors with 2-5 years experience",
+    "industry": "Food processing, condiment manufacturing, sauce production",
+    "knowledgeLevel": "Intermediate-Advanced",
+    "experienceRange": "2-5 years",
+    "goals": {
+      "primary": "Operate machines efficiently; troubleshoot problems; perform maintenance; optimize line performance",
+      "secondary": [
+        "Select appropriate machinery for specific product requirements",
+        "Reduce changeover time between different products",
+        "Minimize film waste and improve efficiency"
+      ]
+    },
+    "knowledge": {
+      "alreadyKnows": [
+        "Machine operation principles",
+        "Common adjustment procedures",
+        "Basic troubleshooting techniques",
+        "Safety requirements",
+        "General types of packaging machines",
+        "Basic packaging terminology"
+      ],
+      "needsToLearn": [
+        "Advanced troubleshooting methods for viscous products",
+        "Optimization techniques for speed and efficiency with mayonnaise",
+        "How product properties affect machine parameter settings",
+        "New machine features and capabilities for emulsion products",
+        "Integration with upstream/downstream equipment for sauce lines"
+      ]
+    },
+    "typicalQuestions": [
+      "Flow wrapper film tracking adjustment",
+      "VFFS machine troubleshooting",
+      "Packaging machine maintenance schedule",
+      "Jaw sealing temperature settings",
+      "Reducing film waste packaging",
+      "Changeover procedure packaging machine"
+    ],
+    "writingApproach": {
+      "tone": "Technical, precise, matter-of-fact",
+      "style": "Procedural; detailed step-by-step instructions",
+      "complexity": "High; assume technical competence; include specifications",
+      "structure": "Sequential steps; specifications; troubleshooting tables",
+      "wordChoice": "Full technical vocabulary; use industry shorthand freely"
+    },
+    "guidelines": {
+      "do": [
+        "Use imperative instructions: 'Adjust the temperature to 160C +/-5C'",
+        "Provide conditional troubleshooting: 'If film tracking drifts left, adjust the web guide...'",
+        "Include specific parameters and tolerances",
+        "Add safety warnings: 'CAUTION: Allow machine to cool before adjusting sealing bars'",
+        "Connect machine capabilities to mayonnaise-specific requirements"
+      ],
+      "dont": [
+        "Over-explain basic machine operation principles",
+        "Use vague instructions without specific values",
+        "Skip safety precautions or warning labels",
+        "Ignore the unique challenges of viscous, air-sensitive products"
+      ]
+    }
+  },
+  "searchIntent": {
+    "type": "Commercial",
+    "category": "Decision-support",
+    "userContext": {
+      "situation": "Production engineer or line supervisor tasked with selecting or upgrading packaging equipment for a mayonnaise production line. They understand general packaging principles but need guidance on how mayonnaise's specific properties affect machine requirements.",
+      "currentState": "Uncertain which filling system, sealing method, and machine configuration will best handle mayonnaise's high viscosity, air sensitivity, and emulsion stability requirements. May have experienced issues with current equipment (air pockets, inconsistent fill weights, emulsion breakdown).",
+      "desiredState": "Confident understanding of how mayonnaise properties translate to specific machine requirements, enabling informed equipment selection that prevents product quality issues and optimizes production efficiency."
+    },
+    "coreQuestion": "What specific machine features and configurations are required to package mayonnaise effectively, given its unique product properties?",
+    "implicitQuestions": [
+      "What filling system handles high-viscosity emulsions without introducing air?",
+      "How do I prevent mayonnaise separation during the filling process?",
+      "What sealing parameters work best for mayonnaise packaging?",
+      "Should I use VFFS, rotary fill-seal, or pre-made pouch systems for mayonnaise?",
+      "What are the key specifications to compare when evaluating mayonnaise packaging machines?"
+    ],
+    "expectedContent": {
+      "type": "Guide",
+      "format": "Step-by-step with comparison tables",
+      "depth": "Practical how-to"
+    },
+    "successCriteria": "Reader can evaluate packaging machine options against mayonnaise-specific requirements, identify which filling systems and configurations address viscosity/air sensitivity concerns, and make informed procurement or upgrade decisions."
+  },
+  "workflowState": {
+    "research": {
+      "status": "completed",
+      "completedAt": "2025-12-27T10:45:00Z",
+      "summary": {
+        "sourceCount": 18,
+        "dataPointCount": 20,
+        "competitorCount": 3
+      },
+      "insights": {
+        "goldenInsights": [
+          {
+            "insight": "At shear rate of 100 s-1, mayonnaise emulsion structure is irreversibly damaged - explains why pump selection prevents permanent product damage",
+            "source": "PMC research",
+            "suggestedUse": "hook"
+          },
+          {
+            "insight": "Traditional mayo yield stress (360 Pa) is 12x higher than low-fat (30 Pa) - different products need different machines",
+            "source": "Brookfield",
+            "suggestedUse": "section-opener"
+          },
+          {
+            "insight": "Nitrogen exclusion more effective than antioxidants for preventing rancidity",
+            "source": "ScienceDirect",
+            "suggestedUse": "closing"
+          },
+          {
+            "insight": "Piston pumps require cylinder grease that creates hygiene concerns for food - hidden trade-off with precision",
+            "source": "Zonesun",
+            "suggestedUse": "counter-intuitive"
+          }
+        ],
+        "quality": "high",
+        "suggestedHook": "problem"
+      },
+      "differentiation": {
+        "score": "strong",
+        "primaryDifferentiator": "Product-centric selection framework starting with mayonnaises unique rheological properties (viscosity, thixotropy, shear sensitivity) and mapping to machine features - competitors list equipment without explaining why",
+        "irreplicableInsights": [
+          {
+            "insight": "Shear damage threshold at 100 s-1 destroys emulsion structure irreversibly",
+            "sourceType": "academic-research",
+            "source": "PMC",
+            "intentAlignment": "aligned"
+          },
+          {
+            "insight": "Traditional mayo yield stress 360 Pa vs low-fat 30 Pa affects pump sizing",
+            "sourceType": "lab-data",
+            "source": "Brookfield",
+            "intentAlignment": "aligned"
+          },
+          {
+            "insight": "Piston fillers require cylinder grease - hygiene concern vs rotary lobe pumps",
+            "sourceType": "practitioner",
+            "source": "Industry sources",
+            "intentAlignment": "aligned"
+          }
+        ],
+        "avoidList": [
+          "Equipment catalog approach listing machines without product context",
+          "Generic handles viscous products claims without specifications",
+          "Ignoring shear sensitivity and emulsion stability"
+        ]
+      },
+      "gaps": {
+        "data": [
+          "Specific fill speed benchmarks for different viscosities",
+          "Cost comparison data between pump types"
+        ],
+        "coverage": [
+          "Competitors miss air incorporation/aeration prevention",
+          "No discussion of shear damage to emulsion",
+          "Temperature control requirements absent",
+          "CIP requirements for protein/fat products minimal"
+        ]
+      },
+      "controversies": [
+        "Piston filler precision vs hygiene trade-off",
+        "Glass vs PET for oxygen barrier effectiveness"
+      ],
+      "coreThesis": "Mayonnaises unique rheological properties - high viscosity (3000-4500 cP), thixotropic behavior, shear-sensitive emulsion structure, and oxygen vulnerability - demand specific machine features that generic viscous product equipment often fails to address",
+      "writingAdvice": {
+        "emphasize": [
+          "Viscosity specifications and why they matter (3000-4500 cP)",
+          "Shear sensitivity and pump selection consequences",
+          "Air incorporation prevention methods",
+          "Temperature pathway control",
+          "Pump comparison table with accuracy and hygiene"
+        ],
+        "cautious": [
+          "Specific fill speed benchmarks - data limited",
+          "Cost comparisons between equipment types"
+        ],
+        "differentiateWith": [
+          "Product properties as selection framework (not machine catalog)",
+          "Actual specifications (cP, Pa, accuracy percentages)",
+          "Shear damage irreversibility explanation",
+          "Piston filler hygiene trade-off disclosure"
+        ]
+      }
+    },
+    "writing": {
+      "status": "completed",
+      "completedAt": "2025-12-27T11:30:00Z",
+      "outline": {
+        "h2Count": 6,
+        "structure": [
+          "What Makes Mayonnaise Different from Other Viscous Products?",
+          "Which Filling System Protects Mayonnaise's Emulsion Structure?",
+          "How Does Temperature Affect Mayonnaise Filling Performance?",
+          "What Features Prevent Air Incorporation During Filling?",
+          "Which Packaging Format Works Best for Mayonnaise?",
+          "What Sanitary Design Standards Apply to Mayonnaise Packaging?"
+        ],
+        "introFramework": "PAS (Problem Hook)",
+        "conclusionType": "Next Journey Step"
+      },
+      "execution": {
+        "actualWordCount": 1850,
+        "internalLinksUsed": 3,
+        "dataPointsUsed": 15
+      },
+      "decisions": {
+        "hookUsed": {
+          "type": "problem",
+          "content": "At shear rate of 100 s-1, mayonnaise's emulsion structure is irreversibly damaged - leads with irreversible consequence of wrong equipment selection"
+        },
+        "differentiationApplied": {
+          "primaryDifferentiatorUsed": "Product-first framework: opened with why mayonnaise is unique (rheological properties) before discussing equipment; every section maps product requirements to machine features",
+          "irreplicableInsightsUsed": [
+            {"insight": "Shear damage threshold at 100 s-1", "location": "Introduction hook and Filling System section"},
+            {"insight": "Yield stress 360 Pa vs 30 Pa (12x difference)", "location": "Mayonnaise Properties section"},
+            {"insight": "Piston filler grease hygiene concern", "location": "Filling System section as counter-intuitive trade-off"},
+            {"insight": "Nitrogen more effective than antioxidants", "location": "Air Incorporation section"}
+          ],
+          "avoidedPatterns": [
+            "Did not use equipment catalog approach - led with product properties",
+            "Avoided generic 'handles viscous products' - included specific cP values",
+            "Addressed shear sensitivity and emulsion stability directly"
+          ],
+          "titleDifferentiation": "Title includes 'Product-First Approach to Protect Emulsion Quality' - signals unique angle vs generic 'Selection Guide' titles"
+        },
+        "opinionsIncluded": [
+          "H2-1 (Mayonnaise Properties): Don't treat mayonnaise as 'just another viscous product' - its emulsion structure demands specific handling",
+          "H2-2 (Filling System): Rotary lobe pumps often outperform piston fillers despite lower accuracy specs due to hygiene and gentle handling",
+          "H2-3 (Temperature): Temperature control is non-negotiable - machines without pathway heating create ongoing operational problems",
+          "H2-4 (Air Incorporation): Nitrogen flushing more effective than antioxidants - 20-30% shelf life extension achievable",
+          "H2-5 (Packaging Format): PET with oxygen scavenger now matches glass performance at lower weight and cost",
+          "H2-6 (Sanitary Design): Don't underestimate CIP requirements - mayo's protein/fat content means more aggressive cleaning"
+        ],
+        "sectionsToWatch": {
+          "strong": [
+            "Filling System section - strong data on accuracy specs and shear threshold",
+            "Mayonnaise Properties section - good viscosity and yield stress data",
+            "Air Incorporation section - nitrogen flushing data solid"
+          ],
+          "weak": [
+            "Packaging Format section - environmental claims (58% less fossil fuel) need source verification",
+            "Temperature section - limited on specific temperature values"
+          ],
+          "differentiated": [
+            "Introduction - uses irreplicable shear damage insight",
+            "Filling System - pump hygiene trade-off rarely disclosed by competitors",
+            "Mayonnaise Properties - specific yield stress comparison (360 Pa vs 30 Pa)"
+          ]
+        },
+        "internalLinks": [
+          {"anchor": "Nitrogen flushing in food packaging", "url": "https://soontact.com/how-to-nitrogen-flushing-in-food-packaging/"},
+          {"anchor": "type of sauce packaging", "url": "https://soontact.com/types-of-sauce-packaging/"},
+          {"anchor": "types of form fill seal machines", "url": "https://soontact.com/types-of-form-fill-seal-ffs-machines/"}
+        ]
+      }
+    }
+  }
+}

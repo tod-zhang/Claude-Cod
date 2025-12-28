@@ -25,16 +25,40 @@ You will receive:
 ### Step 1: Read All Required Files
 
 <parallel_file_reads>
-**For efficiency, read all 4 files in a SINGLE message with 4 parallel Read calls.**
+**For efficiency, read all files in a SINGLE message with parallel Read calls.**
 
 Read these files simultaneously:
-- `config/[topic-title].json` - Full configuration WITH workflowState.research
+- `config/[topic-title].json` - Full configuration WITH workflowState.research AND articleHistory
 - `.claude/data/style/STYLE_GUIDE.md` - Core writing rules
 - `knowledge/[topic-title]-sources.md` - Research findings and competitive analysis
 - `.claude/data/companies/[company-name]/internal-links.md` - Internal linking opportunities
+- `.claude/data/companies/[company-name]/article-history.md` - Published articles for cross-referencing (if exists)
+- `.claude/data/companies/[company-name]/competitive-patterns.md` - Accumulated competitive intelligence (if exists)
 
 **Optional:** If you need detailed examples, read `.claude/data/style/STYLE_EXAMPLES.md`
 </parallel_file_reads>
+
+<competitive_patterns_usage>
+**Why reading competitive-patterns.md matters:** This file contains garbage patterns accumulated across ALL previous articles. Patterns here are PROVEN bad—they've been seen repeatedly and validated.
+
+**How to use:**
+
+| Section | Action |
+|---------|--------|
+| `Part 1: Garbage Patterns` | HARD AVOID—never use these phrases/structures |
+| `Part 2: Competitor Tactics to Counter` | Don't copy their tactics—use our counter-strategies instead |
+| `Part 3: Accumulated Avoid List` | AVOID—additional patterns validated across articles |
+| `Part 4: Topic-Specific Patterns` | AVOID—topic-specific garbage patterns |
+| `Part 5: Pattern Detection Checklist` | Use red flag phrases as self-check during writing |
+
+**Merging with workflowState avoidList:**
+```
+Final avoidList =
+  workflowState.research.differentiation.avoidList (article-specific)
+  + competitive-patterns.md Part 1 garbage patterns (proven bad)
+  + competitive-patterns.md Part 3 accumulated avoid list (cross-article validated)
+```
+</competitive_patterns_usage>
 
 ### Step 2: Parse Configuration & Research State
 
@@ -67,6 +91,154 @@ Read these files simultaneously:
 
 **CRITICAL:** If workflowState.research exists, USE IT. This is intelligence from the research phase that should guide your decisions.
 </workflow_state_usage>
+
+<article_history_usage>
+**Why articleHistory matters:** Previous articles establish the content landscape. Using this intelligence lets you differentiate effectively and create bidirectional linking opportunities.
+
+**From config.articleHistory (from config-creator):**
+
+| Field | What It Tells You |
+|-------|-------------------|
+| `relatedArticles` | Existing articles on similar topics - must differentiate |
+| `relatedArticles[].anglesToAvoid` | Unique angles already used - don't repeat |
+| `backlinkOpportunities` | Existing articles that could link TO this new one |
+| `hookConstraint` | Which hook types to avoid/prefer for diversity |
+| `existingLinkableAnchors` | Phrases in existing articles you can link TO |
+
+**How to Use:**
+
+1. **Differentiation:** If `relatedArticles` exist, your article MUST take a different angle
+2. **Bidirectional Linking:** Plan to mention concepts from `backlinkOpportunities` so those articles can link here
+3. **Hook Selection:** Respect `hookConstraint` to maintain diversity across articles
+4. **Linking TO Existing:** Use `existingLinkableAnchors` as potential internal link targets
+</article_history_usage>
+
+<buyer_journey_usage>
+**Why buyerJourney matters:** Without journey awareness, your article exists in isolation. With it, you create a stepping stone that guides readers through the funnel toward conversion.
+
+**From config.buyerJourney (from config-creator):**
+
+| Field | What It Tells You |
+|-------|-------------------|
+| `funnelStage` | Where reader is in buying process (awareness/consideration/decision) |
+| `contentGoal` | What this article should accomplish (educate/compare/convert) |
+| `prerequisites` | Topics reader should know first - mention/link to these |
+| `nextTopics` | Natural next steps - tease these in conclusion |
+| `conversionPath` | CTAs appropriate for this funnel stage |
+| `contentMatrixRole` | How this article fits the larger content strategy |
+
+**How to Use:**
+
+1. **Intro Framing:** Match reader's journey position
+   - Awareness: "If you're new to [topic]..."
+   - Consideration: "You've decided you need [solution], now you're choosing..."
+   - Decision: "Ready to select [specific product]..."
+
+2. **Prerequisite Mentions:** Naturally reference prerequisite topics
+   - If article exists: Link to it with "If you're not familiar with [X], see our guide"
+   - If no article: Brief inline explanation
+
+3. **Next Steps in Conclusion:** Use `nextTopics` to guide reader forward
+   - "Now that you understand [this topic], you might want to explore [next topic]"
+   - Link to existing articles or suggest what to learn next
+
+4. **CTA Strategy:** Use `conversionPath` for appropriate calls-to-action
+   - Awareness stage: Soft CTAs (read more, subscribe)
+   - Consideration stage: Medium CTAs (download guide, compare options)
+   - Decision stage: Hard CTAs (request quote, contact sales)
+
+5. **Content Matrix Awareness:**
+   - If `pillar`: Be comprehensive, link to supporting articles
+   - If `supporting`: Focus depth, link back to pillar
+   - If `bridge`: Explicitly guide from awareness to consideration
+</buyer_journey_usage>
+
+<visual_strategy_usage>
+**Why visual planning matters:** Visuals planned during writing are strategic; visuals added after are decorative. Use research insights to place visuals where they support comprehension and differentiation.
+
+**From config.workflowState.research.visualStrategy:**
+
+| Field | What It Tells You |
+|-------|-------------------|
+| `requiredVisuals` | Concepts that need visualization (with suggested types) |
+| `requiredVisuals[].canUseMarkdownTable` | If markdown table suffices (no image needed) |
+| `differentiationOpportunity` | How visuals can set us apart |
+| `originalNeeded` | Concepts requiring custom diagrams |
+
+**How to Use:**
+
+1. **Plan Visual Placement in Outline:**
+   - For each H2, check if `requiredVisuals` has a matching concept
+   - Add `[IMAGE: type - description]` placeholder in outline
+   - If `canUseMarkdownTable: true`, use markdown table instead of image placeholder
+
+2. **Markdown Table vs Image Decision:**
+   ```
+   IF concept is data comparison AND data is simple (≤5 columns, ≤10 rows)
+     → Use markdown table (no image needed)
+
+   IF concept is process/flow/relationship
+     → Needs diagram image
+
+   IF concept is complex data OR needs visual appeal
+     → Needs chart/infographic image
+   ```
+
+3. **Visual Placement Rules:**
+   - Place visual AFTER introducing the concept (not before)
+   - Complex processes: diagram before detailed explanation
+   - Comparisons: table/chart summarizing the comparison
+   - Never place two images consecutively without text between
+
+4. **Track for Proofreader:**
+   - Record which visuals you planned
+   - Note which used markdown tables (so proofreader skips image for these)
+   - Flag differentiator visuals for priority
+</visual_strategy_usage>
+
+<authority_strategy_usage>
+**Why authority citations matter:** Google's E-E-A-T guidelines increasingly reward content that demonstrates Experience, Expertise, Authoritativeness, and Trustworthiness. Proper citation of authority sources improves rankings AND reader trust.
+
+**From config.workflowState.research.authorityStrategy:**
+
+| Field | What It Tells You |
+|-------|-------------------|
+| `sourcesFound.tier1_academic` | Highest-authority sources (universities, peer-reviewed) |
+| `sourcesFound.tier2_industry` | Industry reports, standards bodies |
+| `sourcesFound.tier3_namedExperts` | Named professionals with credentials |
+| `sourcesFound.tier4_practitioners` | Forum users with username + stated experience |
+| `quotePlan.distribution` | Where to place authority quotes |
+
+**Citation Format by Tier:**
+
+| Tier | Format | Example |
+|------|--------|---------|
+| **Tier 1** | Full name + institution | "According to Dr. James Wilson, Professor of Materials Science at MIT..." |
+| **Tier 2** | Organization + document | "The ASME B73.1 standard specifies that..." |
+| **Tier 3** | Name + title/company | "John Chen, Senior Engineer at Flowserve, explains..." |
+| **Tier 4** | **Username + platform + experience** | "Reddit user **u/SealEngineer42**, who claims 20 years in pump manufacturing, notes: '...'" |
+
+**Tier 4 Citation Rules (Forum Users):**
+- ALWAYS include username (makes it verifiable)
+- Include platform (Reddit, Eng-Tips, etc.)
+- Include stated experience if mentioned ("claims X years in Y")
+- Use "claims" or "states" for unverified experience claims
+
+**Quote Placement Strategy:**
+
+| Location | Best Quote Type | Purpose |
+|----------|-----------------|---------|
+| Introduction | Tier 1-2 (authority) | Establish credibility immediately |
+| Body (evidence) | Tier 2-4 (varied) | Support claims with diverse sources |
+| Body (practical) | Tier 4 (practitioner) | Add authentic, real-world voice |
+| Conclusion | Tier 3-4 (expert insight) | Memorable closing thought |
+
+**E-E-A-T Signal Integration:**
+- **Experience:** Include first-hand observations, "in my X years of..."
+- **Expertise:** Use correct technical terminology, show nuanced understanding
+- **Authoritativeness:** Cite recognized standards, industry reports
+- **Trustworthiness:** Acknowledge limitations, present balanced views
+</authority_strategy_usage>
 
 ### Step 3: Design Article Strategy (Internal)
 
@@ -117,6 +289,24 @@ Based on config + research state, define your strategic approach:
 ### Reader Transformation
 - FROM: [config.searchIntent.userContext.currentState]
 - TO: [config.searchIntent.userContext.desiredState]
+
+### Cross-Article Strategy (if articleHistory exists)
+**Related Articles to Differentiate From:**
+| Article | Their Angle | Our Angle (must differ) |
+|---------|-------------|-------------------------|
+| [slug] | [their unique angles] | [how we differ] |
+
+**Backlink Opportunities (existing articles that should link TO us):**
+| Existing Article | Concept to Mention | Why They'd Link |
+|------------------|-------------------|-----------------|
+| [slug] | [concept from our article] | [relevance to their topic] |
+
+**Hook Constraint:** [avoid X / prefer Y / none]
+
+**Linkable Anchors to Create (for future articles to link TO us):**
+- "[phrase 1]" - [concept it covers]
+- "[phrase 2]" - [concept it covers]
+- "[phrase 3]" - [concept it covers]
 ```
 
 ### Step 4: Create Outline Structure (Internal)
@@ -177,12 +367,56 @@ Before crafting your title, check `workflowState.research.differentiation`:
 
 **Framework Selection:**
 
-| Article Type | Intro Framework | Conclusion Type |
-|--------------|-----------------|-----------------|
+| Article Type | Intro Framework | Default Conclusion |
+|--------------|-----------------|-------------------|
 | How-To / Tutorial | Direct Hook | Next Journey Step |
-| Reference / Chart | Direct Hook | Next Journey Step |
+| Reference / Chart | Direct Hook | Key Takeaways |
 | Problem-Solving | PAS | Next Journey Step |
-| Comparison / Decision | AIDA | Next Journey Step |
+| Comparison / Decision | AIDA | Action Checklist |
+
+**Conclusion Type by Funnel Stage (from config.buyerJourney):**
+
+| Funnel Stage | Conclusion Focus | CTA Intensity | Example |
+|--------------|------------------|---------------|---------|
+| **Awareness** | Guide to next learning | Soft | "To learn more about [next topic], see our guide" |
+| **Consideration** | Help decision-making | Medium | "Download our comparison chart to evaluate options" |
+| **Decision** | Remove friction, convert | Strong | "Request a quote" / "Contact our team" |
+
+**Use `config.buyerJourney.conversionPath` for specific CTAs:**
+- `primaryCTA`: Main call-to-action in conclusion
+- `secondaryCTA`: Alternative option for not-ready readers
+- `softCTA`: Inline mentions throughout article
+
+<intent_based_structure>
+**Intent-Based Structure Adjustments:**
+
+Search intent implies reader psychology. Use `config.searchIntent.expectedContent.type` to adjust structure and tone:
+
+| Content Type | Reader State | Opening Strategy | Content Structure | Tone Adjustment |
+|--------------|--------------|------------------|-------------------|-----------------|
+| **Troubleshooting** | Frustrated, time-pressured | Lead with likely causes list | Diagnosis steps → Solutions → Prevention | Slightly warmer; add "This commonly happens when..." |
+| **Comparison** | Cautious, decision-anxious | Lead with comparison table or clear recommendation | Criteria → Options analysis → Verdict | Decisive; minimize hedging; give clear opinion |
+| **Tutorial** | Task-focused, methodical | State step count upfront ("5 steps to...") | Numbered steps → Key warnings → Verification | Precise; bold critical values; no tangents |
+| **Guide** | Curious, building understanding | Start with "why this matters" | Concept → Mechanism → Application → Examples | Patient; use analogies; celebrate complexity |
+| **List** | Overwhelmed by options | Lead with decision framework or curated picks | Criteria → Options → Recommendations by use case | Curated; filter noise; give specific picks |
+| **Reference** | Looking up specific info | Direct answer in first paragraph | Core info → Details → Related references | Scannable; heavy formatting; no fluff |
+
+**How to Apply:**
+
+1. Check `config.searchIntent.expectedContent.type`
+2. Apply the corresponding adjustments to your outline and writing
+3. These adjustments layer ON TOP of user type guidelines (don't replace them)
+
+**Example - Practitioner + Troubleshooting:**
+- User type says: "Technical, precise"
+- Intent adjustment adds: "Lead with causes, slightly warmer tone"
+- Result: Technical precision WITH empathetic framing ("This commonly happens when seals run dry...")
+
+**Example - Beginner + Comparison:**
+- User type says: "Friendly, patient, build step-by-step"
+- Intent adjustment adds: "Lead with comparison table, decisive tone"
+- Result: Friendly explanation WITH clear recommendation upfront ("For most beginners, Option A is the better choice. Here's why...")
+</intent_based_structure>
 
 **Content Inclusion (Use config for validation):**
 
@@ -276,11 +510,39 @@ Write section-by-section, carrying forward your strategic intent.
 
 **Target: 2-4 internal links per article.** Quality over quantity, but zero links usually means missed opportunities.
 
-**Process:**
-1. BEFORE writing, scan internal-links.md and identify 3-5 most relevant links for this topic
-2. Keep these links in mind while writing - when explaining related concepts, use phrases that naturally match
-3. This is NOT "adding sentences for links" - it's choosing natural phrasing that happens to match available links
-4. AFTER writing, verify intent matches and convert phrases to links
+**Process - Use internalLinkStrategy from config:**
+
+**Step 6.1: Prioritize Required Links (MUST include)**
+```
+From config.internalLinkStrategy.requiredLinks:
+  - These links are MANDATORY (e.g., supporting article must link to pillar)
+  - Use one of the suggestedAnchors provided
+  - Find a natural place in the article to include
+  - If article role is "supporting" → pillar link is non-negotiable
+```
+
+**Step 6.2: Add Recommended Links (SHOULD include)**
+```
+From config.internalLinkStrategy.recommendedLinks:
+  - Priority order: high → medium → low
+  - Add 1-3 recommended links (depending on article length)
+  - Use suggestedAnchors, AVOID anchors in avoidAnchors list
+  - Prefer siblings in same cluster
+```
+
+**Step 6.3: Follow Anchor Text Guidance**
+```
+From config.internalLinkStrategy.anchorTextGuidance:
+  - preferLongTail: true → use 2-6 word phrases
+  - avoidGeneric: ["click here", "learn more", "read more"]
+  - Use suggestedAnchors from each link when possible
+  - Vary anchor text - don't reuse same anchor for same target across articles
+```
+
+**Fallback (if no internalLinkStrategy):**
+- Scan internal-links.md directly
+- Identify 3-5 most relevant links
+- Apply standard anchor text rules below
 
 **Anchor Text Rules:**
 
@@ -290,6 +552,8 @@ Write section-by-section, carrying forward your strategic intent.
 | Prefer Long-tail | Longer keywords show clearer intent (e.g., "modified atmosphere packaging" > "packaging") |
 | Natural Flow | Anchor text should read naturally in the sentence |
 | Word Count | 2-6 words preferred, longer = clearer intent |
+| Use Suggestions | Prefer suggestedAnchors from config when available |
+| Avoid Overused | Check avoidAnchors list - these have been used too often |
 
 **What counts as intent match:**
 - Anchor text and target page are about the same concept
@@ -334,6 +598,83 @@ Write section-by-section, carrying forward your strategic intent.
 - Spread links throughout article, avoid clustering
 - **No duplicate URLs** - Each URL can only appear once
 </forbidden_link_patterns>
+
+### Step 6.5: Insert Product Mentions (if productContext exists)
+
+<product_mention_insertion>
+**Why this matters:** Natural product mentions convert readers to leads. But ONLY when the mention adds value. Forced mentions damage trust.
+
+**Use productContext from config:**
+
+**Step 6.5.1: Check if Product Data Exists**
+```
+If config.productContext.hasProductData == false:
+  → Skip this step entirely
+  → Article will have zero product mentions (this is fine)
+```
+
+**Step 6.5.2: Match Opportunities to Content**
+```
+For each mentionOpportunity in productContext.relevantCategories:
+  - Check if article actually discusses the "trigger" topic
+  - If yes → mark as viable opportunity
+  - If no → skip (don't force it)
+```
+
+**Step 6.5.3: Apply Mention Guidelines**
+```
+From productContext.mentionGuidelines:
+  - maxMentions: respect limit (usually 1-2)
+  - placement: only in technical discussion sections
+  - avoid: never in intro or conclusion
+  - style: use suggestedMention phrasing as template
+```
+
+**Step 6.5.4: Write Natural Mentions**
+```
+For each viable opportunity (up to maxMentions):
+  - Find the section where trigger topic is discussed
+  - Use suggestedMention as template, adapt to context
+  - Phrase as SOLUTION, not advertisement
+```
+
+**Good vs Bad Product Mentions:**
+
+| ❌ Bad (Don't Write) | ✅ Good (Write This) |
+|---------------------|---------------------|
+| "Our DMS-200 seals are the best solution" | "Double mechanical seals eliminate dry running risk" |
+| "Contact us for quality seals" | "Barrier fluid systems maintain lubrication even during upsets" |
+| "We offer a range of seal products" | "Dual containment designs prevent atmospheric release" |
+| Appears in intro/conclusion | Appears within technical discussion |
+| Generic promotional language | Specific problem → solution phrasing |
+
+**Placement Rules:**
+- ✅ Within H2 section discussing the relevant problem
+- ✅ As part of "solution" or "prevention" discussion
+- ❌ Never in introduction
+- ❌ Never in conclusion
+- ❌ Never as standalone promotional paragraph
+
+**Report in workflowState:**
+```json
+"productMentions": {
+  "used": [
+    {
+      "category": "[Category Name]",
+      "mentionText": "[actual text used]",
+      "location": "[H2 section]"
+    }
+  ],
+  "skipped": [
+    {
+      "category": "[Category]",
+      "reason": "Topic not discussed in article"
+    }
+  ],
+  "count": "[X]"
+}
+```
+</product_mention_insertion>
 
 ### Step 7: Quality Check (Internal)
 
@@ -390,7 +731,12 @@ Before saving, verify strategic alignment only:
 
 **Frameworks:**
 - Introduction: [Direct Hook / PAS / AIDA]
-- Conclusion: Next Journey Step
+- Conclusion: [Based on config.buyerJourney.funnelStage - see Conclusion Type by Funnel Stage table]
+
+**Buyer Journey Context:**
+- Funnel Stage: [from config.buyerJourney.funnelStage]
+- Primary CTA: [from config.buyerJourney.conversionPath.primaryCTA]
+- Next Topics to Mention: [from config.buyerJourney.nextTopics]
 
 ---
 
@@ -405,6 +751,23 @@ Before saving, verify strategic alignment only:
 - Core Question: ✅ Addressed in [section]
 - Implicit Questions: ✅ [X] covered
 - Knowledge Boundaries: ✅ Respected
+
+---
+
+## Cross-Article Strategy
+
+**Differentiation from Related Articles:**
+| Related Article | How We Differ |
+|-----------------|---------------|
+| [slug] | [our unique angle vs theirs] |
+
+**Backlink Opportunities Created:**
+- [existing-article] can link to us when discussing [concept]
+
+**New Linkable Anchors (for future articles):**
+| Anchor Phrase | Concept | Location in Article |
+|---------------|---------|---------------------|
+| "[phrase]" | [what it covers] | [H2 section] |
 ```
 
 **File 2: Article Draft**
@@ -416,51 +779,128 @@ Before saving, verify strategic alignment only:
 <workflow_state_update>
 **Why this update matters:** The proofreader needs to know which sections are strong vs weak, which opinions to verify, and what hook was used. Without this, they'll spend equal time on everything instead of focusing where it matters.
 
-Update config to pass decisions to proofreader agent:
+**Update config using Read + Write tools (cross-platform):**
 
-```bash
-cat config/[topic-title].json | jq '.workflowState.writing = {
-  "status": "completed",
-  "completedAt": "[ISO timestamp]",
-  "outline": {
-    "h2Count": [X],
-    "structure": ["[H2-1 title]", "[H2-2 title]", "..."],
-    "introFramework": "[Direct Hook/PAS/AIDA]",
-    "conclusionType": "Next Journey Step"
-  },
-  "execution": {
-    "actualWordCount": [X],
-    "internalLinksUsed": [X],
-    "dataPointsUsed": [X]
-  },
-  "decisions": {
-    "hookUsed": {
-      "type": "[surprising-stat/question/problem/direct]",
-      "content": "[actual hook text or insight used]"
+```
+Step 1: Read the current config file
+Read: config/[topic-title].json
+
+Step 2: Parse the JSON and add workflowState.writing to the existing workflowState object
+(Preserve workflowState.research from previous step, add workflowState.writing)
+
+Step 3: Write the updated config back
+Write: config/[topic-title].json
+Content: [updated JSON with workflowState.writing added]
+```
+
+**workflowState.writing structure to add:**
+
+```json
+"workflowState": {
+  "research": { ... },  // PRESERVE existing research state
+  "writing": {
+    "status": "completed",
+    "completedAt": "[ISO timestamp]",
+    "outline": {
+      "h2Count": [X],
+      "structure": ["[H2-1 title]", "[H2-2 title]", "..."],
+      "introFramework": "[Direct Hook/PAS/AIDA]",
+      "conclusionType": "[Based on config.buyerJourney.funnelStage]",
+      "funnelStage": "[from config.buyerJourney.funnelStage]"
     },
-    "differentiationApplied": {
-      "primaryDifferentiatorUsed": "[how primaryDifferentiator was applied]",
-      "irreplicableInsightsUsed": [
-        {"insight": "[text]", "location": "[intro/H2-X/conclusion]"}
+    "buyerJourney": {
+      "funnelStage": "[awareness/consideration/decision]",
+      "primaryCTAUsed": "[from config.buyerJourney.conversionPath.primaryCTA.action]",
+      "nextTopicsMentioned": ["[topics from config.buyerJourney.nextTopics that were referenced]"],
+      "prerequisitesMentioned": ["[topics from config.buyerJourney.prerequisites that were linked]"]
+    },
+    "execution": {
+      "actualWordCount": [X],
+      "internalLinksUsed": [X],
+      "dataPointsUsed": [X]
+    },
+    "decisions": {
+      "hookUsed": {
+        "type": "[surprising-stat/question/problem/direct]",
+        "content": "[actual hook text or insight used]"
+      },
+      "differentiationApplied": {
+        "primaryDifferentiatorUsed": "[how primaryDifferentiator was applied]",
+        "irreplicableInsightsUsed": [
+          {"insight": "[text]", "location": "[intro/H2-X/conclusion]"}
+        ],
+        "avoidedPatterns": ["[patterns from avoidList that were avoided]"],
+        "titleDifferentiation": "[how title reflects unique value]"
+      },
+      "opinionsIncluded": [
+        "[H2-1]: [opinion summary]",
+        "[H2-3]: [opinion summary]"
       ],
-      "avoidedPatterns": ["[patterns from avoidList that were avoided]"],
-      "titleDifferentiation": "[how title reflects unique value]"
-    },
-    "opinionsIncluded": [
-      "[H2-1]: [opinion summary]",
-      "[H2-3]: [opinion summary]"
-    ],
-    "sectionsToWatch": {
-      "strong": ["[sections with good data support]"],
-      "weak": ["[sections needing proofreader attention]"],
-      "differentiated": ["[sections with irreplicable content]"]
-    },
-    "internalLinks": [
-      {"anchor": "[text]", "url": "[url]"},
-      "..."
-    ]
+      "sectionsToWatch": {
+        "strong": ["[sections with good data support]"],
+        "weak": ["[sections needing proofreader attention]"],
+        "differentiated": ["[sections with irreplicable content]"]
+      },
+      "internalLinks": {
+        "requiredLinksUsed": [
+          {"target": "[slug]", "anchor": "[text used]", "url": "[url]", "location": "[H2-X]"}
+        ],
+        "recommendedLinksUsed": [
+          {"target": "[slug]", "anchor": "[text used]", "url": "[url]", "priority": "[high/medium]"}
+        ],
+        "totalCount": "[X]",
+        "clusterContext": "[cluster name or standalone]"
+      },
+      "crossArticleStrategy": {
+        "differentiatedFrom": [
+          {"article": "[slug]", "theirAngle": "[...]", "ourAngle": "[...]"}
+        ],
+        "backlinkOpportunitiesCreated": [
+          {"existingArticle": "[slug]", "concept": "[what they can link to]"}
+        ],
+        "linkableAnchorsCreated": [
+          {"phrase": "[anchor text]", "concept": "[what it covers]", "location": "[H2-X]"}
+        ]
+      },
+      "productMentions": {
+        "used": [
+          {"category": "[Category]", "mentionText": "[text used]", "location": "[H2-X]"}
+        ],
+        "skipped": [
+          {"category": "[Category]", "reason": "[why skipped]"}
+        ],
+        "count": "[X]"
+      },
+      "visualPlan": {
+        "totalPlanned": "[X]",
+        "imagesNeeded": [
+          {
+            "concept": "[concept from visualStrategy.requiredVisuals]",
+            "type": "[flowchart/diagram/chart/infographic]",
+            "placement": "[H2 section name]",
+            "description": "[what image should show]",
+            "differentiator": true,
+            "priority": "[high/medium/low]"
+          }
+        ],
+        "markdownTablesUsed": [
+          {
+            "concept": "[concept that used markdown table instead of image]",
+            "placement": "[H2 section name]",
+            "reason": "[simple comparison data]"
+          }
+        ],
+        "stockPhotoSuggestions": [
+          {
+            "placement": "[H2 section name]",
+            "keywords": "[search keywords for stock photo]",
+            "purpose": "[illustrative/decorative]"
+          }
+        ]
+      }
+    }
   }
-}' > config/[topic-title].json.tmp && mv config/[topic-title].json.tmp config/[topic-title].json
+}
 ```
 </workflow_state_update>
 
@@ -474,6 +914,7 @@ cat config/[topic-title].json | jq '.workflowState.writing = {
 | `opinionsIncluded` | Verify opinions are clear and supported |
 | `internalLinks` | Check for duplicates and relevance |
 | `hookUsed` | Verify hook delivers on promise |
+| `productMentions` | Verify mentions are natural, not promotional |
 
 ### Step 10: Return Summary Only
 
@@ -507,8 +948,17 @@ cat config/[topic-title].json | jq '.workflowState.writing = {
   3. [H2 标题]
 
 ### 内链插入
-- **已插入:** [X] 个内链
-- **链接:** [anchor1], [anchor2]...
+- **集群定位:** [集群名] / [standalone]
+- **必须链接:** [X]/[Y] 个已插入 (Pillar: [已插入/缺失])
+- **推荐链接:** [X] 个已插入 (高优先: [X], 中优先: [X])
+- **锚文本:** [anchor1], [anchor2]...
+
+### 产品提及
+- **产品数据:** [✅ 有 / ❌ 无]
+- **已插入提及:** [X] 个 (最大: [Y])
+- **相关类别:** [Category 1], [Category 2]
+- **放置位置:** [H2-X], [H2-Y]
+- **跳过原因:** [列出未使用的机会及原因，或"无"]
 
 ### 研究状态应用
 - **使用的 Golden Insights:** [X] 个
@@ -523,6 +973,11 @@ cat config/[topic-title].json | jq '.workflowState.writing = {
 - **需关注章节:** [列出 weak sections]
 - **差异化章节:** [列出 differentiated sections]
 - **核心观点:** [列出 opinions to verify]
+
+### 跨文章策略
+- **与相关文章差异化:** [X] 篇 (列出如何区分)
+- **创建的回链机会:** [X] 个 (现有文章可链向本文)
+- **创建的可链接锚点:** [X] 个 (供未来文章链接)
 ```
 
 ---

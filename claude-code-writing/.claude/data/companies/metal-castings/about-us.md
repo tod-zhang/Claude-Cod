@@ -470,10 +470,160 @@ This document serves as a pre-writing reference for educational/informational co
 
 ---
 
+## Part 4: Products & Services Context
+
+**Purpose:** Enable natural product mentions in educational content by understanding what problems each product solves and when to mention it.
+
+### Product Categories
+
+#### Category: Sand Casting Services
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Sand cast steel parts, sand cast iron parts (gray iron, ductile iron), sand cast aluminum, sand cast brass |
+| **Problems Solved** | Producing complex geometries; creating medium to large castings cost-effectively; accommodating small to medium production volumes |
+| **Technical Advantages** | Versatile for complex shapes; no tooling size limits; accommodates design changes; lower tooling costs |
+| **Applicable Standards** | ASTM A27, ASTM A536, ASTM A48, ISO 1083, ISO 185 |
+| **Typical Applications** | Machine bases, pump housings, valve bodies, counterweights, flywheels, engine blocks, large structural components |
+
+**Topic Relevance:**
+- "sand casting process" → High relevance
+- "large metal parts" → High relevance
+- "cast iron components" → High relevance
+- "casting methods comparison" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Choosing casting methods | "Sand casting offers flexibility for complex geometries and accommodates various batch sizes" |
+| Large component production | "For larger castings, sand casting provides the versatility needed without tooling size limits" |
+| Cast iron applications | "Ductile iron sand castings combine strength with machinability for industrial applications" |
+
+---
+
+#### Category: Investment Casting Services
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Precision investment cast parts, lost-wax castings in steel, stainless steel, aluminum |
+| **Problems Solved** | Achieving tight tolerances; producing complex thin-walled parts; minimizing machining requirements |
+| **Technical Advantages** | Excellent surface finish; tight tolerances (±0.005" typical); complex geometries; reduced machining |
+| **Applicable Standards** | ASTM A732, AMS specifications, ISO 8062 |
+| **Typical Applications** | Valve components, impellers, pump parts, precision mechanical components, aerospace parts |
+
+**Topic Relevance:**
+- "investment casting" → High relevance
+- "precision casting" → High relevance
+- "lost wax casting" → High relevance
+- "tight tolerance casting" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Precision requirements | "Investment casting achieves tolerances that minimize or eliminate secondary machining" |
+| Complex geometries | "The lost-wax process enables intricate details and thin walls not possible with other methods" |
+| Surface finish requirements | "Investment castings deliver as-cast surface finishes suitable for many applications" |
+
+---
+
+#### Category: Custom Casting Solutions
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Counterweights, flywheels, motor housings, valve castings, handwheels, manifolds, snatch blocks, flywheel housings |
+| **Problems Solved** | Custom component manufacturing; OEM replacement parts; specialized industrial applications |
+| **Technical Advantages** | In-house pattern making; full finishing and machining; prototype to production capability |
+| **Applicable Standards** | Customer specifications, industry standards as required |
+| **Typical Applications** | Construction equipment, agricultural machinery, industrial equipment, automotive components |
+
+**Topic Relevance:**
+- "custom metal parts" → High relevance
+- "OEM casting supplier" → High relevance
+- "counterweight manufacturing" → High relevance
+- "industrial castings" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Custom manufacturing needs | "Custom casting services provide tailored solutions from prototype to production" |
+| Counterweight applications | "Cast iron and steel counterweights offer precise weight distribution for equipment balance" |
+| Complete manufacturing solutions | "Full-service foundries offer pattern making, casting, and machining under one roof" |
+
+---
+
+#### Category: Material Options
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Steel castings (carbon, alloy, stainless), iron castings (gray iron, ductile iron), aluminum castings, brass castings |
+| **Problems Solved** | Matching material properties to application requirements; balancing strength, weight, and cost |
+| **Technical Advantages** | Wide material selection; in-house metallurgical expertise; heat treatment capabilities |
+| **Applicable Standards** | ASTM A27, ASTM A48, ASTM A536, ASTM B62, ASTM B584 |
+| **Typical Applications** | Based on material: strength (steel), wear resistance (iron), weight reduction (aluminum), corrosion resistance (brass/stainless) |
+
+**Topic Relevance:**
+- "casting material selection" → High relevance
+- "ductile iron vs steel" → High relevance
+- "aluminum casting" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Material selection | "The choice between steel, iron, and aluminum depends on strength, weight, and cost requirements" |
+| Ductile iron benefits | "Ductile iron castings combine the castability of gray iron with improved strength and ductility" |
+| Lightweight requirements | "Aluminum castings reduce component weight while maintaining adequate strength" |
+
+---
+
+### Product Mention Guidelines
+
+| Guideline | Rule |
+|-----------|------|
+| **Max Mentions** | 1-2 product references per article (solution-focused) |
+| **Style** | Educational, not promotional. Product is THE SOLUTION, not the hero |
+| **Placement** | Within relevant technical discussion, not intro/conclusion |
+| **Tone** | "This can be addressed by..." NOT "Our product is..." |
+| **Linking** | Link to product page only if genuinely helpful for reader |
+
+**What Makes a Good Product Mention:**
+- ✅ Appears where reader is looking for a solution
+- ✅ Phrased as industry solution, not company advertisement
+- ✅ Provides technical value (specs, capabilities)
+- ✅ Reader would find it helpful even without buying
+
+**What Makes a Bad Product Mention:**
+- ❌ Feels inserted/forced into unrelated content
+- ❌ Uses promotional language ("best", "leading", "superior")
+- ❌ Appears in intro or conclusion (too promotional)
+- ❌ Multiple mentions of same product
+
+---
+
+### Product-Topic Matching Reference
+
+| Topic Keywords | Relevant Product Category | Mention Priority |
+|----------------|---------------------------|------------------|
+| sand casting, green sand | Sand Casting Services | High |
+| gray iron, ductile iron, cast iron | Sand Casting Services, Material Options | High |
+| investment casting, lost wax, precision | Investment Casting Services | High |
+| tight tolerance, surface finish | Investment Casting Services | High |
+| counterweight, flywheel, motor housing | Custom Casting Solutions | High |
+| steel casting, aluminum casting | Material Options | High |
+| casting material selection | Material Options | High |
+| foundry services, metal casting | Sand Casting, Investment Casting | Medium |
+| prototype casting, custom parts | Custom Casting Solutions | Medium |
+
+---
+
 ## How to Use This Template
 
 1. **Reference Part 1** to understand KT Metal Castings' business context and capabilities
 2. **Identify target audience** from Part 2 based on article topic and intent
 3. **Apply appropriate tone and style guidelines** for the selected audience
 4. **Cross-reference Part 3** for quick guidance during writing
-5. **Use with STYLE_GUIDE.md** for complete writing guidelines (structure, formatting, voice, banned phrases)
+5. **Reference Part 4** for natural product mention opportunities
+6. **Use with STYLE_GUIDE.md** for complete writing guidelines (structure, formatting, voice, banned phrases)

@@ -454,10 +454,161 @@ This document serves as a pre-writing reference for educational/informational co
 
 ---
 
+## Part 4: Products & Services Context
+
+**Purpose:** Enable natural product mentions in educational content by understanding what problems each product solves and when to mention it.
+
+### Product Categories
+
+#### Category: Helical Gear Reducers
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | MTH/MTB series helical gear units, inline helical reducers, parallel shaft reducers |
+| **Problems Solved** | Efficient speed reduction; high torque transmission; quiet operation; precise speed control |
+| **Technical Advantages** | High efficiency (95%+); low noise; compact design; multiple mounting options; long service life |
+| **Applicable Standards** | ISO 6336, DIN 3990, AGMA 2001 |
+| **Typical Applications** | Conveyors, mixers, agitators, packaging equipment, material handling, general industrial machinery |
+
+**Topic Relevance:**
+- "helical gearbox" → High relevance
+- "gear reducer selection" → High relevance
+- "industrial speed reduction" → High relevance
+- "conveyor drives" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| High-efficiency applications | "Helical gear reducers achieve efficiencies above 95% per stage" |
+| Noise-sensitive environments | "The gradual tooth engagement of helical gears produces quieter operation than spur gears" |
+| Conveyor systems | "Inline helical reducers provide efficient, compact drives for conveyor applications" |
+
+---
+
+#### Category: Worm Gearboxes
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | NMRV series worm reducers, worm gearmotors, right-angle worm drives |
+| **Problems Solved** | Compact right-angle drive; high reduction ratios in single stage; self-locking capability |
+| **Technical Advantages** | Space-efficient right-angle design; single-stage ratios up to 100:1; self-locking option; quiet operation |
+| **Applicable Standards** | ISO 14521, DIN 3975, AGMA 6034 |
+| **Typical Applications** | Packaging machinery, conveyors with holding requirements, gate operators, light-duty positioning |
+
+**Topic Relevance:**
+- "worm gearbox" → High relevance
+- "right-angle drive" → High relevance
+- "self-locking gearbox" → High relevance
+- "NMRV reducer" → High relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Space constraints | "Worm gearboxes provide compact right-angle drives where space is limited" |
+| High reduction ratios | "Single-stage worm reducers achieve ratios up to 100:1" |
+| Holding loads | "The self-locking characteristic of worm drives prevents backdriving under load" |
+
+---
+
+#### Category: Planetary Gearboxes
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Planetary gear reducers, inline planetary gearheads, precision planetary units |
+| **Problems Solved** | High torque density; compact high-ratio reduction; precision motion control |
+| **Technical Advantages** | Highest torque density; coaxial input/output; multiple stages for high ratios; handles shock loads |
+| **Applicable Standards** | ISO 6336, DIN 3990 |
+| **Typical Applications** | Robotics, servo systems, heavy-duty drives, hoisting equipment, precision positioning |
+
+**Topic Relevance:**
+- "planetary gearbox" → High relevance
+- "high torque density" → High relevance
+- "servo gearhead" → Medium relevance
+- "precision reducer" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| High torque requirements | "Planetary gearboxes offer the highest torque density for a given size" |
+| Compact drive solutions | "The load-sharing of planetary gear sets enables compact, high-capacity designs" |
+| Precision applications | "Precision planetary reducers minimize backlash for accurate positioning" |
+
+---
+
+#### Category: Gearmotors
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Helical gearmotors, worm gearmotors, integrated motor-reducer units |
+| **Problems Solved** | Complete drive package; simplified installation; matched motor-reducer performance |
+| **Technical Advantages** | Pre-engineered combinations; reduced installation time; optimized motor-reducer matching; compact footprint |
+| **Applicable Standards** | IEC motor standards, reducer standards |
+| **Typical Applications** | Conveyors, mixers, fans, pumps, material handling, food processing equipment |
+
+**Topic Relevance:**
+- "gearmotor selection" → High relevance
+- "integrated drive" → High relevance
+- "motor reducer combination" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Drive system selection | "Gearmotors provide pre-matched motor and reducer combinations for simplified specification" |
+| Installation considerations | "Integrated gearmotors reduce installation time compared to separate motor and reducer mounting" |
+| Compact drive needs | "Gearmotor packages offer space savings over separate component arrangements" |
+
+---
+
+### Product Mention Guidelines
+
+| Guideline | Rule |
+|-----------|------|
+| **Max Mentions** | 1-2 product references per article (solution-focused) |
+| **Style** | Educational, not promotional. Product is THE SOLUTION, not the hero |
+| **Placement** | Within relevant technical discussion, not intro/conclusion |
+| **Tone** | "This can be addressed by..." NOT "Our product is..." |
+| **Linking** | Link to product page only if genuinely helpful for reader |
+
+**What Makes a Good Product Mention:**
+- ✅ Appears where reader is looking for a solution
+- ✅ Phrased as industry solution, not company advertisement
+- ✅ Provides technical value (specs, capabilities)
+- ✅ Reader would find it helpful even without buying
+
+**What Makes a Bad Product Mention:**
+- ❌ Feels inserted/forced into unrelated content
+- ❌ Uses promotional language ("best", "leading", "superior")
+- ❌ Appears in intro or conclusion (too promotional)
+- ❌ Multiple mentions of same product
+
+---
+
+### Product-Topic Matching Reference
+
+| Topic Keywords | Relevant Product Category | Mention Priority |
+|----------------|---------------------------|------------------|
+| helical gear, helical reducer, MTH, MTB | Helical Gear Reducers | High |
+| gear efficiency, low noise gearbox | Helical Gear Reducers | High |
+| worm gear, NMRV, right-angle drive | Worm Gearboxes | High |
+| self-locking, backdrive prevention | Worm Gearboxes | High |
+| planetary gear, high torque | Planetary Gearboxes | High |
+| servo gearhead, precision motion | Planetary Gearboxes | High |
+| gearmotor, integrated drive | Gearmotors | High |
+| conveyor drive, mixer drive | Helical Gear Reducers, Gearmotors | Medium |
+| speed reducer selection | Helical, Worm, Planetary | Medium |
+| gear ratio, speed reduction | All categories | Medium |
+
+---
+
 ## How to Use This Template
 
 1. **Reference Part 1** to understand TANHON's business context and product focus
 2. **Identify target audience** from Part 2 based on article topic and intent
 3. **Apply appropriate tone and style guidelines** for the selected audience
 4. **Cross-reference Part 3** for quick guidance during writing
-5. **Use with STYLE_GUIDE.md** for complete writing guidelines
+5. **Reference Part 4** for natural product mention opportunities
+6. **Use with STYLE_GUIDE.md** for complete writing guidelines

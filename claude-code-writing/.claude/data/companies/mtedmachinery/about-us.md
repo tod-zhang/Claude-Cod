@@ -448,10 +448,159 @@ This document serves as a pre-writing reference for educational/informational co
 
 ---
 
+## Part 4: Products & Services Context
+
+**Purpose:** Enable natural product mentions in educational content by understanding what problems each product solves and when to mention it.
+
+### Product Categories
+
+#### Category: Automatic Container Making Machines
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | C-Type container machines, H-Type container machines, automatic aluminum foil container presses |
+| **Problems Solved** | High-volume container production; consistent container quality; automated forming of aluminum foil containers |
+| **Technical Advantages** | High-speed production (40-80 strokes/min); precision forming; multiple container sizes per machine; low scrap rates |
+| **Applicable Standards** | CE certification, CSA certification, food-grade production standards |
+| **Typical Applications** | Takeaway container manufacturing, food service packaging production, bakery pan manufacturing |
+
+**Topic Relevance:**
+- "aluminum container manufacturing" → High relevance
+- "foil container production" → High relevance
+- "food packaging equipment" → High relevance
+- "container forming" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Container production methods | "Automatic forming machines produce containers at rates of 40-80 strokes per minute" |
+| Manufacturing equipment selection | "C-Type and H-Type machines offer different configurations for various production requirements" |
+| Starting container production | "Modern aluminum container machines combine forming, trimming, and stacking in one operation" |
+
+---
+
+#### Category: Container Molds & Tooling
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Custom container molds, forming dies, multi-cavity mold sets |
+| **Problems Solved** | Creating specific container shapes; matching market requirements; enabling new product development |
+| **Technical Advantages** | Custom designs available; multi-cavity for higher output; precision tolerances; long mold life |
+| **Applicable Standards** | Customer specifications, food-contact material requirements |
+| **Typical Applications** | Custom takeout containers, specialty baking pans, coffee capsules, food trays |
+
+**Topic Relevance:**
+- "container mold design" → High relevance
+- "custom container shapes" → High relevance
+- "tooling for aluminum forming" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Container customization | "Custom molds enable production of unique container shapes and sizes" |
+| Mold considerations | "Multi-cavity molds increase output by forming multiple containers per stroke" |
+| New product development | "Prototype molds allow testing of new container designs before full production" |
+
+---
+
+#### Category: Specialized Container Solutions
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Cake pan machines, coffee capsule equipment, foil cup machines, loaf pan systems, pie/tart pan equipment |
+| **Problems Solved** | Application-specific container production; specialized shapes; niche market requirements |
+| **Technical Advantages** | Optimized for specific container types; specialized forming parameters; industry-specific expertise |
+| **Applicable Standards** | Food-grade standards, customer specifications |
+| **Typical Applications** | Bakery industry, coffee industry, foodservice, specialty food packaging |
+
+**Topic Relevance:**
+- "cake pan manufacturing" → High relevance
+- "coffee capsule production" → High relevance
+- "bakery container equipment" → High relevance
+- "specialty food containers" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Bakery packaging equipment | "Dedicated cake pan and loaf pan machines optimize production for bakery applications" |
+| Coffee capsule manufacturing | "Coffee capsule forming equipment produces consistent, sealed containers for single-serve coffee" |
+| Specialty containers | "Specialized machines address the unique forming requirements of specific container types" |
+
+---
+
+#### Category: Production Line Systems
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Complete production lines, coil feeding systems, stacking and counting equipment, conveying systems |
+| **Problems Solved** | End-to-end automation; material handling; production efficiency; labor reduction |
+| **Technical Advantages** | Integrated systems; optimized material flow; automated quality control; reduced manual handling |
+| **Applicable Standards** | Machine safety standards, CE marking |
+| **Typical Applications** | High-volume manufacturing, integrated production facilities, turnkey container plants |
+
+**Topic Relevance:**
+- "container production line" → High relevance
+- "foil container automation" → High relevance
+- "turnkey manufacturing" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Full automation | "Complete production lines integrate coil feeding, forming, and stacking into one system" |
+| Scaling production | "Integrated lines reduce material handling and increase overall equipment effectiveness" |
+| Starting a container business | "Turnkey systems provide everything needed for aluminum container production" |
+
+---
+
+### Product Mention Guidelines
+
+| Guideline | Rule |
+|-----------|------|
+| **Max Mentions** | 1-2 product references per article (solution-focused) |
+| **Style** | Educational, not promotional. Product is THE SOLUTION, not the hero |
+| **Placement** | Within relevant technical discussion, not intro/conclusion |
+| **Tone** | "This can be addressed by..." NOT "Our product is..." |
+| **Linking** | Link to product page only if genuinely helpful for reader |
+
+**What Makes a Good Product Mention:**
+- ✅ Appears where reader is looking for a solution
+- ✅ Phrased as industry solution, not company advertisement
+- ✅ Provides technical value (specs, capabilities)
+- ✅ Reader would find it helpful even without buying
+
+**What Makes a Bad Product Mention:**
+- ❌ Feels inserted/forced into unrelated content
+- ❌ Uses promotional language ("best", "leading", "superior")
+- ❌ Appears in intro or conclusion (too promotional)
+- ❌ Multiple mentions of same product
+
+---
+
+### Product-Topic Matching Reference
+
+| Topic Keywords | Relevant Product Category | Mention Priority |
+|----------------|---------------------------|------------------|
+| aluminum container machine, foil container equipment | Automatic Container Making Machines | High |
+| C-Type, H-Type, container press | Automatic Container Making Machines | High |
+| container mold, forming die, tooling | Container Molds & Tooling | High |
+| custom container, mold design | Container Molds & Tooling | High |
+| cake pan, loaf pan, baking pan | Specialized Container Solutions | High |
+| coffee capsule, foil cup | Specialized Container Solutions | High |
+| production line, turnkey, automation | Production Line Systems | High |
+| coil feeding, stacking | Production Line Systems | Medium |
+| takeout container, food packaging | Automatic Container Making Machines | Medium |
+
+---
+
 ## How to Use This Template
 
 1. **Reference Part 1** to understand MTED's business context and product focus
 2. **Identify target audience** from Part 2 based on article topic and intent
 3. **Apply appropriate tone and style guidelines** for the selected audience
 4. **Cross-reference Part 3** for quick guidance during writing
-5. **Use with STYLE_GUIDE.md** for complete writing guidelines (structure, formatting, voice, banned phrases)
+5. **Reference Part 4** for natural product mention opportunities
+6. **Use with STYLE_GUIDE.md** for complete writing guidelines (structure, formatting, voice, banned phrases)

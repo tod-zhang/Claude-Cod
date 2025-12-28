@@ -450,10 +450,159 @@ This document serves as a pre-writing reference for educational/informational co
 
 ---
 
+## Part 4: Products & Services Context
+
+**Purpose:** Enable natural product mentions in educational content by understanding what problems each product solves and when to mention it.
+
+### Product Categories
+
+#### Category: Standard Mechanical Seals
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Type 1 Seals, Type 21 Seals, Single Spring Seals, Multi-Spring Seals |
+| **Problems Solved** | Preventing pump leakage; replacing worn seals; providing reliable shaft sealing for standard applications |
+| **Technical Advantages** | Direct replacements for common pump seals; multiple material combinations available; proven designs |
+| **Applicable Standards** | API 682, ISO 3069, EN 12756, DIN 24960 |
+| **Typical Applications** | Water pumps, HVAC systems, general industrial pumps, water treatment, light chemical duty |
+
+**Topic Relevance:**
+- "pump seal replacement" → High relevance
+- "mechanical seal basics" → High relevance
+- "water pump maintenance" → Medium relevance
+- "seal leakage" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Basic pump seal types | "Single mechanical seals like Type 1 or Type 21 are the most common configurations" |
+| Seal replacement process | "When replacing seals, matching the original seal type ensures compatibility" |
+| Preventing pump leaks | "A properly installed mechanical seal eliminates shaft leakage" |
+
+---
+
+#### Category: OEM-Compatible Seals
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Grundfos-compatible seals, Burgmann MG1/MG12/MG13/MGS20 equivalents |
+| **Problems Solved** | Providing cost-effective alternatives to OEM seals; maintaining quality while reducing replacement costs |
+| **Technical Advantages** | Direct dimensional compatibility; equivalent material options; faster availability than OEM |
+| **Applicable Standards** | Designed to match OEM specifications |
+| **Typical Applications** | Grundfos pumps, equipment using Burgmann seals, OEM pump maintenance |
+
+**Topic Relevance:**
+- "Grundfos pump maintenance" → High relevance
+- "Burgmann seal replacement" → High relevance
+- "OEM seal alternatives" → High relevance
+- "pump spare parts" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| OEM seal alternatives | "Compatible replacement seals match OEM dimensions while offering cost advantages" |
+| Grundfos pump seals | "Replacement seals designed to Grundfos specifications ensure proper fit" |
+| Burgmann seal types | "MG1 and MG12 configurations are widely used and available as compatible replacements" |
+
+---
+
+#### Category: Cartridge Mechanical Seals
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Cartridge seal assemblies, pre-assembled cartridge units |
+| **Problems Solved** | Simplifying seal installation; reducing installation errors; enabling quick changeovers |
+| **Technical Advantages** | Pre-set and pre-assembled; eliminates on-site measurement; reduces installation time |
+| **Applicable Standards** | API 682 Type A/B/C |
+| **Typical Applications** | Process pumps, chemical pumps, refineries, applications requiring quick seal changes |
+
+**Topic Relevance:**
+- "cartridge seal installation" → High relevance
+- "seal installation errors" → High relevance
+- "pump maintenance efficiency" → Medium relevance
+- "API 682 seals" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Seal installation challenges | "Cartridge seals eliminate measurement errors by arriving pre-set and pre-assembled" |
+| Reducing pump downtime | "Pre-assembled cartridge units enable faster seal replacements" |
+| API 682 configurations | "Cartridge designs meet API 682 requirements for reliable sealing" |
+
+---
+
+#### Category: Custom Seal Solutions
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Custom machined seals, application-specific designs, specialty materials |
+| **Problems Solved** | Addressing non-standard applications; solving unique sealing challenges; matching obsolete seals |
+| **Technical Advantages** | In-house machining capability; custom material selection; reverse engineering available |
+| **Applicable Standards** | Custom to application requirements |
+| **Typical Applications** | Legacy equipment, non-standard pumps, specialty applications |
+
+**Topic Relevance:**
+- "custom seal manufacturing" → High relevance
+- "obsolete seal replacement" → High relevance
+- "specialty applications" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Non-standard seal requirements | "Custom machined seals address applications where standard seals don't fit" |
+| Obsolete equipment | "Reverse engineering can recreate seals for legacy equipment" |
+
+---
+
+### Product Mention Guidelines
+
+| Guideline | Rule |
+|-----------|------|
+| **Max Mentions** | 1-2 product references per article (solution-focused) |
+| **Style** | Educational, not promotional. Product is THE SOLUTION, not the hero |
+| **Placement** | Within relevant technical discussion, not intro/conclusion |
+| **Tone** | "This can be addressed by..." NOT "Our product is..." |
+| **Linking** | Link to product page only if genuinely helpful for reader |
+
+**What Makes a Good Product Mention:**
+- ✅ Appears where reader is looking for a solution
+- ✅ Phrased as industry solution, not company advertisement
+- ✅ Provides technical value (specs, capabilities)
+- ✅ Reader would find it helpful even without buying
+
+**What Makes a Bad Product Mention:**
+- ❌ Feels inserted/forced into unrelated content
+- ❌ Uses promotional language ("best", "leading", "superior")
+- ❌ Appears in intro or conclusion (too promotional)
+- ❌ Multiple mentions of same product
+
+---
+
+### Product-Topic Matching Reference
+
+| Topic Keywords | Relevant Product Category | Mention Priority |
+|----------------|---------------------------|------------------|
+| pump seal, mechanical seal basics | Standard Mechanical Seals | High |
+| Type 1, Type 21, single seal | Standard Mechanical Seals | High |
+| Grundfos, Burgmann, MG1, MG12 | OEM-Compatible Seals | High |
+| OEM replacement, equivalent seals | OEM-Compatible Seals | High |
+| cartridge seal, pre-assembled | Cartridge Mechanical Seals | High |
+| API 682, seal installation | Cartridge Mechanical Seals | Medium |
+| custom seal, special application | Custom Seal Solutions | High |
+| obsolete, legacy equipment | Custom Seal Solutions | High |
+| seal failure, troubleshooting | Standard Mechanical Seals | Medium |
+
+---
+
 ## How to Use This Template
 
 1. **Reference Part 1** to understand Cowseal's business context and product focus
 2. **Identify target audience** from Part 2 based on article topic and intent
 3. **Apply appropriate tone and style guidelines** for the selected audience
 4. **Cross-reference Part 3** for quick guidance during writing
-5. **Use with STYLE_GUIDE.md** for complete writing guidelines
+5. **Reference Part 4** for natural product mention opportunities
+6. **Use with STYLE_GUIDE.md** for complete writing guidelines

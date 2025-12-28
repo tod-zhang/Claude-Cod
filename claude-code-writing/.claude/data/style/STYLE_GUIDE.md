@@ -148,21 +148,27 @@ Challenge at least one common assumption per article.
 
 ### 4.3 Tables
 
-**Limit: Maximum 2 tables per article.** Prose is the default; tables are exceptions.
+**Core principle: Tables are for "lookup", prose is for "reading".**
 
-**ONLY use tables for:**
-- Numeric specifications (dimensions, weights, capacities, tolerances)
-- Technical parameters with 3+ items sharing 3+ quantifiable attributes
+| | Table | Prose |
+|---|-------|-------|
+| Reader mode | Scan, locate | Follow, understand |
+| Information | Parallel, independent | Causal, logical chain |
+| Reader behavior | Find the one row they need | Read through completely |
 
-**DO NOT use tables for:**
-- Conceptual comparisons (use prose with contrast words: "Unlike X, Y does...")
-- Decision guides (use bullet lists or prose)
-- Feature lists (use bullets)
-- Anything explainable in 2-3 sentences
+**Use tables when:** Reader comes with a question, wants a quick answer
+- Specifications (dimensions, weights, capacities)
+- Mapping relationships (input → output, condition → action)
+- Category lookups (3+ items with parallel attributes)
 
-**If you can describe it in prose, use prose.** Tables interrupt reading flow.
+**Use prose when:** Reader wants to understand why or how
+- Explanations, cause-effect relationships
+- Insights, warnings, recommendations
+- Anything requiring context or nuance
 
-**Rules:** Brief cells (1-5 words), consistent units, left-align text, right-align numbers
+**Density guideline:** Avoid consecutive tables. Separate with 2-3 paragraphs of prose.
+
+**Format rules:** Brief cells (1-5 words), consistent units, left-align text, right-align numbers
 
 ### 4.4 Numbers and Units
 - Spell out one through nine; numerals for 10+
@@ -231,13 +237,14 @@ The conclusion should NOT recap. Instead:
 
 **Announcing phrases (say it, don't announce it):**
 
-Rule: Any "[Noun]:" followed by a complete sentence is an announcing phrase.
+Rule: Any "[Label]:" followed by a complete sentence is an announcing phrase.
 
-Common patterns to avoid:
+Common patterns to avoid (not exhaustive):
 - The result:, The answer:, The solution:, The reason:, The point:
 - The truth:, The reality:, The fact:, The problem:, The issue:
 - The key insight:, The key takeaway:, The main point:, The bottom line:
 - Here's why this matters:, What you need to know:, What this means:
+- One consideration:, One key factor:, An important note:, A critical point:
 - The calculation is simple:, The answer is straightforward:, Put simply...
 
 Examples:

@@ -375,10 +375,94 @@ This document serves as a pre-writing reference for educational/informational co
 
 ---
 
+## Part 4: Products & Services Context
+
+**Purpose:** Enable natural product mentions in educational content by understanding what problems each product solves and when to mention it.
+
+### Product Categories
+
+#### Category: [Category Name]
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | [Product 1], [Product 2], [Product 3] |
+| **Problems Solved** | [Problem 1 this category addresses], [Problem 2], [Problem 3] |
+| **Technical Advantages** | [Key differentiator 1], [Key differentiator 2] |
+| **Applicable Standards** | [e.g., API 682, ISO 9001, ASME B73.1] |
+| **Typical Applications** | [Application 1], [Application 2] |
+
+**Topic Relevance** (when to consider mentioning):
+- "[topic keyword 1]" → High relevance
+- "[topic keyword 2]" → Medium relevance
+- "[topic keyword 3]" → Low relevance
+
+**Natural Mention Triggers:**
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| [Problem/topic] | "[How product addresses this - solution-focused phrasing]" |
+| [Another problem] | "[Another solution-focused mention]" |
+
+---
+
+#### Category: [Second Category Name]
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | [Product A], [Product B] |
+| **Problems Solved** | [Problem this category addresses] |
+| **Technical Advantages** | [Key differentiator] |
+| **Applicable Standards** | [Standards] |
+| **Typical Applications** | [Applications] |
+
+**Topic Relevance:**
+- "[topic]" → High relevance
+
+**Natural Mention Triggers:**
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| [Problem/topic] | "[Solution-focused phrasing]" |
+
+---
+
+### Product Mention Guidelines
+
+| Guideline | Rule |
+|-----------|------|
+| **Max Mentions** | 1-2 product references per article (solution-focused) |
+| **Style** | Educational, not promotional. Product is THE SOLUTION, not the hero |
+| **Placement** | Within relevant technical discussion, not intro/conclusion |
+| **Tone** | "This can be addressed by..." NOT "Our product is..." |
+| **Linking** | Link to product page only if genuinely helpful for reader |
+
+**What Makes a Good Product Mention:**
+- ✅ Appears where reader is looking for a solution
+- ✅ Phrased as industry solution, not company advertisement
+- ✅ Provides technical value (specs, capabilities)
+- ✅ Reader would find it helpful even without buying
+
+**What Makes a Bad Product Mention:**
+- ❌ Feels inserted/forced into unrelated content
+- ❌ Uses promotional language ("best", "leading", "superior")
+- ❌ Appears in intro or conclusion (too promotional)
+- ❌ Multiple mentions of same product
+
+---
+
+### Product-Topic Matching Reference
+
+| Topic Keywords | Relevant Product Category | Mention Priority |
+|----------------|---------------------------|------------------|
+| [keyword 1], [keyword 2] | [Category A] | High |
+| [keyword 3], [keyword 4] | [Category B] | Medium |
+| [keyword 5] | [Category A], [Category C] | Low |
+
+---
+
 ## How to Use This Template
 
 1. **Copy this template** for each new website/company profile
 2. **Fill in Part 1** with company-specific information
 3. **Customize Part 2** user profiles based on the company's actual customer base
-4. **Reference this document** before writing any educational content to ensure proper audience alignment
-5. **Use with STYLE_GUIDE.md** for complete writing guidelines
+4. **Fill in Part 4** with product/service categories and their problem-solution mappings
+5. **Reference this document** before writing any educational content to ensure proper audience alignment
+6. **Use with STYLE_GUIDE.md** for complete writing guidelines

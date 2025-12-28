@@ -443,10 +443,109 @@ This document serves as a pre-writing reference for educational/informational co
 
 ---
 
+## Part 4: Products & Services Context
+
+**Purpose:** Enable natural product mentions in educational content by understanding what problems each product solves and when to mention it.
+
+### Product Categories
+
+#### Category: Plasticizers
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | DOP (DEHP), DOTP (DEHT), DINP, DIDP, DBP, DOA, ESO (Epoxidized Soybean Oil) |
+| **Problems Solved** | Making PVC flexible; improving low-temperature performance; reducing brittleness; enhancing processability |
+| **Technical Advantages** | Wide range of plasticizer options for different applications; phthalate and non-phthalate options available |
+| **Applicable Standards** | REACH compliance, RoHS, FDA (for food contact), EN 71 (toys) |
+| **Typical Applications** | Flexible PVC products, cables and wires, flooring, automotive interiors, medical devices, toys, footwear |
+
+**Topic Relevance:**
+- "PVC flexibility" → High relevance
+- "plasticizer selection" → High relevance
+- "phthalate-free alternatives" → High relevance
+- "cable insulation" → Medium relevance
+- "flooring materials" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| Making PVC flexible | "Plasticizers are added to PVC to achieve the desired flexibility level" |
+| Choosing between plasticizer types | "DOTP offers similar performance to DOP while meeting phthalate-free requirements" |
+| Low-temperature flexibility | "Low-temperature plasticizers like DOA maintain flexibility in cold environments" |
+| Regulatory compliance | "Non-phthalate plasticizers address REACH and RoHS requirements" |
+
+---
+
+#### Category: PVC Resin
+
+| Attribute | Details |
+|-----------|---------|
+| **Products** | Suspension PVC (S-PVC), Paste PVC (P-PVC), various K-values (K57-K70) |
+| **Problems Solved** | Providing base polymer for PVC products; achieving specific mechanical properties; enabling diverse processing methods |
+| **Technical Advantages** | Range of K-values for different applications; consistent quality; various grades for specific processes |
+| **Applicable Standards** | ISO 1163, GB/T 5761, ASTM D1755 |
+| **Typical Applications** | Pipes and fittings, profiles, cables, films, sheets, flooring, injection molded products |
+
+**Topic Relevance:**
+- "PVC manufacturing" → High relevance
+- "K-value selection" → High relevance
+- "PVC processing" → Medium relevance
+- "polymer compounding" → Medium relevance
+
+**Natural Mention Triggers:**
+
+| When Article Discusses | Natural Mention Opportunity |
+|------------------------|----------------------------|
+| PVC processing methods | "Different PVC resin grades (suspension vs paste) suit different processing techniques" |
+| K-value and molecular weight | "Higher K-value resins provide better mechanical properties but require more processing energy" |
+| PVC compound formulation | "The base PVC resin determines the fundamental properties of the final compound" |
+
+---
+
+### Product Mention Guidelines
+
+| Guideline | Rule |
+|-----------|------|
+| **Max Mentions** | 1-2 product references per article (solution-focused) |
+| **Style** | Educational, not promotional. Product is THE SOLUTION, not the hero |
+| **Placement** | Within relevant technical discussion, not intro/conclusion |
+| **Tone** | "This can be addressed by..." NOT "Our product is..." |
+| **Linking** | Link to product page only if genuinely helpful for reader |
+
+**What Makes a Good Product Mention:**
+- ✅ Appears where reader is looking for a solution
+- ✅ Phrased as industry solution, not company advertisement
+- ✅ Provides technical value (specs, capabilities)
+- ✅ Reader would find it helpful even without buying
+
+**What Makes a Bad Product Mention:**
+- ❌ Feels inserted/forced into unrelated content
+- ❌ Uses promotional language ("best", "leading", "superior")
+- ❌ Appears in intro or conclusion (too promotional)
+- ❌ Multiple mentions of same product
+
+---
+
+### Product-Topic Matching Reference
+
+| Topic Keywords | Relevant Product Category | Mention Priority |
+|----------------|---------------------------|------------------|
+| PVC flexibility, soft PVC, flexible compounds | Plasticizers | High |
+| phthalate-free, DOTP, non-phthalate | Plasticizers | High |
+| K-value, molecular weight, resin selection | PVC Resin | High |
+| cable insulation, wire coating | Plasticizers, PVC Resin | Medium |
+| flooring, vinyl flooring | Plasticizers, PVC Resin | Medium |
+| PVC processing, extrusion, calendering | PVC Resin | Medium |
+| regulatory compliance, REACH, RoHS | Plasticizers | Medium |
+
+---
+
 ## How to Use This Template
 
 1. **Reference Part 1** to understand Bastone's business context and product focus
 2. **Identify target audience** from Part 2 based on article topic and intent
 3. **Apply appropriate tone and style guidelines** for the selected audience
 4. **Cross-reference Part 3** for quick guidance during writing
-5. **Use with STYLE_GUIDE.md** for complete writing guidelines (structure, formatting, voice, banned phrases)
+5. **Reference Part 4** for natural product mention opportunities
+6. **Use with STYLE_GUIDE.md** for complete writing guidelines (structure, formatting, voice, banned phrases)

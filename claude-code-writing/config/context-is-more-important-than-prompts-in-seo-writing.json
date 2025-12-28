@@ -1,0 +1,311 @@
+{
+  "meta": {
+    "createdAt": "2025-12-27T12:00:00Z",
+    "version": "1.0"
+  },
+  "article": {
+    "topic": "Context is more important than prompts in SEO writing",
+    "topicTitle": "context-is-more-important-than-prompts-in-seo-writing",
+    "depth": "In-depth",
+    "wordCountTarget": "1500-2500",
+    "language": "Chinese",
+    "writingAngle": "方法论转变 - 从 prompt-first 到 context-first 的实操指南",
+    "targetIndustry": "General"
+  },
+  "company": {
+    "id": "semrush",
+    "name": "Semrush",
+    "industry": "Digital Marketing & SEO Software (SaaS)",
+    "coreBusiness": "Semrush provides a comprehensive software platform for digital marketing professionals, offering tools for search engine optimization, paid advertising analysis, content marketing, competitive intelligence, and social media management.",
+    "valueProposition": "An all-in-one digital marketing platform that enables marketers to analyze competitors, track search rankings, audit websites, and optimize content across multiple marketing channels.",
+    "sitemapUrls": {
+      "posts": null,
+      "pages": null,
+      "autoRefresh": false
+    }
+  },
+  "audience": {
+    "type": "The Informed Non-Expert",
+    "description": "Marketing managers, small business owners with some experience, content managers, startup founders",
+    "industry": "Marketing managers, small business owners with some experience, content managers, startup founders",
+    "knowledgeLevel": "Basic-Intermediate",
+    "experienceRange": "6 months - 2 years exposure",
+    "goals": {
+      "primary": "Improve marketing results; select right tools; understand competitive landscape; justify marketing investments",
+      "secondary": [
+        "Learn advanced keyword strategies",
+        "Master competitive analysis methods",
+        "Translate data insights into actionable strategy"
+      ]
+    },
+    "knowledge": {
+      "alreadyKnows": [
+        "Basic SEO and digital marketing concepts",
+        "General understanding of keyword research",
+        "Experience with basic analytics",
+        "Awareness of major marketing tools",
+        "AI writing tools exist and can help with content creation",
+        "Prompts are used to instruct AI"
+      ],
+      "needsToLearn": [
+        "How to compare and select marketing tools",
+        "Advanced keyword strategies",
+        "Competitive analysis methods",
+        "How to interpret and act on data",
+        "Best practices for their specific situation",
+        "Why context matters more than prompts in AI writing",
+        "How to shift from prompt-first to context-first workflows",
+        "Practical methods for providing rich context to AI"
+      ]
+    },
+    "typicalQuestions": [
+      "Best SEO tools comparison",
+      "How to do competitor analysis",
+      "Semrush vs Ahrefs",
+      "Keyword research strategy",
+      "How to track SEO progress",
+      "Content marketing best practices",
+      "How to write better AI prompts",
+      "Why is my AI content generic"
+    ],
+    "writingApproach": {
+      "tone": "Professional, practical, direct",
+      "style": "Action-oriented; focus on decision-making frameworks",
+      "complexity": "Moderate; can use industry terms with brief clarification",
+      "structure": "Problem-solution format; comparison tables; numbered lists",
+      "wordChoice": "Industry-standard terms; occasional technical vocabulary"
+    },
+    "guidelines": {
+      "do": [
+        "Provide decision frameworks: 'When choosing between tools, consider these factors...'",
+        "Use comparison tables for quick evaluation",
+        "Offer concrete recommendations: 'For blogs targeting long-tail keywords...'",
+        "Connect tactics to business outcomes (traffic, leads, revenue)",
+        "Show before/after examples of prompt-first vs context-first approaches",
+        "Include practical voice-to-text and context-building techniques"
+      ],
+      "dont": [
+        "Over-explain basic concepts they already know",
+        "Ignore practical constraints (budget, time, resources)",
+        "Present options without recommendations or guidance",
+        "Be preachy about why prompts are 'wrong'",
+        "Skip the practical how-to in favor of theory"
+      ]
+    }
+  },
+  "searchIntent": {
+    "type": "Informational",
+    "category": "Educational",
+    "userContext": {
+      "situation": "They've been using AI writing tools but getting mediocre, generic results. They've tried various prompt templates and 'perfect prompts' but still feel like something is missing. They may have heard that context matters but don't know how to operationalize this insight.",
+      "currentState": "Frustrated with generic AI output despite trying different prompts. Spending too much time crafting prompts and not enough time on the actual content strategy. May be overwhelmed by prompt engineering advice.",
+      "desiredState": "Understand the fundamental shift from prompt-first to context-first thinking. Have a practical workflow for providing rich context to AI. Get better AI writing output with less effort on prompt crafting."
+    },
+    "coreQuestion": "How do I shift from obsessing over prompts to providing rich context that actually improves my AI writing output?",
+    "implicitQuestions": [
+      "What exactly is 'context' in AI writing and how is it different from prompts?",
+      "What practical methods can I use to provide context faster?",
+      "Why does context produce better results than carefully crafted prompts?",
+      "How do I use voice-to-text and other tools to share context efficiently?",
+      "What frameworks or techniques help structure context-giving?"
+    ],
+    "expectedContent": {
+      "type": "Guide",
+      "format": "Problem-solution with step-by-step methodology",
+      "depth": "Practical how-to"
+    },
+    "successCriteria": "Reader can immediately apply the context-first approach to their next AI writing session, using voice-to-text or extended context-sharing to get noticeably better output without spending time on prompt engineering."
+  },
+  "userNotes": {
+    "keyInsights": [
+      "Everyone teaches prompts, but context beats prompts every time",
+      "Voice-to-text enables faster context sharing than typing",
+      "High fidelity transcription means you can just talk naturally",
+      "Frameworks still useful (challenge assumptions, ask clarifying questions, interview me)",
+      "The advice is simple: 'Just keep talking' - results speak for themselves"
+    ],
+    "suggestedFrameworks": [
+      "Challenge my assumptions",
+      "Ask me clarifying questions before you do anything",
+      "Interview me to help me hone this idea"
+    ],
+    "voiceToTextAdvantage": "Allows sharing context faster than phone tapping or even typing; high fidelity means natural speech works"
+  },
+  "workflowState": {
+    "research": {
+      "status": "completed",
+      "completedAt": "2025-12-27T12:30:00Z",
+      "summary": {
+        "sourceCount": 18,
+        "dataPointCount": 8,
+        "competitorCount": 3
+      },
+      "insights": {
+        "goldenInsights": [
+          {
+            "insight": "87% of creators use AI, but only 13% get meaningful engagement - the difference is context, not prompts",
+            "source": "Buzzsumo 2024 via AI Literacy Academy",
+            "suggestedUse": "hook"
+          },
+          {
+            "insight": "Voice dictation is 3-4x faster than typing (150 WPM vs 40 WPM); just keep talking is the advice",
+            "source": "Wispr Flow + config.userNotes",
+            "suggestedUse": "core-method"
+          },
+          {
+            "insight": "Most agent failures are not model failures - they are context failures",
+            "source": "Anthropic",
+            "suggestedUse": "authority-statement"
+          },
+          {
+            "insight": "Prompt templates are more magic ritual than useful - there is no single template that works",
+            "source": "Ethan Mollick (One Useful Thing)",
+            "suggestedUse": "counter-belief"
+          }
+        ],
+        "quality": "high",
+        "suggestedHook": "surprising-stat"
+      },
+      "differentiation": {
+        "score": "strong",
+        "primaryDifferentiator": "Voice-to-text workflow as practical, fast context-sharing method combined with interactive techniques (Interview Me, Challenge Assumptions, Ask Clarifying Questions)",
+        "irreplicableInsights": [
+          {
+            "insight": "Voice-to-text is 3-4x faster; just keep talking works",
+            "sourceType": "practitioner",
+            "source": "config.userNotes + voice tools research",
+            "intentAlignment": "aligned"
+          },
+          {
+            "insight": "Interactive techniques as context-building frameworks",
+            "sourceType": "practitioner",
+            "source": "TPM University + multiple sources",
+            "intentAlignment": "aligned"
+          },
+          {
+            "insight": "87% vs 13% engagement gap shows context is the differentiator",
+            "sourceType": "data",
+            "source": "Buzzsumo 2024",
+            "intentAlignment": "aligned"
+          }
+        ],
+        "avoidList": [
+          "Being too technical/developer-focused like Anthropic article",
+          "Being too conceptual without actionable steps",
+          "Focusing only on what context IS without the practical HOW",
+          "Ignoring SEO-specific application"
+        ]
+      },
+      "gaps": {
+        "data": [
+          "No direct A/B test data on prompt-first vs context-first outcomes",
+          "Limited quantitative evidence on context engineering effectiveness"
+        ],
+        "coverage": [
+          "Voice-to-text workflow not covered by competitors",
+          "Interactive techniques not explained practically",
+          "SEO-specific context not addressed",
+          "Before/after examples missing"
+        ]
+      },
+      "controversies": [
+        "Some argue prompt engineering is still important, just evolving",
+        "Debate on whether bigger context windows help or hurt"
+      ],
+      "coreThesis": "Stop obsessing over the perfect prompt. The real unlock is giving AI rich context through natural conversation - speak your background, ask it to interview you, and just keep talking.",
+      "writingAdvice": {
+        "emphasize": [
+          "Voice-to-text as practical method (strong data on speed)",
+          "Interactive techniques with exact example prompts",
+          "The 87%/13% engagement gap statistic",
+          "Simplicity of just keep talking approach"
+        ],
+        "cautious": [
+          "Claims about context engineering replacing prompt engineering (still debated)",
+          "Specific performance improvement numbers (limited direct evidence)"
+        ],
+        "differentiateWith": [
+          "Lead with voice-to-text practical advantage",
+          "Provide exact interactive technique prompts",
+          "Show before/after transformations",
+          "Focus on SEO content specifically"
+        ]
+      }
+    },
+    "writing": {
+      "status": "completed",
+      "completedAt": "2025-12-27T13:00:00Z",
+      "outline": {
+        "h2Count": 5,
+        "structure": [
+          "什么是「上下文」，和「提示词」有什么区别？",
+          "为什么「提示词工程」效果越来越差？",
+          "三个快速给 AI 上下文的实用方法",
+          "上下文质量 > 上下文数量",
+          "从今天开始改变"
+        ],
+        "introFramework": "PAS",
+        "conclusionType": "Next Journey Step"
+      },
+      "execution": {
+        "actualWordCount": 1650,
+        "internalLinksUsed": 0,
+        "dataPointsUsed": 4
+      },
+      "decisions": {
+        "hookUsed": {
+          "type": "surprising-stat",
+          "content": "87% 的内容创作者在用 AI 写作，但只有 13% 获得了有意义的参与度和商业结果"
+        },
+        "differentiationApplied": {
+          "primaryDifferentiatorUsed": "语音输入作为核心方法，3-4倍速度优势，配合三个互动技巧（采访法、质疑法、澄清法）",
+          "irreplicableInsightsUsed": [
+            {
+              "insight": "语音输入 3-4 倍速度 + 一直说下去",
+              "location": "H2-3 方法一"
+            },
+            {
+              "insight": "87% vs 13% 参与度差距",
+              "location": "intro hook"
+            },
+            {
+              "insight": "大多数失败是上下文失败（Anthropic）",
+              "location": "H2-1"
+            },
+            {
+              "insight": "提示词模板是魔法咒语（Mollick）",
+              "location": "H2-2"
+            }
+          ],
+          "avoidedPatterns": [
+            "避免技术化/开发者视角",
+            "避免纯概念无实操",
+            "避免只讲是什么不讲怎么做"
+          ],
+          "titleDifferentiation": "用中文口语化表达，聚焦实操而非理论概念"
+        },
+        "opinionsIncluded": [
+          "H2-1: 给模型更好上下文比换更好模型有效",
+          "H2-2: 与其收藏提示词模板不如学会快速给上下文",
+          "H2-2: 提示词技巧价值在下降，上下文信息价值在上升",
+          "H2-3: 语音输入是被低估的生产力工具",
+          "H2-4: 多余信息是干扰不是加分项"
+        ],
+        "sectionsToWatch": {
+          "strong": [
+            "H2-1 上下文定义",
+            "H2-3 三个方法（有数据支撑）"
+          ],
+          "weak": [
+            "H2-4 上下文质量部分（数据相对较少）"
+          ],
+          "differentiated": [
+            "H2-3 语音输入方法",
+            "H2-3 互动技巧（有示例提示词）"
+          ]
+        },
+        "internalLinks": []
+      }
+    }
+  }
+}
