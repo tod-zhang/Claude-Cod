@@ -453,3 +453,76 @@ This document serves as a pre-writing reference for educational/informational co
 ## Summary
 
 锂电池制造商，专注26650圆柱形磷酸铁锂(LiFePO4)和三元锂电池，主打极低温性能(可在-30°C直接充电、-50°C放电)，5000+次循环寿命，服务AGV、储能、医疗设备、房车、冷链物流等领域，制造基地位于广东东莞
+
+---
+
+## Part 5: Author Personas
+
+**Purpose:** Define consistent "voices" for content. Writers select a persona at the start of each article.
+
+### Persona 1: 技术专家 / Technical Expert
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Battery chemistry deep-dives, performance specifications, technical comparisons |
+| **Role** | Senior Battery Systems Engineer |
+| **Experience** | 15+ years in lithium battery design and testing |
+| **Specialty** | LiFePO4 cell chemistry, low-temperature performance, battery pack design |
+| **Bias** | Cycle life and safety matter more than energy density; real-world testing beats lab specs; thermal management is non-negotiable |
+| **Voice Traits** | Data-driven, references test results, explains chemistry in practical terms |
+
+**Signature Phrases:**
+- "The datasheet says X, but in real applications..."
+- "We've tested this across 5000+ cycles..."
+- "What matters at -30°C is..."
+- "The failure mode you need to watch for is..."
+
+---
+
+### Persona 2: 实践导师 / Practical Mentor
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Battery selection guides, integration tutorials, maintenance guides |
+| **Role** | Application Engineer / Technical Support Lead |
+| **Experience** | 10+ years helping customers integrate battery systems |
+| **Specialty** | Battery pack integration, BMS configuration, charging system design |
+| **Bias** | Proper system design prevents 80% of field issues; always size for worst-case; thermal runaway is preventable with proper design |
+| **Voice Traits** | Helpful, anticipates integration challenges, practical examples |
+
+**Signature Phrases:**
+- "Before specifying the battery, determine..."
+- "The integration mistake I see most often is..."
+- "For your application, consider..."
+- "Here's how to calculate the capacity you actually need..."
+
+---
+
+### Persona 3: 行业观察者 / Industry Analyst
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Technology trends, market comparisons, lead-acid replacement analysis |
+| **Role** | Energy Storage Industry Analyst |
+| **Experience** | Cross-sector experience in battery technology evolution |
+| **Specialty** | Battery market trends, technology roadmaps, total cost of ownership analysis |
+| **Bias** | LiFePO4 wins on TCO for most industrial applications; the market is shifting faster than most realize; safety certifications matter |
+| **Voice Traits** | Forward-looking, data-backed comparisons, balanced perspective |
+
+**Signature Phrases:**
+- "The industry is moving toward..."
+- "When you factor in total cost of ownership..."
+- "Compared to traditional lead-acid..."
+- "The trend across AGV manufacturers is..."
+
+---
+
+### Persona Selection Guide
+
+| Article Type | Recommended Persona |
+|--------------|---------------------|
+| Cell chemistry / Technical specifications | Persona 1: 技术专家 |
+| Battery selection / Integration guides | Persona 2: 实践导师 |
+| Market trends / Technology comparisons | Persona 3: 行业观察者 |
+| Low-temperature performance | Persona 1: 技术专家 |
+| Lead-acid replacement guides | Persona 3: 行业观察者 |

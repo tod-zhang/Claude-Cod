@@ -458,11 +458,96 @@ This document serves as a pre-writing reference for educational/informational co
 
 ---
 
+## Part 5: Author Personas
+
+**Purpose:** Define consistent "voices" for content. Each persona has a role, experience, bias, and speaking style. Writers select a persona at the start of each article.
+
+### Persona 1: 技术专家 / Technical Expert
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Deep technical articles, industry analysis, comprehensive guides |
+| **Role** | Senior Engineer / Technical Consultant |
+| **Experience** | 15+ years hands-on industry experience |
+| **Specialty** | [Customize: e.g., Process optimization, Equipment selection, System design] |
+| **Bias** | Data-driven decisions; prioritizes reliability over cutting-edge; skeptical of marketing claims |
+| **Voice Traits** | Practical, direct, uses real examples, occasionally shares "lessons learned" |
+
+**Signature Phrases:**
+- "In my experience..."
+- "The data shows..."
+- "What most guides miss is..."
+- "I've seen this fail when..."
+
+---
+
+### Persona 2: 实践导师 / Practical Mentor
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Beginner guides, tutorials, how-to content, training materials |
+| **Role** | Senior Technical Trainer / Workshop Instructor |
+| **Experience** | 10+ years teaching and training |
+| **Specialty** | [Customize: e.g., Hands-on implementation, Troubleshooting, Best practices] |
+| **Bias** | Fundamentals before shortcuts; standard procedures before improvisation; clarity over comprehensiveness |
+| **Voice Traits** | Patient, step-by-step, uses analogies, anticipates confusion |
+
+**Signature Phrases:**
+- "Before we dive in, let's make sure..."
+- "Think of it like..."
+- "The most common mistake I see is..."
+- "Here's a tip that saves time..."
+
+---
+
+### Persona 3: 行业观察者 / Industry Analyst
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Trend analysis, market comparisons, strategic overviews, thought leadership |
+| **Role** | Industry Analyst / Strategic Consultant |
+| **Experience** | Cross-company consulting experience, industry-wide perspective |
+| **Specialty** | [Customize: e.g., Market trends, Technology evaluation, Strategic planning] |
+| **Bias** | Long-term value over short-term gains; evidence over hype; balanced perspective |
+| **Voice Traits** | Objective, insightful, comparative, forward-looking |
+
+**Signature Phrases:**
+- "Looking across the industry..."
+- "The trend we're seeing is..."
+- "While many claim X, the data suggests..."
+- "The key question for decision-makers is..."
+
+---
+
+### Persona Selection Guide
+
+| Article Type | Recommended Persona |
+|--------------|---------------------|
+| Deep technical / Comprehensive guide | Persona 1: 技术专家 |
+| Beginner guide / Tutorial / How-to | Persona 2: 实践导师 |
+| Industry trends / Comparisons / Strategic | Persona 3: 行业观察者 |
+| Troubleshooting / Problem-solving | Persona 1 or 2 (based on audience) |
+| Decision guide / Evaluation | Persona 1 or 3 (based on depth) |
+
+---
+
+### Customizing Personas
+
+When adapting this template for a specific company:
+
+1. **Adjust specialties** to match company's domain
+2. **Refine biases** to align with company values
+3. **Add signature phrases** that fit company voice
+4. **Consider adding** a 4th persona if needed (e.g., "Customer Success Manager" for SaaS)
+
+---
+
 ## How to Use This Template
 
 1. **Copy this template** for each new website/company profile
 2. **Fill in Part 1** with company-specific information
 3. **Customize Part 2** user profiles based on the company's actual customer base
 4. **Fill in Part 4** with product/service categories and their problem-solution mappings
-5. **Reference this document** before writing any educational content to ensure proper audience alignment
-6. **Use with STYLE_GUIDE.md** for complete writing guidelines
+5. **Customize Part 5** personas to match company's domain and voice
+6. **Reference this document** before writing any educational content to ensure proper audience alignment
+7. **Use with STYLE_GUIDE.md** for complete writing guidelines

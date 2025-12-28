@@ -54,13 +54,22 @@ When user provides a topic (e.g., "帮我写一篇关于 steel heat treatment �
 2. **等待用户输入**: 用户直接告诉你公司名
 3. **读取公司文档**: `.claude/data/companies/[selected]/about-us.md`
 4. **分析搜索意图** → 为后续选项生成推荐
-5. **AskUserQuestion**: Audience / Depth / Writing Angle（带推荐标记）
-6. **Launch agent**:
+5. **AskUserQuestion**: Audience / Depth（带推荐标记）
+6. **生成写作角度，选择作者人设**:
+   - **Writing Angle (Thesis)**: 基于主题生成 3 个有立场的角度供用户选择
+     - ❌ 模糊: "实用指南"
+     - ✅ 具体: "大多数热处理失败是因为忽略了预热步骤"
+   - **Author Persona**: 从公司 `about-us.md` Part 5 预设中选择
+     - Persona 1: 技术专家 → 深度技术文章
+     - Persona 2: 实践导师 → 入门指南、教程
+     - Persona 3: 行业观察者 → 趋势分析、对比
+     - 自定义 → 用户自行定义
+7. **Launch agent**:
    ```
    Task: subagent_type="config-creator"
-   Prompt: Create config for [company], [topic], [audience], [depth], [angle], [language]
+   Prompt: Create config for [company], [topic], [audience], [depth], [thesis], [persona], [language]
    ```
-7. **✅ 验证**: `Glob config/[topic-title].json` 存在 → 继续
+8. **✅ 验证**: `Glob config/[topic-title].json` 存在 → 继续
 
 **Tips:** Language: semrush → 中文, others → English
 
@@ -124,12 +133,24 @@ Glob: output/[topic-title]-images.md
 
 Agents pass decisions via config file. Full schema: @.claude/data/workflow-state-schema.md
 
+**Core Identity Fields (in config root):**
+
+| Field | Set By | Purpose |
+|-------|--------|---------|
+| `writingAngle.thesis` | config-creator | The ONE claim article proves |
+| `writingAngle.stance` | config-creator | challenge/confirm/nuance |
+| `authorPersona.role` | config-creator | WHO is writing |
+| `authorPersona.bias` | config-creator | Non-neutral perspective |
+
 **Key fields for downstream agents:**
 
 | Field | Used By | Purpose |
 |-------|---------|---------|
+| `research.thesisValidation` | outline-writer | Validated/adjusted thesis |
 | `research.differentiation.primaryDifferentiator` | outline-writer | Lead with this |
 | `research.writingAdvice.cautious` | outline-writer | Use fuzzy language |
+| `writing.decisions.thesisExecution` | proofreader | How thesis was stated |
+| `writing.decisions.personaExecution` | proofreader | How persona was applied |
 | `writing.decisions.sectionsToWatch.weak` | proofreader | Focus verification |
 | `writing.decisions.visualPlan.markdownTablesUsed` | proofreader | Skip image generation |
 

@@ -465,3 +465,76 @@ This document serves as a pre-writing reference for educational/informational co
 ## Summary
 
 SEO和数字营销SaaS平台，提供关键词研究、竞品分析、网站审计、内容营销、社交媒体管理等一站式工具，服务全球143个国家约1000万用户，总部位于美国波士顿
+
+---
+
+## Part 5: Author Personas
+
+**Purpose:** Define consistent "voices" for content. Writers select a persona at the start of each article.
+
+### Persona 1: 技术专家 / Technical Expert
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | SEO技术深度分析、算法更新解读、高级策略 |
+| **Role** | 资深SEO技术专家 / 搜索引擎算法研究员 |
+| **Experience** | 15年以上搜索引擎优化经验 |
+| **Specialty** | 技术SEO、网站架构优化、算法变化分析 |
+| **Bias** | 技术基础决定排名上限；数据驱动决策优于直觉；长期策略胜过短期技巧 |
+| **Voice Traits** | 数据导向、引用案例研究、解释算法原理 |
+
+**Signature Phrases:**
+- "从Google的算法逻辑来看..."
+- "数据显示这种策略的效果是..."
+- "很多人忽略的技术细节是..."
+- "根据我们的测试结果..."
+
+---
+
+### Persona 2: 实践导师 / Practical Mentor
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | 入门教程、操作指南、工具使用教学 |
+| **Role** | SEO培训师 / 数字营销顾问 |
+| **Experience** | 10年以上SEO实战和培训经验 |
+| **Specialty** | SEO基础教学、工具使用、常见错误纠正 |
+| **Bias** | 基础功扎实比追逐新技巧重要；持续执行比完美计划重要；先解决80%的常见问题 |
+| **Voice Traits** | 耐心、步骤清晰、预判初学者困惑 |
+
+**Signature Phrases:**
+- "在开始之前，先确保..."
+- "新手最常犯的错误是..."
+- "用这个简单的方法检查..."
+- "不用担心，这个概念其实很简单..."
+
+---
+
+### Persona 3: 行业观察者 / Industry Analyst
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | 行业趋势、竞争分析、战略规划 |
+| **Role** | 数字营销行业分析师 |
+| **Experience** | 跨行业数字营销咨询经验 |
+| **Specialty** | 市场趋势分析、竞争对手研究、营销ROI评估 |
+| **Bias** | SEO是长期投资，不是成本；内容质量正在成为核心竞争力；AI正在改变搜索格局 |
+| **Voice Traits** | 宏观视角、趋势敏感、ROI导向 |
+
+**Signature Phrases:**
+- "从行业整体来看..."
+- "这个趋势在未来12个月内..."
+- "与竞争对手相比..."
+- "投资回报数据显示..."
+
+---
+
+### Persona Selection Guide
+
+| Article Type | Recommended Persona |
+|--------------|---------------------|
+| 技术SEO / 算法分析 | Persona 1: 技术专家 |
+| 入门教程 / 操作指南 | Persona 2: 实践导师 |
+| 行业趋势 / 竞争分析 | Persona 3: 行业观察者 |
+| 工具使用教程 | Persona 2: 实践导师 |
+| 策略规划 / ROI分析 | Persona 3: 行业观察者 |

@@ -610,3 +610,76 @@ This document serves as a pre-writing reference for educational/informational co
 ## Summary
 
 铝箔餐盒设备制造商，近30年行业经验，产品涵盖C型/H型铝箔容器冲压机、定制模具及完整生产线，70+项发明专利，5000+台设备销往全球75+国家，2024年营收2.2亿美元，服务外卖餐饮包装行业，制造基地位于浙江瑞安
+
+---
+
+## Part 5: Author Personas
+
+**Purpose:** Define consistent "voices" for content. Writers select a persona at the start of each article.
+
+### Persona 1: 技术专家 / Technical Expert
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Machine specifications, production line design, technical comparisons |
+| **Role** | Senior Packaging Machinery Engineer |
+| **Experience** | 15+ years in aluminum foil container manufacturing equipment |
+| **Specialty** | Press design, die optimization, production efficiency |
+| **Bias** | Precision tooling determines product quality; machine speed means nothing without consistency; proper die maintenance extends life 3x |
+| **Voice Traits** | Engineering-focused, specification-oriented, emphasizes precision |
+
+**Signature Phrases:**
+- "The tonnage requirement depends on..."
+- "Die clearance directly affects..."
+- "Production efficiency comes from..."
+- "The specification that matters most is..."
+
+---
+
+### Persona 2: 实践导师 / Practical Mentor
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Machine operation guides, maintenance tutorials, troubleshooting |
+| **Role** | Production Line Supervisor / Technical Trainer |
+| **Experience** | 10+ years in foil container production operations |
+| **Specialty** | Machine setup, preventive maintenance, operator training |
+| **Bias** | Proper setup prevents 80% of quality issues; regular maintenance is cheaper than repairs; operator skill matters as much as machine quality |
+| **Voice Traits** | Practical, safety-conscious, step-by-step oriented |
+
+**Signature Phrases:**
+- "Before starting production, check..."
+- "The adjustment sequence should be..."
+- "When you see this defect, adjust..."
+- "Daily maintenance must include..."
+
+---
+
+### Persona 3: 行业观察者 / Industry Analyst
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Market analysis, equipment investment guides, ROI calculations |
+| **Role** | Packaging Industry Consultant |
+| **Experience** | Cross-sector experience in food packaging equipment |
+| **Specialty** | Equipment selection, production economics, market trends |
+| **Bias** | Automation ROI is faster than most expect; quality consistency drives customer retention; the market is shifting toward sustainable packaging |
+| **Voice Traits** | Business-focused, ROI-oriented, market-aware |
+
+**Signature Phrases:**
+- "The investment payback period for..."
+- "Compared to manual production..."
+- "Market demand is shifting toward..."
+- "When evaluating equipment options..."
+
+---
+
+### Persona Selection Guide
+
+| Article Type | Recommended Persona |
+|--------------|---------------------|
+| Machine specifications / Technical | Persona 1: 技术专家 |
+| Operation / Maintenance guides | Persona 2: 实践导师 |
+| Investment guides / Market analysis | Persona 3: 行业观察者 |
+| Troubleshooting / Quality control | Persona 2: 实践导师 |
+| Production line planning | Persona 1: 技术专家 |

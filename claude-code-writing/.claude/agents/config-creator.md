@@ -15,7 +15,8 @@ You are a senior content strategist. Create the strategic foundation for an arti
 - Audience level: beginner | intermediate | practitioner | expert
 - Article depth: 入门科普 | 实用指南 | 深度技术
 - Language: English | 中文
-- Writing Angle: The specific focus/perspective
+- Writing Angle: A specific thesis/stance (not just "practical guide", but "why most X fail because of Y")
+- Author Persona: Selected from company's Part 5 presets (persona-1 | persona-2 | persona-3 | 自定义)
 
 ---
 
@@ -33,6 +34,7 @@ Extract from about-us.md:
 - **Part 1**: Company name, industry, core business, value proposition, sitemap URLs
 - **Part 2**: User type details matching the audience level (goals, knowledge, writing approach, do's/don'ts)
 - **Part 4** (if exists): Product categories, mention triggers, mention guidelines
+- **Part 5** (if exists): Author Personas definitions (role, experience, specialty, bias, voiceTraits, signaturePhrases)
 
 ### Step 1.5: Article History Check
 
@@ -126,7 +128,68 @@ Perform deep analysis:
 
 Filter implicit questions: If it could be a separate article → REMOVE (tangential).
 
-### Step 4.5: Buyer Journey Positioning
+### Step 4.5: Writing Angle & Author Persona
+
+Based on topic, audience, and search intent, define:
+
+**Writing Angle (Thesis)**
+
+Transform vague angles into specific stances:
+
+| ❌ Vague | ✅ Specific |
+|----------|-------------|
+| "实用指南" | "大多数热处理失败是因为忽略了预热步骤" |
+| "深度分析" | "淬火介质的选择比温度控制更关键" |
+| "入门科普" | "理解晶体结构是掌握热处理的前提" |
+
+Structure:
+```json
+"writingAngle": {
+  "thesis": "The specific claim this article will prove",
+  "stance": "challenge | confirm | nuance",
+  "proofPoints": ["evidence 1", "evidence 2", "evidence 3"]
+}
+```
+
+- `challenge`: Disagree with common belief
+- `confirm`: Reinforce with new evidence
+- `nuance`: Add complexity to oversimplified view
+
+**Author Persona**
+
+Read from **Part 5: Author Personas** in about-us.md. Use the Persona Selection Guide:
+
+| Article Type | Recommended Persona |
+|--------------|---------------------|
+| Deep technical / Comprehensive guide | Persona 1: 技术专家 |
+| Beginner guide / Tutorial / How-to | Persona 2: 实践导师 |
+| Industry trends / Comparisons / Strategic | Persona 3: 行业观察者 |
+| Troubleshooting / Problem-solving | Persona 1 or 2 (based on audience) |
+| Decision guide / Evaluation | Persona 1 or 3 (based on depth) |
+
+**Selection Logic:**
+1. Match article type (from topic + depth) to recommended persona
+2. Extract full persona definition from Part 5
+3. If user specifies "自定义", allow custom persona input
+
+Structure (copy from Part 5):
+```json
+"authorPersona": {
+  "id": "persona-1",
+  "role": "Senior Engineer / Technical Consultant",
+  "experience": "15+ years hands-on industry experience",
+  "specialty": "[from Part 5]",
+  "bias": "[from Part 5]",
+  "voiceTraits": ["from Part 5"],
+  "signaturePhrases": ["from Part 5"]
+}
+```
+
+**If Part 5 doesn't exist in about-us.md:**
+- Use template defaults from `.claude/data/companies/template/about-us.md`
+- Adjust specialty to match company's industry
+
+### Step 4.6: Buyer Journey Positioning
 
 | Stage | User Mindset | Content Goal |
 |-------|--------------|--------------|
@@ -174,8 +237,21 @@ Write to: `config/[topic-title].json`
     "topicTitle": "",
     "depth": "",
     "wordCountTarget": "",
-    "language": "",
-    "writingAngle": ""
+    "language": ""
+  },
+
+  "writingAngle": {
+    "thesis": "",
+    "stance": "",
+    "proofPoints": []
+  },
+
+  "authorPersona": {
+    "role": "",
+    "experience": "",
+    "specialty": "",
+    "bias": "",
+    "voiceTraits": []
   },
 
   "company": {
@@ -232,7 +308,17 @@ Write to: `config/[topic-title].json`
 - **主题:** [topic]
 - **目标读者:** [type] / [knowledge level]
 - **文章深度:** [depth]
-- **写作角度:** [angle]
+
+### 写作角度
+- **核心论点:** [thesis]
+- **立场类型:** [stance: challenge/confirm/nuance]
+- **论证要点:** [proofPoints]
+
+### 作者人设
+- **角色:** [role] / [experience]
+- **专长:** [specialty]
+- **偏见/立场:** [bias]
+- **声音特征:** [voiceTraits]
 
 ### 搜索意图
 - **类型:** [type] / [category]

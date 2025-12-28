@@ -31,21 +31,61 @@ drafts/[topic-title].md                - Draft to proofread
 
 ## Step 2: Parse Workflow State
 
+**From config (CORE IDENTITY):**
+- `writingAngle.thesis` - The claim article must prove
+- `writingAngle.stance` - challenge/confirm/nuance
+- `authorPersona.role` - WHO wrote this
+- `authorPersona.bias` - The non-neutral perspective to verify
+
 **From workflowState.research:**
 - `differentiation.primaryDifferentiator` - Verify in title/intro
 - `differentiation.avoidList` - Check article doesn't follow
 - `writingAdvice.cautious` - Verify fuzzy language used
+- `thesisValidation.validatedThesis` - Adjusted thesis if different from original
 
 **From workflowState.writing (CRITICAL):**
 - `sectionsToWatch.weak` - **FOCUS verification here**
 - `sectionsToWatch.differentiated` - Verify unique value
 - `hookUsed` - Verify intro delivers
-- `opinionsIncluded` - Verify clear and supported
+- `thesisExecution` - How thesis was executed
+- `personaExecution` - How persona was applied
 - `internalLinks` - Check for duplicates
 
 ---
 
 ## Step 3: Prioritized Evaluation
+
+### Priority 0: Thesis & Persona Consistency (NEW)
+
+**Thesis Verification:**
+
+| Check | What to Verify |
+|-------|----------------|
+| Intro states thesis | Is `writingAngle.thesis` clearly stated in intro? |
+| H2s support thesis | Does each H2 provide evidence for the thesis? |
+| Conclusion reinforces | Does conclusion circle back to thesis? |
+| Stance maintained | If "challenge", is the contrarian view clear throughout? |
+
+**Persona Consistency:**
+
+| Check | What to Verify |
+|-------|----------------|
+| Voice consistency | Does it sound like same person throughout? |
+| Bias applied | Is `authorPersona.bias` reflected in recommendations? |
+| No voice breaks | Are there generic/neutral sections that break character? |
+| Experience-appropriate | Does persona's experience level match claims? |
+
+**Voice Break Detection:**
+
+Flag sections that sound like:
+- ❌ Encyclopedia/textbook (neutral, no opinion)
+- ❌ Marketing copy (promotional, not practical)
+- ❌ Different person (sudden change in tone/perspective)
+
+**Scoring:**
+- Strong (all pass) → Proceed
+- Moderate (1-2 issues) → Fix and note
+- Weak (3+ issues) → Flag for writer revision
 
 ### Priority 1: Weak Sections (from sectionsToWatch.weak)
 
@@ -228,6 +268,19 @@ Use `visualPlan` from workflowState.writing:
 
 **评分:** 内容 [X]/10 | 质量 [X]/10 | 语言 [X]/10 | SEO [X]/10
 
+**论点验证:**
+- Thesis in Intro: ✅/⚠️/❌
+- H2s支持Thesis: [X]/[total] ✅
+- Conclusion强化: ✅/⚠️/❌
+- Stance一致性: ✅/⚠️/❌
+
+**人设一致性:**
+- 整体评分: Strong/Moderate/Weak
+- 声音一致: ✅/⚠️/❌
+- Bias体现: [X] 处
+- 声音断裂: [list or 无]
+- 修复: [what was fixed or N/A]
+
 **数据验证:**
 - 已验证: [X] 个
 - 模糊转换: [X] 个
@@ -274,3 +327,7 @@ Use `visualPlan` from workflowState.writing:
 8. **FIX promotional language** - Solution-focused only
 9. **UPDATE article history** - If file exists
 10. **Write all output files** - Article, sources, images required
+11. **VERIFY THESIS** - Must be in intro and reinforced in conclusion
+12. **VERIFY PERSONA** - Voice must be consistent throughout
+13. **FIX VOICE BREAKS** - Neutral/generic sections need persona injection
+14. **DON'T ADD FAKE EXPERIENCE** - Fix voice breaks with perspective, not invented stories

@@ -472,3 +472,76 @@ This document serves as a pre-writing reference for educational/informational co
 ## Summary
 
 ACCESS TECH is a gate automation manufacturer established in 1999, specializing in sliding and swing gate openers along with comprehensive access control accessories. The company offers heavy-duty products ranging from 500kg to 3000kg capacity, targeting B2B clients globally including wholesalers, installers, and commercial projects. Key differentiators include rapid 4-8 day delivery, 2-year warranty with free parts replacement, and one-stop access management solutions. The product line covers the complete gate automation ecosystem: openers, detection sensors, security locks, control devices, and hardware accessories.
+
+---
+
+## Part 5: Author Personas
+
+**Purpose:** Define consistent "voices" for content. Writers select a persona at the start of each article.
+
+### Persona 1: 技术专家 / Technical Expert
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Motor sizing, control system specs, safety standards |
+| **Role** | Senior Access Control Systems Engineer |
+| **Experience** | 15+ years in gate automation systems |
+| **Specialty** | Motor selection, safety device integration, control logic |
+| **Bias** | Safety device redundancy is mandatory; motor sizing must account for worst-case conditions; proper limit switch adjustment prevents damage |
+| **Voice Traits** | Safety-focused, specification-oriented, references UL/CE standards |
+
+**Signature Phrases:**
+- "Per UL 325 requirements..."
+- "The motor torque must account for..."
+- "Safety edge integration requires..."
+- "The duty cycle specification means..."
+
+---
+
+### Persona 2: 实践导师 / Practical Mentor
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Installation guides, programming tutorials, troubleshooting |
+| **Role** | Gate Installation Contractor / Technical Trainer |
+| **Experience** | 10+ years installing gate automation systems |
+| **Specialty** | System installation, programming, maintenance |
+| **Bias** | Proper foundation work determines long-term reliability; test every safety device before leaving the site; always explain operation to the end user |
+| **Voice Traits** | Installation-focused, safety-conscious, customer-oriented |
+
+**Signature Phrases:**
+- "Before starting installation, verify..."
+- "The programming sequence is..."
+- "Always test the safety devices by..."
+- "The adjustment that's most often wrong is..."
+
+---
+
+### Persona 3: 行业观察者 / Industry Analyst
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Product comparisons, market trends, specification guides |
+| **Role** | Access Control Industry Consultant |
+| **Experience** | Cross-sector experience in residential and commercial automation |
+| **Specialty** | Product evaluation, technology trends, code requirements |
+| **Bias** | Smart home integration is becoming standard; battery backup should be expected, not optional; safety standards are getting stricter |
+| **Voice Traits** | Trend-aware, comparison-focused, regulatory-conscious |
+
+**Signature Phrases:**
+- "The market is moving toward..."
+- "When comparing slide vs swing operators..."
+- "New code requirements include..."
+- "The integration options now include..."
+
+---
+
+### Persona Selection Guide
+
+| Article Type | Recommended Persona |
+|--------------|---------------------|
+| Motor sizing / Technical specs | Persona 1: 技术专家 |
+| Installation / Programming | Persona 2: 实践导师 |
+| Product comparisons / Buying guides | Persona 3: 行业观察者 |
+| Troubleshooting | Persona 2: 实践导师 |
+| Safety compliance | Persona 1: 技术专家 |

@@ -37,6 +37,23 @@ Read in parallel:
 - `config.searchIntent.type` - Informational/Commercial/etc.
 - `config.audience.knowledge.needsToLearn` - Focus research here
 - `config.audience.knowledge.alreadyKnows` - Skip basic research
+- `config.writingAngle.thesis` - Research must find evidence for this stance
+- `config.authorPersona` - Research through this persona's lens
+
+**Persona-Guided Research:**
+
+The author persona shapes WHAT you look for and HOW you evaluate it:
+
+| Persona Attribute | Research Impact |
+|-------------------|-----------------|
+| `role` | Prioritize sources this role would trust |
+| `specialty` | Deep-dive into specialty areas |
+| `bias` | Seek evidence supporting this worldview |
+| `voiceTraits` | Look for examples/stories if persona "loves examples" |
+
+Example: If persona is "15年热处理车间主任，注重工艺稳定性":
+- ✅ Seek: process control data, failure case studies, repeatability metrics
+- ❌ Deprioritize: theoretical optimal parameters, lab-only research
 
 **From pattern library:** Auto-add known garbage patterns to avoidList; focus on discovering NEW patterns.
 
@@ -192,10 +209,27 @@ Target 2-4 insights. Mark "Limited insights" if topic lacks them.
 - Primary Differentiator: [what makes this unique]
 - Avoid List: [competitor patterns to NOT copy]
 
+### Thesis Validation
+
+Evaluate how well research supports `config.writingAngle.thesis`:
+
+| Aspect | Finding |
+|--------|---------|
+| Evidence FOR thesis | [list supporting data] |
+| Evidence AGAINST | [contradicting data - note for nuance] |
+| Persona alignment | How would [role] interpret this evidence? |
+| Recommended adjustment | Keep / Soften / Strengthen thesis |
+
+If thesis lacks support:
+- Option A: Adjust thesis to match evidence
+- Option B: Flag as "cautious" area for writer
+
 ### Proposed Core Thesis
 
 ```
-THESIS: [one sentence guiding the article]
+ORIGINAL THESIS: [from config.writingAngle.thesis]
+VALIDATED THESIS: [adjusted if needed]
+PERSONA FRAMING: How [role] would express this thesis
 Supported by: [key evidence]
 ```
 
@@ -238,10 +272,19 @@ Key fields to include:
       "irreplicableInsights": [],
       "avoidList": []
     },
+    "thesisValidation": {
+      "originalThesis": "",
+      "evidenceFor": [],
+      "evidenceAgainst": [],
+      "validatedThesis": "",
+      "personaFraming": "",
+      "adjustment": "keep | soften | strengthen"
+    },
     "writingAdvice": {
       "emphasize": [],
       "cautious": [],
-      "differentiateWith": []
+      "differentiateWith": [],
+      "personaVoiceNotes": []
     },
     "userVoices": {"terminologyMap": [], "quotableVoices": []},
     "authorityStrategy": {"sourcesFound": {}}

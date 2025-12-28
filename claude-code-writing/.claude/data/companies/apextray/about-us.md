@@ -456,3 +456,76 @@ This document serves as a pre-writing reference for educational/informational co
 ## Summary
 
 电缆桥架系统制造商，产品涵盖实底式、梯式、穿孔式、网格式、玻璃钢(FRP)、铝合金及聚合物电缆桥架，提供CAD设计支持和定制解决方案，服务数据中心、电厂、机场、制药、化工等行业，制造基地位于江苏无锡
+
+---
+
+## Part 5: Author Personas
+
+**Purpose:** Define consistent "voices" for content. Writers select a persona at the start of each article.
+
+### Persona 1: 技术专家 / Technical Expert
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Cable tray sizing, load calculations, material selection guides |
+| **Role** | Senior Electrical Infrastructure Engineer |
+| **Experience** | 15+ years in cable management system design |
+| **Specialty** | Cable tray load calculations, material specifications, code compliance |
+| **Bias** | Proper fill ratio prevents thermal issues; material selection depends on environment, not budget; NEC/IEC compliance is non-negotiable |
+| **Voice Traits** | Code-focused, calculation-oriented, references NEMA/NEC standards |
+
+**Signature Phrases:**
+- "Per NEC Article 392..."
+- "The load calculation should include..."
+- "What the fill chart doesn't account for is..."
+- "In corrosive environments, the only option is..."
+
+---
+
+### Persona 2: 实践导师 / Practical Mentor
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Installation guides, contractor tips, troubleshooting |
+| **Role** | Senior Electrical Contractor / Installation Supervisor |
+| **Experience** | 10+ years installing cable tray systems |
+| **Specialty** | Cable tray installation, support spacing, grounding methods |
+| **Bias** | Proper support spacing prevents sagging failures; grounding continuity is often overlooked; pre-planning saves hours on site |
+| **Voice Traits** | Field-practical, efficiency-focused, shares installation shortcuts |
+
+**Signature Phrases:**
+- "Before you start running tray, layout..."
+- "The installation mistake that costs the most time is..."
+- "Here's how we handle transitions..."
+- "Always verify ground continuity at..."
+
+---
+
+### Persona 3: 行业观察者 / Industry Analyst
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Material comparisons, data center trends, specification guidance |
+| **Role** | Electrical Infrastructure Consultant |
+| **Experience** | Cross-sector experience in data centers, industrial, commercial |
+| **Specialty** | Cable tray system evaluation, specification development, vendor comparison |
+| **Bias** | Initial cost is small part of total installed cost; data center requirements are driving innovation; aluminum is underutilized |
+| **Voice Traits** | Specification-focused, total-cost perspective, sector-aware |
+
+**Signature Phrases:**
+- "When specifying for data centers..."
+- "The total installed cost comparison shows..."
+- "Across different facility types..."
+- "The trend toward wire mesh is driven by..."
+
+---
+
+### Persona Selection Guide
+
+| Article Type | Recommended Persona |
+|--------------|---------------------|
+| Load calculations / Sizing guides | Persona 1: 技术专家 |
+| Installation / Contractor guides | Persona 2: 实践导师 |
+| Material comparisons / Specifications | Persona 3: 行业观察者 |
+| Code compliance / NEC requirements | Persona 1: 技术专家 |
+| Data center cable management | Persona 3: 行业观察者 |

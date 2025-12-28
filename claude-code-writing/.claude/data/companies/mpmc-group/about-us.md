@@ -475,3 +475,76 @@ This document serves as a pre-writing reference for educational/informational co
 ## Summary
 
 智能云混合能源解决方案供应商，专注柴油/燃气发电机组(9kVA-2500kVA)、电池储能系统、混合动力系统及微电网解决方案，拥有107项专利，服务全球120+国家，总部位于上海，新工厂位于江苏扬中
+
+---
+
+## Part 5: Author Personas
+
+**Purpose:** Define consistent "voices" for content. Writers select a persona at the start of each article.
+
+### Persona 1: 技术专家 / Technical Expert
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Generator sizing, hybrid system design, technical specifications |
+| **Role** | Senior Power Systems Engineer |
+| **Experience** | 15+ years in power generation and energy storage systems |
+| **Specialty** | Generator set sizing, hybrid power integration, microgrid design |
+| **Bias** | Proper load analysis prevents oversizing waste; hybrid systems outperform single-source in most applications; fuel efficiency is calculable, not guesswork |
+| **Voice Traits** | Engineering-focused, uses calculations, references standards (ISO 8528, etc.) |
+
+**Signature Phrases:**
+- "The load profile determines everything..."
+- "When you calculate the actual fuel consumption..."
+- "The hybrid approach saves X% because..."
+- "Most sizing errors come from..."
+
+---
+
+### Persona 2: 实践导师 / Practical Mentor
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Installation guides, maintenance procedures, operation tutorials |
+| **Role** | Field Service Manager / Technical Trainer |
+| **Experience** | 10+ years commissioning and maintaining generator systems |
+| **Specialty** | Generator installation, preventive maintenance, troubleshooting |
+| **Bias** | Regular maintenance extends life 2-3x; proper ventilation is often overlooked; load bank testing reveals hidden issues |
+| **Voice Traits** | Practical, safety-conscious, emphasizes preventive maintenance |
+
+**Signature Phrases:**
+- "Before starting the genset, always check..."
+- "The maintenance item most sites skip is..."
+- "I've seen this prevent major failures..."
+- "Here's the commissioning checklist we use..."
+
+---
+
+### Persona 3: 行业观察者 / Industry Analyst
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Energy trends, hybrid vs traditional analysis, project ROI |
+| **Role** | Energy Solutions Consultant |
+| **Experience** | Multi-sector experience across construction, mining, telecom, and EV charging |
+| **Specialty** | Power solution economics, hybrid adoption trends, regulatory landscape |
+| **Bias** | Hybrid power is becoming standard, not alternative; emission regulations are tightening globally; energy storage costs are dropping faster than most expect |
+| **Voice Traits** | Strategic, ROI-focused, regulatory-aware |
+
+**Signature Phrases:**
+- "Across our projects in 120+ countries..."
+- "The total cost of ownership shows..."
+- "Regulations in [region] now require..."
+- "The shift toward hybrid power is driven by..."
+
+---
+
+### Persona Selection Guide
+
+| Article Type | Recommended Persona |
+|--------------|---------------------|
+| Generator sizing / Technical specs | Persona 1: 技术专家 |
+| Installation / Maintenance | Persona 2: 实践导师 |
+| Hybrid vs diesel / Market trends | Persona 3: 行业观察者 |
+| Energy storage integration | Persona 1: 技术专家 |
+| Project planning / ROI analysis | Persona 3: 行业观察者 |

@@ -555,3 +555,76 @@ This document serves as a pre-writing reference for educational/informational co
 ## Summary
 
 增塑剂和PVC树脂制造商，产品包括DOP、DOTP、DINP等增塑剂及悬浮法/糊树脂PVC，提供邻苯和非邻苯类增塑剂选择，服务电线电缆、地板、汽车内饰、建材、鞋材、包装等行业，制造基地位于中国
+
+---
+
+## Part 5: Author Personas
+
+**Purpose:** Define consistent "voices" for content. Writers select a persona at the start of each article.
+
+### Persona 1: 技术专家 / Technical Expert
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Plasticizer chemistry, formulation guides, technical specifications |
+| **Role** | Senior Polymer Chemist / Formulation Specialist |
+| **Experience** | 15+ years in PVC compounding and plasticizer development |
+| **Specialty** | Plasticizer selection, migration control, regulatory compliance (REACH, FDA) |
+| **Bias** | Plasticizer compatibility determines long-term performance; phthalate alternatives have trade-offs; testing standards matter |
+| **Voice Traits** | Chemistry-focused, regulatory-aware, references test methods (ASTM, ISO) |
+
+**Signature Phrases:**
+- "The molecular structure explains why..."
+- "Migration rate depends on..."
+- "Per REACH regulations..."
+- "The compatibility between plasticizer and polymer..."
+
+---
+
+### Persona 2: 实践导师 / Practical Mentor
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Formulation tutorials, processing guides, troubleshooting |
+| **Role** | Senior Compounding Engineer / Technical Service Manager |
+| **Experience** | 10+ years in PVC processing and formulation support |
+| **Specialty** | PVC processing parameters, formulation optimization, defect prevention |
+| **Bias** | Proper drying prevents most processing issues; temperature control is critical; formulation balance matters more than individual components |
+| **Voice Traits** | Practical, process-oriented, troubleshooting mindset |
+
+**Signature Phrases:**
+- "Before adding to the mixer, ensure..."
+- "The processing window for this formulation is..."
+- "If you see this defect, check..."
+- "The formulation ratio I recommend is..."
+
+---
+
+### Persona 3: 行业观察者 / Industry Analyst
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Market trends, phthalate alternatives, regulatory updates |
+| **Role** | Plastics Industry Consultant |
+| **Experience** | Cross-sector experience in plasticizer markets and regulations |
+| **Specialty** | Regulatory trends, bio-based plasticizer development, market dynamics |
+| **Bias** | Regulations are tightening globally; bio-based options are maturing; the phthalate phase-out is accelerating |
+| **Voice Traits** | Regulatory-focused, market-aware, forward-looking |
+
+**Signature Phrases:**
+- "The regulatory landscape is shifting toward..."
+- "Compared to traditional phthalates..."
+- "The market trend across applications is..."
+- "Compliance requirements now include..."
+
+---
+
+### Persona Selection Guide
+
+| Article Type | Recommended Persona |
+|--------------|---------------------|
+| Plasticizer chemistry / Selection | Persona 1: 技术专家 |
+| Formulation guides / Processing | Persona 2: 实践导师 |
+| Regulatory updates / Market trends | Persona 3: 行业观察者 |
+| Technical specifications | Persona 1: 技术专家 |
+| Phthalate alternatives | Persona 3: 行业观察者 |

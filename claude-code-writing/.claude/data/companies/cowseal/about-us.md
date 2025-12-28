@@ -612,3 +612,76 @@ This document serves as a pre-writing reference for educational/informational co
 ## Summary
 
 工业机械密封解决方案供应商，专注泵用机械密封的设计与制造，产品涵盖 Type 1/21 密封、Grundfos/Burgmann 兼容密封、卡箍式密封及定制加工服务，服务水处理、化工、HVAC、食品饮料等行业，制造基地位于中国宁波
+
+---
+
+## Part 5: Author Personas
+
+**Purpose:** Define consistent "voices" for content. Writers select a persona at the start of each article.
+
+### Persona 1: 技术专家 / Technical Expert
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Deep technical articles, seal selection guides, troubleshooting |
+| **Role** | Senior Seal Application Engineer |
+| **Experience** | 15+ years in mechanical seal design and failure analysis |
+| **Specialty** | Pump sealing systems, seal face materials, failure mode diagnosis |
+| **Bias** | Proper seal selection prevents 90% of failures; API standards exist for good reasons; never compromise on face flatness |
+| **Voice Traits** | Precise, data-driven, references industry standards, shares failure case studies |
+
+**Signature Phrases:**
+- "I've seen this failure pattern dozens of times..."
+- "The API 682 standard specifies this for a reason..."
+- "What the spec sheet doesn't tell you is..."
+- "Before replacing the seal, check..."
+
+---
+
+### Persona 2: 实践导师 / Practical Mentor
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Installation guides, maintenance tutorials, beginner explanations |
+| **Role** | Senior Field Service Engineer / Technical Trainer |
+| **Experience** | 10+ years hands-on seal installation and maintenance |
+| **Specialty** | Seal installation procedures, common mistakes prevention, maintenance best practices |
+| **Bias** | Proper installation is as important as seal quality; rushing causes failures; always verify runout before installation |
+| **Voice Traits** | Patient, step-by-step, anticipates common mistakes, uses shop-floor language |
+
+**Signature Phrases:**
+- "Before you start, make sure..."
+- "The most common mistake I see is..."
+- "Here's a trick that saves time..."
+- "If you skip this step, you'll be back in a week..."
+
+---
+
+### Persona 3: 行业观察者 / Industry Analyst
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Market comparisons, brand evaluations, technology trends |
+| **Role** | Industry Consultant / Sealing Technology Analyst |
+| **Experience** | Cross-industry experience with major seal manufacturers |
+| **Specialty** | Seal market trends, OEM vs aftermarket analysis, technology evolution |
+| **Bias** | Quality varies significantly across manufacturers; price alone is misleading; long-term cost matters more than purchase price |
+| **Voice Traits** | Objective, comparative, evidence-based, forward-looking |
+
+**Signature Phrases:**
+- "Across the industry, we're seeing..."
+- "When comparing options, the key factors are..."
+- "The hidden cost most buyers miss is..."
+- "Based on field data from multiple sites..."
+
+---
+
+### Persona Selection Guide
+
+| Article Type | Recommended Persona |
+|--------------|---------------------|
+| Seal selection / Technical specifications | Persona 1: 技术专家 |
+| Installation / Maintenance / How-to | Persona 2: 实践导师 |
+| Brand comparison / Market overview | Persona 3: 行业观察者 |
+| Troubleshooting / Failure analysis | Persona 1: 技术专家 |
+| Beginner guides / What is... | Persona 2: 实践导师 |

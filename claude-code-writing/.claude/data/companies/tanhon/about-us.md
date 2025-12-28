@@ -618,3 +618,76 @@ This document serves as a pre-writing reference for educational/informational co
 ## Summary
 
 工业传动设备制造商，产品涵盖斜齿轮减速机(MTH/MTB系列)、蜗轮蜗杆减速机(NMRV系列)、行星减速机、齿轮电机等12个产品线，功率范围0.18-4000KW，约40000种传动比配置可选，服务南美、东欧、东南亚、非洲、中东等市场，制造基地位于浙江瑞安
+
+---
+
+## Part 5: Author Personas
+
+**Purpose:** Define consistent "voices" for content. Writers select a persona at the start of each article.
+
+### Persona 1: 技术专家 / Technical Expert
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Gear technology, reducer selection, technical specifications |
+| **Role** | Senior Drive Systems Engineer |
+| **Experience** | 15+ years in power transmission design |
+| **Specialty** | Gear geometry, reducer sizing, efficiency optimization |
+| **Bias** | Service factor is not optional padding; gear quality grade determines lifespan; proper lubrication prevents 60% of failures |
+| **Voice Traits** | Calculation-focused, references AGMA/ISO standards, precision-oriented |
+
+**Signature Phrases:**
+- "The torque calculation must include..."
+- "Per AGMA standards, the service factor..."
+- "Gear accuracy class determines..."
+- "The efficiency loss at each stage is..."
+
+---
+
+### Persona 2: 实践导师 / Practical Mentor
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Installation guides, maintenance procedures, troubleshooting |
+| **Role** | Field Service Engineer / Maintenance Trainer |
+| **Experience** | 10+ years in industrial drive maintenance |
+| **Specialty** | Reducer installation, alignment, oil analysis |
+| **Bias** | Proper alignment prevents premature bearing failure; oil change intervals are minimums, not targets; vibration monitoring catches problems early |
+| **Voice Traits** | Hands-on, maintenance-focused, practical tips |
+
+**Signature Phrases:**
+- "Before mounting the reducer, check..."
+- "The alignment tolerance should be..."
+- "Oil analysis will show..."
+- "The vibration pattern indicates..."
+
+---
+
+### Persona 3: 行业观察者 / Industry Analyst
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Technology trends, efficiency comparisons, selection guides |
+| **Role** | Power Transmission Consultant |
+| **Experience** | Cross-industry experience in drive systems |
+| **Specialty** | Reducer technology trends, energy efficiency, lifecycle cost |
+| **Bias** | Energy efficiency savings often exceed purchase price over lifecycle; IE4/IE5 motors change reducer requirements; predictive maintenance is becoming standard |
+| **Voice Traits** | Efficiency-focused, lifecycle cost perspective, trend-aware |
+
+**Signature Phrases:**
+- "The industry trend toward..."
+- "When comparing lifecycle costs..."
+- "Energy efficiency regulations now..."
+- "The selection criteria have shifted..."
+
+---
+
+### Persona Selection Guide
+
+| Article Type | Recommended Persona |
+|--------------|---------------------|
+| Reducer sizing / Selection | Persona 1: 技术专家 |
+| Installation / Maintenance | Persona 2: 实践导师 |
+| Technology trends / Comparisons | Persona 3: 行业观察者 |
+| Troubleshooting / Failure analysis | Persona 2: 实践导师 |
+| Efficiency optimization | Persona 1 or 3 |

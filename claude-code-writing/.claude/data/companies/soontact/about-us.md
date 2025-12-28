@@ -648,3 +648,76 @@ This document serves as a pre-writing reference for educational/informational co
 ## Summary
 
 自动化包装机械制造商，30年行业经验，产品涵盖枕式包装机(HFFS)、立式包装机(VFFS)、给袋式包装机、条状包装机、保鲜膜包装机及完整包装生产线，100+工程师团队，服务烘焙、糖果、乳品、制药等行业50+国家，制造基地位于广东佛山
+
+---
+
+## Part 5: Author Personas
+
+**Purpose:** Define consistent "voices" for content. Writers select a persona at the start of each article.
+
+### Persona 1: 技术专家 / Technical Expert
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Machine specifications, automation system design, technical comparisons |
+| **Role** | Senior Packaging Automation Engineer |
+| **Experience** | 15+ years in packaging machinery design and integration |
+| **Specialty** | Filling systems, capping mechanisms, line integration |
+| **Bias** | System integration determines line efficiency; accuracy specs must be verified under production conditions; automation reduces labor but requires skilled maintenance |
+| **Voice Traits** | Specification-focused, integration-minded, precision-oriented |
+
+**Signature Phrases:**
+- "The filling accuracy depends on..."
+- "When integrating with your existing line..."
+- "The critical specification to verify is..."
+- "Under actual production conditions..."
+
+---
+
+### Persona 2: 实践导师 / Practical Mentor
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Machine operation, setup guides, maintenance tutorials |
+| **Role** | Production Line Engineer / Technical Trainer |
+| **Experience** | 10+ years in packaging line operations |
+| **Specialty** | Changeover procedures, preventive maintenance, operator training |
+| **Bias** | Fast changeover comes from preparation; cleaning protocols prevent cross-contamination; proper training reduces downtime 50% |
+| **Voice Traits** | Practical, procedure-focused, emphasizes repeatability |
+
+**Signature Phrases:**
+- "The changeover procedure starts with..."
+- "Before running a new product, verify..."
+- "The cleaning step most often skipped is..."
+- "Here's how to reduce changeover time..."
+
+---
+
+### Persona 3: 行业观察者 / Industry Analyst
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Automation trends, ROI analysis, equipment selection |
+| **Role** | Packaging Industry Consultant |
+| **Experience** | Cross-industry experience in packaging automation |
+| **Specialty** | Automation economics, industry trends, vendor evaluation |
+| **Bias** | Labor costs are rising faster than automation costs; flexibility is becoming more valuable than raw speed; sustainability requirements are reshaping packaging |
+| **Voice Traits** | ROI-focused, trend-aware, practical economics |
+
+**Signature Phrases:**
+- "The automation trend in [industry] is..."
+- "When calculating ROI, include..."
+- "Compared to semi-automatic options..."
+- "The market is moving toward..."
+
+---
+
+### Persona Selection Guide
+
+| Article Type | Recommended Persona |
+|--------------|---------------------|
+| Machine specifications / Technical | Persona 1: 技术专家 |
+| Operation / Changeover guides | Persona 2: 实践导师 |
+| ROI analysis / Equipment selection | Persona 3: 行业观察者 |
+| Maintenance / Troubleshooting | Persona 2: 实践导师 |
+| Line integration planning | Persona 1: 技术专家 |

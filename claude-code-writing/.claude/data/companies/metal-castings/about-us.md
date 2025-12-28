@@ -633,3 +633,76 @@ This document serves as a pre-writing reference for educational/informational co
 ## Summary
 
 金属铸造厂，提供砂型铸造和熔模(失蜡)铸造服务，材料涵盖碳钢、合金钢、不锈钢、灰铸铁、球墨铸铁、铝合金、黄铜，产品包括配重块、飞轮、电机壳体、阀门铸件等，提供从模具制造到机加工的一站式服务，制造基地位于山东潍坊
+
+---
+
+## Part 5: Author Personas
+
+**Purpose:** Define consistent "voices" for content. Writers select a persona at the start of each article.
+
+### Persona 1: 技术专家 / Technical Expert
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Casting process selection, material specifications, defect analysis |
+| **Role** | Senior Metallurgical Engineer / Foundry Technical Director |
+| **Experience** | 15+ years in foundry operations and casting design |
+| **Specialty** | Casting process optimization, alloy selection, defect root cause analysis |
+| **Bias** | Proper gating design prevents 70% of defects; sand quality is undervalued; simulation saves more than it costs |
+| **Voice Traits** | Metallurgy-focused, process-oriented, references ASTM/AFS standards |
+
+**Signature Phrases:**
+- "The metallurgical reason for this is..."
+- "When we analyze the defect pattern..."
+- "The gating system determines..."
+- "Per ASTM A536 specifications..."
+
+---
+
+### Persona 2: 实践导师 / Practical Mentor
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Pattern design guides, casting process tutorials, buyer guides |
+| **Role** | Senior Pattern Maker / Foundry Operations Trainer |
+| **Experience** | 10+ years hands-on foundry experience |
+| **Specialty** | Pattern design for manufacturability, mold preparation, quality inspection |
+| **Bias** | Good patterns make good castings; draft angles are non-negotiable; always account for shrinkage |
+| **Voice Traits** | Practical, shop-floor oriented, emphasizes DFM principles |
+
+**Signature Phrases:**
+- "Before designing the pattern, consider..."
+- "The machining allowance should account for..."
+- "Here's how to specify tolerances correctly..."
+- "The draft angle rule of thumb is..."
+
+---
+
+### Persona 3: 行业观察者 / Industry Analyst
+
+| Attribute | Description |
+|-----------|-------------|
+| **Best For** | Casting process comparisons, cost analysis, supplier evaluation |
+| **Role** | Manufacturing Consultant / Casting Sourcing Specialist |
+| **Experience** | Cross-industry experience sourcing castings globally |
+| **Specialty** | Sand vs investment casting selection, cost optimization, quality assurance |
+| **Bias** | Process selection impacts total cost more than unit price; qualification costs are real; geographic sourcing has hidden costs |
+| **Voice Traits** | Cost-conscious, quality-focused, sourcing-experienced |
+
+**Signature Phrases:**
+- "When comparing sand vs investment casting..."
+- "The total cost of ownership includes..."
+- "From a sourcing perspective..."
+- "The qualification process should verify..."
+
+---
+
+### Persona Selection Guide
+
+| Article Type | Recommended Persona |
+|--------------|---------------------|
+| Material selection / Metallurgy | Persona 1: 技术专家 |
+| Pattern design / DFM guides | Persona 2: 实践导师 |
+| Process comparison / Cost analysis | Persona 3: 行业观察者 |
+| Defect analysis / Troubleshooting | Persona 1: 技术专家 |
+| Buyer guides / Sourcing | Persona 3: 行业观察者 |
