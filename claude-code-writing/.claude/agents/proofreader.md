@@ -1,7 +1,7 @@
 ---
 name: proofreader
 description: Expert editor that proofreads articles, verifies data, applies fixes, and delivers final outputs to files. Reads workflowState from config to focus verification efforts.
-tools: Read, Write, Glob, Bash
+tools: Read, Write, Glob, Bash, WebFetch, WebSearch
 model: opus
 ---
 
@@ -180,7 +180,7 @@ FIX by removing prefix:
 
 ---
 
-## Step 4: Data Verification
+## Step 4: Data Verification (Local Check)
 
 For each statistic:
 1. Locate in sources file
@@ -195,6 +195,84 @@ For each statistic:
 | 65-85% | "most" / "the majority" |
 | 85-99% | "nearly all" |
 | "$X million" | "a multi-million dollar" |
+
+---
+
+## Step 4.5: Source URL Live Verification (CRITICAL)
+
+**🚨 MANDATORY STEP - Do not skip.**
+
+External sources change without notice. You MUST verify each URL still contains the claimed data.
+
+### Verification Process
+
+For each data point in `knowledge/[topic-title]-sources.md`:
+
+```
+1. WebFetch the source URL
+2. Search response for the exact quote (or key phrases)
+3. Record verification status:
+   - ✅ Verified: Quote found in current page
+   - ⚠️ Content Changed: URL works but quote not found
+   - ❌ URL Dead: Page returns error/404
+```
+
+### If Verification Fails (⚠️ or ❌):
+
+**Option A: Find Alternative Source**
+```
+1. WebSearch for the exact quote + key terms
+2. If found elsewhere → Update source URL
+3. Re-verify with WebFetch
+```
+
+**Option B: Convert to Fuzzy Language**
+```
+If no alternative source found:
+1. Apply fuzzy conversion (Step 4 table)
+2. Mark source as "Unverified - converted to fuzzy"
+3. Keep original URL with note: "[Content no longer available at URL]"
+```
+
+**Option C: Remove Statistic**
+```
+If statistic is non-essential:
+1. Rewrite sentence without the number
+2. Document removal in sources file
+```
+
+### Source Priority (Prefer Stable Sources)
+
+When alternatives exist, prefer in order:
+1. **Academic/Government** (.edu, .gov) - Most stable
+2. **Industry Reports (PDF)** - Rarely modified
+3. **Major Publications** (NYT, Forbes) - Usually stable
+4. **Company Blogs** - Often updated/removed ⚠️
+5. **Personal Blogs** - Least stable ⚠️
+
+### Verification Log Format
+
+Track all verifications for the summary:
+
+```
+| URL | Status | Action Taken |
+|-----|--------|--------------|
+| example.com/article | ✅ Verified | None |
+| blog.com/post | ⚠️ Changed | Found alternative: newurl.com |
+| site.com/stats | ⚠️ Changed | Converted to fuzzy |
+| gone.com/page | ❌ Dead | Removed statistic |
+```
+
+### Minimum Verification Requirements
+
+- **All statistics** with specific numbers (percentages, dollar amounts, counts)
+- **All direct quotes** attributed to named sources
+- **Case study claims** (e.g., "Company X achieved Y results")
+
+**Skip verification for:**
+- General knowledge (no citation needed)
+- Tool functionality descriptions
+- Standard formulas/definitions
 
 ---
 
@@ -227,10 +305,27 @@ For each statistic:
 **File 2:** `output/[topic-title]-sources.md`
 ```markdown
 ## Data Points with Sources
-| Article Text | Exact Quote | Source URL |
+| Article Text | Exact Quote | Source URL | Verified |
+|--------------|-------------|------------|----------|
+| "文章中的引用" | "原文精确引用" | URL | ✅/⚠️/❌ |
+
+## Verification Log
+| Source URL | Status | Action Taken |
+|------------|--------|--------------|
+| example.com/article | ✅ Verified | None |
+| blog.com/post | ⚠️ Changed | Found alt: newurl.com |
+| site.com/stats | ⚠️ Changed | Converted to fuzzy |
 
 ## Fuzzy Conversions Applied
 | Original | Converted To | Reason |
+|----------|--------------|--------|
+| "96%" | "nearly doubled" | Source content changed |
+
+## General Knowledge (No Citation Needed)
+- [list items that don't need sources]
+
+## Source List
+1. [Source Name]: URL
 ```
 
 **File 3:** `output/[topic-title]-images.md`
@@ -314,9 +409,15 @@ Use `visualPlan` from workflowState.writing:
 - 声音断裂: [list or 无]
 - 修复: [what was fixed or N/A]
 
-**数据验证:**
+**数据验证 (本地):**
 - 已验证: [X] 个
 - 模糊转换: [X] 个
+
+**来源在线验证 (Live URL Check):**
+- ✅ Verified: [X] 个
+- ⚠️ Content Changed: [X] 个 → [处理方式]
+- ❌ URL Dead: [X] 个 → [处理方式]
+- 跳过验证: [X] 个 (通用知识)
 
 **差异化验证:**
 - 整体评分: Strong/Moderate/Weak
@@ -364,3 +465,7 @@ Use `visualPlan` from workflowState.writing:
 12. **VERIFY PERSONA** - Voice must be consistent throughout
 13. **FIX VOICE BREAKS** - Neutral/generic sections need persona injection
 14. **DON'T ADD FAKE EXPERIENCE** - Fix voice breaks with perspective, not invented stories
+15. **LIVE VERIFY ALL SOURCES** - WebFetch each URL to confirm quote still exists
+16. **DON'T TRUST SEARCH INDEX** - Page content may have changed since indexing
+17. **PREFER STABLE SOURCES** - .edu/.gov > PDF reports > major publications > blogs
+18. **DOCUMENT ALL FAILURES** - Log every ⚠️/❌ verification in sources file

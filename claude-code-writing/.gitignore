@@ -1,0 +1,19 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.tmp
+*.bak
+*~
+
+# Keep workflow folders but ignore contents
+config/*.json
+drafts/*.md
+knowledge/*.md
+outline/*.md
+output/*.md
+imports/*.md
+
+# Keep folders with .gitkeep
+!**/.gitkeep

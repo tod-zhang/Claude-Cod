@@ -71,14 +71,20 @@ imports/              # Workflow 2: 旧文章分析结果
      - Persona 2: 实践导师 → 入门指南、教程
      - Persona 3: 行业观察者 → 趋势分析、对比
      - 自定义 → 用户自行定义
-7. **Launch agent**:
+7. **⚠️ 确定输出语言（必须执行，不可跳过）**:
+   ```
+   if company == "semrush":
+       language = "中文"
+   else:
+       language = "English"
+   ```
+   **注意**: 无论用户用什么语言提供主题，输出语言只由公司决定。
+8. **Launch agent**:
    ```
    Task: subagent_type="config-creator"
    Prompt: Create config for [company], [topic], [audience], [depth], [thesis], [persona], [language]
    ```
-8. **✅ 验证**: `Glob config/[topic-title].json` 存在 → 继续
-
-**Tips:** Language: semrush → 中文, others → English
+9. **✅ 验证**: `Glob config/[topic-title].json` 存在 → 继续
 
 ### Step 2: Research (Auto)
 
@@ -162,13 +168,20 @@ Glob: output/[topic-title]-images.md
 3. **AskUserQuestion**: Audience / Depth（显示推荐值，来自分析）
 4. **生成写作角度**: 基于诊断生成 3 个 Thesis 选项（标注推荐）
 5. **选择作者人设**: 从公司 Part 5 预设中选择
-6. **Launch agent**:
+6. **⚠️ 确定输出语言（必须执行，不可跳过）**:
+   ```
+   if company == "semrush":
+       language = "中文"
+   else:
+       language = "English"
+   ```
+7. **Launch agent**:
    ```
    Task: subagent_type="config-creator"
    Prompt: Create config for [company], [topic], [audience], [depth], [thesis], [persona], [language]
            Optimization mode: true, analysis file: imports/[topic-title]-analysis.md
    ```
-7. **✅ 验证**: `Glob config/[topic-title].json` 存在 → 继续
+8. **✅ 验证**: `Glob config/[topic-title].json` 存在 → 继续
 
 ### Step 2-4: 同 Workflow 1
 

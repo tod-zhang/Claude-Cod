@@ -11,9 +11,16 @@ allowed-tools: Bash(*)
 
 请删除以下文件：
 - config/*.json
+- config/*.tmp
 - drafts/*.md
 - knowledge/*.md
 - outline/*.md
 - output/*.md
+- imports/*.md
+
+同时清理临时文件：
+- **/*.tmp
+- **/*.bak
+- **/*~
 
 执行完成后报告清理结果。
