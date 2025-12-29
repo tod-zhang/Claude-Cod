@@ -138,7 +138,7 @@ Glob: output/[topic-title]-images.md
 
 ## Workflow 2: 旧文章优化
 
-**触发**: 用户提供 URL (e.g., "优化这个 URL: https://example.com/article")
+**触发**: 用户说 "优化" + URL (e.g., "优化: https://example.com/article")
 
 ### Step 0: 导入分析
 
