@@ -32,6 +32,27 @@ Read in parallel:
 1. `config/[topic-title].json` - Search intent & audience
 2. `.claude/data/companies/[company-name]/competitive-patterns.md` - Accumulated garbage patterns (if exists)
 
+### 🚨 Required Field Validation (MUST CHECK)
+
+Before proceeding, verify these fields exist and are non-empty:
+
+| Field | Required Value | If Missing |
+|-------|----------------|------------|
+| `writingAngle.thesis` | Specific claim, not vague | ❌ STOP - Return error to main |
+| `writingAngle.stance` | challenge/confirm/nuance | ❌ STOP - Return error to main |
+| `authorPersona.role` | Non-empty string | ❌ STOP - Return error to main |
+| `authorPersona.bias` | Non-neutral perspective | ❌ STOP - Return error to main |
+| `searchIntent.coreQuestion` | Non-empty string | ❌ STOP - Return error to main |
+
+**Validation Logic:**
+```
+IF thesis is vague (e.g., "实用指南", "深度分析", "入门科普"):
+  → STOP and return: "Config error: writingAngle.thesis is too vague. Need specific claim."
+
+IF authorPersona.bias is missing or generic:
+  → STOP and return: "Config error: authorPersona.bias must be a non-neutral perspective."
+```
+
 **Use config values directly (already analyzed):**
 - `config.searchIntent.coreQuestion` - The question research must help answer
 - `config.searchIntent.type` - Informational/Commercial/etc.
@@ -252,6 +273,32 @@ Include:
 - Differentiation Analysis
 - Golden Insights
 - Source List
+
+### 📍 Data Point Line Number Tracking (REQUIRED)
+
+**Every data point MUST have a unique ID for traceability:**
+
+```markdown
+## Data Points Registry
+
+| ID | Data Point | Exact Quote | Source URL | Verified |
+|----|------------|-------------|------------|----------|
+| D001 | 热处理失败率15% | "15% of heat treatment batches fail due to..." | https://... | ✅ |
+| D002 | 淬火温度850°C | "Optimal quenching temperature is 850°C" | https://... | ✅ |
+| D003 | 预热时间30分钟 | [No exact quote found] | - | ⚠️ FUZZY |
+```
+
+**ID Format:** `D` + 3-digit number (D001, D002, ...)
+
+**Verification Status:**
+- ✅ = Exact quote found in source
+- ⚠️ FUZZY = No exact quote, must use fuzzy language in article
+- ❌ = Unverified, DO NOT use
+
+**Downstream Usage:**
+- `outline-writer` references data by ID when using in article
+- `proofreader` verifies each ID has source match
+- If proofreader can't verify → auto-convert to fuzzy language
 
 ### Step 2: Update Config with workflowState.research
 

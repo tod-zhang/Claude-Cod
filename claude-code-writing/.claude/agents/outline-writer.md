@@ -33,6 +33,34 @@ knowledge/[topic-title]-sources.md     - Research findings
 
 ## Step 2: Parse Config & Research State
 
+### 🚨 Required Field Validation (MUST CHECK)
+
+Before proceeding, verify these critical fields:
+
+| Field | Required | If Missing/Invalid |
+|-------|----------|-------------------|
+| `writingAngle.thesis` | Specific claim | ❌ STOP |
+| `writingAngle.stance` | challenge/confirm/nuance | ❌ STOP |
+| `authorPersona.role` | Non-empty | ❌ STOP |
+| `authorPersona.bias` | Non-neutral perspective | ❌ STOP |
+| `workflowState.research.status` | "completed" | ❌ STOP |
+| `workflowState.research.thesisValidation` | Object with validatedThesis | ⚠️ Use original thesis |
+| `workflowState.research.differentiation.primaryDifferentiator` | Non-empty | ⚠️ Flag weak differentiation |
+
+**Validation Logic:**
+```
+IF workflowState.research.status != "completed":
+  → STOP and return: "Research not completed. Run web-researcher first."
+
+IF thesisValidation.validatedThesis exists AND differs from writingAngle.thesis:
+  → USE validatedThesis (research found better evidence)
+  → LOG: "Using validated thesis: [validatedThesis]"
+
+IF primaryDifferentiator is empty:
+  → WARN: "Weak differentiation - article may not stand out"
+  → Continue but flag in workflowState.writing
+```
+
 **From config (CORE IDENTITY):**
 
 | Field | What It Tells You |
@@ -194,6 +222,29 @@ For each H2: Does it satisfy `h2Requirement`?
 | "预热很重要" | "我见过太多工厂为省时间跳过预热，结果整批报废" |
 | "建议使用A方法" | "在我15年的经验里，A方法失败率最低" |
 | "需要注意温度控制" | "温度差1度可能没事，差5度就是灾难——别问我怎么知道的" |
+
+### 🎯 Persona Signature Enforcement (MANDATORY)
+
+**Signature phrases from `authorPersona.signaturePhrases` MUST appear in article:**
+
+| Insertion Point | Requirement | Example |
+|-----------------|-------------|---------|
+| **Intro (1st paragraph)** | 1 signature phrase | Sets persona voice immediately |
+| **H2 with strongest opinion** | 1 signature phrase | Reinforces authority |
+| **Conclusion (last paragraph)** | 1 signature phrase | Memorable closing |
+
+**Minimum: 3 signature phrases total. Maximum: 5.**
+
+**If `signaturePhrases` is empty or missing:**
+1. Generate 3 phrases based on `voiceTraits` + `bias`
+2. Record generated phrases in `workflowState.writing.decisions.personaExecution.signaturePhrases`
+
+**Self-Check before saving:**
+```
+□ Intro contains persona voice marker?
+□ At least 2 H2s have bias-driven recommendations?
+□ Conclusion sounds like same person as intro?
+```
 
 **Thesis Integration:**
 - Intro: State thesis clearly (from `writingAngle.thesis`)

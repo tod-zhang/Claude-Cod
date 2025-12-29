@@ -55,37 +55,70 @@ drafts/[topic-title].md                - Draft to proofread
 
 ## Step 3: Prioritized Evaluation
 
-### Priority 0: Thesis & Persona Consistency (NEW)
+### Priority 0: Thesis & Persona Double Verification (CRITICAL)
 
-**Thesis Verification:**
+**🚨 This is a BLOCKING check. If failed, DO NOT deliver article.**
 
-| Check | What to Verify |
-|-------|----------------|
-| Intro states thesis | Is `writingAngle.thesis` clearly stated in intro? |
-| H2s support thesis | Does each H2 provide evidence for the thesis? |
-| Conclusion reinforces | Does conclusion circle back to thesis? |
-| Stance maintained | If "challenge", is the contrarian view clear throughout? |
+#### Part A: Thesis Verification (Line-by-Line)
 
-**Persona Consistency:**
+| Check | Verification Method | Pass Criteria |
+|-------|---------------------|---------------|
+| **Intro thesis** | Search intro for `writingAngle.thesis` keywords | Thesis stated in first 3 paragraphs |
+| **H2 evidence** | For each H2, find thesis-supporting statement | ≥80% of H2s support thesis |
+| **Conclusion thesis** | Search conclusion for thesis reinforcement | Thesis restated or evolved |
+| **Stance consistency** | If "challenge", count contrarian statements | ≥3 challenge statements |
 
-| Check | What to Verify |
-|-------|----------------|
-| Voice consistency | Does it sound like same person throughout? |
-| Bias applied | Is `authorPersona.bias` reflected in recommendations? |
-| No voice breaks | Are there generic/neutral sections that break character? |
-| Experience-appropriate | Does persona's experience level match claims? |
+**Thesis Search Pattern:**
+```
+1. Extract key claim words from thesis (e.g., "预热步骤" "失败")
+2. Search article for these words
+3. Verify context supports the thesis, not contradicts
+4. Record: location + exact quote + supporting/contradicting
+```
 
-**Voice Break Detection:**
+**If Thesis Missing:**
+- Intro missing thesis → **INJECT** thesis statement in paragraph 2
+- Conclusion missing → **ADD** thesis reinforcement sentence
+- Log all injections in summary
 
-Flag sections that sound like:
-- ❌ Encyclopedia/textbook (neutral, no opinion)
-- ❌ Marketing copy (promotional, not practical)
-- ❌ Different person (sudden change in tone/perspective)
+#### Part B: Persona Consistency Audit
 
-**Scoring:**
-- Strong (all pass) → Proceed
-- Moderate (1-2 issues) → Fix and note
-- Weak (3+ issues) → Flag for writer revision
+| Check | Verification Method | Pass Criteria |
+|-------|---------------------|---------------|
+| **Signature phrases** | Search for `signaturePhrases` from config | ≥3 found in article |
+| **Bias markers** | Search for opinion/recommendation sentences | ≥2 reflect `authorPersona.bias` |
+| **Voice breaks** | Flag neutral/encyclopedic paragraphs | 0 voice breaks |
+| **Experience claims** | Check "我做过/我见过" statements | Align with persona's experience |
+
+**Voice Break Detection (Automated):**
+
+Flag paragraphs that contain:
+- ❌ Zero first-person pronouns AND zero opinions
+- ❌ Pure definition without perspective
+- ❌ "It is important to..." / "One should..." (encyclopedic)
+- ❌ Promotional superlatives without practical backing
+
+**For Each Voice Break Found:**
+1. Identify the neutral paragraph
+2. Find persona's bias that applies
+3. **INJECT** one persona-voice sentence
+4. Log: location + injected sentence
+
+**Scoring & Action:**
+
+| Score | Thesis | Persona | Action |
+|-------|--------|---------|--------|
+| ✅ Strong | All 4 pass | All 4 pass | Proceed to delivery |
+| ⚠️ Moderate | 2-3 pass | 2-3 pass | Fix issues, proceed |
+| ❌ Weak | 0-1 pass | 0-1 pass | **DO NOT DELIVER** - Return to outline-writer |
+
+**Return Message for Weak Score:**
+```
+"Article fails thesis/persona check. Issues:
+- Thesis: [specific failures]
+- Persona: [specific failures]
+Recommendation: Re-run outline-writer with stricter persona enforcement."
+```
 
 ### Priority 1: Weak Sections (from sectionsToWatch.weak)
 
