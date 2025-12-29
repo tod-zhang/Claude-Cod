@@ -38,14 +38,27 @@ Before proceeding, verify these fields exist and are non-empty:
 
 | Field | Required Value | If Missing |
 |-------|----------------|------------|
-| `writingAngle.thesis` | Specific claim, not vague | ❌ STOP - Return error to main |
-| `writingAngle.stance` | challenge/confirm/nuance | ❌ STOP - Return error to main |
+| `articleType` | opinion/tutorial/informational/comparison | ❌ STOP - Return error to main |
+| `writingAngle.thesis` | Specific claim (unless deferred or informational) | See logic below |
+| `writingAngle.stance` | challenge/confirm/nuance (unless deferred or informational) | See logic below |
 | `authorPersona.role` | Non-empty string | ❌ STOP - Return error to main |
 | `authorPersona.bias` | Non-neutral perspective | ❌ STOP - Return error to main |
 | `searchIntent.coreQuestion` | Non-empty string | ❌ STOP - Return error to main |
 
 **Validation Logic:**
 ```
+IF articleType == "informational":
+  → Thesis NOT required. Skip thesis validation.
+  → Proceed with research focused on comprehensive coverage.
+
+IF writingAngle.deferred == true:
+  → Thesis NOT required at this stage.
+  → Research will GENERATE recommendedTheses for user selection.
+  → Proceed with exploratory research.
+
+IF articleType == "opinion" AND thesis is null AND deferred is false:
+  → STOP and return: "Config error: opinion articles require a thesis."
+
 IF thesis is vague (e.g., "实用指南", "深度分析", "入门科普"):
   → STOP and return: "Config error: writingAngle.thesis is too vague. Need specific claim."
 
@@ -278,6 +291,48 @@ PERSONA FRAMING: How [role] would express this thesis
 Supported by: [key evidence]
 ```
 
+### Deferred Thesis Generation (If writingAngle.deferred == true)
+
+**When user selected "研究后再选", generate 3 data-backed thesis recommendations:**
+
+Based on research findings, identify:
+1. **Strongest contrarian position** - What data contradicts common belief?
+2. **Best differentiation opportunity** - What angle do competitors miss?
+3. **Most data-supported claim** - What has the strongest evidence?
+
+For each thesis, provide:
+```json
+{
+  "thesis": "specific claim based on research data",
+  "stance": "challenge | confirm | nuance",
+  "recommendedDepth": "beginner | intermediate | expert | all",
+  "evidenceSummary": "2-3 key data points supporting this",
+  "differentiationScore": "strong | moderate | weak"
+}
+```
+
+**Example Output:**
+```markdown
+## Recommended Theses (Data-Backed)
+
+### Option 1: [Challenge] 预热时间比温度更关键
+- **推荐深度:** Intermediate
+- **数据支撑:** 3个来源显示预热时间不足是失败主因
+- **差异化:** Strong - 竞品都强调温度
+
+### Option 2: [Nuance] 热处理标准因材料而异，通用指南误导新手
+- **推荐深度:** Beginner
+- **数据支撑:** 论坛多个案例显示按通用参数失败
+- **差异化:** Moderate - 部分竞品提及但不深入
+
+### Option 3: [Confirm] 设备维护是成功率的隐藏变量
+- **推荐深度:** Expert
+- **数据支撑:** 工业报告显示维护与成功率相关
+- **差异化:** Strong - 几乎无竞品提及
+```
+
+**Store in workflowState.research.recommendedTheses** for main workflow to present to user.
+
 ---
 
 ## Output
@@ -343,6 +398,15 @@ Key fields to include:
       "irreplicableInsights": [],
       "avoidList": []
     },
+    "recommendedTheses": [
+      {
+        "thesis": "",
+        "stance": "",
+        "recommendedDepth": "",
+        "evidenceSummary": "",
+        "differentiationScore": ""
+      }
+    ],
     "thesisValidation": {
       "originalThesis": "",
       "evidenceFor": [],
@@ -363,6 +427,8 @@ Key fields to include:
 }
 ```
 
+**Note:** `recommendedTheses` is only populated when `writingAngle.deferred == true`. For informational articles or articles with pre-selected thesis, this field can be empty or omitted.
+
 ### Step 3: Update Pattern Library (if new patterns found)
 
 Only add patterns seen in 2+ competitors and NOT already in library.
@@ -374,6 +440,10 @@ Only add patterns seen in 2+ competitors and NOT already in library.
 
 **文件已保存:** `knowledge/[topic-title]-sources.md`
 **配置已更新:** workflowState.research
+
+### 文章类型
+- **类型:** [articleType]
+- **Thesis状态:** [正常/延迟选择/信息型无需]
 
 ### 竞品分析
 - **分析了:** [X] 个竞争对手
@@ -388,7 +458,13 @@ Only add patterns seen in 2+ competitors and NOT already in library.
 ### 研究摘要
 - **来源:** [X] 个
 - **数据点:** [X] 个
-- **核心论点:** [thesis]
+- **核心论点:** [thesis or "待用户选择"]
+
+### 推荐角度 (仅当 deferred=true)
+1. [thesis 1] — [stance], [depth], 差异化: [score]
+2. [thesis 2] — [stance], [depth], 差异化: [score]
+3. [thesis 3] — [stance], [depth], 差异化: [score]
+**⏳ 等待用户在 Step 2.5 选择**
 
 ### 用户声音
 - **术语映射:** [X] 组

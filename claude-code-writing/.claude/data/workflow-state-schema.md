@@ -11,10 +11,14 @@ Read by: all agents
 
 ```json
 {
+  "articleType": "opinion | tutorial | informational | comparison",
   "writingAngle": {
-    "thesis": "The ONE claim this article proves (specific, not vague)",
-    "stance": "challenge | confirm | nuance",
-    "proofPoints": ["evidence 1", "evidence 2", "evidence 3"]
+    "thesis": "The ONE claim this article proves (null for informational)",
+    "stance": "challenge | confirm | nuance (null for informational)",
+    "deferred": false,
+    "proofPoints": ["evidence 1", "evidence 2", "evidence 3"],
+    "recommendedDepth": "beginner | intermediate | expert | all",
+    "depthMismatchAcknowledged": false
   },
   "authorPersona": {
     "role": "热处理车间主任",
@@ -26,6 +30,12 @@ Read by: all agents
 }
 ```
 
+**articleType explained:**
+- `opinion`: Article with clear stance, must prove a thesis
+- `tutorial`: How-to guide, thesis optional (e.g., "the simplest method")
+- `informational`: Objective explanation, no thesis needed
+- `comparison`: Comparing options, thesis optional (can be neutral or have preference)
+
 **writingAngle.stance explained:**
 - `challenge`: Disagree with common belief ("Most guides are wrong about X")
 - `confirm`: Reinforce with new evidence ("X is important, here's proof")
@@ -35,6 +45,26 @@ Read by: all agents
 - This is what makes the article NOT neutral
 - Must appear in at least 2 H2 sections as recommendation/warning
 - Examples: "宁可过度设计，不要临界运行", "标准流程优于个人经验"
+
+**writingAngle.recommendedDepth explained:**
+- `beginner`: Thesis can be proven with simple examples, analogies, case studies
+- `intermediate`: Requires some technical background to support
+- `expert`: Requires deep technical analysis to prove convincingly
+- `all`: Flexible thesis that works at any depth level
+
+**writingAngle.deferred:**
+- Set to `true` when user selects "研究后再选" option
+- When `true`:
+  - web-researcher generates `recommendedTheses` based on research data
+  - Main workflow pauses after Step 2 for user to select thesis
+  - After selection, update config and set `deferred: false`
+
+**writingAngle.depthMismatchAcknowledged:**
+- Set to `true` when user chooses a thesis whose `recommendedDepth` differs from `config.depth`
+- When `true`, outline-writer must adjust argumentation strategy:
+  - Expert thesis + Beginner depth → use simplified explanations, analogies, practical examples
+  - Beginner thesis + Expert depth → add technical depth while keeping core argument accessible
+- This is an intentional choice, not an error - can be a differentiation strategy
 
 ---
 
@@ -111,6 +141,15 @@ Read by: outline-writer, proofreader
     },
     "controversies": ["expert disagreements found"],
     "coreThesis": "proposed thesis from research",
+    "recommendedTheses": [
+      {
+        "thesis": "specific claim based on research data",
+        "stance": "challenge | confirm | nuance",
+        "recommendedDepth": "beginner | intermediate | expert | all",
+        "evidenceSummary": "key data points supporting this thesis",
+        "differentiationScore": "strong | moderate | weak"
+      }
+    ],
     "thesisValidation": {
       "originalThesis": "from config.writingAngle.thesis",
       "evidenceFor": ["data/quotes supporting thesis"],
@@ -290,6 +329,12 @@ Read by: proofreader
         "voiceTraitsUsed": ["which traits were applied"],
         "signaturePhrases": ["memorable persona-voice phrases used in article"]
       },
+      "depthAdaptation": {
+        "applied": false,
+        "originalRecommendedDepth": "expert | intermediate | beginner | all",
+        "actualDepth": "beginner | intermediate | expert",
+        "strategy": "how argumentation was adjusted to bridge the gap"
+      },
       "hookUsed": {
         "type": "surprising-stat/question/problem/direct",
         "content": "actual hook text or insight used"
@@ -381,8 +426,12 @@ Read by: proofreader
 
 | Field Path | Set By | Used By | Purpose |
 |------------|--------|---------|---------|
-| `writingAngle.thesis` | config-creator | all | The ONE claim to prove |
-| `writingAngle.stance` | config-creator | all | challenge/confirm/nuance |
+| `articleType` | config-creator | all | opinion/tutorial/informational/comparison |
+| `writingAngle.thesis` | config-creator | all | The ONE claim to prove (null for informational) |
+| `writingAngle.stance` | config-creator | all | challenge/confirm/nuance (null for informational) |
+| `writingAngle.deferred` | config-creator | web-researcher, main | 研究后再选角度 |
+| `writingAngle.recommendedDepth` | config-creator | outline-writer | Thesis 最佳深度 |
+| `writingAngle.depthMismatchAcknowledged` | config-creator | outline-writer | 需要调整论证策略 |
 | `authorPersona.role` | config-creator | all | WHO is writing |
 | `authorPersona.bias` | config-creator | all | Non-neutral perspective |
 | `authorPersona.voiceTraits` | config-creator | outline-writer | HOW to express ideas |
@@ -391,6 +440,10 @@ Read by: proofreader
 
 | Field Path | Used By | Purpose |
 |------------|---------|---------|
+| `articleType` | all agents | 决定是否需要 thesis 验证 |
+| `writingAngle.deferred` | web-researcher | 需要生成 recommendedTheses |
+| `writingAngle.depthMismatchAcknowledged` | outline-writer | Adjust argumentation for depth gap |
+| `research.recommendedTheses` | main (Step 2.5) | Deferred 模式下的角度推荐 |
 | `research.thesisValidation.validatedThesis` | outline-writer | Adjusted thesis if original lacked evidence |
 | `research.thesisValidation.personaFraming` | outline-writer | How persona would express thesis |
 | `research.writingAdvice.personaVoiceNotes` | outline-writer | Research-informed voice guidance |
@@ -400,6 +453,7 @@ Read by: proofreader
 | `research.insights.suggestedHook` | outline-writer | Hook strategy |
 | `writing.decisions.thesisExecution` | proofreader | Verify thesis stated and reinforced |
 | `writing.decisions.personaExecution` | proofreader | Verify persona consistency |
+| `writing.decisions.depthAdaptation` | proofreader | Verify argumentation matches depth |
 | `writing.decisions.sectionsToWatch.weak` | proofreader | Focus verification here |
 | `writing.decisions.hookUsed` | proofreader | Verify hook delivers |
 | `writing.decisions.visualPlan.markdownTablesUsed` | proofreader | Skip image generation |

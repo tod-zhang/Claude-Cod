@@ -32,10 +32,23 @@ drafts/[topic-title].md                - Draft to proofread
 ## Step 2: Parse Workflow State
 
 **From config (CORE IDENTITY):**
-- `writingAngle.thesis` - The claim article must prove
-- `writingAngle.stance` - challenge/confirm/nuance
+- `articleType` - opinion/tutorial/informational/comparison
+- `writingAngle.thesis` - The claim article must prove (null for informational)
+- `writingAngle.stance` - challenge/confirm/nuance (null for informational)
+- `writingAngle.recommendedDepth` - Thesis's ideal depth level
+- `writingAngle.depthMismatchAcknowledged` - User confirmed depth gap
 - `authorPersona.role` - WHO wrote this
 - `authorPersona.bias` - The non-neutral perspective to verify
+- `article.depth` - Actual article depth (入门科普/实用指南/深度技术)
+
+**Article Type Determines Verification Focus:**
+
+| Type | Thesis Check | Persona Check | Primary Focus |
+|------|--------------|---------------|---------------|
+| `opinion` | Required | Required | Thesis proven convincingly |
+| `tutorial` | If present | Required | Steps clear and actionable |
+| `informational` | Skip | Required | Coverage complete and accurate |
+| `comparison` | If present | Required | Fair analysis, clear verdict |
 
 **From workflowState.research:**
 - `differentiation.primaryDifferentiator` - Verify in title/intro
@@ -49,6 +62,7 @@ drafts/[topic-title].md                - Draft to proofread
 - `hookUsed` - Verify intro delivers
 - `thesisExecution` - How thesis was executed
 - `personaExecution` - How persona was applied
+- `depthAdaptation` - How depth mismatch was handled (if applied)
 - `internalLinks` - Check for duplicates
 
 ---
@@ -59,7 +73,22 @@ drafts/[topic-title].md                - Draft to proofread
 
 **🚨 This is a BLOCKING check. If failed, DO NOT deliver article.**
 
+#### Pre-Check: Article Type
+
+```
+IF articleType == "informational":
+  → SKIP Part A (Thesis Verification)
+  → Proceed directly to Part B (Persona Verification)
+  → Replace thesis check with Coverage Verification (see below)
+
+IF articleType == "tutorial" OR "comparison" AND thesis is null:
+  → SKIP Part A (Thesis Verification)
+  → Proceed to Part B
+```
+
 #### Part A: Thesis Verification (Line-by-Line)
+
+**Skip this section for informational articles or articles without thesis.**
 
 | Check | Verification Method | Pass Criteria |
 |-------|---------------------|---------------|
@@ -80,6 +109,15 @@ drafts/[topic-title].md                - Draft to proofread
 - Intro missing thesis → **INJECT** thesis statement in paragraph 2
 - Conclusion missing → **ADD** thesis reinforcement sentence
 - Log all injections in summary
+
+#### Part A-Alt: Coverage Verification (For Informational Articles Only)
+
+| Check | Verification Method | Pass Criteria |
+|-------|---------------------|---------------|
+| **Core question answered** | Search for `searchIntent.coreQuestion` answer | Answered in first H2 |
+| **Implicit questions covered** | Check each `implicitQuestions` addressed | ≥80% covered |
+| **Completeness** | Compare H2s against research topics | Major topics covered |
+| **Accuracy** | Verify facts against sources | No unsupported claims |
 
 #### Part B: Persona Consistency Audit
 
@@ -120,6 +158,52 @@ Flag paragraphs that contain:
 Recommendation: Re-run outline-writer with stricter persona enforcement."
 ```
 
+### Priority 0.5: Depth Adaptation Verification (If Applicable)
+
+**Only check if `writingAngle.depthMismatchAcknowledged == true`**
+
+When user chose a thesis with different recommended depth than the article depth, outline-writer should have adapted argumentation. Verify this adaptation was executed correctly.
+
+#### Depth Adaptation Check
+
+| Scenario | Expected Adaptation | Verification |
+|----------|---------------------|--------------|
+| **Expert thesis → Beginner depth** | Simplified proof (analogies, cases, examples) | No unexplained jargon; concepts illustrated with real-world examples |
+| **Expert thesis → Intermediate depth** | Balance of theory + practice | Some technical terms with brief explanations |
+| **Beginner thesis → Expert depth** | Added rigor to simple claim | Technical backing for intuitive statements; data/mechanism explanations |
+
+**Detection Patterns:**
+
+```
+Read depthAdaptation from workflowState.writing:
+- applied: true/false
+- originalRecommendedDepth: [expert/intermediate/beginner/all]
+- actualDepth: [from article.depth]
+- strategy: [description of adaptation approach]
+
+Verify:
+1. If applied=true, check article matches the stated strategy
+2. Search for adaptation evidence:
+   - Expert→Beginner: Count analogies, practical examples, "就像..." phrases
+   - Beginner→Expert: Count data citations, mechanism explanations, technical terms
+```
+
+**Scoring:**
+
+| Result | Criteria | Action |
+|--------|----------|--------|
+| ✅ Well Adapted | Argumentation matches depth; thesis still convincing | Proceed |
+| ⚠️ Partial | Some sections too technical/too shallow | Flag specific sections for review |
+| ❌ Mismatch | Argumentation doesn't match depth | Add note in summary; may need revision |
+
+**Common Issues:**
+
+| Issue | Detection | Fix |
+|-------|-----------|-----|
+| Expert thesis dumbed down too much | Thesis claim weakened | Strengthen claim language while keeping simple proof |
+| Beginner thesis over-complicated | Core message buried in jargon | Move technical detail to supporting paragraphs |
+| Inconsistent depth | Some H2s expert, others beginner | Normalize across article |
+
 ### Priority 1: Weak Sections (from sectionsToWatch.weak)
 
 - [ ] Data claims have source support (or fuzzy language)
@@ -158,10 +242,27 @@ DELETE sentences containing:
 
 ### Announcing Phrase Detection
 
-FIX by removing prefix:
+**Type A - Prefix phrases (FIX by removing prefix):**
 - "The result:" → Just state it
 - "The key insight:" → Just state it
 - "The answer:" → Just state it
+- "The good news:" → Just state it
+- "Here's the thing:" → Just state it
+- "The truth is:" → Just state it
+- "The bottom line:" → Just state it
+
+**Type B - Cliché openers (DELETE or REWRITE):**
+- "The good news is that..." → Delete, state content directly
+- "once you understand what actually matters" → Delete, explain what matters
+- "In this article, we will..." → Delete entirely
+- "It's important to note that..." → Delete prefix, keep content
+- "What you need to know is..." → Delete, just tell them
+- "Let me explain..." → Delete, just explain
+
+**Type C - Empty promises (REWRITE with specifics):**
+- "isn't difficult once you understand X" → Replace with "requires X and Y"
+- "with the right approach" → Name the approach
+- "when done correctly" → State what "correctly" means
 
 ### Priority 3: Differentiation Validation
 
@@ -396,11 +497,19 @@ Use `visualPlan` from workflowState.writing:
 
 **评分:** 内容 [X]/10 | 质量 [X]/10 | 语言 [X]/10 | SEO [X]/10
 
-**论点验证:**
+**文章类型:** [articleType]
+
+**论点验证:** [仅当 articleType 需要 thesis 时显示]
 - Thesis in Intro: ✅/⚠️/❌
 - H2s支持Thesis: [X]/[total] ✅
 - Conclusion强化: ✅/⚠️/❌
 - Stance一致性: ✅/⚠️/❌
+
+**覆盖验证:** [仅当 articleType == "informational" 时显示]
+- 核心问题回答: ✅/⚠️/❌
+- 隐含问题覆盖: [X]/[total] ✅
+- 完整性: ✅/⚠️/❌
+- 准确性: ✅/⚠️/❌
 
 **人设一致性:**
 - 整体评分: Strong/Moderate/Weak
@@ -408,6 +517,12 @@ Use `visualPlan` from workflowState.writing:
 - Bias体现: [X] 处
 - 声音断裂: [list or 无]
 - 修复: [what was fixed or N/A]
+
+**深度适配验证:** [仅当 depthMismatchAcknowledged=true 时显示]
+- 推荐深度: [recommendedDepth] → 实际深度: [actualDepth]
+- 适配策略: [strategy from depthAdaptation]
+- 执行评分: ✅ Well Adapted / ⚠️ Partial / ❌ Mismatch
+- 问题: [specific issues or 无]
 
 **数据验证 (本地):**
 - 已验证: [X] 个
@@ -461,7 +576,7 @@ Use `visualPlan` from workflowState.writing:
 8. **FIX promotional language** - Solution-focused only
 9. **UPDATE article history** - If file exists
 10. **Write all output files** - Article, sources, images required
-11. **VERIFY THESIS** - Must be in intro and reinforced in conclusion
+11. **VERIFY THESIS** - Must be in intro and reinforced in conclusion (skip for informational)
 12. **VERIFY PERSONA** - Voice must be consistent throughout
 13. **FIX VOICE BREAKS** - Neutral/generic sections need persona injection
 14. **DON'T ADD FAKE EXPERIENCE** - Fix voice breaks with perspective, not invented stories
@@ -469,3 +584,5 @@ Use `visualPlan` from workflowState.writing:
 16. **DON'T TRUST SEARCH INDEX** - Page content may have changed since indexing
 17. **PREFER STABLE SOURCES** - .edu/.gov > PDF reports > major publications > blogs
 18. **DOCUMENT ALL FAILURES** - Log every ⚠️/❌ verification in sources file
+19. **VERIFY DEPTH ADAPTATION** - If depthMismatchAcknowledged=true, check argumentation matches stated strategy. Thesis strength must be preserved even when simplified.
+20. **RESPECT ARTICLE TYPE** - Informational articles need coverage verification instead of thesis verification. Tutorials need actionability check. Comparisons need verdict clarity.

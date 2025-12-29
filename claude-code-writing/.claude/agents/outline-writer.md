@@ -40,8 +40,9 @@ Before proceeding, verify these critical fields:
 
 | Field | Required | If Missing/Invalid |
 |-------|----------|-------------------|
-| `writingAngle.thesis` | Specific claim | ❌ STOP |
-| `writingAngle.stance` | challenge/confirm/nuance | ❌ STOP |
+| `articleType` | opinion/tutorial/informational/comparison | ❌ STOP |
+| `writingAngle.thesis` | Specific claim (unless informational) | See logic below |
+| `writingAngle.stance` | challenge/confirm/nuance (unless informational) | See logic below |
 | `authorPersona.role` | Non-empty | ❌ STOP |
 | `authorPersona.bias` | Non-neutral perspective | ❌ STOP |
 | `workflowState.research.status` | "completed" | ❌ STOP |
@@ -53,6 +54,17 @@ Before proceeding, verify these critical fields:
 IF workflowState.research.status != "completed":
   → STOP and return: "Research not completed. Run web-researcher first."
 
+IF writingAngle.deferred == true:
+  → STOP and return: "Thesis not yet selected. Complete Step 2.5 first."
+
+IF articleType == "informational":
+  → Thesis NOT required. Article focuses on comprehensive coverage.
+  → Skip thesis-related validation.
+  → Proceed with informational article structure.
+
+IF articleType == "opinion" AND thesis is null:
+  → STOP and return: "Opinion articles require a thesis."
+
 IF thesisValidation.validatedThesis exists AND differs from writingAngle.thesis:
   → USE validatedThesis (research found better evidence)
   → LOG: "Using validated thesis: [validatedThesis]"
@@ -62,6 +74,48 @@ IF primaryDifferentiator is empty:
   → Continue but flag in workflowState.writing
 ```
 
+### 🔄 Depth Mismatch Handling
+
+**If `writingAngle.depthMismatchAcknowledged == true`:**
+
+The user intentionally chose a thesis whose recommended depth differs from the article depth. This is NOT an error — it's a differentiation strategy. Adjust argumentation accordingly:
+
+| Scenario | Strategy |
+|----------|----------|
+| **Expert thesis + Beginner depth** | Simplify WITHOUT weakening the claim. Use analogies, case studies, practical examples instead of technical proof. |
+| **Expert thesis + Intermediate depth** | Light technical evidence + practical validation. Balance theory with application. |
+| **Beginner thesis + Expert depth** | Add technical depth to a simple claim. Show WHY the simple answer is correct through rigorous analysis. |
+
+**Argumentation Adjustment Examples:**
+
+```
+Thesis: "传统温度曲线计算存在系统误差" (recommended: Expert)
+Actual Depth: Beginner
+
+❌ Wrong: "根据热力学第二定律，熵变导致..." (too technical)
+✅ Right: "我见过工厂严格按教科书曲线操作，废品率却居高不下。
+          问题出在哪？那些曲线假设的条件，实际车间根本达不到。" (practical proof)
+```
+
+```
+Thesis: "预热步骤是被低估的关键环节" (recommended: Beginner)
+Actual Depth: Expert
+
+❌ Wrong: "预热很重要，不要跳过" (too shallow for experts)
+✅ Right: "预热不足导致的金相组织缺陷在热处理后24-48小时才显现，
+          这解释了为什么很多工厂的质检通过率看似正常，
+          但客户投诉率却居高不下。" (technical depth + data)
+```
+
+**Log in workflowState.writing:**
+```json
+"depthAdaptation": {
+  "originalRecommendedDepth": "expert",
+  "actualDepth": "beginner",
+  "strategy": "Simplified proof using practical examples instead of technical analysis"
+}
+```
+
 **From config (CORE IDENTITY):**
 
 | Field | What It Tells You |
@@ -69,6 +123,8 @@ IF primaryDifferentiator is empty:
 | `writingAngle.thesis` | The ONE claim this article proves |
 | `writingAngle.stance` | challenge/confirm/nuance |
 | `writingAngle.proofPoints` | Evidence structure |
+| `writingAngle.recommendedDepth` | Thesis 最佳深度 (beginner/intermediate/expert/all) |
+| `writingAngle.depthMismatchAcknowledged` | 需要调整论证策略 |
 | `authorPersona.role` | WHO is writing this |
 | `authorPersona.experience` | Credibility source |
 | `authorPersona.bias` | **The non-neutral perspective** |
@@ -133,6 +189,23 @@ Read `imports/[topic-title]-analysis.md` and apply:
 
 ## Step 3: Design Article Strategy (Internal)
 
+### Article Type Strategy
+
+**Before designing, determine approach based on articleType:**
+
+| Type | Thesis Usage | Structure Focus | Success Metric |
+|------|--------------|-----------------|----------------|
+| `opinion` | Required, prove it | Every H2 supports thesis | Reader convinced |
+| `tutorial` | Optional weak thesis | Step-by-step clarity | Reader can do it |
+| `informational` | None | Comprehensive coverage | Reader understands |
+| `comparison` | Optional preference | Fair analysis, clear verdict | Reader can decide |
+
+**For informational articles:**
+- No thesis to prove — focus on completeness and clarity
+- Persona still applies (voice, expertise perspective)
+- Differentiation through depth, organization, unique insights
+- Each H2 covers an aspect of the topic, not an argument
+
 ```markdown
 ### Author Identity
 - **I am:** [role] with [experience]
@@ -140,10 +213,19 @@ Read `imports/[topic-title]-analysis.md` and apply:
 - **My bias:** [bias] — This shapes EVERY recommendation I make
 - **I speak by:** [voiceTraits] — e.g., using examples, being direct, avoiding jargon
 
-### Core Thesis
+### Article Type
+- **Type:** [articleType]
+- **Thesis required:** [Yes/Optional/No]
+
+### Core Thesis (Skip for informational)
 [Use writingAngle.thesis or thesisValidation.validatedThesis]
 Stance: [challenge/confirm/nuance]
 Proof Points: [from writingAngle.proofPoints]
+
+### Depth Adaptation (if depthMismatchAcknowledged == true)
+- **Thesis recommended depth:** [recommendedDepth]
+- **Actual article depth:** [config.depth]
+- **Adaptation strategy:** [how to adjust argumentation]
 
 ### Differentiation Strategy
 - Primary Differentiator: [from research]
@@ -426,6 +508,12 @@ Key fields:
       "voiceTraitsUsed": [],
       "signaturePhrases": ["memorable persona-voice phrases used"]
     },
+    "depthAdaptation": {
+      "applied": false,
+      "originalRecommendedDepth": "expert",
+      "actualDepth": "beginner",
+      "strategy": "how argumentation was adjusted"
+    },
     "hookUsed": {"type": "", "content": ""},
     "differentiationApplied": {},
     "sectionsToWatch": {"strong": [], "weak": [], "differentiated": []},
@@ -458,6 +546,11 @@ Key fields:
 - **Stance:** [challenge/confirm/nuance]
 - **Intro中:** [how stated]
 - **Conclusion中:** [how reinforced]
+
+### 深度适配 (if applied)
+- **Thesis推荐深度:** [recommendedDepth]
+- **实际文章深度:** [actualDepth]
+- **适配策略:** [strategy used]
 
 ### 人设执行
 - **角色:** [role]
@@ -498,6 +591,8 @@ Key fields:
 8. **NO announcing phrases** - "The key insight:" → Just state it
 9. **2-4 internal links** - Natural only, zero is acceptable
 10. **WRITE AS PERSONA** - Every section should sound like [role] speaking
-11. **THESIS IN EVERY SECTION** - Each H2 must support the thesis, not just inform
+11. **THESIS IN EVERY SECTION** - Each H2 must support the thesis, not just inform (skip for informational)
 12. **BIAS = OPINIONS** - Persona's bias generates the article's non-neutral recommendations
 13. **DON'T FAKE EXPERIENCE** - Use "common pattern" not "I did X" unless research supports
+14. **ADAPT FOR DEPTH MISMATCH** - If `depthMismatchAcknowledged == true`, adjust argumentation style (not thesis strength) to match article depth
+15. **RESPECT ARTICLE TYPE** - Informational articles don't need thesis, tutorials focus on actionability, comparisons need clear verdict

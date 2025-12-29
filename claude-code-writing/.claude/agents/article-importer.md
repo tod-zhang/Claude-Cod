@@ -97,6 +97,28 @@ For each problem found:
 
 ## Step 4: Generate Recommendations
 
+### 4.0 Search Intent Type Identification
+
+**Analyze the topic itself (independent of company context):**
+
+| Intent Type | Indicators | Typical Searcher |
+|-------------|------------|------------------|
+| **B2C Consumer** | DIY, home use, personal, how-to basics, craft | Hobbyist, home user, small seller |
+| **B2B Professional** | Industrial, production line, specifications, machinery, procurement | Engineer, production manager, buyer |
+| **Mixed** | Topic has both consumer and professional applications | Both audiences exist |
+
+**Examples:**
+| Topic | Intent Type | Reason |
+|-------|-------------|--------|
+| how to wrap soap | B2C | DIY crafters, small sellers |
+| soap packaging machine | B2B | Factory procurement |
+| soap packaging | Mixed | Could be either |
+
+**Detection Method:**
+1. Look at the original article's framing - who is it written for?
+2. Consider the topic keywords independently - what would typical searchers want?
+3. If mismatch between original framing and natural intent → flag for user confirmation
+
 ### 4.1 Audience Level Inference
 
 | If Article Has... | Inferred Level |
@@ -213,9 +235,12 @@ Write: imports/[topic-title]-analysis.md
 ### Inferred Settings
 | Setting | Recommendation | Confidence | Reason |
 |---------|---------------|------------|--------|
+| Intent Type | [B2C/B2B/Mixed] | High/Medium/Low | [why] |
 | Audience | [level] | High/Medium/Low | [why] |
 | Depth | [depth] | High/Medium/Low | [why] |
 | Language | [lang] | High | [based on original] |
+
+**Intent Type Note:** [If original article's framing differs from topic's natural intent, note here]
 
 ### Suggested Thesis Options
 1. **[Thesis 1]** ⭐ Recommended
@@ -258,6 +283,8 @@ Write: imports/[topic-title]-analysis.md
   "optimizationMode": true,
   "originalUrl": "[URL]",
   "originalTitle": "[title]",
+  "inferredIntentType": "B2C | B2B | Mixed",
+  "intentTypeMismatch": false,
   "inferredAudience": "[level]",
   "inferredDepth": "[depth]",
   "suggestedThesis": "[recommended thesis]",
@@ -265,7 +292,8 @@ Write: imports/[topic-title]-analysis.md
   "dataPointsToVerify": ["D001", "D002"]
 }
 ```
-```
+
+**Note:** Set `intentTypeMismatch: true` if the original article's audience framing differs from the topic's natural search intent (e.g., B2B article for a naturally B2C topic).
 
 ---
 
@@ -293,6 +321,7 @@ Write: imports/[topic-title]-analysis.md
 3. [Third issue]
 
 ### 推荐设置
+- **搜索意图类型:** [B2C/B2B/Mixed] [⚠️ 与原文定位不符 - 如果 mismatch]
 - **受众:** [level] (置信度: [X])
 - **深度:** [depth] (置信度: [X])
 - **建议 Thesis:** "[thesis]"

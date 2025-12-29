@@ -2,8 +2,8 @@
 
 This document tracks all published articles for cross-referencing, internal linking, and content strategy.
 
-**Last Updated:** 2025-12-27
-**Total Articles:** ~120
+**Last Updated:** 2025-12-29
+**Total Articles:** ~122
 
 ---
 
@@ -92,6 +92,8 @@ This document tracks all published articles for cross-referencing, internal link
 ├── how-heat-sealing-machines-work
 ├── what-are-impulse-sealers-and-how-do-they-work
 ├── how-to-shrink-wrap
+├── how-to-wrap-bath-bombs [PROOFREAD - 2025-12-29]
+├── how-to-package-homemade-granola-bars [NEW - 2025-12-29]
 └── [GAP] heat-sealer-troubleshooting-guide
 ```
 
@@ -129,6 +131,7 @@ This document tracks all published articles for cross-referencing, internal link
 ├── what-is-the-difference-between-pe-and-pvc-film
 ├── guide-to-stretch-wrap-gauge-and-thickness
 ├── how-to-recycle-shrink-film
+├── how-to-wrap-bath-bombs [PROOFREAD - 2025-12-29]
 └── [GAP] shrink-film-selection-guide
 ```
 
@@ -189,7 +192,8 @@ This document tracks all published articles for cross-referencing, internal link
 ├── the-complete-guide-to-cashew-nut-packaging
 ├── how-to-pack-spices-for-moving
 ├── flexible-packaging-solutions-for-small-coffee-roasters
-└── how-long-does-instant-coffee-last
+├── how-long-does-instant-coffee-last
+└── how-to-package-homemade-granola-bars [NEW - 2025-12-29]
 ```
 
 #### Cluster: Packaging Materials & Comparisons
@@ -257,16 +261,16 @@ Conclusion Rules:
 | Hook Type | Total Count | Last Used | Status |
 |-----------|-------------|-----------|--------|
 | surprising-stat | 0 | - | - |
-| practitioner-quote | 0 | - | - |
-| question | 0 | - | - |
+| practitioner-quote | 1 | 2025-12-29 | - |
+| question | 1 | 2025-12-29 | BLOCKED next |
 | problem | 0 | - | - |
 | direct | 0 | - | - |
 
 ### Recent Hook Sequence (Last 10)
 | # | Article | Hook Type | Date |
 |---|---------|-----------|------|
-| 1 | - | - | - |
-| 2 | - | - | - |
+| 1 | how-to-wrap-bath-bombs | question | 2025-12-29 |
+| 2 | how-to-package-homemade-granola-bars | practitioner-quote | 2025-12-29 |
 | 3 | - | - | - |
 | 4 | - | - | - |
 | 5 | - | - | - |
@@ -274,16 +278,16 @@ Conclusion Rules:
 ### Conclusion Distribution (All Time)
 | Conclusion Type | Total Count | Last Used | Status |
 |-----------------|-------------|-----------|--------|
-| next-journey-step | 0 | - | - |
-| action-checklist | 0 | - | - |
+| next-journey-step | 1 | 2025-12-29 | - |
+| action-checklist | 1 | 2025-12-29 | - |
 | key-takeaways | 0 | - | - |
 | contact-cta | 0 | - | - |
 
 ### Recent Conclusion Sequence (Last 10)
 | # | Article | Conclusion Type | Date |
 |---|---------|-----------------|------|
-| 1 | - | - | - |
-| 2 | - | - | - |
+| 1 | how-to-wrap-bath-bombs | action-checklist | 2025-12-29 |
+| 2 | how-to-package-homemade-granola-bars | next-journey-step | 2025-12-29 |
 | 3 | - | - | - |
 | 4 | - | - | - |
 | 5 | - | - | - |
@@ -291,7 +295,7 @@ Conclusion Rules:
 ### Audience Distribution (All Time)
 | Audience | Total Count | Last Used |
 |----------|-------------|-----------|
-| beginner | 0 | - |
+| beginner | 2 | 2025-12-29 |
 | intermediate | 0 | - |
 | practitioner | 0 | - |
 | expert | 0 | - |
@@ -334,6 +338,8 @@ Conclusion Rules:
 | types-of-sealing-machines | "sealing machine", "heat sealer" |
 | impulse-sealers | "impulse sealer", "bag sealer" |
 | how-to-shrink-wrap | "shrink wrap", "shrink packaging" |
+| how-to-wrap-bath-bombs | "bath bomb wrapping", "shrink wrap temperature", "24-hour drying", "spin and hit technique" |
+| how-to-package-homemade-granola-bars | "moisture control for food packaging", "granola bar storage methods", "water activity and sealing" |
 
 ### Snacks
 | Topic | Linkable Anchors |
@@ -355,7 +361,10 @@ Conclusion Rules:
 
 | Target Article | Source Article | Suggested Anchor | Status |
 |----------------|----------------|------------------|--------|
-| (empty) | | | |
+| how-to-shrink-wrap | how-to-wrap-bath-bombs | Bath bomb specific shrink wrap application | Pending |
+| different-types-of-shrink-film | how-to-wrap-bath-bombs | POF recommendation for fizzies | Pending |
+| types-of-sealing-machines | how-to-package-homemade-granola-bars | Home baking sealing upgrade path | Pending |
+| what-are-impulse-sealers-and-how-do-they-work | how-to-package-homemade-granola-bars | Food packaging use case | Pending |
 
 ---
 
@@ -365,3 +374,6 @@ Conclusion Rules:
 - Very comprehensive coverage of VFFS and form-fill-seal machines
 - Strong snack/chip packaging content cluster
 - Consider adding more troubleshooting and maintenance content
+- 2025-12-29: Added how-to-wrap-bath-bombs (bath bomb packaging niche, links to shrink film cluster)
+- 2025-12-29: Added how-to-package-homemade-granola-bars (moisture control for home bakers, links to sealing machines cluster)
+- 2025-12-29: Proofread how-to-wrap-bath-bombs - corrected hair dryer temperature claims, verified all source quotes
