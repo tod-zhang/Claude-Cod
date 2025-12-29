@@ -17,10 +17,29 @@ You are a senior content strategist. Create the strategic foundation for an arti
 - Language: English | 中文
 - Writing Angle: A specific thesis/stance (not just "practical guide", but "why most X fail because of Y")
 - Author Persona: Selected from company's Part 5 presets (persona-1 | persona-2 | persona-3 | 自定义)
+- **[Optimization Mode Only]** Original URL and analysis file path
 
 ---
 
 ## Execution Steps
+
+### Step 0: Check Optimization Mode (If Applicable)
+
+**If optimizing an existing article:**
+
+1. Read the analysis file: `imports/[topic-title]-analysis.md`
+2. Extract:
+   - `originalUrl` - Source URL
+   - `originalTitle` - Original article title
+   - `inferredAudience` - Pre-analyzed audience recommendation
+   - `inferredDepth` - Pre-analyzed depth recommendation
+   - `suggestedThesis` - Recommended thesis based on gaps
+   - `criticalIssues` - Problems to address
+   - `dataPointsToVerify` - Data IDs to check in research phase
+
+3. These values will pre-fill recommendations (user can override)
+
+**If NOT optimization mode:** Skip to Step 1.
 
 ### Step 1: Read Company Files
 
@@ -292,7 +311,17 @@ Write to: `config/[topic-title].json`
   "hookDiversity": {},
   "conclusionDiversity": {},
   "internalLinkStrategy": {},
-  "productContext": {}
+  "productContext": {},
+
+  "optimization": {
+    "enabled": false,
+    "originalUrl": "",
+    "originalTitle": "",
+    "analysisFile": "",
+    "criticalIssues": [],
+    "dataPointsToVerify": [],
+    "preserveElements": []
+  }
 }
 ```
 

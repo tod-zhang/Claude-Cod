@@ -27,6 +27,7 @@ knowledge/[topic-title]-sources.md     - Research findings
 .claude/data/companies/[company]/internal-links.md    - Link targets
 .claude/data/companies/[company]/article-history.md   - Cross-referencing (if exists)
 .claude/data/companies/[company]/competitive-patterns.md - Garbage patterns (if exists)
+imports/[topic-title]-analysis.md      - [Optimization Mode Only] Original article analysis
 ```
 
 ---
@@ -95,6 +96,38 @@ IF primaryDifferentiator is empty:
 - `funnelStage` - Awareness/Consideration/Decision
 - `conversionPath` - CTA strategy
 - `nextTopics` - Mention in conclusion
+
+**From optimization (if config.optimization.enabled):**
+- `originalUrl` - Reference for comparison
+- `criticalIssues` - Problems that MUST be fixed
+- `preserveElements` - Valuable content to keep/adapt
+
+### Optimization Mode: Structure Strategy
+
+**If `config.optimization.enabled == true`:**
+
+Read `imports/[topic-title]-analysis.md` and apply:
+
+| Original Element | Action |
+|------------------|--------|
+| **Good H2 structure** | Keep similar flow, improve content |
+| **Weak H2 structure** | Redesign based on searchIntent |
+| **Valuable examples** | Preserve and enhance |
+| **Outdated data** | Replace with updated research |
+| **Missing thesis** | Insert new thesis prominently |
+| **Missing persona** | Apply persona throughout |
+
+**Key Principle:** Not a patch job — this is a complete rewrite that respects what worked.
+
+**DO NOT:**
+- Copy-paste original content
+- Keep weak sections just because they existed
+- Preserve outdated data without update
+
+**DO:**
+- Maintain topic coverage that was valuable
+- Improve structure based on intent analysis
+- Add thesis/persona that was missing
 
 ---
 

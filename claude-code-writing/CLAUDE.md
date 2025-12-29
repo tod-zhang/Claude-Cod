@@ -5,17 +5,21 @@ This file provides guidance to Claude Code when working with this repository.
 
 ## Project Overview
 
-SEO article writing workflow. Creates high-quality, well-researched articles through a 4-step process using context-isolated agents.
+SEO article writing workflows with two modes:
+1. **新文章写作** - Create new articles from scratch
+2. **旧文章优化** - Optimize existing articles from URL
+
+Both use context-isolated agents with state passing.
 
 ## Architecture: Agents with State Passing
 
-| Step | Agent | Context in Main | State Passed |
-|------|-------|-----------------|--------------|
-| 1 | `config-creator` | ~150 tokens | Creates config |
-| 2 | `web-researcher` | ~200 tokens | → workflowState.research |
-| 3 | `outline-writer` | ~250 tokens | → workflowState.writing |
-| 4 | `proofreader` | ~300 tokens | Reads both states |
-| **Total** | | **~900 tokens** | |
+| Agent | Used In | Context in Main | State Passed |
+|-------|---------|-----------------|--------------|
+| `article-importer` | Workflow 2 only | ~150 tokens | → imports/ analysis |
+| `config-creator` | Both | ~150 tokens | Creates config |
+| `web-researcher` | Both | ~200 tokens | → workflowState.research |
+| `outline-writer` | Both | ~250 tokens | → workflowState.writing |
+| `proofreader` | Both | ~300 tokens | Reads all states |
 
 **No skills.** Agents are called directly via Task tool.
 
@@ -23,7 +27,8 @@ SEO article writing workflow. Creates high-quality, well-researched articles thr
 
 ```
 .claude/
-├── agents/           # 4 agent definitions
+├── agents/           # 5 agent definitions
+│   ├── article-importer.md   # Workflow 2: 导入分析
 │   ├── config-creator.md
 │   ├── web-researcher.md
 │   ├── outline-writer.md
@@ -32,6 +37,8 @@ SEO article writing workflow. Creates high-quality, well-researched articles thr
     ├── companies/    # Company about-us.md and internal-links.md
     │   └── index.md  # 公司索引（必须同步更新）
     └── style/        # STYLE_GUIDE.md and STYLE_EXAMPLES.md
+
+imports/              # Workflow 2: 旧文章分析结果
 ```
 
 **规则：创建新公司 `about-us.md` 时，必须同步更新 `index.md`**
@@ -44,9 +51,9 @@ SEO article writing workflow. Creates high-quality, well-researched articles thr
 
 ---
 
-## Workflow
+## Workflow 1: 新文章写作
 
-When user provides a topic (e.g., "帮我写一篇关于 steel heat treatment 的文章"):
+**触发**: 用户提供主题 (e.g., "帮我写一篇关于 steel heat treatment 的文章")
 
 ### Step 1: Collect Inputs & Create Config
 
@@ -129,6 +136,61 @@ Glob: output/[topic-title]-images.md
 
 ---
 
+## Workflow 2: 旧文章优化
+
+**触发**: 用户提供 URL (e.g., "优化这个 URL: https://example.com/article")
+
+### Step 0: 导入分析
+
+1. **Launch agent**:
+   ```
+   Task: subagent_type="article-importer"
+   Prompt: Import and analyze article from: [URL]
+   ```
+
+2. **展示诊断摘要**:
+   - 原文信息（标题、字数、结构）
+   - 问题诊断（严重/重要/轻微）
+   - 推荐设置（受众、深度、Thesis）
+
+3. **✅ 验证**: `Glob imports/[topic-title]-analysis.md` 存在 → 继续
+
+### Step 1: Collect Inputs & Create Config (带预填推荐)
+
+1. **展示公司列表**: `Read .claude/data/companies/index.md`
+2. **等待用户输入**: 用户选择公司
+3. **AskUserQuestion**: Audience / Depth（显示推荐值，来自分析）
+4. **生成写作角度**: 基于诊断生成 3 个 Thesis 选项（标注推荐）
+5. **选择作者人设**: 从公司 Part 5 预设中选择
+6. **Launch agent**:
+   ```
+   Task: subagent_type="config-creator"
+   Prompt: Create config for [company], [topic], [audience], [depth], [thesis], [persona], [language]
+           Optimization mode: true, analysis file: imports/[topic-title]-analysis.md
+   ```
+7. **✅ 验证**: `Glob config/[topic-title].json` 存在 → 继续
+
+### Step 2-4: 同 Workflow 1
+
+- **Step 2**: web-researcher (会读取旧数据点，验证/更新)
+- **Step 3**: outline-writer (参考旧结构，完全重写)
+- **Step 4**: proofreader (验证并交付到 output/)
+
+### Workflow 2 文件流
+
+```
+imports/[topic-title]-analysis.md   ← Step 0 (分析结果)
+config/[topic-title].json           ← Step 1 (带 optimization.enabled: true)
+knowledge/[topic-title]-sources.md  ← Step 2
+outline/[topic-title].md            ← Step 3
+drafts/[topic-title].md             ← Step 3
+output/[topic-title].md             ← Step 4
+output/[topic-title]-sources.md     ← Step 4
+output/[topic-title]-images.md      ← Step 4
+```
+
+---
+
 ## workflowState
 
 Agents pass decisions via config file. Full schema: @.claude/data/workflow-state-schema.md
@@ -158,6 +220,7 @@ Agents pass decisions via config file. Full schema: @.claude/data/workflow-state
 
 ## File Flow
 
+**Workflow 1 (新文章):**
 ```
 config/[topic-title].json           ← Step 1, updated by Steps 2-3
 knowledge/[topic-title]-sources.md  ← Step 2
@@ -168,9 +231,16 @@ output/[topic-title]-sources.md     ← Step 4
 output/[topic-title]-images.md      ← Step 4
 ```
 
+**Workflow 2 (优化旧文章):**
+```
+imports/[topic-title]-analysis.md   ← Step 0 (额外)
++ 同 Workflow 1 的所有文件
+```
+
 ## Completion Checklist
 
-Workflow complete when all 7 files exist. If `output/` missing → run Step 4.
+**Workflow 1**: Complete when 7 files exist in config/, knowledge/, outline/, drafts/, output/.
+**Workflow 2**: Complete when 8 files exist (包括 imports/ 分析文件).
 
 ## Naming Convention
 

@@ -78,6 +78,30 @@ Example: If persona is "15年热处理车间主任，注重工艺稳定性":
 
 **From pattern library:** Auto-add known garbage patterns to avoidList; focus on discovering NEW patterns.
 
+### Optimization Mode: Read Original Article Analysis
+
+**If `config.optimization.enabled == true`:**
+
+1. Read analysis file: `imports/[topic-title]-analysis.md`
+2. Extract:
+   - **Data Points Inventory** - IDs and verification status
+   - **Content to Preserve** - Valuable elements to keep
+   - **Critical Issues** - Problems to address in research
+
+3. **Research Adjustments for Optimization:**
+
+| Original Status | Research Action |
+|-----------------|-----------------|
+| ✅ Verified data | Skip re-research, carry forward |
+| ⚠️ Potentially outdated | Search for 2024-2025 updates |
+| ❌ Unsourced | Find source OR mark for fuzzy conversion |
+
+4. **Original URL as Competitor:**
+   - Include original article in competitive analysis
+   - Identify what to IMPROVE vs what to PRESERVE
+
+**If NOT optimization mode:** Skip this section.
+
 ---
 
 ## Phase 1: Competitive Analysis
