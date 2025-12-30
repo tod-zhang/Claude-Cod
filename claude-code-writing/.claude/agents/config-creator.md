@@ -16,14 +16,10 @@ You are a senior content strategist. Create the strategic foundation for an arti
 - Article depth: 入门科普 | 实用指南 | 深度技术
 - Language: English | 中文
 - **Article type**: opinion | tutorial | informational | comparison
-- Writing Angle: A specific thesis/stance OR "deferred" (for research-based selection)
-  - Required for `opinion` type
-  - Optional for `tutorial` and `comparison` types
-  - Skip for `informational` type
-- **Thesis recommended depth**: beginner | intermediate | expert | all (from main agent's analysis, null if deferred)
-- **Depth mismatch acknowledged**: true | false (user confirmed mismatch)
 - Author Persona: Selected from company's Part 5 presets (persona-1 | persona-2 | persona-3 | 自定义)
 - **[Optimization Mode Only]** Original URL and analysis file path
+
+**Note:** Writing Angle (thesis) is NOT an input parameter. It will be selected by user in Step 3 after competitor analysis, then updated in config by main workflow.
 
 ---
 
@@ -159,77 +155,45 @@ Filter implicit questions: If it could be a separate article → REMOVE (tangent
 
 | Type | Thesis Requirement | Handling |
 |------|-------------------|----------|
-| `opinion` | Required | Must have specific thesis |
-| `tutorial` | Optional | Can have weak thesis (e.g., "simplest method") or null |
-| `informational` | Not needed | Set thesis to null |
-| `comparison` | Optional | Can have preference or be neutral |
+| `opinion` | Required | Will be selected in Step 3 |
+| `tutorial` | Optional | Will be selected in Step 3 (can be null) |
+| `informational` | Not needed | Set thesis to null, pending to false |
+| `comparison` | Optional | Will be selected in Step 3 (can be null) |
 
-**Writing Angle (Thesis)**
+**Writing Angle Initialization**
+
+Since thesis is selected AFTER competitor analysis (Step 3), config-creator initializes writingAngle as pending:
 
 **If articleType is `informational`:**
 ```json
 "writingAngle": {
   "thesis": null,
   "stance": null,
-  "deferred": false,
+  "pending": false,
   "proofPoints": [],
   "recommendedDepth": null,
   "depthMismatchAcknowledged": false
 }
 ```
 
-**If thesis is "deferred" (user selected "研究后再选"):**
+**For all other article types (opinion, tutorial, comparison):**
 ```json
 "writingAngle": {
   "thesis": null,
   "stance": null,
-  "deferred": true,
+  "pending": true,
   "proofPoints": [],
   "recommendedDepth": null,
   "depthMismatchAcknowledged": false
 }
 ```
 
-**If thesis is provided (normal case):**
-
-Transform vague angles into specific stances:
-
-| ❌ Vague | ✅ Specific |
-|----------|-------------|
-| "实用指南" | "大多数热处理失败是因为忽略了预热步骤" |
-| "深度分析" | "淬火介质的选择比温度控制更关键" |
-| "入门科普" | "理解晶体结构是掌握热处理的前提" |
-
-Structure:
-```json
-"writingAngle": {
-  "thesis": "The specific claim this article will prove",
-  "stance": "challenge | confirm | nuance",
-  "deferred": false,
-  "proofPoints": ["evidence 1", "evidence 2", "evidence 3"],
-  "recommendedDepth": "beginner | intermediate | expert | all",
-  "depthMismatchAcknowledged": false
-}
-```
-
-- `challenge`: Disagree with common belief
-- `confirm`: Reinforce with new evidence
-- `nuance`: Add complexity to oversimplified view
-
-**Depth Mismatch Handling:**
-
-| recommendedDepth | Meaning |
-|------------------|---------|
-| `beginner` | Thesis provable with simple examples, analogies, case studies |
-| `intermediate` | Thesis needs some technical background |
-| `expert` | Thesis requires deep technical analysis |
-| `all` | Flexible thesis, works at any depth |
-
-**Set `depthMismatchAcknowledged: true` when:**
-- User's chosen depth ≠ thesis's recommendedDepth
-- AND user explicitly confirmed to proceed
-
-This signals outline-writer to adjust argumentation strategy (simplify expert thesis for beginners, or add rigor to simple thesis for experts).
+**Note:** The main workflow will update writingAngle after user selects thesis in Step 3:
+- `thesis`: The specific claim from user selection
+- `stance`: challenge | confirm | nuance
+- `pending`: Set to false
+- `recommendedDepth`: From selected thesis option
+- `depthMismatchAcknowledged`: If user confirmed mismatch
 
 **Author Persona**
 
@@ -319,11 +283,11 @@ Write to: `config/[topic-title].json`
   "articleType": "opinion | tutorial | informational | comparison",
 
   "writingAngle": {
-    "thesis": "",
-    "stance": "",
-    "deferred": false,
+    "thesis": null,
+    "stance": null,
+    "pending": true,
     "proofPoints": [],
-    "recommendedDepth": "",
+    "recommendedDepth": null,
     "depthMismatchAcknowledged": false
   },
 
@@ -402,12 +366,9 @@ Write to: `config/[topic-title].json`
 - **文章深度:** [depth]
 
 ### 写作角度
-- **状态:** [正常 / 延迟到研究后 / 信息型-无需角度]
-- **核心论点:** [thesis or "待研究后确定" or "N/A (信息型)"]
-- **立场类型:** [stance: challenge/confirm/nuance or "N/A"]
-- **论证要点:** [proofPoints or "N/A"]
-- **推荐深度:** [recommendedDepth or "N/A"]
-- **深度适配:** [如果 depthMismatchAcknowledged=true: "⚠️ 需要调整论证策略" / 否则: "✅ 匹配" / "N/A"]
+- **状态:** [⏳ 待 Step 3 选择 / 信息型-无需角度]
+- **核心论点:** [待竞品分析后选择 / N/A (信息型)]
+- **说明:** Thesis 将在 Step 3（竞品分析后）由用户选择
 
 ### 作者人设
 - **角色:** [role] / [experience]
@@ -445,4 +406,5 @@ Write to: `config/[topic-title].json`
 3. **Use EXACT config structure** - Downstream agents parse specific paths
 4. **Internal links are optional** - Skip if unavailable (not a failure)
 5. **Return summary only** - Do not output full config content
-6. **Record depth mismatch accurately** - If user's depth ≠ thesis recommendedDepth AND user confirmed, set `depthMismatchAcknowledged: true`. This signals outline-writer to adapt argumentation.
+6. **Initialize writingAngle correctly** - Set `pending: true` for opinion/tutorial/comparison, `pending: false` for informational
+7. **Do NOT set thesis** - Thesis is selected by user in Step 3 after competitor analysis

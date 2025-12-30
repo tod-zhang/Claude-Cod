@@ -67,8 +67,8 @@ imports/              # Workflow 2: 旧文章分析结果
      混合: 两种意图都有搜索量
      ```
    - **典型搜索者画像**：
-     - B2C: Hobbyist / Home user / Small seller / Craft enthusiast
-     - B2B: Engineer / Production manager / Procurement / Technical staff
+     - B2C: 爱好者 / 家庭用户 / 小型卖家 / 手工爱好者
+     - B2B: 工程师 / 生产经理 / 采购人员 / 技术人员
      - 混合: 需列出两类受众
    - **示例**：
      | 主题 | 意图类型 | 典型搜索者 |
@@ -102,19 +102,64 @@ imports/              # Workflow 2: 旧文章分析结果
    - 用户选择后记录：`intentMismatchResolution: adjusted | changed_topic | generic_b2c`
 
 5. **读取公司文档**: `.claude/data/companies/[selected]/about-us.md`
-6. **基于意图类型生成 Audience/Depth 选项**:
-   - **B2C意图** → 选项应为消费者视角：
-     ```
-     Audience: Hobbyist / Small seller / Home crafter / DIY beginner
-     Depth: Step-by-step basics / Intermediate techniques / Advanced methods
-     ```
-   - **B2B意图** → 选项应为专业视角：
-     ```
-     Audience: Engineer / Production manager / Procurement / Technical staff
-     Depth: Overview / Technical details / Expert-level specifications
-     ```
+6. **基于意图类型生成受众/深度选项**:
+   - **受众→深度预选映射**：
+     | 受众 | 预选深度 | 受众说明 |
+     |-----|---------|---------|
+     | DIY初学者 | 入门基础 | 刚接触该领域，需要基础指导 |
+     | 家庭手工者 | 入门基础 | 家庭环境操作，关注安全和简单性 |
+     | 爱好者 | 进阶技巧 | 有基础经验，想提升技能 |
+     | 小型卖家 | 进阶技巧 | 小规模生产，关注效率和质量 |
+     | 工程师 | 技术细节 | 负责工艺设计，需要参数和规格 |
+     | 技术人员 | 技术细节 | 一线操作维护，需要实操指导 |
+     | 生产经理 | 概述 | 管理决策层，关注效率和成本 |
+     | 采购人员 | 概述 | 商务采购，关注选型和性价比 |
+   - **深度说明**：
+     | 深度 | 内容特点 |
+     |-----|---------|
+     | 入门基础 | 基本概念、简单步骤、常见问题解答 |
+     | 进阶技巧 | 优化方法、效率提升、质量控制 |
+     | 概述 | 核心原理、适用场景、决策要点 |
+     | 技术细节 | 具体参数、操作规范、故障排除 |
+     | 专家级规格 | 标准引用、研究数据、深度分析 |
    - **混合意图** → 先让用户选择目标受众类型，再细化
-7. **AskUserQuestion**: Audience / Depth（带推荐标记，选项匹配意图类型）
+7. **AskUserQuestion**: 受众 + 深度（一次询问两个字段）
+   - **受众推荐逻辑**：基于搜索意图类型，典型搜索者标记 `(推荐)`
+   - **深度预选**：用户选受众后自动预选，可修改
+   - **展示格式（B2B意图示例）**：
+     ```
+     请选择目标受众：
+
+     1. 工程师 (推荐)
+        负责工艺设计和参数优化的技术人员
+        ✓ 匹配原因：B2B主题，典型搜索者是需要技术规格的专业人员
+
+     2. 生产经理
+        负责生产计划和质量控制的管理人员
+        △ 适合场景：关注效率、成本、产能的决策内容
+
+     3. 采购人员
+        负责设备或材料采购的商务人员
+        △ 适合场景：关注供应商选择、性价比的采购指南
+
+     4. 技术人员
+        一线操作和设备维护人员
+        △ 适合场景：关注操作规范、故障排除的实操内容
+
+     请选择内容深度：
+
+     1. 技术细节 (推荐)
+        详细的工艺参数、操作步骤、故障排除指南
+        ✓ 匹配原因：工程师通常需要可直接应用的技术信息
+
+     2. 概述
+        核心概念、基本原理、适用场景介绍
+        △ 适合场景：快速了解新领域，或作为决策参考
+
+     3. 专家级规格
+        深度工程分析、标准引用、研究数据对比
+        △ 适合场景：需要权威依据的技术论证或规格制定
+     ```
 8. **AskUserQuestion**: 文章类型
    ```
    文章类型:
@@ -131,53 +176,34 @@ imports/              # Workflow 2: 旧文章分析结果
    | 信息型 | 跳过 | 客观全面即可 |
    | 对比型 | 可选 | 可以有倾向，也可以中立 |
 
-9. **[条件] 生成写作角度（仅观点型必须，教程/对比型可选，信息型跳过）**:
-   - **Writing Angle (Thesis)**: 基于【主题 + 搜索意图类型 + 已选受众】生成 3 个有立场的角度
-     - ⚠️ **不受公司背景影响** — 角度应匹配搜索者的关注点
-     - B2C 主题 → 生成消费者视角的角度（如 DIY 技巧、成本节省、美观度）
-     - B2B 主题 → 生成专业视角的角度（如 效率优化、技术规格、成本控制）
-   - **每个标注最佳深度**：
-     - ❌ 模糊: "实用指南"
-     - ✅ 具体 + 标注: "大多数热处理失败是因为忽略了预热步骤 [适合: Beginner/Intermediate]"
-   - **标注规则**:
-     - `[适合: Beginner]` - 可用简单案例/类比论证
-     - `[适合: Intermediate]` - 需要一定技术背景
-     - `[适合: Expert]` - 需要深度技术分析支撑
-     - `[适合: All]` - 灵活度高，任何深度都可论证
-   - **展示格式示例**:
+9. **选择作者人设**: 从公司 `about-us.md` Part 5 预设中选择，基于已选内容推荐
+   - **人设→场景匹配表**：
+     | 人设 | 适合深度 | 适合文章类型 | 适合受众 |
+     |-----|---------|-------------|---------|
+     | 技术专家 | 技术细节/专家级 | 观点型、信息型 | 工程师、技术人员 |
+     | 实践导师 | 入门/进阶 | 教程型、信息型 | 初学者、爱好者 |
+     | 行业观察者 | 概述/进阶 | 对比型、观点型 | 经理、采购人员 |
+   - **展示格式**：
      ```
-     请选择写作角度：
-     1. 预热步骤是被低估的关键环节 [适合: Beginner/Intermediate]
-        → stance: challenge, 可用简单案例论证
-     2. 传统温度曲线计算存在系统误差 [适合: Expert]
-        → stance: challenge, 需要技术分析支撑
-     3. 热处理成功率取决于设备维护而非工艺参数 [适合: All]
-        → stance: nuance, 灵活度高
-     4. ⏳ 研究后再选 — 不熟悉话题时推荐，让 web-researcher 基于数据推荐角度
+     请选择作者人设：
+
+     1. 技术专家 (推荐)
+        "热处理车间主任，15年一线经验"
+        ✓ 匹配原因：观点型文章需要实践权威，技术细节深度需要专业背景
+
+     2. 实践导师
+        "资深工艺培训师，专注新人带教"
+        △ 适合场景：教程型文章、入门深度
+
+     3. 行业观察者
+        "设备选型顾问，跨厂经验丰富"
+        △ 适合场景：对比型文章、采购决策者
+
+     4. 自定义
      ```
-   - **选择"研究后再选"时**:
-     - 设置 `writingAngle.deferred: true`
-     - web-researcher 完成后会生成 3 个基于数据的角度推荐
-     - 主流程在 Step 2 后暂停，等用户选择角度
-     - 然后继续 Step 3
+   - **推荐逻辑**：匹配度最高的人设标记 `(推荐)`，其他人设显示适合场景供参考
 
-10. **⚠️ 深度兼容性检查（软提示，非阻断，仅当选择了具体角度时）**:
-   ```
-   if thesis.recommendedDepth != selectedDepth:
-       提示: "您选择的角度通常适合 [X] 深度，当前选择 [Y]。
-             outline-writer 会调整论证方式来适配，继续吗？"
-       选项: [继续（记录 mismatch）/ 调整深度 / 换角度]
-   ```
-   - 用户选择"继续"时，设置 `depthMismatchAcknowledged: true`
-   - 此信号传递给 outline-writer，提示需要调整论证策略
-
-11. **选择作者人设**: 从公司 `about-us.md` Part 5 预设中选择
-   - Persona 1: 技术专家 → 深度技术文章
-   - Persona 2: 实践导师 → 入门指南、教程
-   - Persona 3: 行业观察者 → 趋势分析、对比
-   - 自定义 → 用户自行定义
-
-12. **⚠️ 确定输出语言（必须执行，不可跳过）**:
+10. **⚠️ 确定输出语言（必须执行，不可跳过）**:
     ```
     if company == "semrush":
         language = "中文"
@@ -185,53 +211,103 @@ imports/              # Workflow 2: 旧文章分析结果
         language = "English"
     ```
     **注意**: 无论用户用什么语言提供主题，输出语言只由公司决定。
-13. **Launch agent**:
+11. **Launch agent**:
     ```
     Task: subagent_type="config-creator"
-    Prompt: Create config for [company], [topic], [audience], [depth], [articleType], [thesis], [persona], [language]
+    Prompt: Create config for [company], [topic], [audience], [depth], [articleType], [persona], [language]
             Article type: [opinion/tutorial/informational/comparison]
-            Thesis: [thesis or "deferred"]
-            Thesis recommended depth: [recommendedDepth or null]
-            Depth mismatch acknowledged: [true/false]
+            Note: Thesis will be selected after competitor analysis in Step 3
     ```
-14. **✅ 验证**: `Glob config/[topic-title].json` 存在 → 继续
+12. **✅ 验证**: `Glob config/[topic-title].json` 存在 → 继续
 
-### Step 2: Research (Auto)
+### Step 2: Competitor Analysis（竞品分析）
 
 ```
 Task: subagent_type="web-researcher"
-Prompt: Conduct research for: [topic-title]
+Prompt: Phase 1 - Competitor Analysis for: [topic-title]
+        Analyze TOP 10 search results, identify differentiation opportunities
 ```
 
-Agent writes `knowledge/[topic-title]-sources.md` and updates config with `workflowState.research`.
+**目标**：快速扫描竞品，找差异化机会，生成角度推荐
+
+**Agent 输出**：
+- 更新 config `workflowState.research.competitorAnalysis`
+- 更新 config `workflowState.research.recommendedTheses`（3 个推荐角度）
+
+**⚠️ 验证检查点（必须执行）：**
+- ✅ config 中有 `recommendedTheses` → 继续 Step 3
+- ❌ 缺失 → 重新运行 web-researcher Phase 1
+
+### Step 3: Select Writing Angle（选择写作角度）
+
+**基于竞品分析展示角度选项**（信息型文章可跳过）：
+
+1. **读取 config 中的 `recommendedTheses`**
+2. **角度属性说明**：
+   | 属性 | 说明 |
+   |-----|------|
+   | stance: challenge | 挑战常见观点，"大多数人错了" |
+   | stance: confirm | 强化已知观点，提供新证据 |
+   | stance: nuance | 添加复杂性，"视情况而定" |
+   | 适合深度 | 该角度需要什么深度才能充分论证 |
+3. **展示推荐角度给用户**（格式与受众/深度/人设统一）：
+   ```
+   基于竞品分析，推荐以下写作角度：
+
+   1. 预热步骤是被低估的关键环节 (推荐)
+      stance: challenge | 适合深度: 入门/进阶
+      挑战"直接加热"的常见做法，用失败案例论证预热重要性
+      ✓ 匹配原因：差异化强（TOP 10 仅 2 篇提及），数据充足（3个案例），
+        深度兼容
+
+   2. 温度控制比时间控制更重要
+      stance: nuance | 适合深度: 技术细节
+      平衡两种控制方式的优劣，给出场景化建议
+      △ 匹配度：差异化中等，深度匹配，需参数数据支撑
+
+   3. 传统温度曲线计算存在系统误差
+      stance: challenge | 适合深度: 专家级
+      质疑教科书公式，引用最新研究数据
+      ⚠️ 注意：深度不匹配（需专家级，已选技术细节），差异化强但数据要求高
+
+   4. 自定义角度
+      输入你自己的写作角度
+   ```
+4. **匹配度标记规则**：
+   | 标记 | 条件 |
+   |-----|------|
+   | ✓ 匹配原因 | 差异化强 + 数据充足 + 深度兼容 |
+   | △ 匹配度 | 部分匹配（差异化中等，或需要额外数据） |
+   | ⚠️ 注意 | 深度不匹配，或数据要求高 |
+5. **用户选择后**：
+   - 更新 config: `writingAngle.thesis`, `writingAngle.stance`
+   - 如果选择了 ⚠️ 标记的角度，确认是否继续
+   - 设置 `depthMismatchAcknowledged: true`（如适用）
+6. **信息型文章**：跳过角度选择，设置 `writingAngle.thesis: null`
+
+### Step 4: Evidence Collection（证据搜索）
+
+```
+Task: subagent_type="web-researcher"
+Prompt: Phase 2 - Evidence Collection for: [topic-title]
+        Selected angle: [thesis]
+        Collect data points, expert quotes, case studies to support the thesis
+```
+
+**目标**：针对已选角度，深入搜索证据和素材
+
+**Agent 输出**：
+- 写入 `knowledge/[topic-title]-sources.md`
+- 更新 config `workflowState.research`（完整研究数据）
 
 **⚠️ 验证检查点（必须执行）：**
 ```
 Glob: knowledge/[topic-title]-sources.md
 ```
-- ✅ 文件存在 → 继续
-- ❌ 文件不存在 → 重新运行 web-researcher
+- ✅ 文件存在 → 继续 Step 5
+- ❌ 文件不存在 → 重新运行 web-researcher Phase 2
 
-### Step 2.5: Deferred Thesis Selection (仅当 writingAngle.deferred == true)
-
-**如果用户在 Step 1 选择了"研究后再选"：**
-
-1. web-researcher 会在 `workflowState.research.recommendedTheses` 中提供 3 个基于数据的角度推荐
-2. **展示推荐角度给用户**:
-   ```
-   基于研究结果，推荐以下写作角度：
-   1. [thesis 1] [适合: X] — 数据支撑: [evidence summary]
-   2. [thesis 2] [适合: Y] — 数据支撑: [evidence summary]
-   3. [thesis 3] [适合: Z] — 数据支撑: [evidence summary]
-   ```
-3. **用户选择后**:
-   - 更新 config: `writingAngle.thesis`, `writingAngle.stance`, `writingAngle.deferred: false`
-   - 执行深度兼容性检查（同 Step 1 的步骤 8）
-4. **继续 Step 3**
-
-**如果不是 deferred 模式**：直接继续 Step 3
-
-### Step 3: Write (Auto)
+### Step 5: Write（写作）
 
 ```
 Task: subagent_type="outline-writer"
@@ -245,10 +321,10 @@ Agent writes `outline/[topic-title].md`, `drafts/[topic-title].md`, and updates 
 Glob: outline/[topic-title].md
 Glob: drafts/[topic-title].md
 ```
-- ✅ 两个文件都存在 → 继续 Step 4
+- ✅ 两个文件都存在 → 继续 Step 6
 - ❌ 任一文件缺失 → 重新运行 outline-writer
 
-### Step 4: Proofread & Deliver (Auto)
+### Step 6: Proofread & Deliver（校对交付）
 
 ```
 Task: subagent_type="proofreader"
@@ -296,58 +372,46 @@ Glob: output/[topic-title]-images.md
 2. **等待用户输入**: 用户选择公司
 3. **⚠️ 分析/验证搜索意图（独立于公司）**:
    - 参考分析文件中的原文受众，但独立判断主题本身的搜索意图
-   - 意图类型：B2C消费者 / B2B专业 / 混合（同 Workflow 1 Step 3）
+   - 意图类型：B2C消费者 / B2B专业 / 混合（同 Workflow 1 Step 1.3）
    - 如果原文意图与主题自然意图不符，向用户确认目标受众
-4. **⚠️ 意图-公司匹配检查**（同 Workflow 1 Step 4）:
-   - B2C 意图 + B2B 公司 → 提示用户选择：调整受众 / 更换主题 / 使用通用指导
+4. **⚠️ 意图-公司匹配检查**（同 Workflow 1 Step 1.4）
 5. **读取公司文档**: `.claude/data/companies/[selected]/about-us.md`
-6. **基于意图类型生成 Audience/Depth 选项**（同 Workflow 1 Step 6）
-7. **AskUserQuestion**: Audience / Depth（显示推荐值，来自分析，选项匹配意图类型）
-8. **AskUserQuestion**: 文章类型（同 Workflow 1 Step 8）
+6. **基于意图类型生成受众/深度选项**（同 Workflow 1 Step 1.6）
+7. **AskUserQuestion**: 受众 + 深度（同 Workflow 1 Step 1.7，显示分析推荐值）
+8. **AskUserQuestion**: 文章类型（同 Workflow 1 Step 1.8）
    - 显示分析推荐的类型
-9. **[条件] 生成写作角度（带深度标注）**: 基于【主题 + 搜索意图类型 + 已选受众 + 诊断】生成 3 个 Thesis 选项
-   - ⚠️ **不受公司背景影响** — 同 Workflow 1 Step 9
-   - 仅观点型必须，教程/对比型可选，信息型跳过
-   - 每个选项标注 `[适合: X]` 和 `[推荐]`（来自分析）
-   - 包含"⏳ 研究后再选"选项
-10. **⚠️ 深度兼容性检查**: 同 Workflow 1 Step 10（软提示，非阻断，仅当选择了具体角度时）
-11. **选择作者人设**: 从公司 Part 5 预设中选择
-12. **⚠️ 确定输出语言（必须执行，不可跳过）**:
-    ```
-    if company == "semrush":
-        language = "中文"
-    else:
-        language = "English"
-    ```
-13. **Launch agent**:
+9. **选择作者人设**（同 Workflow 1 Step 1.9，基于已选内容推荐）
+10. **⚠️ 确定输出语言**（同 Workflow 1 Step 1.10）
+11. **Launch agent**:
     ```
     Task: subagent_type="config-creator"
-    Prompt: Create config for [company], [topic], [audience], [depth], [articleType], [thesis], [persona], [language]
+    Prompt: Create config for [company], [topic], [audience], [depth], [articleType], [persona], [language]
             Optimization mode: true, analysis file: imports/[topic-title]-analysis.md
-            Article type: [opinion/tutorial/informational/comparison]
-            Thesis: [thesis or "deferred"]
-            Thesis recommended depth: [recommendedDepth or null]
-            Depth mismatch acknowledged: [true/false]
+            Note: Thesis will be selected after competitor analysis in Step 3
     ```
-14. **✅ 验证**: `Glob config/[topic-title].json` 存在 → 继续
+12. **✅ 验证**: `Glob config/[topic-title].json` 存在 → 继续
 
-### Step 2-4: 同 Workflow 1
+### Step 2-6: 同 Workflow 1
 
-- **Step 2**: web-researcher (会读取旧数据点，验证/更新)
-- **Step 3**: outline-writer (参考旧结构，完全重写)
-- **Step 4**: proofreader (验证并交付到 output/)
+- **Step 2**: Competitor Analysis（竞品分析，会参考旧文章的问题诊断）
+- **Step 3**: Select Writing Angle（选择写作角度，显示分析推荐）
+- **Step 4**: Evidence Collection（证据搜索，会读取旧数据点，验证/更新）
+- **Step 5**: Write（outline-writer，参考旧结构，完全重写）
+- **Step 6**: Proofread & Deliver（proofreader，验证并交付到 output/）
 
 ### Workflow 2 文件流
 
 ```
 imports/[topic-title]-analysis.md   ← Step 0 (分析结果)
 config/[topic-title].json           ← Step 1 (带 optimization.enabled: true)
-knowledge/[topic-title]-sources.md  ← Step 2
-outline/[topic-title].md            ← Step 3
-drafts/[topic-title].md             ← Step 3
-output/[topic-title].md             ← Step 4
-output/[topic-title]-sources.md     ← Step 4
-output/[topic-title]-images.md      ← Step 4
+                                    ← Step 2 更新 config (竞品分析)
+                                    ← Step 3 更新 config (角度选择)
+knowledge/[topic-title]-sources.md  ← Step 4 (证据搜索)
+outline/[topic-title].md            ← Step 5
+drafts/[topic-title].md             ← Step 5
+output/[topic-title].md             ← Step 6
+output/[topic-title]-sources.md     ← Step 6
+output/[topic-title]-images.md      ← Step 6
 ```
 
 ---
@@ -361,11 +425,10 @@ Agents pass decisions via config file. Full schema: @.claude/data/workflow-state
 | Field | Set By | Purpose |
 |-------|--------|---------|
 | `articleType` | config-creator | opinion/tutorial/informational/comparison |
-| `writingAngle.thesis` | config-creator | The ONE claim article proves (null for informational) |
-| `writingAngle.stance` | config-creator | challenge/confirm/nuance (null for informational) |
-| `writingAngle.deferred` | config-creator | true = 研究后再选角度 |
-| `writingAngle.recommendedDepth` | config-creator | Thesis 最佳深度 (beginner/intermediate/expert/all) |
-| `writingAngle.depthMismatchAcknowledged` | config-creator | 用户确认了深度不匹配 |
+| `writingAngle.thesis` | main (Step 3) | The ONE claim article proves (null for informational) |
+| `writingAngle.stance` | main (Step 3) | challenge/confirm/nuance (null for informational) |
+| `writingAngle.recommendedDepth` | web-researcher (Step 2) | Thesis 最佳深度 (beginner/intermediate/expert/all) |
+| `writingAngle.depthMismatchAcknowledged` | main (Step 3) | 用户确认了深度不匹配 |
 | `authorPersona.role` | config-creator | WHO is writing |
 | `authorPersona.bias` | config-creator | Non-neutral perspective |
 
@@ -374,9 +437,9 @@ Agents pass decisions via config file. Full schema: @.claude/data/workflow-state
 | Field | Used By | Purpose |
 |-------|---------|---------|
 | `articleType` | all agents | 决定是否需要 thesis 验证 |
-| `writingAngle.deferred` | web-researcher | 需要生成角度推荐 |
+| `research.competitorAnalysis` | main (Step 3) | 竞品分析结果，用于生成角度选项 |
+| `research.recommendedTheses` | main (Step 3) | 基于竞品分析的角度推荐 |
 | `writingAngle.depthMismatchAcknowledged` | outline-writer | 需要调整论证策略 |
-| `research.recommendedTheses` | main (Step 2.5) | Deferred 模式下的角度推荐 |
 | `research.thesisValidation` | outline-writer | Validated/adjusted thesis |
 | `research.differentiation.primaryDifferentiator` | outline-writer | Lead with this |
 | `research.writingAdvice.cautious` | outline-writer | Use fuzzy language |
@@ -391,13 +454,13 @@ Agents pass decisions via config file. Full schema: @.claude/data/workflow-state
 
 **Workflow 1 (新文章):**
 ```
-config/[topic-title].json           ← Step 1, updated by Steps 2-3
-knowledge/[topic-title]-sources.md  ← Step 2
-outline/[topic-title].md            ← Step 3
-drafts/[topic-title].md             ← Step 3
-output/[topic-title].md             ← Step 4
-output/[topic-title]-sources.md     ← Step 4
-output/[topic-title]-images.md      ← Step 4
+config/[topic-title].json           ← Step 1 创建, Step 2-3 更新
+knowledge/[topic-title]-sources.md  ← Step 4 (证据搜索)
+outline/[topic-title].md            ← Step 5 (写作)
+drafts/[topic-title].md             ← Step 5 (写作)
+output/[topic-title].md             ← Step 6 (校对交付)
+output/[topic-title]-sources.md     ← Step 6 (校对交付)
+output/[topic-title]-images.md      ← Step 6 (校对交付)
 ```
 
 **Workflow 2 (优化旧文章):**

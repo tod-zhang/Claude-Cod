@@ -6,10 +6,15 @@
 
 - **双模式支持**：新文章创作 + 旧文章优化
 - **智能研究**：自动进行竞品分析、数据收集、差异化定位
+- **搜索意图分析**：独立判断 B2C/B2B/混合意图，确保内容匹配搜索者需求
+- **意图-公司匹配检查**：防止 B2C 内容与 B2B 公司定位冲突
 - **专业写作**：根据目标受众和搜索意图定制内容
 - **有立场的内容**：通过写作角度（Thesis）和作者人设（Persona）让文章有观点、有温度
+- **深度兼容性检查**：确保论点复杂度与文章深度匹配
 - **质量保障**：多轮校对、事实核查、来源验证、人设一致性检查
 - **多公司支持**：可配置不同公司的品牌风格和内链策略
+
+---
 
 ## 快速开始
 
@@ -31,29 +36,6 @@
 
 系统会先分析原文问题，然后引导你完成配置。
 
-### 配置选项
-
-两种工作流都会引导你完成以下选择：
-1. 选择公司（决定品牌风格和内链）
-2. 选择目标受众
-3. 选择文章深度
-4. **选择文章类型**（决定是否需要写作角度）
-5. 选择写作角度（条件性，见下表）
-6. 选择作者人设（从公司预设的 3 个人设中选择）
-
-**文章类型与角度要求：**
-
-| 类型 | 说明 | 角度要求 |
-|------|------|----------|
-| 观点型 | 有明确立场，证明某个观点 | 必须选 |
-| 教程型 | 教读者如何完成某事 | 可选 |
-| 信息型 | 客观介绍概念/事物 | 跳过 |
-| 对比型 | 比较多个选项的优劣 | 可选 |
-
-**不熟悉话题？** 选择"⏳ 研究后再选"，让系统基于研究数据推荐角度。
-
-然后自动完成研究、写作、校对全流程。
-
 ### 清理工作流文件
 
 使用内置命令清理所有工作流文件：
@@ -61,6 +43,8 @@
 ```
 /cc
 ```
+
+---
 
 ## 目录结构
 
@@ -91,122 +75,429 @@
 └── output/                  # 最终输出
 ```
 
-## 工作流程
+---
 
-### Workflow 1: 新文章写作
+## 工作流程概览
 
-| 步骤 | Agent | 输入 | 输出 |
-|------|-------|------|------|
-| 1 | config-creator | 用户选择 | `config/[topic].json` |
-| 2 | web-researcher | 配置文件 | `knowledge/[topic]-sources.md` |
-| 2.5 | (主流程) | 研究结果 | 用户选择角度（仅 deferred 模式） |
-| 3 | outline-writer | 研究资料 | `outline/[topic].md` + `drafts/[topic].md` |
-| 4 | proofreader | 草稿 | `output/` 目录下的最终文件 |
+### 流程对比
 
-### Workflow 2: 旧文章优化
+| 步骤 | Workflow 1 (新文章) | Workflow 2 (旧文章优化) |
+|------|---------------------|-------------------------|
+| Step 0 | - | article-importer 导入分析 |
+| Step 1 | 收集配置 + 创建 config | 收集配置 + 创建 config（带预填推荐） |
+| Step 2 | web-researcher 研究 | web-researcher 研究（验证旧数据） |
+| Step 2.5 | [可选] 延迟角度选择 | [可选] 延迟角度选择 |
+| Step 3 | outline-writer 写作 | outline-writer 写作（参考旧结构） |
+| Step 4 | proofreader 校对交付 | proofreader 校对交付 |
 
-| 步骤 | Agent | 输入 | 输出 |
-|------|-------|------|------|
-| 0 | article-importer | URL | `imports/[topic]-analysis.md` |
-| 1 | config-creator | 分析结果 + 用户选择 | `config/[topic].json` |
-| 2-4 | 同 Workflow 1 | - | - |
+### 文件流
 
-### Step 0: 导入分析 (仅 Workflow 2)
+**Workflow 1:**
+```
+config/[topic].json           ← Step 1
+knowledge/[topic]-sources.md  ← Step 2
+outline/[topic].md            ← Step 3
+drafts/[topic].md             ← Step 3
+output/[topic].md             ← Step 4
+output/[topic]-sources.md     ← Step 4
+output/[topic]-images.md      ← Step 4
+```
 
-分析旧文章并生成诊断报告：
-- 原文信息（标题、字数、结构）
-- 问题诊断（严重/重要/轻微分级）
-- 推荐设置（受众、深度、Thesis）
+**Workflow 2:**
+```
+imports/[topic]-analysis.md   ← Step 0 (额外)
++ 同 Workflow 1 的所有文件
+```
 
-### Step 1: 配置创建
+---
 
-收集用户输入，生成文章配置：
-- 公司选择 → 品牌风格、内链策略
-- 目标受众 → 内容深度、术语选择
-- 文章深度 → 字数范围、覆盖广度
-- **文章类型** → 决定是否需要写作角度
-- **写作角度（Thesis）** → 文章要证明的具体论点（条件性）
-- **作者人设（Persona）** → 谁在写这篇文章、什么立场
+## Workflow 1: 新文章写作（详细流程）
 
-**文章类型：**
-| 类型 | 适用场景 | 角度要求 |
-|------|----------|----------|
-| 观点型 | 要证明某个观点 | 必须选 |
-| 教程型 | How-to 类内容 | 可选 |
-| 信息型 | What is 类内容 | 跳过 |
-| 对比型 | A vs B 类内容 | 可选 |
+### Step 1: 收集配置
 
-**写作角度示例：**
+#### 1.1 展示公司列表
+
+系统读取 `.claude/data/companies/index.md`，向用户展示所有可用公司：
+
+```
+可用公司：
+1. semrush - SEO 工具和数字营销平台
+2. company-b - 工业设备制造商
+3. company-c - ...
+```
+
+用户直接告诉 Claude 选择哪个公司。
+
+#### 1.2 搜索意图分析（关键步骤）
+
+系统**独立于公司背景**分析主题的搜索意图：
+
+**意图类型识别：**
+
+| 意图类型 | 特征 | 典型主题示例 |
+|----------|------|--------------|
+| B2C 消费者 | DIY 教程、家用指南、个人使用 | how to wrap soap, home coffee brewing |
+| B2B 专业 | 工业应用、生产线、技术规格、采购决策 | soap packaging machine, industrial heat treatment |
+| 混合 | 两种意图都有搜索量 | soap packaging, coffee roasting |
+
+**典型搜索者画像：**
+
+| 意图 | 典型搜索者 |
+|------|------------|
+| B2C | Hobbyist / Home user / Small seller / Craft enthusiast / DIY beginner |
+| B2B | Engineer / Production manager / Procurement / Technical staff |
+| 混合 | 需列出两类受众 |
+
+#### 1.3 意图-公司匹配检查
+
+大多数公司是 B2B 定位。系统检查搜索意图是否与公司定位匹配：
+
+| 意图类型 | B2B 公司 | 处理方式 |
+|----------|----------|----------|
+| B2B | ✅ 匹配 | 正常继续 |
+| B2C | ⚠️ 不匹配 | 提示 + 建议调整 |
+| 混合 | 🔄 部分匹配 | 让用户选择目标受众类型 |
+
+**B2C 意图 + B2B 公司时，系统提示：**
+
+```
+⚠️ 意图不匹配提示
+
+该主题的典型搜索者是 [DIY爱好者/消费者]，
+但 [公司名] 是 B2B 公司，User Types 针对专业受众设计。
+
+建议选择：
+1. 调整目标受众 → 将 "DIY爱好者" 调整为 "小型创业者/小型生产商"
+   （使用公司 User Type 1，文章可衔接公司产品）
+2. 更换主题 → 选择更匹配 B2B 的主题
+3. 继续使用通用 B2C 指导 → 文章将缺乏公司特色（产品提及、内链等不适用）
+```
+
+#### 1.4 选择目标受众和文章深度
+
+基于意图类型生成匹配的选项：
+
+**B2C 意图选项：**
+```
+Audience: Hobbyist / Small seller / Home crafter / DIY beginner
+Depth: Step-by-step basics / Intermediate techniques / Advanced methods
+```
+
+**B2B 意图选项：**
+```
+Audience: Engineer / Production manager / Procurement / Technical staff
+Depth: Overview / Technical details / Expert-level specifications
+```
+
+#### 1.5 选择文章类型
+
+```
+文章类型：
+1. 观点型 — 有明确立场，证明某个观点（需要选角度）
+2. 教程型 — 教读者如何完成某事（角度可选）
+3. 信息型 — 客观介绍概念/事物（无需角度）
+4. 对比型 — 比较多个选项的优劣（角度可选）
+```
+
+| 类型 | 角度要求 | 说明 |
+|------|----------|------|
+| 观点型 | 必须选 | 文章核心就是证明这个观点 |
+| 教程型 | 可选 | 可以有"最简单/最可靠"等弱角度 |
+| 信息型 | 跳过 | 客观全面即可 |
+| 对比型 | 可选 | 可以有倾向，也可以中立 |
+
+#### 1.6 选择写作角度（条件性）
+
+**仅观点型必须，教程/对比型可选，信息型跳过。**
+
+系统基于【主题 + 搜索意图 + 已选受众】生成 3 个有立场的角度选项：
+
+```
+请选择写作角度：
+1. 预热步骤是被低估的关键环节 [适合: Beginner/Intermediate]
+   → stance: challenge, 可用简单案例论证
+2. 传统温度曲线计算存在系统误差 [适合: Expert]
+   → stance: challenge, 需要技术分析支撑
+3. 热处理成功率取决于设备维护而非工艺参数 [适合: All]
+   → stance: nuance, 灵活度高
+4. ⏳ 研究后再选 — 不熟悉话题时推荐，让 web-researcher 基于数据推荐角度
+```
+
+**深度标注说明：**
+
+| 标注 | 含义 |
+|------|------|
+| `[适合: Beginner]` | 可用简单案例/类比论证 |
+| `[适合: Intermediate]` | 需要一定技术背景 |
+| `[适合: Expert]` | 需要深度技术分析支撑 |
+| `[适合: All]` | 灵活度高，任何深度都可论证 |
+
+**角度示例对比：**
+
 | 模糊（不推荐） | 具体（推荐） |
 |---------------|-------------|
 | 实用指南 | 大多数热处理失败是因为忽略了预热步骤 |
 | 深度分析 | 淬火介质的选择比温度控制更关键 |
 
-**角度选择模式：**
-| 情况 | 选择 |
-|------|------|
-| 了解话题，有想法 | 直接选择具体角度 |
-| 不了解话题 | 选"⏳ 研究后再选"，研究完成后再选 |
-| 信息型文章 | 自动跳过 |
+#### 1.7 深度兼容性检查（软提示）
 
-**作者人设（公司预设）：**
+当选择的角度推荐深度与文章深度不匹配时：
+
+```
+提示: "您选择的角度通常适合 [Expert] 深度，当前选择 [Beginner]。
+      outline-writer 会调整论证方式来适配，继续吗？"
+选项: [继续（记录 mismatch）/ 调整深度 / 换角度]
+```
+
+这不是阻断性检查，用户可以选择继续。系统会将此信号传递给 outline-writer，提示需要调整论证策略。
+
+#### 1.8 选择作者人设
+
+从公司 `about-us.md` Part 5 预设中选择：
 
 | 人设 | 适用场景 | 特点 |
 |------|----------|------|
 | Persona 1: 技术专家 | 深度技术文章 | 数据驱动、务实、爱分享经验教训 |
 | Persona 2: 实践导师 | 入门指南、教程 | 耐心、循序渐进、善用类比 |
 | Persona 3: 行业观察者 | 趋势分析、对比 | 客观、有洞见、注重长期价值 |
+| 自定义 | 特殊需求 | 用户自行定义 |
 
-每个公司可在 `about-us.md` Part 5 中自定义这些人设的具体偏见和标志性表达。
+#### 1.9 确定输出语言
+
+```python
+if company == "semrush":
+    language = "中文"
+else:
+    language = "English"
+```
+
+**注意**：无论用户用什么语言提供主题，输出语言只由公司决定。
+
+#### 1.10 启动 config-creator Agent
+
+系统启动 `config-creator` Agent 创建配置文件：
+
+```
+Task: subagent_type="config-creator"
+Prompt: Create config for [company], [topic], [audience], [depth],
+        [articleType], [thesis], [persona], [language]
+        Article type: [opinion/tutorial/informational/comparison]
+        Thesis: [thesis or "deferred"]
+```
+
+#### 1.11 验证检查点
+
+```
+✅ 验证: Glob config/[topic-title].json 存在 → 继续
+```
+
+---
 
 ### Step 2: 深度研究
 
-自动执行：
-- 竞品文章分析
-- 数据点收集
-- 权威来源查找
+系统启动 `web-researcher` Agent：
+
+```
+Task: subagent_type="web-researcher"
+Prompt: Conduct research for: [topic-title]
+```
+
+**研究内容：**
+
+- 竞品文章分析（立场、论据、薄弱点）
+- 数据点收集（统计数据、案例）
+- 权威来源查找（学术论文、行业标准、专家观点）
 - 差异化机会识别
-- 用户声音采集
+- 用户声音采集（Reddit、论坛等）
 - **论点验证**：寻找支持/反对 Thesis 的证据
 - **人设视角研究**：以人设的专业角度筛选资料
 - **[Deferred 模式]**：生成 3 个基于数据的角度推荐
 
-### Step 2.5: 延迟角度选择（仅当选择"研究后再选"）
+**输出：**
+- `knowledge/[topic-title]-sources.md`
+- 更新 config 的 `workflowState.research`
 
-如果用户在 Step 1 选择了"研究后再选"：
-1. 系统展示 3 个基于研究数据的角度推荐
-2. 每个推荐包含：具体论点、适合深度、数据支撑摘要
-3. 用户选择后继续 Step 3
+**验证检查点：**
+```
+✅ 验证: Glob knowledge/[topic-title]-sources.md 存在 → 继续
+❌ 文件不存在 → 重新运行 web-researcher
+```
+
+---
+
+### Step 2.5: 延迟角度选择（仅 Deferred 模式）
+
+**仅当用户在 Step 1 选择了"⏳ 研究后再选"时执行。**
+
+1. web-researcher 在 `workflowState.research.recommendedTheses` 中提供 3 个基于数据的角度推荐
+
+2. 系统展示推荐角度：
+```
+基于研究结果，推荐以下写作角度：
+1. [thesis 1] [适合: X] — 数据支撑: [evidence summary]
+2. [thesis 2] [适合: Y] — 数据支撑: [evidence summary]
+3. [thesis 3] [适合: Z] — 数据支撑: [evidence summary]
+```
+
+3. 用户选择后，系统更新 config 并执行深度兼容性检查
+
+4. 继续 Step 3
+
+---
 
 ### Step 3: 大纲与写作
 
-基于研究结果：
-- 设计文章结构
+系统启动 `outline-writer` Agent：
+
+```
+Task: subagent_type="outline-writer"
+Prompt: Create outline and write article for: [topic-title]
+```
+
+**写作过程：**
+
+- 设计文章结构（H2 数量、介绍框架、结论类型）
 - 确定差异化策略
 - **以人设口吻撰写**：每段都像人设在说话
 - **论点贯穿全文**：Intro 提出、Body 论证、Conclusion 强化
+- **深度适配**：如果存在深度不匹配，调整论证方式
 - 插入内链和产品提及
+- 规划视觉元素
+
+**输出：**
+- `outline/[topic-title].md` - 文章大纲
+- `drafts/[topic-title].md` - 文章草稿
+- 更新 config 的 `workflowState.writing`
+
+**验证检查点：**
+```
+✅ 验证: 两个文件都存在 → 继续 Step 4
+❌ 任一文件缺失 → 重新运行 outline-writer
+```
+
+---
 
 ### Step 4: 校对与交付
 
-最终质量把控：
-- 事实核查
-- 来源验证
-- **论点执行检查**：Thesis 是否清晰表达（观点型必须，信息型跳过）
-- **覆盖验证**：信息型文章检查内容完整性
+系统启动 `proofreader` Agent：
+
+```
+Task: subagent_type="proofreader"
+Prompt: Proofread and deliver article for: [topic-title]
+```
+
+**校对内容：**
+
+- 事实核查（验证数据点）
+- 来源验证（检查引用准确性）
+- **论点执行检查**：Thesis 是否清晰表达、论证是否充分
 - **人设一致性检查**：是否有"声音断裂"
+- **深度适配检查**：论证方式是否匹配目标深度
 - 风格一致性检查
 - 生成图片建议
 
-## 输出文件
+**输出：**
+- `output/[topic-title].md` - 最终文章
+- `output/[topic-title]-sources.md` - 引用来源列表
+- `output/[topic-title]-images.md` - 配图建议和说明
+
+**验证检查点：**
+```
+✅ 验证: 三个文件都存在 → 流程完成
+❌ 任一文件缺失 → 重新运行 proofreader
+```
+
+---
+
+## Workflow 2: 旧文章优化（详细流程）
+
+### Step 0: 导入分析
+
+系统启动 `article-importer` Agent：
+
+```
+Task: subagent_type="article-importer"
+Prompt: Import and analyze article from: [URL]
+```
+
+**分析内容：**
+
+- 原文信息（标题、字数、结构）
+- 问题诊断（严重/重要/轻微分级）
+- 推荐设置（受众、深度、Thesis）
+
+**输出：**
+- `imports/[topic-title]-analysis.md`
+
+系统向用户展示诊断摘要，然后继续 Step 1。
+
+---
+
+### Step 1-4: 同 Workflow 1
+
+Workflow 2 的 Step 1-4 与 Workflow 1 基本相同，但有以下区别：
+
+| 步骤 | 区别 |
+|------|------|
+| Step 1 | 配置选项带预填推荐值（来自分析） |
+| Step 2 | web-researcher 会验证/更新旧数据点 |
+| Step 3 | outline-writer 参考旧结构，但完全重写 |
+
+---
+
+## Agent 状态传递机制
+
+### workflowState 概述
+
+Agent 之间通过 config 文件传递状态，避免上下文污染：
+
+```json
+{
+  "articleType": "opinion",
+  "writingAngle": {
+    "thesis": "...",
+    "stance": "challenge",
+    "deferred": false,
+    "recommendedDepth": "intermediate",
+    "depthMismatchAcknowledged": false
+  },
+  "authorPersona": {
+    "role": "...",
+    "bias": "...",
+    "voiceTraits": ["..."]
+  },
+  "workflowState": {
+    "research": { "..." },
+    "writing": { "..." }
+  }
+}
+```
+
+### 关键字段说明
+
+| 字段 | 设置者 | 使用者 | 作用 |
+|------|--------|--------|------|
+| `articleType` | config-creator | 所有 Agent | 决定是否需要 thesis 验证 |
+| `writingAngle.thesis` | config-creator | 所有 Agent | 文章要证明的论点 |
+| `writingAngle.deferred` | config-creator | web-researcher | 需要生成角度推荐 |
+| `writingAngle.depthMismatchAcknowledged` | config-creator | outline-writer | 需要调整论证策略 |
+| `research.recommendedTheses` | web-researcher | 主流程 | Deferred 模式的角度推荐 |
+| `research.differentiation.primaryDifferentiator` | web-researcher | outline-writer | 主要差异化点 |
+| `writing.decisions.sectionsToWatch.weak` | outline-writer | proofreader | 需要重点验证的章节 |
+
+完整 schema 见 `.claude/data/workflow-state-schema.md`。
+
+---
+
+## 输出文件说明
 
 ### 最终输出 (`output/`)
 
 | 文件 | 说明 |
 |------|------|
-| `[topic].md` | 最终文章 |
-| `[topic]-sources.md` | 引用来源列表 |
-| `[topic]-images.md` | 配图建议和说明 |
+| `[topic].md` | 最终文章（可直接发布） |
+| `[topic]-sources.md` | 引用来源列表（用于事实核查） |
+| `[topic]-images.md` | 配图建议（包含描述、位置、用途） |
 
 ### 完成检查
 
@@ -215,20 +506,64 @@
 | Workflow 1 | 7 个文件：config/, knowledge/, outline/, drafts/, output/ (x3) |
 | Workflow 2 | 8 个文件：imports/ + 上述 7 个 |
 
-## 添加新公司
+---
+
+## 配置指南
+
+### 添加新公司
 
 1. 在 `.claude/data/companies/` 下创建公司目录
-2. 添加 `about-us.md`（公司介绍、产品、品牌声音）
+2. 添加 `about-us.md`（公司介绍、产品、品牌声音、人设预设）
 3. 添加 `internal-links.md`（内链策略）
-4. 更新 `.claude/data/companies/index.md` 索引
+4. **必须**更新 `.claude/data/companies/index.md` 索引
+
+### about-us.md 结构
+
+```markdown
+# Part 1: Company Overview
+公司基本信息、定位、目标市场
+
+# Part 2: Products/Services
+产品分类和说明
+
+# Part 3: Brand Voice
+品牌调性、语言风格
+
+# Part 4: User Types
+目标用户类型定义
+
+# Part 5: Author Personas
+三个预设人设：
+- Persona 1: 技术专家
+- Persona 2: 实践导师
+- Persona 3: 行业观察者
+```
+
+### internal-links.md 结构
+
+```markdown
+# Required Links
+必须包含的内链
+
+# Recommended Links
+推荐包含的内链（按优先级）
+
+# Topic Clusters
+主题集群和相关文章
+```
+
+---
 
 ## 语言规则
 
 | 场景 | 语言 |
 |------|------|
 | 用户交互 | 中文 |
+| 工具/模型交互 | English |
 | 文章输出 (semrush) | 中文 |
 | 文章输出 (其他公司) | English |
+
+---
 
 ## 命名规范
 
@@ -236,3 +571,28 @@
 - `steel-heat-treatment`
 - `pvc-conduit-fill-chart`
 - `aluminum-alloy-grades`
+
+---
+
+## 常见问题
+
+### Q: 什么时候选择"研究后再选"角度？
+
+当你对主题不熟悉，不确定哪个角度有数据支撑时。系统会在研究完成后，基于实际收集到的数据推荐最有论证潜力的角度。
+
+### Q: 信息型文章需要角度吗？
+
+不需要。信息型文章（如"什么是 X"）的目标是客观全面地介绍概念，不需要证明特定论点。
+
+### Q: 深度不匹配会怎样？
+
+系统会提示，但不会阻止。outline-writer 会调整论证策略：
+- Expert 论点 + Beginner 深度 → 用简化解释、类比、实践案例
+- Beginner 论点 + Expert 深度 → 保持核心论点易懂，添加技术深度
+
+### Q: B2C 主题可以用 B2B 公司吗？
+
+可以，但系统会提示。你可以选择：
+1. 调整受众（如 DIY爱好者 → 小型创业者）
+2. 更换主题
+3. 继续使用通用指导（但文章将缺乏公司特色）

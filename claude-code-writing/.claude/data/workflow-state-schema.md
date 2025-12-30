@@ -6,16 +6,16 @@ This file defines the JSON structure for `workflowState` in config files. Agents
 
 ## Core Identity Fields (Config Root)
 
-Added by: **config-creator**
+Added by: **config-creator** (initial), **main workflow** (thesis after Step 3)
 Read by: all agents
 
 ```json
 {
   "articleType": "opinion | tutorial | informational | comparison",
   "writingAngle": {
-    "thesis": "The ONE claim this article proves (null for informational)",
-    "stance": "challenge | confirm | nuance (null for informational)",
-    "deferred": false,
+    "thesis": "The ONE claim this article proves (null until Step 3)",
+    "stance": "challenge | confirm | nuance (null until Step 3)",
+    "pending": true,
     "proofPoints": ["evidence 1", "evidence 2", "evidence 3"],
     "recommendedDepth": "beginner | intermediate | expert | all",
     "depthMismatchAcknowledged": false
@@ -52,12 +52,14 @@ Read by: all agents
 - `expert`: Requires deep technical analysis to prove convincingly
 - `all`: Flexible thesis that works at any depth level
 
-**writingAngle.deferred:**
-- Set to `true` when user selects "研究后再选" option
+**writingAngle.pending:**
+- Set to `true` by config-creator (except for informational articles)
+- Indicates thesis has not yet been selected
 - When `true`:
-  - web-researcher generates `recommendedTheses` based on research data
-  - Main workflow pauses after Step 2 for user to select thesis
-  - After selection, update config and set `deferred: false`
+  - web-researcher Phase 1 generates `recommendedTheses` based on competitor analysis
+  - Main workflow pauses after Step 2 for user to select thesis in Step 3
+  - After selection, main workflow updates config and sets `pending: false`
+- Set to `false` for informational articles (no thesis needed)
 
 **writingAngle.depthMismatchAcknowledged:**
 - Set to `true` when user chooses a thesis whose `recommendedDepth` differs from `config.depth`
@@ -427,11 +429,11 @@ Read by: proofreader
 | Field Path | Set By | Used By | Purpose |
 |------------|--------|---------|---------|
 | `articleType` | config-creator | all | opinion/tutorial/informational/comparison |
-| `writingAngle.thesis` | config-creator | all | The ONE claim to prove (null for informational) |
-| `writingAngle.stance` | config-creator | all | challenge/confirm/nuance (null for informational) |
-| `writingAngle.deferred` | config-creator | web-researcher, main | 研究后再选角度 |
-| `writingAngle.recommendedDepth` | config-creator | outline-writer | Thesis 最佳深度 |
-| `writingAngle.depthMismatchAcknowledged` | config-creator | outline-writer | 需要调整论证策略 |
+| `writingAngle.thesis` | main (Step 3) | all | The ONE claim to prove (null until Step 3) |
+| `writingAngle.stance` | main (Step 3) | all | challenge/confirm/nuance (null until Step 3) |
+| `writingAngle.pending` | config-creator | web-researcher, main | true = thesis 待选择 |
+| `writingAngle.recommendedDepth` | main (Step 3) | outline-writer | Thesis 最佳深度 |
+| `writingAngle.depthMismatchAcknowledged` | main (Step 3) | outline-writer | 需要调整论证策略 |
 | `authorPersona.role` | config-creator | all | WHO is writing |
 | `authorPersona.bias` | config-creator | all | Non-neutral perspective |
 | `authorPersona.voiceTraits` | config-creator | outline-writer | HOW to express ideas |
@@ -441,9 +443,9 @@ Read by: proofreader
 | Field Path | Used By | Purpose |
 |------------|---------|---------|
 | `articleType` | all agents | 决定是否需要 thesis 验证 |
-| `writingAngle.deferred` | web-researcher | 需要生成 recommendedTheses |
+| `writingAngle.pending` | web-researcher (Phase 1) | true = 需要生成 recommendedTheses |
 | `writingAngle.depthMismatchAcknowledged` | outline-writer | Adjust argumentation for depth gap |
-| `research.recommendedTheses` | main (Step 2.5) | Deferred 模式下的角度推荐 |
+| `research.recommendedTheses` | main (Step 3) | Phase 1 输出的角度推荐 |
 | `research.thesisValidation.validatedThesis` | outline-writer | Adjusted thesis if original lacked evidence |
 | `research.thesisValidation.personaFraming` | outline-writer | How persona would express thesis |
 | `research.writingAdvice.personaVoiceNotes` | outline-writer | Research-informed voice guidance |
