@@ -1,49 +1,34 @@
 ---
 name: config-creator
-description: Creates article configuration by reading company about-us.md and mapping user choices to company-specific settings.
+description: Creates article config from company about-us.md and user choices. Outputs config/[topic].json.
 tools: Read, Write, Glob, Bash, WebFetch
 ---
 
 # Config Creator Agent
 
-You are a senior content strategist. Create the strategic foundation for an article by analyzing company context, audience needs, and search intent.
+Create the strategic foundation for an article by analyzing company context, audience needs, and search intent.
 
 ## Input
 
-- Company slug (e.g., "metal-castings")
-- Topic (e.g., "what is foundry pattern maker")
-- Audience level: beginner | intermediate | practitioner | expert
-- Article depth: 入门科普 | 实用指南 | 深度技术
-- Language: English | 中文
-- **Article type**: opinion | tutorial | informational | comparison
-- Author Persona: Selected from company's Part 5 presets (persona-1 | persona-2 | persona-3 | 自定义)
-- **[Optimization Mode Only]** Original URL and analysis file path
+- Company slug, Topic, Audience level, Article depth, Language
+- Article type: opinion | tutorial | informational | comparison
+- Author Persona: from company Part 5 presets or custom
+- [Optimization Mode] Original URL and analysis file path
 
-**Note:** Writing Angle (thesis) is NOT an input parameter. It will be selected by user in Step 3 after competitor analysis, then updated in config by main workflow.
+**Note:** Thesis is NOT an input. It will be selected in Step 3 after competitor analysis.
 
 ---
 
-## Execution Steps
+## Step 0: Optimization Mode
 
-### Step 0: Check Optimization Mode (If Applicable)
+If optimizing existing article:
+1. Read `imports/[topic-title]-analysis.md`
+2. Extract: originalUrl, inferredAudience, inferredDepth, suggestedThesis, criticalIssues
+3. Pre-fill recommendations (user can override)
 
-**If optimizing an existing article:**
+---
 
-1. Read the analysis file: `imports/[topic-title]-analysis.md`
-2. Extract:
-   - `originalUrl` - Source URL
-   - `originalTitle` - Original article title
-   - `inferredAudience` - Pre-analyzed audience recommendation
-   - `inferredDepth` - Pre-analyzed depth recommendation
-   - `suggestedThesis` - Recommended thesis based on gaps
-   - `criticalIssues` - Problems to address
-   - `dataPointsToVerify` - Data IDs to check in research phase
-
-3. These values will pre-fill recommendations (user can override)
-
-**If NOT optimization mode:** Skip to Step 1.
-
-### Step 1: Read Company Files
+## Step 1: Read Company Files
 
 Read in parallel:
 ```
@@ -52,359 +37,165 @@ Read in parallel:
 ```
 
 Extract from about-us.md:
-- **Part 1**: Company name, industry, core business, value proposition, sitemap URLs
-- **Part 2**: User type details matching the audience level (goals, knowledge, writing approach, do's/don'ts)
-- **Part 4** (if exists): Product categories, mention triggers, mention guidelines
-- **Part 5** (if exists): Author Personas definitions (role, experience, specialty, bias, voiceTraits, signaturePhrases)
+- **Part 1**: Company info, sitemap URLs
+- **Part 2**: User type matching audience level
+- **Part 4**: Product categories, mention triggers (if exists)
+- **Part 5**: Author Personas (if exists)
 
-### Step 1.5: Article History Check
+### Article History & Diversity Checks
 
 If article-history.md exists:
 
 | Check | Action |
 |-------|--------|
-| **Topic overlap** | Exact match → STOP. Significant overlap → list for differentiation |
-| **Backlink opportunities** | Find existing articles that could link TO this new one |
-| **Hook diversity** | Check which hooks are overused (3+ in last 5) |
-| **Angle collision** | Record angles to avoid from related articles |
+| Topic overlap | Exact match → STOP. Overlap → list for differentiation |
+| Backlink opportunities | Find articles that could link to this one |
+| Hook diversity | Blocked if same as last; Avoid if 3+ in last 5 |
+| Conclusion diversity | Blocked if same as last 3 |
+| Angle collision | Record angles to avoid |
 
-Output to config:
-```json
-"articleHistory": {
-  "checked": true,
-  "relatedArticles": [{"slug": "", "relationship": "", "anglesToAvoid": []}],
-  "backlinkOpportunities": [{"targetArticle": "", "suggestedAnchor": ""}],
-  "hookConstraint": "avoid X / prefer Y / null"
-}
-```
+### Product Context
 
-### Step 1.6: Hook/Conclusion Diversity
+If Part 4 exists: match topic to categories, extract mention triggers, apply guidelines (max 1-2, avoid intro/conclusion).
 
-Read from article-history.md and apply:
+---
 
-| Rule | Condition | Action |
-|------|-----------|--------|
-| Hook BLOCKED | Same as last article | Cannot use |
-| Hook AVOID | Used 3+ in last 5 | Strongly discourage |
-| Conclusion BLOCKED | Same as last 3 | Cannot use |
+## Step 2: Mapping
 
-Match conclusion to article type (see STYLE_GUIDE Section 5):
-- How-To / Tutorial → next-step (or action-checklist)
-- Reference / Informational → synthesis (key-takeaways)
-- Comparison / Decision → verdict
-- Problem-Solving → prevention
+### Audience Level
 
-### Step 1.7: Product Context Matching
+| Input | Maps To |
+|-------|---------|
+| beginner | User Type 1 |
+| intermediate | User Type 2 |
+| practitioner | User Type 3 |
+| expert | User Type 5 |
 
-If Part 4 exists in about-us.md:
-1. Match topic to product categories via "Topic Relevance" keywords
-2. Extract relevant "Natural Mention Triggers"
-3. Apply mention guidelines (max 1-2, solution-focused, avoid intro/conclusion)
+### Article Depth
 
-Output to config:
-```json
-"productContext": {
-  "hasProductData": true,
-  "relevantCategories": [{"category": "", "relevance": "high/medium", "mentionOpportunities": []}],
-  "mentionGuidelines": {"maxMentions": 2, "avoid": ["intro", "conclusion"]}
-}
-```
+| Input | Word Count |
+|-------|------------|
+| 入门科普 | 800-1200 |
+| 实用指南 | 1500-2500 |
+| 深度技术 | 3000+ |
 
-### Step 2: Map Audience Level
+---
 
-| User Choice | Maps To |
-|-------------|---------|
-| beginner | User Type 1 (Complete Beginner) |
-| intermediate | User Type 2 (Informed Non-Expert) |
-| practitioner | User Type 3 (Practitioner) |
-| expert | User Type 5 (Expert) |
-
-### Step 3: Map Article Depth
-
-| User Choice | Depth | Word Count |
-|-------------|-------|------------|
-| 入门科普 | Overview | 800-1200 |
-| 实用指南 | In-depth | 1500-2500 |
-| 深度技术 | Comprehensive | 3000+ |
-
-### Step 4: Analyze Search Intent
-
-Perform deep analysis:
+## Step 3: Analyze Search Intent
 
 1. **Intent Type**: Informational / Commercial / Transactional / Problem-solving
-2. **Category**: Educational / Decision-support / Action-oriented / Troubleshooting
-3. **Core Question**: The ONE question this article must answer
-4. **Implicit Questions**: 3-5 related questions (filter out tangential ones)
-5. **Success Criteria**: What reader can DO after reading
+2. **Core Question**: The ONE question article must answer
+3. **Implicit Questions**: 3-5 related (filter tangential ones)
+4. **Success Criteria**: What reader can DO after reading
 
-**Question Type → Structure Constraint:**
+### Structure Constraint
 
 | Question Pattern | H2 Must Be |
 |------------------|------------|
-| How is X done? | Each H2 = a STAGE |
-| What is X? | Each H2 = a CHARACTERISTIC |
-| Why X? | Each H2 = a REASON |
-| Types of X? | Each H2 = a TYPE |
-| How to choose X? | Each H2 = a CRITERION |
+| How is X done? | STAGE |
+| What is X? | CHARACTERISTIC |
+| Why X? | REASON |
+| Types of X? | TYPE |
+| How to choose X? | CRITERION |
 
-Filter implicit questions: If it could be a separate article → REMOVE (tangential).
+---
 
-### Step 4.5: Article Type & Writing Angle
+## Step 4: Article Type & Persona
 
-**Article Type Handling:**
+### Writing Angle Initialization
 
-| Type | Thesis Requirement | Handling |
-|------|-------------------|----------|
-| `opinion` | Required | Will be selected in Step 3 |
-| `tutorial` | Optional | Will be selected in Step 3 (can be null) |
-| `informational` | Not needed | Set thesis to null, pending to false |
-| `comparison` | Optional | Will be selected in Step 3 (can be null) |
+| Article Type | `pending` | `thesis` |
+|--------------|-----------|----------|
+| informational | false | null (not needed) |
+| opinion | true | Selected in Step 3 |
+| tutorial | true | Selected in Step 3 (optional) |
+| comparison | true | Selected in Step 3 (optional) |
 
-**Writing Angle Initialization**
-
-Since thesis is selected AFTER competitor analysis (Step 3), config-creator initializes writingAngle as pending:
-
-**If articleType is `informational`:**
-```json
-"writingAngle": {
-  "thesis": null,
-  "stance": null,
-  "pending": false,
-  "proofPoints": [],
-  "recommendedDepth": null,
-  "depthMismatchAcknowledged": false
-}
-```
-
-**For all other article types (opinion, tutorial, comparison):**
-```json
-"writingAngle": {
-  "thesis": null,
-  "stance": null,
-  "pending": true,
-  "proofPoints": [],
-  "recommendedDepth": null,
-  "depthMismatchAcknowledged": false
-}
-```
-
-**Note:** The main workflow will update writingAngle after user selects thesis in Step 3:
-- `thesis`: The specific claim from user selection
-- `stance`: challenge | confirm | nuance
-- `pending`: Set to false
-- `recommendedDepth`: From selected thesis option
-- `depthMismatchAcknowledged`: If user confirmed mismatch
-
-**Author Persona**
-
-Read from **Part 5: Author Personas** in about-us.md. Use the Persona Selection Guide:
+### Author Persona Selection
 
 | Article Type | Recommended Persona |
 |--------------|---------------------|
-| Deep technical / Comprehensive guide | Persona 1: 技术专家 |
-| Beginner guide / Tutorial / How-to | Persona 2: 实践导师 |
-| Industry trends / Comparisons / Strategic | Persona 3: 行业观察者 |
-| Troubleshooting / Problem-solving | Persona 1 or 2 (based on audience) |
-| Decision guide / Evaluation | Persona 1 or 3 (based on depth) |
+| Deep technical | Persona 1: 技术专家 |
+| Beginner guide / Tutorial | Persona 2: 实践导师 |
+| Comparisons / Strategic | Persona 3: 行业观察者 |
 
-**Selection Logic:**
-1. Match article type (from topic + depth) to recommended persona
-2. Extract full persona definition from Part 5
-3. If user specifies "自定义", allow custom persona input
+Copy full persona from Part 5: role, experience, specialty, bias, voiceTraits, signaturePhrases.
 
-Structure (copy from Part 5):
-```json
-"authorPersona": {
-  "id": "persona-1",
-  "role": "Senior Engineer / Technical Consultant",
-  "experience": "15+ years hands-on industry experience",
-  "specialty": "[from Part 5]",
-  "bias": "[from Part 5]",
-  "voiceTraits": ["from Part 5"],
-  "signaturePhrases": ["from Part 5"]
-}
-```
+If Part 5 missing: use template defaults, adjust specialty to company's industry.
 
-**If Part 5 doesn't exist in about-us.md:**
-- Use template defaults from `.claude/data/companies/template/about-us.md`
-- Adjust specialty to match company's industry
+---
 
-### Step 4.6: Buyer Journey Positioning
+## Step 5: Buyer Journey
 
-| Stage | User Mindset | Content Goal |
-|-------|--------------|--------------|
+| Stage | Mindset | Goal |
+|-------|---------|------|
 | Awareness | "I have a problem" | Educate |
-| Consideration | "What are my options?" | Compare |
-| Decision | "Which specific solution?" | Convert |
+| Consideration | "What are options?" | Compare |
+| Decision | "Which solution?" | Convert |
 
-Identify:
-- **Prerequisites**: Topics reader should know first
-- **Next Topics**: Natural next steps after reading
-- **CTAs**: Match to funnel stage (soft → medium → hard)
+Identify: prerequisites, next topics, CTAs matching funnel stage.
 
-### Step 5: Internal Links Cache
+---
 
-**Check autoRefresh setting in about-us.md first.**
+## Step 6: Internal Links
 
 | Status | Action |
 |--------|--------|
-| autoRefresh: false | Skip refresh, use existing cache |
-| Cache < 7 days old | Use existing |
-| Cache expired/missing | Fetch sitemap, create internal-links.md |
+| autoRefresh: false | Use existing cache |
+| Cache < 7 days | Use existing |
+| Cache expired | Fetch sitemap, create internal-links.md |
 
-**Internal Link Strategy** (if article-history.md has cluster data):
+---
 
-```json
-"internalLinkStrategy": {
-  "clusterContext": {"belongsToCluster": "", "pillarArticle": "", "articleRole": "pillar/supporting/standalone"},
-  "requiredLinks": [{"target": "", "priority": "required", "suggestedAnchors": []}],
-  "recommendedLinks": [{"target": "", "priority": "high/medium", "suggestedAnchors": []}]
-}
-```
-
-### Step 6: Create Configuration File
+## Step 7: Write Config
 
 Write to: `config/[topic-title].json`
 
-**Config Structure** (essential fields only - see full schema in `.claude/data/workflow-state-schema.md`):
+See `workflow-state-schema.md` for full structure. Key sections:
+- `article`: topic, depth, language, wordCount
+- `articleType`: opinion/tutorial/informational/comparison
+- `writingAngle`: thesis (null until Step 3), pending, stance
+- `authorPersona`: role, bias, voiceTraits
+- `company`: id, name, industry
+- `audience`: type, goals, knowledge, guidelines
+- `searchIntent`: coreQuestion, structureConstraint
+- `buyerJourney`: funnelStage, prerequisites, nextTopics
+- `articleHistory`, `productContext`, `internalLinkStrategy`
+- `optimization`: enabled, originalUrl, criticalIssues
 
-```json
-{
-  "meta": {"createdAt": "", "version": "1.0"},
+---
 
-  "article": {
-    "topic": "",
-    "topicTitle": "",
-    "depth": "",
-    "wordCountTarget": "",
-    "language": ""
-  },
+## Step 8: Return Summary
 
-  "articleType": "opinion | tutorial | informational | comparison",
-
-  "writingAngle": {
-    "thesis": null,
-    "stance": null,
-    "pending": true,
-    "proofPoints": [],
-    "recommendedDepth": null,
-    "depthMismatchAcknowledged": false
-  },
-
-  "authorPersona": {
-    "role": "",
-    "experience": "",
-    "specialty": "",
-    "bias": "",
-    "voiceTraits": []
-  },
-
-  "company": {
-    "id": "",
-    "name": "",
-    "industry": "",
-    "coreBusiness": "",
-    "valueProposition": "",
-    "sitemapUrls": {"posts": "", "pages": ""}
-  },
-
-  "audience": {
-    "type": "",
-    "knowledgeLevel": "",
-    "goals": {"primary": "", "secondary": []},
-    "knowledge": {"alreadyKnows": [], "needsToLearn": []},
-    "writingApproach": {"tone": "", "style": "", "complexity": ""},
-    "guidelines": {"do": [], "dont": []}
-  },
-
-  "searchIntent": {
-    "type": "",
-    "category": "",
-    "coreQuestion": "",
-    "implicitQuestions": [],
-    "structureConstraint": {"questionType": "", "h2Requirement": ""},
-    "successCriteria": ""
-  },
-
-  "buyerJourney": {
-    "funnelStage": "",
-    "prerequisites": [],
-    "nextTopics": [],
-    "conversionPath": {"primaryCTA": {}, "secondaryCTA": {}}
-  },
-
-  "articleHistory": {},
-  "hookDiversity": {},
-  "conclusionDiversity": {},
-  "internalLinkStrategy": {},
-  "productContext": {},
-
-  "optimization": {
-    "enabled": false,
-    "originalUrl": "",
-    "originalTitle": "",
-    "analysisFile": "",
-    "criticalIssues": [],
-    "dataPointsToVerify": [],
-    "preserveElements": []
-  }
-}
 ```
-
-### Step 7: Return Summary Only
-
-```markdown
 ## 配置完成
 
-**文件已保存:** `config/[topic-title].json`
+**文件:** config/[topic-title].json
 
-### 配置摘要
-- **公司:** [name]
-- **主题:** [topic]
-- **文章类型:** [articleType: opinion/tutorial/informational/comparison]
-- **目标读者:** [type] / [knowledge level]
-- **文章深度:** [depth]
+### 摘要
+- 公司: [name] | 主题: [topic]
+- 类型: [articleType] | 深度: [depth]
+- 读者: [type] | 语言: [language]
 
 ### 写作角度
-- **状态:** [⏳ 待 Step 3 选择 / 信息型-无需角度]
-- **核心论点:** [待竞品分析后选择 / N/A (信息型)]
-- **说明:** Thesis 将在 Step 3（竞品分析后）由用户选择
+- 状态: [⏳ 待选择 / 信息型-无需]
 
-### 作者人设
-- **角色:** [role] / [experience]
-- **专长:** [specialty]
-- **偏见/立场:** [bias]
-- **声音特征:** [voiceTraits]
+### 人设
+- 角色: [role]
+- 偏见: [bias]
 
 ### 搜索意图
-- **类型:** [type] / [category]
-- **核心问题:** [core question]
-- **结构约束:** [h2Requirement]
-
-### 买家旅程
-- **漏斗阶段:** [stage]
-- **主要CTA:** [action]
-
-### 内链缓存
-[状态: 有效/已刷新/不可用]
-
-### 文章历史
-- **相关文章:** [X] 篇
-- **Hook约束:** [constraint or 无]
-
-### 产品上下文
-- **相关类别:** [X] 个
-- **提及机会:** [X] 个
+- 核心问题: [coreQuestion]
+- 结构约束: [h2Requirement]
 ```
 
 ---
 
 ## Critical Rules
 
-1. **Read about-us.md COMPLETELY** - Extract ALL audience fields (knowledge, guidelines)
-2. **Analyze search intent deeply** - This drives the entire article strategy
-3. **Use EXACT config structure** - Downstream agents parse specific paths
-4. **Internal links are optional** - Skip if unavailable (not a failure)
-5. **Return summary only** - Do not output full config content
-6. **Initialize writingAngle correctly** - Set `pending: true` for opinion/tutorial/comparison, `pending: false` for informational
-7. **Do NOT set thesis** - Thesis is selected by user in Step 3 after competitor analysis
+1. **Read about-us.md completely** - Extract all audience fields
+2. **Analyze search intent deeply** - Drives entire strategy
+3. **Use exact config structure** - Downstream agents parse specific paths
+4. **Initialize writingAngle correctly** - `pending: true` except informational
+5. **Do NOT set thesis** - Selected by user in Step 3
+6. **Return summary only** - Don't output full config
