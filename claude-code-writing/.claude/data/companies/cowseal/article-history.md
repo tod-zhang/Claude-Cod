@@ -2,7 +2,7 @@
 
 This document tracks all published articles for cross-referencing, internal linking, and content strategy.
 
-**Last Updated:** 2025-12-27
+**Last Updated:** 2026-01-01
 **Total Articles:** 200+
 
 ---
@@ -136,12 +136,15 @@ This document tracks all published articles for cross-referencing, internal link
 ├── materials-for-dry-running-mechanical-seals
 ├── how-do-you-fix-a-leaking-water-pump-seal
 ├── how-to-know-if-a-water-pump-seal-is-bad
-└── static-vs-dynamic-leak-testing
+├── static-vs-dynamic-leak-testing
+├── mining-slurry-pump-mechanical-seal-wear-solutions [NEW 2026-01-01]
+└── chemical-pump-mechanical-seal-corrosion-protection-guide [NEW 2026-01-01]
 ```
 
 #### Cluster: Seal Selection & Sizing (Pillar: select-mechanical-seal)
 ```
 ├── select-mechanical-seal (pillar)
+├── mechanical-seal-selection-water-treatment [NEW 2026-01-01]
 ├── how-to-select-a-mechanical-seal-for-a-high-pressure-pump
 ├── how-to-select-mechanical-seals-for-high-temperature
 ├── how-to-select-the-right-welded-metal-bellows-seals
@@ -311,7 +314,8 @@ This document tracks all published articles for cross-referencing, internal link
 - Dry gas seal working principle
 
 **Thin coverage on:**
-- Slurry seal applications (only mentioned in passing)
+- ~~Slurry seal applications (only mentioned in passing)~~ [ADDRESSED: mining-slurry-pump-mechanical-seal-wear-solutions]
+- ~~Chemical service corrosion protection~~ [ADDRESSED: chemical-pump-mechanical-seal-corrosion-protection-guide]
 - Mixer/reactor seal applications
 - High viscosity fluid sealing
 - Cryogenic seal applications
@@ -336,35 +340,35 @@ Conclusion Rules:
 ### Hook Distribution (All Time)
 | Hook Type | Total Count | Last Used | Status |
 |-----------|-------------|-----------|--------|
-| surprising-stat | 0 | - | - |
+| surprising-stat | 2 | 2026-01-01 | - |
 | practitioner-quote | 0 | - | - |
 | question | 0 | - | - |
-| problem | 0 | - | - |
+| problem | 1 | 2026-01-01 | BLOCKED (last used) |
 | direct | 0 | - | - |
 
 ### Recent Hook Sequence (Last 10)
 | # | Article | Hook Type | Date |
 |---|---------|-----------|------|
-| 1 | - | - | - |
-| 2 | - | - | - |
-| 3 | - | - | - |
+| 1 | chemical-pump-mechanical-seal-corrosion-protection-guide | problem | 2026-01-01 |
+| 2 | mechanical-seal-selection-water-treatment | surprising-stat | 2026-01-01 |
+| 3 | mining-slurry-pump-mechanical-seal-wear-solutions | surprising-stat | 2026-01-01 |
 | 4 | - | - | - |
 | 5 | - | - | - |
 
 ### Conclusion Distribution (All Time)
 | Conclusion Type | Total Count | Last Used | Status |
 |-----------------|-------------|-----------|--------|
-| next-journey-step | 0 | - | - |
-| action-checklist | 0 | - | - |
+| next-step | 2 | 2026-01-01 | - |
+| action-checklist | 1 | 2026-01-01 | - |
 | key-takeaways | 0 | - | - |
 | contact-cta | 0 | - | - |
 
 ### Recent Conclusion Sequence (Last 10)
 | # | Article | Conclusion Type | Date |
 |---|---------|-----------------|------|
-| 1 | - | - | - |
-| 2 | - | - | - |
-| 3 | - | - | - |
+| 1 | chemical-pump-mechanical-seal-corrosion-protection-guide | next-step | 2026-01-01 |
+| 2 | mechanical-seal-selection-water-treatment | next-step | 2026-01-01 |
+| 3 | mining-slurry-pump-mechanical-seal-wear-solutions | action-checklist | 2026-01-01 |
 | 4 | - | - | - |
 | 5 | - | - | - |
 
@@ -372,8 +376,8 @@ Conclusion Rules:
 | Audience | Total Count | Last Used |
 |----------|-------------|-----------|
 | beginner | 0 | - |
-| intermediate | 0 | - |
-| practitioner | 0 | - |
+| intermediate | 1 | 2026-01-01 |
+| practitioner | 2 | 2026-01-01 |
 | expert | 0 | - |
 
 ---
@@ -431,11 +435,14 @@ Conclusion Rules:
 | common-causes-of-pump-seal-failure | "pump seal failure", "seal failure analysis" |
 | what-is-acceptable-mechanical-seal-leakage | "seal leakage", "acceptable leakage", "how much leak" |
 | can-you-run-a-mechanical-seal-dry | "dry running", "seal dry run", "run seal dry" |
+| mining-slurry-pump-mechanical-seal-wear-solutions | "slurry pump seal", "slurry seal wear", "85% seals fail before wearing out", "pre-installation verification", "wear pattern diagnosis" |
+| chemical-pump-mechanical-seal-corrosion-protection-guide | "architecture-first approach", "bellows eliminate hang-up and fretting", "20-40% hardware failures eliminated", "flush plan determines lubrication success", "SiC pH limits" |
 
 ### Selection
 | Topic | Linkable Anchors |
 |-------|------------------|
 | select-mechanical-seal | "seal selection", "how to select seal", "choose mechanical seal" |
+| mechanical-seal-selection-water-treatment | "water treatment seal selection", "water quality and seals", "flush water quality", "59% failures from water quality", "3-50 micron danger zone" |
 | how-to-select-a-mechanical-seal-for-a-high-pressure-pump | "high pressure seal", "pressure seal selection" |
 | how-to-select-mechanical-seals-for-high-temperature | "high temperature seal", "hot service seal" |
 
@@ -467,7 +474,111 @@ Articles that need updates to add backlinks to newer content:
 
 | Target Article | Source Article | Suggested Anchor | Status |
 |----------------|----------------|------------------|--------|
-| (empty - add as new articles are written) | | | |
+| mining-slurry-pump-mechanical-seal-wear-solutions | 15-reasons-for-mechanical-seal-failure | "slurry-specific wear solutions" | Pending |
+| mining-slurry-pump-mechanical-seal-wear-solutions | mechanical-seal-material | "material selection for slurry applications" | Pending |
+| mining-slurry-pump-mechanical-seal-wear-solutions | install-mechanical-seals | "pre-installation verification for slurry pumps" | Pending |
+| mechanical-seal-selection-water-treatment | select-mechanical-seal | "water treatment seal selection" | Pending |
+| mechanical-seal-selection-water-treatment | 15-reasons-for-mechanical-seal-failure | "water quality as failure cause" | Pending |
+| chemical-pump-mechanical-seal-corrosion-protection-guide | pusher-vs-non-pusher-mechanical-seals | "corrosive service failure statistics" | Pending |
+| chemical-pump-mechanical-seal-corrosion-protection-guide | mechanical-seal-flushing-plan | "corrosive service plan selection" | Pending |
+| chemical-pump-mechanical-seal-corrosion-protection-guide | what-are-metal-bellow-mechanical-seals | "bellows for chemical service" | Pending |
+
+---
+
+## Recent Article Details
+
+### chemical-pump-mechanical-seal-corrosion-protection-guide (2026-01-01)
+
+**Type:** Tutorial
+**Audience:** Practitioner / Implementer (intermediate to advanced)
+**Depth:** Technical details
+**Thesis:** The right seal architecture (bellows vs pusher, single vs double) matters more than material upgrade alone
+**Stance:** Nuance
+**Hook:** Problem (failed Hastelloy upgrade field story)
+**Conclusion:** Next-step (review current specifications against framework)
+**Persona:** Senior Field Service Engineer / Technical Trainer
+
+**Differentiators:**
+- Architecture-first approach (competitors focus only on materials)
+- Bellows eliminate 20-40% of hardware failures (hang-up + fretting statistics)
+- API 682 seal type classification (Type A/B/C) with selection guidance
+- Flush plan selection criteria with pressure specifications
+- SiC pH limits (reaction-bonded vs self-sintered)
+
+**Internal Links Used:**
+- mechanical-seal-material (required - pillar link)
+- what-is-elastomer-in-mechanical-seal (high priority)
+- what-are-metal-bellow-mechanical-seals (contextual)
+
+**Linkable Anchors Created:**
+- "architecture-first approach to corrosion protection"
+- "bellows eliminate hang-up and fretting"
+- "20-40% of hardware failures eliminated by bellows"
+- "flush plan determines lubrication success"
+- "SiC pH limits (below 4 or above 11)"
+
+---
+
+### mechanical-seal-selection-water-treatment (2026-01-01)
+
+**Type:** Tutorial
+**Audience:** Strategic Decision-Maker (intermediate technical depth)
+**Depth:** Technical details
+**Thesis:** In water treatment applications, your flush water quality matters more than your seal specification - 59% of seal failures trace back to water quality issues
+**Stance:** Challenge
+**Hook:** Surprising statistic (59% failures from water quality)
+**Conclusion:** Next-step (test water before ordering seals)
+**Persona:** Senior Field Service Engineer / Technical Trainer
+
+**Differentiators:**
+- 59% water quality failure statistic (John Crane primary data)
+- 3-50 micron particle danger zone (not in competitor content)
+- 60um vs 1um filtration gap (60x improvement opportunity)
+- Carbon "runs in" counter-intuitive insight for scaling water
+- Comprehensive ROI case studies ($2.67M saved)
+
+**Internal Links Used:**
+- select-mechanical-seal (required - pillar link)
+- double-mechanical-seal-vs-single-mechanical-seal
+- how-to-select-mechanical-seals-for-high-temperature
+- mechanical-seal-flushing-plan
+- api-plan-23
+
+**Linkable Anchors Created:**
+- "59% of seal failures from water quality"
+- "3-50 micron danger zone"
+- "water quality parameters table"
+- "60um vs 1um filtration gap"
+
+---
+
+### mining-slurry-pump-mechanical-seal-wear-solutions (2026-01-01)
+
+**Type:** Tutorial
+**Audience:** Practitioner
+**Depth:** Technical details
+**Thesis:** Most slurry pump seal failures trace back to installation shortcuts, not seal quality
+**Stance:** Challenge
+**Hook:** Surprising statistic (85% seals fail before wearing out)
+**Conclusion:** Action checklist (prevention steps)
+**Persona:** Senior Field Service Engineer / Technical Trainer
+
+**Differentiators:**
+- 85% non-wear failure statistic (academic source)
+- 40-pump North Sea case study
+- Wear pattern diagnostic table
+- Pre-installation tolerance checklist with accept/reject criteria
+
+**Internal Links Used:**
+- 15-reasons-for-mechanical-seal-failure
+- mechanical-seal-material
+- install-mechanical-seals
+- mechanical-seal-flushing-plan
+
+**Linkable Anchors Created:**
+- "85% of seals fail before wearing out"
+- "pre-installation verification checklist"
+- "wear pattern diagnosis"
 
 ---
 
@@ -477,4 +588,8 @@ Articles that need updates to add backlinks to newer content:
 - Detailed per-article information (hook types, unique angles) not available for historical articles
 - Start tracking detailed information with new articles going forward
 - Consider auditing top 20 pillar articles to add detailed entries
-
+- 2026-01-01: Added mining-slurry-pump-mechanical-seal-wear-solutions - fills slurry coverage gap
+- 2026-01-01: Added mechanical-seal-selection-water-treatment - water treatment industry-specific selection guide
+- 2026-01-01: Added chemical-pump-mechanical-seal-corrosion-protection-guide - architecture-first approach to chemical service
+- 2026-01-01: CORRECTED hook type for chemical-pump article from "surprising-stat" to "problem" (Hastelloy story)
+- NOTE: Next article should avoid "problem" hook type (just used)

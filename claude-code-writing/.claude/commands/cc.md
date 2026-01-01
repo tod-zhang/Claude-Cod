@@ -3,24 +3,18 @@ description: 清理所有工作流文件（跨平台）
 allowed-tools: Bash(*)
 ---
 
-清理 config、drafts、knowledge、outline、output 文件夹中的所有工作流文件。
+清理工作流文件夹。使用 `find` 命令（避免 zsh glob 问题）：
 
-根据当前操作系统执行清理：
-- Windows: 使用 `Remove-Item` 或 `del`
-- macOS/Linux: 使用 `rm`
+```bash
+cd "/Users/todd/Library/CloudStorage/OneDrive-个人/Claude Code/claude-code-writing" && \
+find config -maxdepth 1 -type f \( -name "*.json" -o -name "*.tmp" \) -delete 2>/dev/null; \
+find drafts -maxdepth 1 -type f -name "*.md" ! -name ".gitkeep" -delete 2>/dev/null; \
+find knowledge -maxdepth 1 -type f -name "*.md" ! -name ".gitkeep" -delete 2>/dev/null; \
+find outline -maxdepth 1 -type f -name "*.md" ! -name ".gitkeep" -delete 2>/dev/null; \
+find output -maxdepth 1 -type f -name "*.md" -delete 2>/dev/null; \
+find imports -maxdepth 1 -type f -name "*.md" ! -name ".gitkeep" -delete 2>/dev/null; \
+find . -type f \( -name "*.tmp" -o -name "*.bak" -o -name "*~" \) -delete 2>/dev/null; \
+echo "清理完成"
+```
 
-请删除以下文件：
-- config/*.json
-- config/*.tmp
-- drafts/*.md
-- knowledge/*.md
-- outline/*.md
-- output/*.md
-- imports/*.md
-
-同时清理临时文件：
-- **/*.tmp
-- **/*.bak
-- **/*~
-
-执行完成后报告清理结果。
+执行上述命令，然后报告结果。

@@ -85,22 +85,23 @@
 |------|---------------------|-------------------------|
 | Step 0 | - | article-importer 导入分析 |
 | Step 1 | 收集配置 + 创建 config | 收集配置 + 创建 config（带预填推荐） |
-| Step 2 | web-researcher 研究 | web-researcher 研究（验证旧数据） |
-| Step 2.5 | [可选] 延迟角度选择 | [可选] 延迟角度选择 |
-| Step 3 | outline-writer 写作 | outline-writer 写作（参考旧结构） |
-| Step 4 | proofreader 校对交付 | proofreader 校对交付 |
+| Step 2 | web-researcher Phase 1 竞品分析 | 竞品分析（参考旧文章问题） |
+| Step 3 | 选择写作角度 | 选择写作角度 |
+| Step 4 | web-researcher Phase 2 证据收集 | 证据收集（验证/更新旧数据） |
+| Step 5 | outline-writer 写作 | outline-writer 写作 |
+| Step 6 | proofreader 校对交付 | proofreader 校对交付 |
 
 ### 文件流
 
 **Workflow 1:**
 ```
-config/[topic].json           ← Step 1
-knowledge/[topic]-sources.md  ← Step 2
-outline/[topic].md            ← Step 3
-drafts/[topic].md             ← Step 3
-output/[topic].md             ← Step 4
-output/[topic]-sources.md     ← Step 4
-output/[topic]-images.md      ← Step 4
+config/[topic].json           ← Step 1, updated Step 2-3
+knowledge/[topic]-sources.md  ← Step 4
+outline/[topic].md            ← Step 5
+drafts/[topic].md             ← Step 5
+output/[topic].md             ← Step 6
+output/[topic]-sources.md     ← Step 6
+output/[topic]-images.md      ← Step 6
 ```
 
 **Workflow 2:**
@@ -193,10 +194,10 @@ Depth: Overview / Technical details / Expert-level specifications
 
 ```
 文章类型：
-1. 观点型 — 有明确立场，证明某个观点（需要选角度）
-2. 教程型 — 教读者如何完成某事（角度可选）
-3. 信息型 — 客观介绍概念/事物（无需角度）
-4. 对比型 — 比较多个选项的优劣（角度可选）
+1. 观点型 — 有明确立场，证明某个观点（Step 3 选角度）
+2. 教程型 — 教读者如何完成某事（Step 3 角度可选）
+3. 信息型 — 客观介绍概念/事物（跳过 Step 3）
+4. 对比型 — 比较多个选项的优劣（Step 3 角度可选）
 ```
 
 | 类型 | 角度要求 | 说明 |
@@ -206,40 +207,99 @@ Depth: Overview / Technical details / Expert-level specifications
 | 信息型 | 跳过 | 客观全面即可 |
 | 对比型 | 可选 | 可以有倾向，也可以中立 |
 
-#### 1.6 选择写作角度（条件性）
+#### 1.6 选择作者人设
 
-**仅观点型必须，教程/对比型可选，信息型跳过。**
+从公司 `about-us.md` Part 5 预设中选择：
 
-系统基于【主题 + 搜索意图 + 已选受众】生成 3 个有立场的角度选项：
+| 人设 | 适用场景 | 特点 |
+|------|----------|------|
+| Persona 1: 技术专家 | 深度技术文章 | 数据驱动、务实、爱分享经验教训 |
+| Persona 2: 实践导师 | 入门指南、教程 | 耐心、循序渐进、善用类比 |
+| Persona 3: 行业观察者 | 趋势分析、对比 | 客观、有洞见、注重长期价值 |
+| 自定义 | 特殊需求 | 用户自行定义 |
+
+#### 1.7 确定输出语言
+
+```python
+if company == "semrush":
+    language = "中文"
+else:
+    language = "English"
+```
+
+**注意**：无论用户用什么语言提供主题，输出语言只由公司决定。
+
+#### 1.8 启动 config-creator Agent
+
+系统启动 `config-creator` Agent 创建配置文件：
 
 ```
-请选择写作角度：
+Task: subagent_type="config-creator"
+Prompt: Create config for [company], [topic], [audience], [depth], [articleType], [persona], [language]
+```
+
+#### 1.9 验证检查点
+
+```
+✅ 验证: Glob config/[topic-title].json 存在 → 继续
+```
+
+---
+
+### Step 2: 竞品分析（Phase 1）
+
+系统启动 `web-researcher` Agent 进行第一阶段研究：
+
+```
+Task: subagent_type="web-researcher"
+Prompt: Phase 1 - Competitor Analysis for: [topic-title]
+```
+
+**研究内容：**
+
+- 竞品文章分析（立场、论据、薄弱点）
+- 差异化机会识别
+- 用户声音采集（Reddit、论坛等）
+- 生成 3 个基于数据的角度推荐（`recommendedTheses`）
+
+**输出：**
+- 更新 config 的 `workflowState.research.recommendedTheses`
+
+**验证检查点：**
+```
+✅ 验证: config 包含 recommendedTheses → 继续 Step 3
+```
+
+---
+
+### Step 3: 选择写作角度
+
+**信息型文章跳过此步骤。**
+
+1. 系统读取 `recommendedTheses`，翻译展示给用户：
+
+```
+基于竞品分析，推荐以下写作角度：
+
 1. 预热步骤是被低估的关键环节 [适合: Beginner/Intermediate]
    → stance: challenge, 可用简单案例论证
+   数据支撑: [evidence summary]
+
 2. 传统温度曲线计算存在系统误差 [适合: Expert]
    → stance: challenge, 需要技术分析支撑
+   数据支撑: [evidence summary]
+
 3. 热处理成功率取决于设备维护而非工艺参数 [适合: All]
    → stance: nuance, 灵活度高
-4. ⏳ 研究后再选 — 不熟悉话题时推荐，让 web-researcher 基于数据推荐角度
+   数据支撑: [evidence summary]
 ```
 
-**深度标注说明：**
+2. 用户选择后，系统更新 config：
+   - `writingAngle.thesis` = 选中的论点
+   - `writingAngle.stance` = challenge/confirm/nuance
+   - `writingAngle.pending` = false
 
-| 标注 | 含义 |
-|------|------|
-| `[适合: Beginner]` | 可用简单案例/类比论证 |
-| `[适合: Intermediate]` | 需要一定技术背景 |
-| `[适合: Expert]` | 需要深度技术分析支撑 |
-| `[适合: All]` | 灵活度高，任何深度都可论证 |
-
-**角度示例对比：**
-
-| 模糊（不推荐） | 具体（推荐） |
-|---------------|-------------|
-| 实用指南 | 大多数热处理失败是因为忽略了预热步骤 |
-| 深度分析 | 淬火介质的选择比温度控制更关键 |
-
-#### 1.7 深度兼容性检查（软提示）
+3. **深度兼容性检查**（软提示）：
 
 当选择的角度推荐深度与文章深度不匹配时：
 
@@ -251,67 +311,23 @@ Depth: Overview / Technical details / Expert-level specifications
 
 这不是阻断性检查，用户可以选择继续。系统会将此信号传递给 outline-writer，提示需要调整论证策略。
 
-#### 1.8 选择作者人设
-
-从公司 `about-us.md` Part 5 预设中选择：
-
-| 人设 | 适用场景 | 特点 |
-|------|----------|------|
-| Persona 1: 技术专家 | 深度技术文章 | 数据驱动、务实、爱分享经验教训 |
-| Persona 2: 实践导师 | 入门指南、教程 | 耐心、循序渐进、善用类比 |
-| Persona 3: 行业观察者 | 趋势分析、对比 | 客观、有洞见、注重长期价值 |
-| 自定义 | 特殊需求 | 用户自行定义 |
-
-#### 1.9 确定输出语言
-
-```python
-if company == "semrush":
-    language = "中文"
-else:
-    language = "English"
-```
-
-**注意**：无论用户用什么语言提供主题，输出语言只由公司决定。
-
-#### 1.10 启动 config-creator Agent
-
-系统启动 `config-creator` Agent 创建配置文件：
-
-```
-Task: subagent_type="config-creator"
-Prompt: Create config for [company], [topic], [audience], [depth],
-        [articleType], [thesis], [persona], [language]
-        Article type: [opinion/tutorial/informational/comparison]
-        Thesis: [thesis or "deferred"]
-```
-
-#### 1.11 验证检查点
-
-```
-✅ 验证: Glob config/[topic-title].json 存在 → 继续
-```
-
 ---
 
-### Step 2: 深度研究
+### Step 4: 证据收集（Phase 2）
 
-系统启动 `web-researcher` Agent：
+系统启动 `web-researcher` Agent 进行第二阶段研究：
 
 ```
 Task: subagent_type="web-researcher"
-Prompt: Conduct research for: [topic-title]
+Prompt: Phase 2 - Evidence Collection for: [topic-title], Selected angle: [thesis]
 ```
 
 **研究内容：**
 
-- 竞品文章分析（立场、论据、薄弱点）
 - 数据点收集（统计数据、案例）
 - 权威来源查找（学术论文、行业标准、专家观点）
-- 差异化机会识别
-- 用户声音采集（Reddit、论坛等）
 - **论点验证**：寻找支持/反对 Thesis 的证据
 - **人设视角研究**：以人设的专业角度筛选资料
-- **[Deferred 模式]**：生成 3 个基于数据的角度推荐
 
 **输出：**
 - `knowledge/[topic-title]-sources.md`
@@ -319,33 +335,13 @@ Prompt: Conduct research for: [topic-title]
 
 **验证检查点：**
 ```
-✅ 验证: Glob knowledge/[topic-title]-sources.md 存在 → 继续
+✅ 验证: knowledge/[topic-title]-sources.md 存在 → 继续 Step 5
 ❌ 文件不存在 → 重新运行 web-researcher
 ```
 
 ---
 
-### Step 2.5: 延迟角度选择（仅 Deferred 模式）
-
-**仅当用户在 Step 1 选择了"⏳ 研究后再选"时执行。**
-
-1. web-researcher 在 `workflowState.research.recommendedTheses` 中提供 3 个基于数据的角度推荐
-
-2. 系统展示推荐角度：
-```
-基于研究结果，推荐以下写作角度：
-1. [thesis 1] [适合: X] — 数据支撑: [evidence summary]
-2. [thesis 2] [适合: Y] — 数据支撑: [evidence summary]
-3. [thesis 3] [适合: Z] — 数据支撑: [evidence summary]
-```
-
-3. 用户选择后，系统更新 config 并执行深度兼容性检查
-
-4. 继续 Step 3
-
----
-
-### Step 3: 大纲与写作
+### Step 5: 大纲与写作
 
 系统启动 `outline-writer` Agent：
 
@@ -371,13 +367,13 @@ Prompt: Create outline and write article for: [topic-title]
 
 **验证检查点：**
 ```
-✅ 验证: 两个文件都存在 → 继续 Step 4
+✅ 验证: 两个文件都存在 → 继续 Step 6
 ❌ 任一文件缺失 → 重新运行 outline-writer
 ```
 
 ---
 
-### Step 4: 校对与交付
+### Step 6: 校对与交付
 
 系统启动 `proofreader` Agent：
 
@@ -433,15 +429,16 @@ Prompt: Import and analyze article from: [URL]
 
 ---
 
-### Step 1-4: 同 Workflow 1
+### Step 1-6: 同 Workflow 1
 
-Workflow 2 的 Step 1-4 与 Workflow 1 基本相同，但有以下区别：
+Workflow 2 的 Step 1-6 与 Workflow 1 基本相同，但有以下区别：
 
 | 步骤 | 区别 |
 |------|------|
 | Step 1 | 配置选项带预填推荐值（来自分析） |
-| Step 2 | web-researcher 会验证/更新旧数据点 |
-| Step 3 | outline-writer 参考旧结构，但完全重写 |
+| Step 2 | 竞品分析参考旧文章问题 |
+| Step 4 | 证据收集验证/更新旧数据点 |
+| config-creator | 带 `optimization.enabled: true` |
 
 ---
 
@@ -457,7 +454,7 @@ Agent 之间通过 config 文件传递状态，避免上下文污染：
   "writingAngle": {
     "thesis": "...",
     "stance": "challenge",
-    "deferred": false,
+    "pending": false,
     "recommendedDepth": "intermediate",
     "depthMismatchAcknowledged": false
   },
@@ -478,10 +475,10 @@ Agent 之间通过 config 文件传递状态，避免上下文污染：
 | 字段 | 设置者 | 使用者 | 作用 |
 |------|--------|--------|------|
 | `articleType` | config-creator | 所有 Agent | 决定是否需要 thesis 验证 |
-| `writingAngle.thesis` | config-creator | 所有 Agent | 文章要证明的论点 |
-| `writingAngle.deferred` | config-creator | web-researcher | 需要生成角度推荐 |
-| `writingAngle.depthMismatchAcknowledged` | config-creator | outline-writer | 需要调整论证策略 |
-| `research.recommendedTheses` | web-researcher | 主流程 | Deferred 模式的角度推荐 |
+| `writingAngle.thesis` | main (Step 3) | 所有 Agent | 文章要证明的论点 |
+| `writingAngle.pending` | config-creator | web-researcher, main | true = thesis 待选择 |
+| `writingAngle.depthMismatchAcknowledged` | main (Step 3) | outline-writer | 需要调整论证策略 |
+| `research.recommendedTheses` | web-researcher (Phase 1) | main (Step 3) | 角度推荐 |
 | `research.differentiation.primaryDifferentiator` | web-researcher | outline-writer | 主要差异化点 |
 | `writing.decisions.sectionsToWatch.weak` | outline-writer | proofreader | 需要重点验证的章节 |
 
@@ -576,13 +573,18 @@ Agent 之间通过 config 文件传递状态，避免上下文污染：
 
 ## 常见问题
 
-### Q: 什么时候选择"研究后再选"角度？
+### Q: 为什么角度选择在 Step 3？
 
-当你对主题不熟悉，不确定哪个角度有数据支撑时。系统会在研究完成后，基于实际收集到的数据推荐最有论证潜力的角度。
+新的两阶段研究模型：
+1. **Phase 1（竞品分析）**：先分析竞品文章，了解市场上已有的立场和论据
+2. **Step 3（角度选择）**：基于竞品分析结果，选择有数据支撑且差异化的角度
+3. **Phase 2（证据收集）**：针对选定角度深入收集证据
+
+这样确保角度选择有数据支撑，而非凭空猜测。
 
 ### Q: 信息型文章需要角度吗？
 
-不需要。信息型文章（如"什么是 X"）的目标是客观全面地介绍概念，不需要证明特定论点。
+不需要。信息型文章（如"什么是 X"）的目标是客观全面地介绍概念，不需要证明特定论点。系统会跳过 Step 3。
 
 ### Q: 深度不匹配会怎样？
 

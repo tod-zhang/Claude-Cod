@@ -112,11 +112,27 @@ Update config with:
 
 ### Search Volume by Depth
 
-| Depth | Queries | Sources |
-|-------|---------|---------|
-| Overview | 6-8 | 8-10 |
-| In-depth | 8-12 | 10-15 |
-| Comprehensive | 12-15 | 15-20 |
+| Depth | Queries | Sources | Cases | Expert Explanations |
+|-------|---------|---------|-------|---------------------|
+| Overview | 8-10 | 10-12 | 2-3 | 2-3 |
+| In-depth | 12-15 | 15-20 | 3-5 | 3-5 |
+| Comprehensive | 18-22 | 20-25 | 5-8 | 5-8 |
+
+### Material Mix by Article Type
+
+Different article types need different material emphasis:
+
+| Article Type | Cases | Data | Expert | User Voice | Debates |
+|--------------|-------|------|--------|------------|---------|
+| Opinion | 40% | 15% | 25% | 10% | 10% |
+| Tutorial | 20% | 25% | 20% | 30% | 5% |
+| Informational | 15% | 35% | 35% | 10% | 5% |
+| Comparison | 25% | 30% | 20% | 10% | 15% |
+
+**Opinion articles:** Heavy on cases (prove thesis) and experts (authority)
+**Tutorial articles:** Heavy on user voices (match language) and data (precision)
+**Informational articles:** Heavy on experts and data (credibility)
+**Comparison articles:** Balanced, with debates showing multiple perspectives
 
 ### Round 1: Foundation
 
@@ -124,9 +140,28 @@ Queries: "what is", "how does X work", "best practices"
 
 Adjust: Expert → minimize basics. Beginner → emphasize fundamentals.
 
-### Round 2: Data & Authority
+### Round 2: Data, Cases & Deep Explanations
 
+**2A: Statistics & Data**
 Queries: "statistics 2024 2025", "research findings", "industry report"
+
+**2B: Cases & Stories**
+Queries: "case study [topic]", "[topic] failure analysis", "[topic] real world example", "[topic] lessons learned"
+
+Collect:
+- Problem → Investigation → Solution narratives
+- Before/after comparisons
+- Failure stories with root cause
+- Success stories with key decisions
+
+**2C: Expert Explanations**
+Queries: "why [topic] works", "[topic] explained", "understanding [topic]"
+
+Collect:
+- How experts explain complex concepts
+- Analogies and mental models used
+- Step-by-step reasoning
+- Counter-intuitive insights with explanation
 
 **Data integrity:** Copy exact quote immediately. No quote → don't record.
 
@@ -142,9 +177,32 @@ Queries: "problems", "reddit [topic]", "common mistakes"
 
 Extract: exact questions, problem descriptions, terminology, quotable phrases.
 
-### Round 4: Differentiation
+### Round 4: Differentiation & Depth
 
-Search for: practitioner experience, original data, counter-intuitive findings, time-sensitive info, edge cases, real stories.
+**4A: Unique Perspectives**
+Queries: "[topic] controversial", "[topic] myth vs reality", "unpopular opinion [topic]"
+
+Collect:
+- Contrarian viewpoints with reasoning
+- Common misconceptions and corrections
+- Industry insider perspectives
+
+**4B: Deep Dives**
+Queries: "[topic] in-depth analysis", "[topic] detailed guide", "[topic] comprehensive"
+
+Collect:
+- Thorough explanations competitors lack
+- Technical depth with clear reasoning
+- Nuanced treatment of complex aspects
+
+**4C: Real-World Evidence**
+Queries: "[topic] forum", "[topic] experience", "tried [topic]"
+
+Collect:
+- Practitioner experiences with specifics
+- Before/after results
+- Edge cases and exceptions
+- Time-sensitive info (recent changes)
 
 Validate: Does it answer `searchIntent.coreQuestion`? If not → discard.
 
@@ -206,13 +264,81 @@ Target 2-4. Format: `🌟 INSIGHT: [summary] | Source: [url] | Use: [hook/eviden
 
 **Write:** `knowledge/[topic-title]-sources.md`
 
-Include: Search Intent, Competitive Analysis, Research by Round, User Voices, Data Points Registry, Source List.
+### Sources.md Structure
 
-**Data Point Format:**
-```
-| ID | Data Point | Exact Quote | Source URL | Verified |
-| D001 | 热处理失败率15% | "15% of batches..." | https://... | ✅ |
-| D002 | 预热时间30分钟 | [No quote] | - | ⚠️ FUZZY |
+```markdown
+# [Topic] Research
+
+## 1. Competitive Landscape
+[Summary of competitor analysis]
+
+## 2. Cases & Stories
+### Case 1: [Title]
+- **Context:** [situation before]
+- **Problem:** [what went wrong / challenge faced]
+- **Process:** [investigation, decisions made]
+- **Outcome:** [result, lessons learned]
+- **Source:** [url]
+- **---Writing Guidance---**
+- **Suggested Use:** hook / H2-[section] / evidence / conclusion
+- **Persuasion Type:** shock-value / credibility / relatability / authority
+- **Thesis Support:** ✅ supports [how] / ⚠️ counter-point [what] / ➖ neutral
+- **Competitor Has:** ✅ common / ❌ differentiator
+
+### Case 2: ...
+
+## 3. Expert Explanations
+### [Concept 1]
+- **Expert:** [name/credential]
+- **Explanation:** [how they explain it - full paragraph]
+- **Analogy used:** [if any]
+- **Key insight:** [the takeaway]
+- **Source:** [url]
+- **---Writing Guidance---**
+- **Suggested Use:** H2-[section] / technical-proof / simplify-complex
+- **Can Borrow:** analogy / phrasing / structure
+- **Thesis Support:** ✅ / ⚠️ / ➖
+
+## 4. Viewpoints & Debates
+### [Topic of disagreement]
+- **Position A:** [view + who holds it]
+- **Position B:** [opposing view]
+- **Evidence for each:** [brief]
+- **Our angle:** [how thesis relates]
+- **---Writing Guidance---**
+- **Suggested Use:** H2-[section] / show-nuance / establish-authority
+- **Thesis Support:** Position [A/B] aligns with thesis
+
+## 5. User Voices
+### [Voice Category]
+- **Quote:** "[exact quote]"
+- **Source:** [platform, user if available]
+- **Voice Type:** beginner-question / practitioner-frustration / expert-insight
+- **---Writing Guidance---**
+- **Suggested Use:** hook / H2-[section] / problem-framing
+- **Emotional Tone:** confused / frustrated / curious / skeptical
+
+## 6. Data Points
+| ID | Data | Quote | Source | Verified | Use | Thesis |
+|----|------|-------|--------|----------|-----|--------|
+| D001 | ... | "..." | [url] | ✅ | H2-X | ✅ |
+
+## 7. Material Summary
+### By Thesis Relevance
+- **Strong Support:** [list material IDs/names]
+- **Counter-points:** [list - use for nuance]
+- **Neutral/Background:** [list]
+
+### By Suggested Placement
+- **Hook candidates:** [list]
+- **Per H2:** H2-1: [...], H2-2: [...], ...
+- **Conclusion:** [list]
+
+### Differentiators (Competitor Lacks)
+[List all ❌ items - prioritize these]
+
+## 8. Source List
+[All URLs with brief description]
 ```
 
 **Update config** with complete `workflowState.research` (see `workflow-state-schema.md` for full structure).

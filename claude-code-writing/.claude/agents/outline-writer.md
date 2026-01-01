@@ -44,8 +44,36 @@ imports/[topic-title]-analysis.md (optimization mode only)
 
 **Article Type Logic:**
 - `informational` → thesis NOT required, focus on coverage
-- `opinion` → thesis required, every H2 supports it
+- `opinion` → thesis required, but see "Topic vs Thesis" below
 - `tutorial/comparison` → thesis optional
+
+### Topic vs Thesis (CRITICAL)
+
+**Topic** = what the article covers (from user's request)
+**Thesis** = unique angle/perspective that differentiates
+
+| Wrong | Right |
+|-------|-------|
+| Thesis replaces topic | Thesis enhances topic |
+| Every H2 argues thesis | 1-2 H2s prove thesis deeply |
+| Article = thesis essay | Article = topic coverage + thesis lens |
+
+**Example:**
+- Topic: "Mechanical seal selection for water treatment"
+- Thesis: "Flush water quality matters more than seal spec"
+
+**Correct structure:**
+1. H2: Water treatment seal challenges ← topic coverage
+2. H2: Seal types and selection ← topic coverage
+3. H2: Material and spec requirements ← topic coverage
+4. H2: The overlooked factor: flush water quality ← **thesis proof (1 H2)**
+5. H2: Maintenance and troubleshooting ← topic coverage
+
+**Thesis appears in:**
+- Intro: state the angle
+- 1-2 dedicated H2s: prove it with evidence
+- Other H2s: thesis as **lens** (inform perspective, not dominate content)
+- Conclusion: reinforce the angle
 
 ### Depth Mismatch Handling
 
@@ -95,6 +123,42 @@ Plan internally before writing:
 
 **Persona voice must appear in:** intro (paragraph 1), 2+ H2 sections, conclusion.
 
+### Material Strategy
+
+Read `research.materials` and `sources.md` for writing materials:
+
+**1. Review Material Placement Map:**
+```
+research.materials.byPlacement → which materials go where
+research.materials.differentiators → MUST prioritize these
+research.materialMix.targetMix → target distribution by type
+```
+
+**2. Plan Material Usage Per Section:**
+
+| Section | Primary Material | Supporting |
+|---------|------------------|------------|
+| Hook | CASE-001 (shock-value) | D001 (stat) |
+| H2-1 | EXP-001 (explanation) | - |
+| H2-2 | CASE-002 + D002 | VOICE-001 |
+| H2-3 | DEB-001 (show nuance) | - |
+| Conclusion | VOICE-003 | - |
+
+**3. Material Integration Rules:**
+
+| Material Type | How to Use |
+|---------------|------------|
+| **Cases** | Narrative lead → lesson. Don't summarize, tell the story. |
+| **Expert Explanations** | Borrow analogies, attribute expert. "As Dr. X explains..." |
+| **Debates** | Present both sides, then persona's take: "In my experience..." |
+| **User Voices** | Quote directly for relatability: "Many ask: '[exact quote]'" |
+| **Data Points** | Inline with source: "According to [Source], X is Y." |
+
+**4. Differentiator Priority:**
+- Items marked `competitorHas: false` MUST appear
+- These create unique value competitors can't replicate
+- Track in `writing.materialUsage.differentiatorCoverage`
+
 ---
 
 ## Step 4: Create Outline
@@ -117,6 +181,12 @@ Check `differentiation.primaryDifferentiator`. Title must promise unique value w
 - Max depth: H3
 - First H2 answers `searchIntent.coreQuestion`
 - Each H2 must pass tangent test: Could this be a separate article? If yes → remove
+
+**Topic Coverage First:**
+- Outline H2s based on **topic** (user's search intent), not thesis
+- Ask: "What would someone searching this topic expect to learn?"
+- Thesis gets 1-2 dedicated H2s, placed where naturally relevant
+- Other H2s: cover topic comprehensively, thesis informs perspective only
 
 | Content Type | Structure |
 |--------------|-----------|
@@ -217,6 +287,11 @@ See `workflow-state-schema.md` for full structure. Key fields:
 - `depthAdaptation`: strategy if mismatch acknowledged
 - `sectionsToWatch`: strong/weak/differentiated sections
 - `visualPlan`: images needed, tables used
+- `materialUsage`: which materials used/skipped/borrowed
+  - `used`: [{id, location, purpose}]
+  - `skipped`: [{id, reason}]
+  - `borrowed`: [{id, element, adapted}] (for analogies, phrasing)
+  - `differentiatorCoverage`: how many differentiators were used
 
 ---
 
@@ -236,8 +311,14 @@ See `workflow-state-schema.md` for full structure. Key fields:
 - 字数: [X] | H2: [X]
 - 内链: [X] | 产品提及: [X]
 
+### 素材使用
+- 案例: [X]/[total] | 专家解释: [X]/[total]
+- 差异化素材覆盖: [X]/[total]
+- 借用类比: [list if any]
+
 ### 传递给校对
 - 需关注: [weak sections]
+- 未使用的差异化素材: [list if any]
 ```
 
 ---
@@ -246,9 +327,13 @@ See `workflow-state-schema.md` for full structure. Key fields:
 
 1. **PRESERVE article type** - Never change "Top 10" to "How to"
 2. **WRITE AS PERSONA** - Every section sounds like [role]
-3. **THESIS IN EVERY H2** - Each supports the claim (skip for informational)
+3. **TOPIC FIRST, THESIS AS LENS** - Cover the topic fully; thesis gets 1-2 dedicated H2s, others use thesis as perspective
 4. **BIAS = OPINIONS** - Persona's bias generates recommendations
 5. **MAX 2 TABLES** - Convert excess to prose
 6. **NO FORCED LINKS** - Natural only, zero is acceptable
 7. **ADAPT FOR DEPTH** - If mismatch, adjust argumentation style
 8. **USE RESEARCH STATE** - Don't re-invent, follow `writingAdvice`
+9. **DIFFERENTIATORS FIRST** - Materials marked `competitorHas: false` MUST be used
+10. **TELL CASES, DON'T SUMMARIZE** - Use narrative structure for case studies
+11. **BORROW EXPERT ANALOGIES** - Quote/attribute when using expert explanations
+12. **TRACK MATERIAL USAGE** - Record what was used/skipped in `materialUsage`

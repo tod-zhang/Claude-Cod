@@ -36,6 +36,13 @@ Read by: all agents
 - `informational`: Objective explanation, no thesis needed
 - `comparison`: Comparing options, thesis optional (can be neutral or have preference)
 
+**writingAngle.thesis is the ANGLE, not the TOPIC:**
+- **Topic** = what the article covers (from user's search intent)
+- **Thesis** = unique perspective that differentiates the article
+- Article structure: cover topic fully, thesis gets 1-2 dedicated H2s
+- Other H2s use thesis as **lens** (informs perspective, doesn't dominate)
+- Example: Topic="Seal selection for water treatment", Thesis="Flush water quality matters more than seal spec" → Most H2s cover seal selection; 1 H2 proves the flush water claim
+
 **writingAngle.stance explained:**
 - `challenge`: Disagree with common belief ("Most guides are wrong about X")
 - `confirm`: Reinforce with new evidence ("X is important, here's proof")
@@ -83,7 +90,28 @@ Read by: outline-writer, proofreader
     "summary": {
       "sourceCount": 0,
       "dataPointCount": 0,
-      "competitorCount": 0
+      "competitorCount": 0,
+      "caseCount": 0,
+      "expertExplanationCount": 0,
+      "debateCount": 0,
+      "userVoiceCount": 0
+    },
+    "materialMix": {
+      "targetMix": {
+        "cases": "40%",
+        "data": "15%",
+        "expert": "25%",
+        "userVoice": "10%",
+        "debates": "10%"
+      },
+      "actualMix": {
+        "cases": "35%",
+        "data": "20%",
+        "expert": "25%",
+        "userVoice": "10%",
+        "debates": "10%"
+      },
+      "gaps": ["need more cases for opinion article"]
     },
     "competitorAnalysis": {
       "stances": {
@@ -278,6 +306,54 @@ Read by: outline-writer, proofreader
           "conclusion": "optional practitioner insight"
         }
       }
+    },
+    "materials": {
+      "cases": [
+        {
+          "id": "CASE-001",
+          "title": "The Cracked Crankshaft Batch",
+          "summary": "23% failure rate traced to clogged filter",
+          "suggestedUse": "hook",
+          "persuasionType": "shock-value",
+          "thesisSupport": "strong",
+          "competitorHas": false,
+          "suggestedPlacement": "introduction"
+        }
+      ],
+      "expertExplanations": [
+        {
+          "id": "EXP-001",
+          "concept": "Why quenching speed matters",
+          "expert": "Dr. James Chen, MIT",
+          "analogyAvailable": true,
+          "canBorrow": ["analogy", "phrasing"],
+          "thesisSupport": "strong",
+          "suggestedPlacement": "H2-2"
+        }
+      ],
+      "debates": [
+        {
+          "id": "DEB-001",
+          "topic": "Water vs. Oil Quenching",
+          "positions": 2,
+          "ourPosition": "context-dependent",
+          "thesisSupport": "nuance",
+          "suggestedPlacement": "H2-3"
+        }
+      ],
+      "byThesisRelevance": {
+        "strongSupport": ["CASE-001", "EXP-001", "D001"],
+        "counterPoints": ["DEB-001"],
+        "neutral": ["D003", "VOICE-002"]
+      },
+      "byPlacement": {
+        "hook": ["CASE-001", "D001"],
+        "H2-1": ["EXP-001"],
+        "H2-2": ["CASE-002", "D002"],
+        "H2-3": ["DEB-001"],
+        "conclusion": ["VOICE-003"]
+      },
+      "differentiators": ["CASE-001", "EXP-001", "DEB-001"]
     }
   }
 }
@@ -312,7 +388,30 @@ Read by: proofreader
     "execution": {
       "actualWordCount": 0,
       "internalLinksUsed": 0,
-      "dataPointsUsed": 0
+      "dataPointsUsed": 0,
+      "casesUsed": 0,
+      "expertExplanationsUsed": 0,
+      "debatesUsed": 0,
+      "userVoicesUsed": 0
+    },
+    "materialUsage": {
+      "used": [
+        {"id": "CASE-001", "location": "introduction", "purpose": "hook"},
+        {"id": "EXP-001", "location": "H2-2", "purpose": "technical-proof"},
+        {"id": "D001", "location": "H2-1", "purpose": "evidence"}
+      ],
+      "skipped": [
+        {"id": "CASE-003", "reason": "weak thesis support"},
+        {"id": "D005", "reason": "redundant with D001"}
+      ],
+      "borrowed": [
+        {"id": "EXP-001", "element": "analogy", "adapted": "slightly modified for audience"}
+      ],
+      "differentiatorCoverage": {
+        "total": 3,
+        "used": 2,
+        "list": ["CASE-001 ✅", "EXP-001 ✅", "DEB-001 ❌ skipped"]
+      }
     },
     "decisions": {
       "thesisExecution": {
@@ -459,3 +558,8 @@ Read by: proofreader
 | `writing.decisions.sectionsToWatch.weak` | proofreader | Focus verification here |
 | `writing.decisions.hookUsed` | proofreader | Verify hook delivers |
 | `writing.decisions.visualPlan.markdownTablesUsed` | proofreader | Skip image generation |
+| `research.materials.byPlacement` | outline-writer | Which materials to use where |
+| `research.materials.differentiators` | outline-writer | Prioritize these materials |
+| `research.materialMix.targetMix` | outline-writer | Target material distribution |
+| `writing.materialUsage.used` | proofreader | Verify materials were applied |
+| `writing.materialUsage.differentiatorCoverage` | proofreader | Check differentiators used |

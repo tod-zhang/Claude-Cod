@@ -40,10 +40,13 @@ drafts/[topic-title].md
 | config | `writingAngle.depthMismatchAcknowledged` | Check adaptation |
 | research | `differentiation.primaryDifferentiator` | Verify in title/intro |
 | research | `writingAdvice.cautious` | Verify fuzzy language |
+| research | `materials.differentiators` | **Must all be used** |
+| research | `materials.byPlacement` | Verify placement followed |
 | writing | `sectionsToWatch.weak` | **Focus verification here** |
 | writing | `thesisExecution` | How thesis was stated |
 | writing | `personaExecution` | How persona was applied |
 | writing | `depthAdaptation` | How depth gap was handled |
+| writing | `materialUsage` | What was used/skipped/borrowed |
 
 ---
 
@@ -59,12 +62,15 @@ drafts/[topic-title].md
 | P0 | Persona voice | ≥3 signature phrases, 0 voice breaks | INJECT persona |
 | P0 | Bias markers | ≥2 recommendations reflect bias | ADD opinion |
 | P0.5 | Depth adaptation | Argumentation matches stated strategy | Flag mismatch |
+| P0.5 | **Differentiators used** | All `materials.differentiators` appear | **FLAG MISSING** |
 | P1 | Weak sections | Data claims have source/fuzzy | Convert to fuzzy |
 | P1 | Forced links | Sentences exist just for link | DELETE sentence |
+| P1 | Material placement | Follows `byPlacement` suggestions | Note deviation |
 | P2 | Duplicate links | Same URL twice | Remove duplicate |
 | P2 | Meta-commentary | References competitors | DELETE sentence |
 | P2 | Announcing phrases | "The key insight:" etc | Remove prefix |
 | P3 | Differentiation | Primary differentiator in title/intro | Attempt fix |
+| P3 | Case narratives | Cases told as stories, not summaries | Flag for rewrite |
 
 ### Article Type Adjustments
 
@@ -87,6 +93,33 @@ Flag paragraphs with: zero first-person + zero opinions, pure definition, encycl
 | Prefix | "The result:", "The key insight:", "The truth is:" | Remove prefix |
 | Cliché | "The good news is that...", "Let me explain..." | Delete, state directly |
 | Empty | "isn't difficult once you understand X" | Replace with specifics |
+
+### Material Usage Verification
+
+**1. Differentiator Coverage (P0.5):**
+
+Check `research.materials.differentiators` vs article content:
+
+| Differentiator | In Article? | Location | Action if Missing |
+|----------------|-------------|----------|-------------------|
+| CASE-001 | ✅ | intro | - |
+| EXP-001 | ✅ | H2-2 | - |
+| DEB-001 | ❌ | - | **FLAG: unique value lost** |
+
+**If differentiator missing:** Flag in summary. These are irreplicable—skipping them wastes research.
+
+**2. Material Integration Quality:**
+
+| Check | Good | Bad |
+|-------|------|-----|
+| Cases | Full narrative (context→problem→solution→lesson) | "One factory had issues and switched methods" |
+| Expert quotes | Attributed + analogy borrowed | Just facts, no attribution |
+| Debates | Both sides + persona's take | One-sided or no opinion |
+| User voices | Direct quotes with emotion | Paraphrased generically |
+
+**3. Cross-check with `materialUsage.skipped`:**
+
+Review reasons. If reason is weak (e.g., "didn't fit"), consider if material could strengthen article.
 
 ---
 
@@ -182,6 +215,12 @@ For each data point with URL:
 - 数据验证: [X] 本地 | [X] 在线
 - 模糊转换: [X] 个
 
+### 素材使用
+- 差异化素材: [X]/[total] ✅ 或 ⚠️ 缺失: [list]
+- 案例叙事质量: [Good/Needs work]
+- 专家引用: [X] 处 (含类比: [X])
+- 用户声音: [X] 处
+
 ### 修复
 - 删除: [forced links, meta-commentary]
 - 注入: [persona sentences]
@@ -205,3 +244,7 @@ For each data point with URL:
 6. **Delete meta-commentary** - "Competitors rarely...", "Unlike other sources..."
 7. **Live verify sources** - WebFetch each URL
 8. **Write all output files** - Article, sources, images required
+9. **All differentiators must appear** - Flag if any `materials.differentiators` missing
+10. **Cases must be narratives** - Not summaries; context→problem→solution→lesson
+11. **Expert analogies must be attributed** - "As Dr. X explains..." not just facts
+12. **Review skipped materials** - Weak skip reasons = missed opportunity
