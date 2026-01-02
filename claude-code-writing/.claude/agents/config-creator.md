@@ -1,7 +1,8 @@
 ---
 name: config-creator
-description: Creates article config from company about-us.md and user choices. Outputs config/[topic].json.
+description: Creates article config from company about-us.md and user choices. Outputs config/[topic]-core.json.
 tools: Read, Write, Glob, Bash, WebFetch
+model: opus
 ---
 
 # Config Creator Agent
@@ -149,9 +150,11 @@ Identify: prerequisites, next topics, CTAs matching funnel stage.
 
 ## Step 7: Write Config
 
-Write to: `config/[topic-title].json`
+Write to: `config/[topic-title]-core.json`
 
-See `workflow-state-schema.md` for full structure. Key sections:
+**Note:** Only write core config. Research and writing states are separate files written by downstream agents.
+
+Key sections for core.json:
 - `article`: topic, depth, language, wordCount
 - `articleType`: opinion/tutorial/informational/comparison
 - `writingAngle`: thesis (null until Step 3), pending, stance
@@ -161,7 +164,10 @@ See `workflow-state-schema.md` for full structure. Key sections:
 - `searchIntent`: coreQuestion, structureConstraint
 - `buyerJourney`: funnelStage, prerequisites, nextTopics
 - `articleHistory`, `productContext`, `internalLinkStrategy`
+- `hookDiversity`, `conclusionDiversity`
 - `optimization`: enabled, originalUrl, criticalIssues
+
+**Do NOT include `workflowState`** - research.json and writing.json handle that.
 
 ---
 
@@ -170,7 +176,7 @@ See `workflow-state-schema.md` for full structure. Key sections:
 ```
 ## 配置完成
 
-**文件:** config/[topic-title].json
+**文件:** config/[topic-title]-core.json
 
 ### 摘要
 - 公司: [name] | 主题: [topic]

@@ -2,7 +2,7 @@
 
 This document tracks all published articles for cross-referencing, internal linking, and content strategy.
 
-**Last Updated:** 2026-01-01
+**Last Updated:** 2026-01-02
 **Total Articles:** 200+
 
 ---
@@ -138,7 +138,7 @@ This document tracks all published articles for cross-referencing, internal link
 ├── how-to-know-if-a-water-pump-seal-is-bad
 ├── static-vs-dynamic-leak-testing
 ├── mining-slurry-pump-mechanical-seal-wear-solutions [NEW 2026-01-01]
-└── chemical-pump-mechanical-seal-corrosion-protection-guide [NEW 2026-01-01]
+└── chemical-pump-mechanical-seal-corrosion-protection [NEW 2026-01-02]
 ```
 
 #### Cluster: Seal Selection & Sizing (Pillar: select-mechanical-seal)
@@ -315,7 +315,7 @@ This document tracks all published articles for cross-referencing, internal link
 
 **Thin coverage on:**
 - ~~Slurry seal applications (only mentioned in passing)~~ [ADDRESSED: mining-slurry-pump-mechanical-seal-wear-solutions]
-- ~~Chemical service corrosion protection~~ [ADDRESSED: chemical-pump-mechanical-seal-corrosion-protection-guide]
+- ~~Chemical service corrosion protection~~ [ADDRESSED: chemical-pump-mechanical-seal-corrosion-protection]
 - Mixer/reactor seal applications
 - High viscosity fluid sealing
 - Cryogenic seal applications
@@ -340,19 +340,19 @@ Conclusion Rules:
 ### Hook Distribution (All Time)
 | Hook Type | Total Count | Last Used | Status |
 |-----------|-------------|-----------|--------|
-| surprising-stat | 2 | 2026-01-01 | - |
+| surprising-stat | 3 | 2026-01-02 | BLOCKED (last used) |
 | practitioner-quote | 0 | - | - |
 | question | 0 | - | - |
-| problem | 1 | 2026-01-01 | BLOCKED (last used) |
+| problem | 1 | 2026-01-01 | - |
 | direct | 0 | - | - |
 
 ### Recent Hook Sequence (Last 10)
 | # | Article | Hook Type | Date |
 |---|---------|-----------|------|
-| 1 | chemical-pump-mechanical-seal-corrosion-protection-guide | problem | 2026-01-01 |
-| 2 | mechanical-seal-selection-water-treatment | surprising-stat | 2026-01-01 |
-| 3 | mining-slurry-pump-mechanical-seal-wear-solutions | surprising-stat | 2026-01-01 |
-| 4 | - | - | - |
+| 1 | chemical-pump-mechanical-seal-corrosion-protection | surprising-stat | 2026-01-02 |
+| 2 | chemical-pump-mechanical-seal-corrosion-protection-guide | problem | 2026-01-01 |
+| 3 | mechanical-seal-selection-water-treatment | surprising-stat | 2026-01-01 |
+| 4 | mining-slurry-pump-mechanical-seal-wear-solutions | surprising-stat | 2026-01-01 |
 | 5 | - | - | - |
 
 ### Conclusion Distribution (All Time)
@@ -360,16 +360,16 @@ Conclusion Rules:
 |-----------------|-------------|-----------|--------|
 | next-step | 2 | 2026-01-01 | - |
 | action-checklist | 1 | 2026-01-01 | - |
-| key-takeaways | 0 | - | - |
+| key-takeaways | 1 | 2026-01-02 | LAST USED |
 | contact-cta | 0 | - | - |
 
 ### Recent Conclusion Sequence (Last 10)
 | # | Article | Conclusion Type | Date |
 |---|---------|-----------------|------|
-| 1 | chemical-pump-mechanical-seal-corrosion-protection-guide | next-step | 2026-01-01 |
-| 2 | mechanical-seal-selection-water-treatment | next-step | 2026-01-01 |
-| 3 | mining-slurry-pump-mechanical-seal-wear-solutions | action-checklist | 2026-01-01 |
-| 4 | - | - | - |
+| 1 | chemical-pump-mechanical-seal-corrosion-protection | key-takeaways | 2026-01-02 |
+| 2 | chemical-pump-mechanical-seal-corrosion-protection-guide | next-step | 2026-01-01 |
+| 3 | mechanical-seal-selection-water-treatment | next-step | 2026-01-01 |
+| 4 | mining-slurry-pump-mechanical-seal-wear-solutions | action-checklist | 2026-01-01 |
 | 5 | - | - | - |
 
 ### Audience Distribution (All Time)
@@ -377,7 +377,7 @@ Conclusion Rules:
 |----------|-------------|-----------|
 | beginner | 0 | - |
 | intermediate | 1 | 2026-01-01 |
-| practitioner | 2 | 2026-01-01 |
+| practitioner | 3 | 2026-01-02 |
 | expert | 0 | - |
 
 ---
@@ -436,7 +436,7 @@ Conclusion Rules:
 | what-is-acceptable-mechanical-seal-leakage | "seal leakage", "acceptable leakage", "how much leak" |
 | can-you-run-a-mechanical-seal-dry | "dry running", "seal dry run", "run seal dry" |
 | mining-slurry-pump-mechanical-seal-wear-solutions | "slurry pump seal", "slurry seal wear", "85% seals fail before wearing out", "pre-installation verification", "wear pattern diagnosis" |
-| chemical-pump-mechanical-seal-corrosion-protection-guide | "architecture-first approach", "bellows eliminate hang-up and fretting", "20-40% hardware failures eliminated", "flush plan determines lubrication success", "SiC pH limits" |
+| chemical-pump-mechanical-seal-corrosion-protection | "temperature-first corrosion protection", "18F = 2x corrosion rate", "environment first materials second", "Oceaneering 40-pump study", "heat soak calculation" |
 
 ### Selection
 | Topic | Linkable Anchors |
@@ -479,15 +479,55 @@ Articles that need updates to add backlinks to newer content:
 | mining-slurry-pump-mechanical-seal-wear-solutions | install-mechanical-seals | "pre-installation verification for slurry pumps" | Pending |
 | mechanical-seal-selection-water-treatment | select-mechanical-seal | "water treatment seal selection" | Pending |
 | mechanical-seal-selection-water-treatment | 15-reasons-for-mechanical-seal-failure | "water quality as failure cause" | Pending |
-| chemical-pump-mechanical-seal-corrosion-protection-guide | pusher-vs-non-pusher-mechanical-seals | "corrosive service failure statistics" | Pending |
-| chemical-pump-mechanical-seal-corrosion-protection-guide | mechanical-seal-flushing-plan | "corrosive service plan selection" | Pending |
-| chemical-pump-mechanical-seal-corrosion-protection-guide | what-are-metal-bellow-mechanical-seals | "bellows for chemical service" | Pending |
+| chemical-pump-mechanical-seal-corrosion-protection | pusher-vs-non-pusher-mechanical-seals | "corrosive service considerations" | Pending |
+| chemical-pump-mechanical-seal-corrosion-protection | mechanical-seal-flushing-plan | "corrosive service plan selection" | Pending |
+| chemical-pump-mechanical-seal-corrosion-protection | what-are-metal-bellow-mechanical-seals | "bellows for chemical service" | Pending |
+| chemical-pump-mechanical-seal-corrosion-protection | api-plan-23 | "corrosive service temperature control" | Pending |
 
 ---
 
 ## Recent Article Details
 
-### chemical-pump-mechanical-seal-corrosion-protection-guide (2026-01-01)
+### chemical-pump-mechanical-seal-corrosion-protection (2026-01-02)
+
+**Type:** Tutorial
+**Audience:** Practitioner / Implementer (intermediate to advanced)
+**Depth:** Technical details
+**Thesis:** Temperature control in the seal chamber prevents more corrosion failures than material upgrades - chemical attack doubles every 18F
+**Stance:** Challenge
+**Hook:** Surprising-stat + practitioner-quote (18F = 2x corrosion, practitioner sulfuric acid story)
+**Conclusion:** Key-takeaways with action-checklist
+**Persona:** Senior Seal Application Engineer
+
+**Differentiators:**
+- Temperature-first approach (Arrhenius 18F = 2x, 36F = 4x)
+- Oceaneering 40-pump study: 12 root causes, zero material failures
+- Nitrobenzene case: 8 failures despite Alloy 20 specification
+- Heat soak calculation (14,700 Btu/hr example)
+- API 682 temperature control recommendations (10F limit, 50 psi margin)
+
+**Internal Links Used:**
+- 15-reasons-for-mechanical-seal-failure (required - pillar link)
+- mechanical-seal-material (required - high priority)
+- what-is-elastomer-in-mechanical-seal (required - high priority)
+- what-are-metal-bellow-mechanical-seals (recommended - high)
+- mechanical-seal-flushing-plan (recommended - high)
+- api-plan-52 (recommended - medium)
+- api-plan-54 (recommended - medium)
+- buffer-and-barrier-fluids (recommended - medium)
+
+**Linkable Anchors Created:**
+- "temperature control prevents more corrosion failures than material upgrades"
+- "18F = 2x, 36F = 4x chemical aggression"
+- "12 root causes, zero material failures"
+- "heat soak calculation for seal chambers"
+- "environment first, materials second"
+
+**Note:** This is a rewrite of chemical-pump-mechanical-seal-corrosion-protection-guide with a new angle (temperature-first vs architecture-first)
+
+---
+
+### chemical-pump-mechanical-seal-corrosion-protection-guide (2026-01-01) [SUPERSEDED]
 
 **Type:** Tutorial
 **Audience:** Practitioner / Implementer (intermediate to advanced)
@@ -498,24 +538,7 @@ Articles that need updates to add backlinks to newer content:
 **Conclusion:** Next-step (review current specifications against framework)
 **Persona:** Senior Field Service Engineer / Technical Trainer
 
-**Differentiators:**
-- Architecture-first approach (competitors focus only on materials)
-- Bellows eliminate 20-40% of hardware failures (hang-up + fretting statistics)
-- API 682 seal type classification (Type A/B/C) with selection guidance
-- Flush plan selection criteria with pressure specifications
-- SiC pH limits (reaction-bonded vs self-sintered)
-
-**Internal Links Used:**
-- mechanical-seal-material (required - pillar link)
-- what-is-elastomer-in-mechanical-seal (high priority)
-- what-are-metal-bellow-mechanical-seals (contextual)
-
-**Linkable Anchors Created:**
-- "architecture-first approach to corrosion protection"
-- "bellows eliminate hang-up and fretting"
-- "20-40% of hardware failures eliminated by bellows"
-- "flush plan determines lubrication success"
-- "SiC pH limits (below 4 or above 11)"
+**Status:** Superseded by chemical-pump-mechanical-seal-corrosion-protection (2026-01-02)
 
 ---
 
@@ -591,5 +614,5 @@ Articles that need updates to add backlinks to newer content:
 - 2026-01-01: Added mining-slurry-pump-mechanical-seal-wear-solutions - fills slurry coverage gap
 - 2026-01-01: Added mechanical-seal-selection-water-treatment - water treatment industry-specific selection guide
 - 2026-01-01: Added chemical-pump-mechanical-seal-corrosion-protection-guide - architecture-first approach to chemical service
-- 2026-01-01: CORRECTED hook type for chemical-pump article from "surprising-stat" to "problem" (Hastelloy story)
-- NOTE: Next article should avoid "problem" hook type (just used)
+- 2026-01-02: Added chemical-pump-mechanical-seal-corrosion-protection - temperature-first approach, replaces architecture-first article
+- NOTE: Next article should avoid "surprising-stat" hook type (just used 3x in last 4 articles)

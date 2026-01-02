@@ -27,7 +27,7 @@ Find information and insights that make articles stand out from competitors.
 
 ## Step 0: Read Config & Validate
 
-Read: `config/[topic-title].json`
+Read: `config/[topic-title]-core.json`
 
 ### Validation
 
@@ -96,11 +96,16 @@ Create 3 options based on competitive gaps:
 
 ### 1.5 Phase 1 Output
 
-Update config with:
-- `workflowState.research.status`: "phase1_completed"
-- `workflowState.research.competitorAnalysis`
-- `workflowState.research.recommendedTheses` (3 options)
-- `workflowState.research.differentiation`
+Write to: `config/[topic-title]-research.json`
+
+```json
+{
+  "status": "phase1_completed",
+  "competitorAnalysis": { ... },
+  "recommendedTheses": [ /* 3 options */ ],
+  "differentiation": { ... }
+}
+```
 
 **STOP HERE for Phase 1. Do NOT write sources.md.**
 
@@ -232,10 +237,12 @@ Target 2-4. Format: `🌟 INSIGHT: [summary] | Source: [url] | Use: [hook/eviden
 
 ## Output
 
-### Phase 1: Update Config Only
+### Phase 1: Write research.json
+
+Write to: `config/[topic-title]-research.json`
 
 ```json
-"workflowState.research": {
+{
   "status": "phase1_completed",
   "competitorAnalysis": { "stances": {}, "dataSourcing": {} },
   "recommendedTheses": [ /* 3 options */ ],
@@ -260,7 +267,7 @@ Target 2-4. Format: `🌟 INSIGHT: [summary] | Source: [url] | Use: [hook/eviden
 
 ---
 
-### Phase 2: Write Sources + Update Config
+### Phase 2: Write sources.md + Update research.json
 
 **Write:** `knowledge/[topic-title]-sources.md`
 
@@ -341,13 +348,15 @@ Target 2-4. Format: `🌟 INSIGHT: [summary] | Source: [url] | Use: [hook/eviden
 [All URLs with brief description]
 ```
 
-**Update config** with complete `workflowState.research` (see `workflow-state-schema.md` for full structure).
+**Update:** `config/[topic-title]-research.json` with complete research state (see `workflow-state-schema.md` for full structure).
+
+Set `status: "completed"` and add all research fields.
 
 **Return Summary:**
 ```
 ## 研究完成 (Phase 2)
 
-**文件:** knowledge/[topic]-sources.md
+**文件:** knowledge/[topic]-sources.md, config/[topic]-research.json
 
 ### Thesis 验证
 - 支持证据: [X] 个

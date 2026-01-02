@@ -18,7 +18,8 @@ Write AS the persona defined in config, not ABOUT the topic. Every article has a
 ## Step 1: Read All Files (Parallel)
 
 ```
-config/[topic-title].json
+config/[topic-title]-core.json
+config/[topic-title]-research.json
 .claude/data/style/STYLE_GUIDE.md
 .claude/data/style/STYLE_EXAMPLES.md
 knowledge/[topic-title]-sources.md
@@ -27,20 +28,22 @@ knowledge/[topic-title]-sources.md
 imports/[topic-title]-analysis.md (optimization mode only)
 ```
 
+**Note:** core.json has article config, research.json has research state.
+
 ---
 
 ## Step 2: Validate & Parse Config
 
 ### Required Fields
 
-| Field | Required | If Missing |
-|-------|----------|------------|
-| `articleType` | ✅ | STOP |
-| `writingAngle.thesis` | opinion only | STOP |
-| `writingAngle.stance` | opinion only | STOP |
-| `authorPersona.role` | ✅ | STOP |
-| `authorPersona.bias` | ✅ | STOP |
-| `workflowState.research.status` | "completed" | STOP |
+| Field | Source | Required | If Missing |
+|-------|--------|----------|------------|
+| `articleType` | core.json | ✅ | STOP |
+| `writingAngle.thesis` | core.json | opinion only | STOP |
+| `writingAngle.stance` | core.json | opinion only | STOP |
+| `authorPersona.role` | core.json | ✅ | STOP |
+| `authorPersona.bias` | core.json | ✅ | STOP |
+| `status` | research.json | "completed" | STOP |
 
 **Article Type Logic:**
 - `informational` → thesis NOT required, focus on coverage
@@ -91,13 +94,13 @@ If `writingAngle.depthMismatchAcknowledged == true`:
 
 ### Key Config Fields
 
-| Field | Use For |
-|-------|---------|
-| `writingAngle.thesis` | Core claim to prove |
-| `authorPersona.bias` | Shapes all recommendations |
-| `research.differentiation.primaryDifferentiator` | Lead intro with this |
-| `research.writingAdvice.cautious` | Use fuzzy language |
-| `research.thesisValidation.validatedThesis` | Use if differs from original |
+| Field | Source | Use For |
+|-------|--------|---------|
+| `writingAngle.thesis` | core.json | Core claim to prove |
+| `authorPersona.bias` | core.json | Shapes all recommendations |
+| `differentiation.primaryDifferentiator` | research.json | Lead intro with this |
+| `writingAdvice.cautious` | research.json | Use fuzzy language |
+| `thesisValidation.validatedThesis` | research.json | Use if differs from original |
 
 ### Optimization Mode
 
@@ -279,9 +282,10 @@ If `productContext.hasProductData == false` → Skip.
 
 **File 2:** `drafts/[topic-title].md` - Complete article
 
-**File 3:** Update `config/[topic-title].json` with `workflowState.writing`
+**File 3:** `config/[topic-title]-writing.json` - Writing state
 
 See `workflow-state-schema.md` for full structure. Key fields:
+- `status`: "completed"
 - `thesisExecution`: how thesis stated/reinforced
 - `personaExecution`: where bias applied, signature phrases used
 - `depthAdaptation`: strategy if mismatch acknowledged
@@ -292,6 +296,8 @@ See `workflow-state-schema.md` for full structure. Key fields:
   - `skipped`: [{id, reason}]
   - `borrowed`: [{id, element, adapted}] (for analogies, phrasing)
   - `differentiatorCoverage`: how many differentiators were used
+
+**Note:** Do NOT update core.json or research.json.
 
 ---
 

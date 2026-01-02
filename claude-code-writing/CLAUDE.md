@@ -4,13 +4,18 @@ SEO 文章写作工作流。两种模式：新文章写作、旧文章优化。
 
 ## Architecture
 
-| Agent | State Passed |
-|-------|--------------|
-| `article-importer` | → imports/ (Workflow 2 only) |
-| `config-creator` | Creates config |
-| `web-researcher` | → workflowState.research |
-| `outline-writer` | → workflowState.writing |
-| `proofreader` | Reads all, writes output/ |
+| Agent | Reads | Writes |
+|-------|-------|--------|
+| `article-importer` | URL | imports/[topic]-analysis.md |
+| `config-creator` | about-us.md | config/[topic]-core.json |
+| `web-researcher` | core.json | config/[topic]-research.json, sources.md |
+| `outline-writer` | core.json, research.json, sources.md | config/[topic]-writing.json, outline, draft |
+| `proofreader` | core.json, research.json, writing.json, sources.md | output/* |
+
+**Config 拆分** (优化 token 消耗):
+- `core.json`: 文章配置、受众、人设、搜索意图 (~200 行)
+- `research.json`: 竞品分析、素材、写作建议 (~400 行)
+- `writing.json`: 写作决策、素材使用记录 (~100 行)
 
 **目录结构**: `.claude/agents/` (5 agents), `.claude/data/companies/` (公司配置), `.claude/data/style/` (风格指南)
 
@@ -52,7 +57,7 @@ SEO 文章写作工作流。两种模式：新文章写作、旧文章优化。
    Prompt: Create config for [company], [topic], [audience], [depth], [articleType], [persona], [language]
    ```
 
-8. **验证**: `config/[topic-title].json` 存在
+8. **验证**: `config/[topic-title]-core.json` 存在
 
 ### Step 2: Competitor Analysis
 
@@ -61,14 +66,14 @@ Task: subagent_type="web-researcher"
 Prompt: Phase 1 - Competitor Analysis for: [topic-title]
 ```
 
-**输出**: config 更新 `recommendedTheses`
+**输出**: `config/[topic-title]-research.json` (含 `recommendedTheses`)
 
-**验证**: config 有 `recommendedTheses`
+**验证**: research.json 有 `recommendedTheses`
 
 ### Step 3: Select Writing Angle
 
-1. 读取 `recommendedTheses`，翻译展示给用户（格式见 @.claude/data/display-templates.md）
-2. 用户选择后更新 config: `writingAngle.thesis`, `writingAngle.stance`
+1. 读取 `research.json` 的 `recommendedTheses`，翻译展示给用户（格式见 @.claude/data/display-templates.md）
+2. 用户选择后更新 `core.json`: `writingAngle.thesis`, `writingAngle.stance`
 3. 信息型文章跳过此步骤
 
 ### Step 4: Evidence Collection
@@ -78,7 +83,7 @@ Task: subagent_type="web-researcher"
 Prompt: Phase 2 - Evidence Collection for: [topic-title], Selected angle: [thesis]
 ```
 
-**输出**: `knowledge/[topic-title]-sources.md` + config 更新
+**输出**: `knowledge/[topic-title]-sources.md` + `research.json` 更新
 
 **验证**: sources.md 存在
 
@@ -161,28 +166,34 @@ Prompt: Import and analyze article from: [URL]
 
 ---
 
-## workflowState
+## Config Files
 
 Schema: @.claude/data/workflow-state-schema.md
 
-**Core Identity (config root):**
+**core.json** (config-creator → all agents):
 - `articleType`: opinion/tutorial/informational/comparison
 - `writingAngle.thesis`: The ONE claim (null until Step 3)
 - `writingAngle.stance`: challenge/confirm/nuance
 - `authorPersona.role/bias`: WHO writes, with what perspective
 
-**Key downstream fields:**
-- `research.recommendedTheses` → Step 3 角度选择
-- `research.thesisValidation` → outline-writer 使用
-- `research.writingAdvice.cautious` → 需模糊处理的区域
-- `writing.decisions.*` → proofreader 验证
+**research.json** (web-researcher → outline-writer, proofreader):
+- `recommendedTheses` → Step 3 角度选择
+- `thesisValidation` → outline-writer 使用
+- `writingAdvice.cautious` → 需模糊处理的区域
+
+**writing.json** (outline-writer → proofreader):
+- `thesisExecution`, `personaExecution` → 执行记录
+- `sectionsToWatch` → proofreader 重点验证
+- `materialUsage` → 素材使用记录
 
 ---
 
 ## File Flow
 
 ```
-config/[topic].json           ← Step 1, updated Step 2-3
+config/[topic]-core.json      ← Step 1
+config/[topic]-research.json  ← Step 2, updated Step 4
+config/[topic]-writing.json   ← Step 5
 knowledge/[topic]-sources.md  ← Step 4
 outline/[topic].md            ← Step 5
 drafts/[topic].md             ← Step 5
@@ -192,6 +203,6 @@ output/[topic]-images.md      ← Step 6
 imports/[topic]-analysis.md   ← Workflow 2 Step 0 only
 ```
 
-**Completion**: Workflow 1 = 7 files, Workflow 2 = 8 files
+**Completion**: Workflow 1 = 9 files, Workflow 2 = 10 files
 
 **Naming**: kebab-case (`steel-heat-treatment`)

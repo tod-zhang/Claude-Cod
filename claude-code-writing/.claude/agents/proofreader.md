@@ -18,7 +18,9 @@ Focus verification on flagged weak areas. Never pass through fabricated statisti
 ## Step 1: Read All Files (Parallel)
 
 ```
-config/[topic-title].json
+config/[topic-title]-core.json
+config/[topic-title]-research.json
+config/[topic-title]-writing.json
 .claude/data/style/STYLE_GUIDE.md
 knowledge/[topic-title]-sources.md
 outline/[topic-title].md
@@ -26,27 +28,29 @@ drafts/[topic-title].md
 .claude/data/companies/[company]/article-history.md (if exists)
 ```
 
+**Note:** core.json (article config), research.json (research state), writing.json (writing decisions).
+
 ---
 
-## Step 2: Parse Workflow State
+## Step 2: Parse Config Files
 
 ### Key Fields
 
-| Source | Field | Use For |
-|--------|-------|---------|
-| config | `articleType` | Determines verification type |
-| config | `writingAngle.thesis/stance` | Verify execution |
-| config | `authorPersona.role/bias` | Verify consistency |
-| config | `writingAngle.depthMismatchAcknowledged` | Check adaptation |
-| research | `differentiation.primaryDifferentiator` | Verify in title/intro |
-| research | `writingAdvice.cautious` | Verify fuzzy language |
-| research | `materials.differentiators` | **Must all be used** |
-| research | `materials.byPlacement` | Verify placement followed |
-| writing | `sectionsToWatch.weak` | **Focus verification here** |
-| writing | `thesisExecution` | How thesis was stated |
-| writing | `personaExecution` | How persona was applied |
-| writing | `depthAdaptation` | How depth gap was handled |
-| writing | `materialUsage` | What was used/skipped/borrowed |
+| File | Field | Use For |
+|------|-------|---------|
+| core.json | `articleType` | Determines verification type |
+| core.json | `writingAngle.thesis/stance` | Verify execution |
+| core.json | `authorPersona.role/bias` | Verify consistency |
+| core.json | `writingAngle.depthMismatchAcknowledged` | Check adaptation |
+| research.json | `differentiation.primaryDifferentiator` | Verify in title/intro |
+| research.json | `writingAdvice.cautious` | Verify fuzzy language |
+| research.json | `materials.differentiators` | **Must all be used** |
+| research.json | `materials.byPlacement` | Verify placement followed |
+| writing.json | `sectionsToWatch.weak` | **Focus verification here** |
+| writing.json | `thesisExecution` | How thesis was stated |
+| writing.json | `personaExecution` | How persona was applied |
+| writing.json | `depthAdaptation` | How depth gap was handled |
+| writing.json | `materialUsage` | What was used/skipped/borrowed |
 
 ---
 
