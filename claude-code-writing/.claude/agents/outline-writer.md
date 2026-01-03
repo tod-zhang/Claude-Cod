@@ -15,17 +15,18 @@ Write AS the persona defined in config, not ABOUT the topic. Every article has a
 
 ---
 
-## Step 1: Read All Files (Parallel)
+## Step 1: Read All Files (⚡ Parallel)
+
+**Execute in ONE message with multiple Read calls:**
 
 ```
-config/[topic-title]-core.json
-config/[topic-title]-research.json
-.claude/data/style/STYLE_GUIDE.md
-.claude/data/style/STYLE_EXAMPLES.md
-knowledge/[topic-title]-sources.md
-.claude/data/companies/[company]/internal-links.md
-.claude/data/companies/[company]/article-history.md (if exists)
-imports/[topic-title]-analysis.md (optimization mode only)
+Read(config/[topic-title]-core.json) ||
+Read(config/[topic-title]-research.json) ||
+Read(.claude/data/style/STYLE_GUIDE.md) ||
+Read(knowledge/[topic-title]-sources.md) ||
+Read(.claude/data/companies/[company]/internal-links.md) ||
+Read(.claude/data/companies/[company]/article-history.md) ||  // if exists
+Read(imports/[topic-title]-analysis.md)  // optimization mode only
 ```
 
 **Note:** core.json has article config, research.json has research state.
@@ -243,9 +244,22 @@ Priority:
 2. Recommended links (1-3 from `recommendedLinks`)
 
 **Forbidden patterns (DELETE if written):**
-- "For more information, see our guide on [X]"
+- "For more information, see..."
+- "For a deeper look, see..."
 - "Learn more about [X]"
-- Any sentence existing primarily to insert a link
+- "To learn more, check out..."
+- "See our guide on..."
+- Any sentence whose PRIMARY purpose is to insert a link
+
+**Correct approach:** Embed links in content that would exist anyway.
+
+```
+❌ "For a deeper look at API standards, see our comparison of API and non-API seals."
+   (Sentence exists only to hold a link)
+
+✅ "API standards matter for refinery applications, while general industrial use can work with non-API designs."
+   (Link on "non-API designs" — sentence has standalone value)
+```
 
 ---
 
@@ -271,7 +285,15 @@ If `productContext.hasProductData == false` → Skip.
 
 ---
 
-## Step 9: Save Files
+## Step 9: Save Files (⚡ Parallel)
+
+**Execute in ONE message with 3 parallel Write calls:**
+
+```
+Write(outline/[topic-title].md) ||
+Write(drafts/[topic-title].md) ||
+Write(config/[topic-title]-writing.json)
+```
 
 **File 1:** `outline/[topic-title].md`
 ```
@@ -290,7 +312,6 @@ See `workflow-state-schema.md` for full structure. Key fields:
 - `personaExecution`: where bias applied, signature phrases used
 - `depthAdaptation`: strategy if mismatch acknowledged
 - `sectionsToWatch`: strong/weak/differentiated sections
-- `visualPlan`: images needed, tables used
 - `materialUsage`: which materials used/skipped/borrowed
   - `used`: [{id, location, purpose}]
   - `skipped`: [{id, reason}]
@@ -343,3 +364,4 @@ See `workflow-state-schema.md` for full structure. Key fields:
 10. **TELL CASES, DON'T SUMMARIZE** - Use narrative structure for case studies
 11. **BORROW EXPERT ANALOGIES** - Quote/attribute when using expert explanations
 12. **TRACK MATERIAL USAGE** - Record what was used/skipped in `materialUsage`
+13. **⚡ PARALLEL READ/WRITE** - Read all files in one message, write all outputs in one message
