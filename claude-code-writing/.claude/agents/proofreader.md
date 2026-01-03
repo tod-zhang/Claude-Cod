@@ -15,17 +15,19 @@ Focus verification on flagged weak areas. Never pass through fabricated statisti
 
 ---
 
-## Step 1: Read All Files (Parallel)
+## Step 1: Read All Files (⚡ Parallel)
+
+**Execute in ONE message with multiple Read calls:**
 
 ```
-config/[topic-title]-core.json
-config/[topic-title]-research.json
-config/[topic-title]-writing.json
-.claude/data/style/STYLE_GUIDE.md
-knowledge/[topic-title]-sources.md
-outline/[topic-title].md
-drafts/[topic-title].md
-.claude/data/companies/[company]/article-history.md (if exists)
+Read(config/[topic-title]-core.json) ||
+Read(config/[topic-title]-research.json) ||
+Read(config/[topic-title]-writing.json) ||
+Read(.claude/data/style/STYLE_GUIDE.md) ||
+Read(knowledge/[topic-title]-sources.md) ||
+Read(outline/[topic-title].md) ||
+Read(drafts/[topic-title].md) ||
+Read(.claude/data/companies/[company]/article-history.md)  // if exists
 ```
 
 **Note:** core.json (article config), research.json (research state), writing.json (writing decisions).
@@ -50,11 +52,26 @@ drafts/[topic-title].md
 | writing.json | `thesisExecution` | How thesis was stated |
 | writing.json | `personaExecution` | How persona was applied |
 | writing.json | `depthAdaptation` | How depth gap was handled |
-| writing.json | `materialUsage` | What was used/skipped/borrowed |
 
 ---
 
-## Step 3: Prioritized Verification
+## Step 3: Prioritized Verification (⚡ Parallel Detection, Serial Fix)
+
+**Strategy: Detect all issues in parallel, then fix serially to avoid conflicts.**
+
+### Phase 3.1: Parallel Detection
+
+Run all checks simultaneously to identify issues:
+
+```
+[Thesis intro check || Thesis conclusion check || Persona voice check || Bias markers check || ...]
+```
+
+Collect all issues into a fix queue.
+
+### Phase 3.2: Serial Fix
+
+Apply fixes one by one to avoid conflicts (e.g., two fixes targeting same paragraph).
 
 ### Priority Matrix
 
@@ -129,7 +146,7 @@ Review reasons. If reason is weak (e.g., "didn't fit"), consider if material cou
 
 ## Step 4: Data Verification
 
-### Local Check
+### Local Check (Always)
 
 For each statistic in article:
 1. Locate in `sources.md`
@@ -144,7 +161,20 @@ For each statistic in article:
 | 65-85% | "most" / "the majority" |
 | 85-99% | "nearly all" |
 
-### Live URL Verification
+### Live URL Verification (Optimization Mode Only - ⚡ Parallel)
+
+**Skip if `optimization.enabled == false`** (new articles). web-researcher just fetched these URLs.
+
+**Run if `optimization.enabled == true`** (old article optimization):
+
+**Execute URL checks in parallel:**
+
+```
+WebFetch(url1, "verify quote exists") ||
+WebFetch(url2, "verify quote exists") ||
+WebFetch(url3, "verify quote exists") ||
+...
+```
 
 For each data point with URL:
 
@@ -181,26 +211,92 @@ For each data point with URL:
 
 ---
 
-## Step 7: Write Output Files
+## Step 7: Write Output Files (⚡ Parallel)
+
+**Execute in ONE message with parallel Write calls:**
+
+```
+Write(output/[topic-title].md) ||
+Write(output/[topic-title]-sources.md) ||
+Write(output/[topic-title]-images.md)
+```
 
 **File 1:** `output/[topic-title].md` - Final article
 
+**Always append at end of article:**
+```markdown
+
+---
+
+**Slug:** [topic-title]
+**URL:** [company-website]/[topic-title]/
+```
+
+If `optimization.originalUrl` exists in core.json, also include:
+```markdown
+**Original URL:** [url]
+```
+
 **File 2:** `output/[topic-title]-sources.md`
-```
-## Data Points with Sources
-| Article Text | Exact Quote | Source URL | Verified |
 
-## Verification Log
-| URL | Status | Action |
+Group external links by H2 section for easy WordPress insertion:
 
-## Fuzzy Conversions
-| Original | Converted To | Reason |
+```markdown
+# [Topic Title] - Sources
+
+## [H2 Section Name]
+- [anchor text](https://example.com/page)
+  > Brief context: what this source proves or provides
+
+## [Another H2 Section]
+- [source name](https://example.com/page2)
+  > Context snippet
 ```
+
+**Rules:**
+- Group by H2 section where link appears
+- Use markdown link format: `[text](url)`
+- Add `> context` line explaining the reference
+- Only include external links (skip internal cowseal.com links)
+- Skip sections with no external links
 
 **File 3:** `output/[topic-title]-images.md`
-- Use `visualPlan` from writing state
-- Skip concepts in `markdownTablesUsed`
-- Format: Placement, Type, AI Prompt, Alt Text
+
+Scan the final article and generate 5-10 image suggestions. Mix photos and diagrams based on content type.
+
+**Use Photo for:**
+- Equipment, tools, materials (real objects)
+- Physical processes in action
+- Damage/failure examples (corrosion, wear, cracks)
+- Proper setup or installation
+- Before/after comparisons
+
+**Use Diagram for:**
+- Mechanism/principle explanation (how something works)
+- Multi-option comparisons (A vs B vs C)
+- Flow paths or system architecture
+- Classification systems or decision trees
+- Invisible processes (chemical reactions, fluid flow)
+- Geometric/dimensional concepts
+
+**Target mix:** ~60% Photo, ~40% Diagram (adjust based on article content).
+
+**Skip if already covered by markdown table in article.**
+
+**Exact format (no other sections):**
+
+```markdown
+### Image 1: [Concept Name]
+- **Placement:** [H2 section name]
+- **Type:** Photo or Diagram (based on content type above)
+- **AI Prompt:** "[Detailed photo description: subject, angle, lighting, context]"
+- **Alt Text:** "[Descriptive alt text]"
+
+### Image 2: [Concept Name]
+...
+```
+
+**Do NOT include:** Title headers, metadata, Priority field, summaries, or implementation notes.
 
 **File 4:** Update `article-history.md` (if exists)
 
@@ -233,7 +329,7 @@ For each data point with URL:
 ### 输出文件
 - ✅ output/[topic].md
 - ✅ output/[topic]-sources.md
-- ✅ output/[topic]-images.md
+- ✅ output/[topic]-images.md ([X] 张图片建议)
 ```
 
 ---
@@ -252,3 +348,5 @@ For each data point with URL:
 10. **Cases must be narratives** - Not summaries; context→problem→solution→lesson
 11. **Expert analogies must be attributed** - "As Dr. X explains..." not just facts
 12. **Review skipped materials** - Weak skip reasons = missed opportunity
+13. **⚡ PARALLEL READ/WRITE** - Read all files in one message, write all outputs in one message
+14. **⚡ PARALLEL DETECTION, SERIAL FIX** - Detect issues in parallel, apply fixes serially to avoid conflicts
