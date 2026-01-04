@@ -2,7 +2,7 @@
 
 This document tracks all published articles for cross-referencing, internal linking, and content strategy.
 
-**Last Updated:** 2026-01-02
+**Last Updated:** 2026-01-03
 **Total Articles:** 200+
 
 ---
@@ -42,7 +42,8 @@ This document tracks all published articles for cross-referencing, internal link
 ├── types-of-shaft-seals
 ├── types-of-agitator-seal
 ├── what-is-agitator-mechanical-seal
-└── different-types-of-mechanical-seal-bellows
+├── different-types-of-mechanical-seal-bellows
+└── agitator-reactor-mechanical-seal-selection-guide [NEW 2026-01-03]
 ```
 
 #### Cluster: Seal Comparisons (Pillar: double-mechanical-seal-vs-single-mechanical-seal)
@@ -115,7 +116,8 @@ This document tracks all published articles for cross-referencing, internal link
 ├── mechanical-seals-lubrication
 ├── should-you-oil-a-mechanical-seal
 ├── what-kind-of-lubricant-is-used-for-mechanical-seals
-└── how-long-do-mechanical-seals-last
+├── how-long-do-mechanical-seals-last
+└── power-plant-pump-mechanical-seal-best-practices [NEW 2026-01-03]
 ```
 
 #### Cluster: Troubleshooting & Failure Analysis (Pillar: 15-reasons-for-mechanical-seal-failure)
@@ -138,13 +140,16 @@ This document tracks all published articles for cross-referencing, internal link
 ├── how-to-know-if-a-water-pump-seal-is-bad
 ├── static-vs-dynamic-leak-testing
 ├── mining-slurry-pump-mechanical-seal-wear-solutions [NEW 2026-01-01]
-└── chemical-pump-mechanical-seal-corrosion-protection [NEW 2026-01-02]
+├── chemical-pump-mechanical-seal-corrosion-protection [NEW 2026-01-02]
+├── marine-seawater-pump-seal-corrosion-prevention [NEW 2026-01-02]
+└── hvac-chiller-pump-mechanical-seal-troubleshooting-guide [NEW 2026-01-03]
 ```
 
 #### Cluster: Seal Selection & Sizing (Pillar: select-mechanical-seal)
 ```
 ├── select-mechanical-seal (pillar)
 ├── mechanical-seal-selection-water-treatment [NEW 2026-01-01]
+├── high-temperature-mechanical-seal-selection-boiler-feed-pumps [NEW 2026-01-02]
 ├── how-to-select-a-mechanical-seal-for-a-high-pressure-pump
 ├── how-to-select-mechanical-seals-for-high-temperature
 ├── how-to-select-the-right-welded-metal-bellows-seals
@@ -287,6 +292,9 @@ This document tracks all published articles for cross-referencing, internal link
 ```
 ├── api-mechanical-seal-and-non-api-mechanical-seal (pillar)
 ├── what-is-the-difference-between-api-610-and-api-682
+├── sanitary-mechanical-seal-standards [NEW 2026-01-02]
+├── gmp-mechanical-seal-pharmaceutical [NEW 2026-01-02]
+├── api-682-mechanical-seals-oil-gas-guide [NEW 2026-01-03]
 └── [GAP] api-682-4th-edition-changes-summary
 ```
 
@@ -304,7 +312,7 @@ This document tracks all published articles for cross-referencing, internal link
 
 **No content on:**
 - Mechanical seal working principle with animation/video
-- API 682 4th edition changes summary
+- ~~API 682 4th edition changes summary~~ [PARTIALLY ADDRESSED: api-682-mechanical-seals-oil-gas-guide covers 4th Edition methodology]
 - John Crane equivalent seals guide
 - Total cost of ownership analysis for mechanical seals
 - Silicon carbide grades comparison (SSiC vs RBSiC)
@@ -316,7 +324,14 @@ This document tracks all published articles for cross-referencing, internal link
 **Thin coverage on:**
 - ~~Slurry seal applications (only mentioned in passing)~~ [ADDRESSED: mining-slurry-pump-mechanical-seal-wear-solutions]
 - ~~Chemical service corrosion protection~~ [ADDRESSED: chemical-pump-mechanical-seal-corrosion-protection]
-- Mixer/reactor seal applications
+- ~~Sanitary/hygienic seal standards~~ [ADDRESSED: sanitary-mechanical-seal-standards]
+- ~~Pharmaceutical GMP requirements~~ [ADDRESSED: gmp-mechanical-seal-pharmaceutical]
+- ~~Boiler feed pump seal selection~~ [ADDRESSED: high-temperature-mechanical-seal-selection-boiler-feed-pumps]
+- ~~Marine/seawater seal corrosion~~ [ADDRESSED: marine-seawater-pump-seal-corrosion-prevention]
+- ~~HVAC chiller-specific troubleshooting~~ [ADDRESSED: hvac-chiller-pump-mechanical-seal-troubleshooting-guide]
+- ~~Power plant pump seal best practices~~ [ADDRESSED: power-plant-pump-mechanical-seal-best-practices]
+- ~~Mixer/reactor seal applications~~ [ADDRESSED: agitator-reactor-mechanical-seal-selection-guide]
+- ~~API 682 comprehensive guide~~ [ADDRESSED: api-682-mechanical-seals-oil-gas-guide]
 - High viscosity fluid sealing
 - Cryogenic seal applications
 
@@ -340,45 +355,56 @@ Conclusion Rules:
 ### Hook Distribution (All Time)
 | Hook Type | Total Count | Last Used | Status |
 |-----------|-------------|-----------|--------|
-| surprising-stat | 3 | 2026-01-02 | BLOCKED (last used) |
-| practitioner-quote | 0 | - | - |
-| question | 0 | - | - |
-| problem | 1 | 2026-01-01 | - |
-| direct | 0 | - | - |
+| surprising-stat | 5 | 2026-01-03 | - |
+| practitioner-quote | 2 | 2026-01-03 | - |
+| question | 1 | 2026-01-02 | - |
+| problem | 3 | 2026-01-03 | LAST USED |
+| direct | 1 | 2026-01-03 | - |
 
 ### Recent Hook Sequence (Last 10)
 | # | Article | Hook Type | Date |
 |---|---------|-----------|------|
-| 1 | chemical-pump-mechanical-seal-corrosion-protection | surprising-stat | 2026-01-02 |
-| 2 | chemical-pump-mechanical-seal-corrosion-protection-guide | problem | 2026-01-01 |
-| 3 | mechanical-seal-selection-water-treatment | surprising-stat | 2026-01-01 |
-| 4 | mining-slurry-pump-mechanical-seal-wear-solutions | surprising-stat | 2026-01-01 |
-| 5 | - | - | - |
+| 1 | api-682-mechanical-seals-oil-gas-guide | problem | 2026-01-03 |
+| 2 | agitator-reactor-mechanical-seal-selection-guide | direct | 2026-01-03 |
+| 3 | power-plant-pump-mechanical-seal-best-practices | surprising-stat | 2026-01-03 |
+| 4 | hvac-chiller-pump-mechanical-seal-troubleshooting-guide | practitioner-quote | 2026-01-03 |
+| 5 | marine-seawater-pump-seal-corrosion-prevention | surprising-stat | 2026-01-02 |
+| 6 | high-temperature-mechanical-seal-selection-boiler-feed-pumps | question | 2026-01-02 |
+| 7 | gmp-mechanical-seal-pharmaceutical | problem | 2026-01-02 |
+| 8 | sanitary-mechanical-seal-standards | practitioner-quote | 2026-01-02 |
+| 9 | chemical-pump-mechanical-seal-corrosion-protection | surprising-stat | 2026-01-02 |
+| 10 | chemical-pump-mechanical-seal-corrosion-protection-guide | problem | 2026-01-01 |
 
 ### Conclusion Distribution (All Time)
 | Conclusion Type | Total Count | Last Used | Status |
 |-----------------|-------------|-----------|--------|
-| next-step | 2 | 2026-01-01 | - |
-| action-checklist | 1 | 2026-01-01 | - |
-| key-takeaways | 1 | 2026-01-02 | LAST USED |
+| next-step | 3 | 2026-01-03 | - |
+| action-checklist | 4 | 2026-01-03 | - |
+| key-takeaways | 2 | 2026-01-03 | - |
+| synthesis | 3 | 2026-01-03 | LAST USED |
 | contact-cta | 0 | - | - |
 
 ### Recent Conclusion Sequence (Last 10)
 | # | Article | Conclusion Type | Date |
 |---|---------|-----------------|------|
-| 1 | chemical-pump-mechanical-seal-corrosion-protection | key-takeaways | 2026-01-02 |
-| 2 | chemical-pump-mechanical-seal-corrosion-protection-guide | next-step | 2026-01-01 |
-| 3 | mechanical-seal-selection-water-treatment | next-step | 2026-01-01 |
-| 4 | mining-slurry-pump-mechanical-seal-wear-solutions | action-checklist | 2026-01-01 |
-| 5 | - | - | - |
+| 1 | api-682-mechanical-seals-oil-gas-guide | synthesis | 2026-01-03 |
+| 2 | agitator-reactor-mechanical-seal-selection-guide | key-takeaways | 2026-01-03 |
+| 3 | power-plant-pump-mechanical-seal-best-practices | action-checklist | 2026-01-03 |
+| 4 | hvac-chiller-pump-mechanical-seal-troubleshooting-guide | next-step | 2026-01-03 |
+| 5 | marine-seawater-pump-seal-corrosion-prevention | action-checklist | 2026-01-02 |
+| 6 | high-temperature-mechanical-seal-selection-boiler-feed-pumps | synthesis | 2026-01-02 |
+| 7 | gmp-mechanical-seal-pharmaceutical | synthesis | 2026-01-02 |
+| 8 | sanitary-mechanical-seal-standards | action-checklist | 2026-01-02 |
+| 9 | chemical-pump-mechanical-seal-corrosion-protection | key-takeaways | 2026-01-02 |
+| 10 | chemical-pump-mechanical-seal-corrosion-protection-guide | next-step | 2026-01-01 |
 
 ### Audience Distribution (All Time)
 | Audience | Total Count | Last Used |
 |----------|-------------|-----------|
 | beginner | 0 | - |
 | intermediate | 1 | 2026-01-01 |
-| practitioner | 3 | 2026-01-02 |
-| expert | 0 | - |
+| practitioner | 8 | 2026-01-03 |
+| expert | 3 | 2026-01-02 |
 
 ---
 
@@ -400,6 +426,7 @@ Conclusion Rules:
 | what-is-a-pusher-mechanical-seal | "pusher seal", "pusher type seal" |
 | types-of-mechanical-seals-for-centrifugal-pumps | "centrifugal pump seals", "pump seal types" |
 | what-is-a-cartridge-mechanical-seal | "cartridge seal", "cartridge mechanical seal" |
+| agitator-reactor-mechanical-seal-selection-guide | "agitator seal selection", "reactor seal selection", "15-75x runout difference", "DIN 28138/28154", "PIP RESM003", "10 bar balanced threshold", "API 682 for mixers", "inches vs feet analogy" |
 
 ### Comparisons
 | Topic | Linkable Anchors |
@@ -427,6 +454,7 @@ Conclusion Rules:
 | mechanical-seal-inspection | "seal inspection", "inspect mechanical seal" |
 | common-mechanical-seal-installation-mistakes | "installation mistakes", "seal installation errors" |
 | how-to-measure-mechanical-seals | "measure mechanical seal", "seal dimensions" |
+| power-plant-pump-mechanical-seal-best-practices | "power plant seal best practices", "pre-installation verification checklist", "20% installation failures", "MTBF <12 months installation problem", "shaft runout tolerances", "hot water hardest to seal", "nuclear plant 50/50 to near-zero" |
 
 ### Troubleshooting
 | Topic | Linkable Anchors |
@@ -437,14 +465,25 @@ Conclusion Rules:
 | can-you-run-a-mechanical-seal-dry | "dry running", "seal dry run", "run seal dry" |
 | mining-slurry-pump-mechanical-seal-wear-solutions | "slurry pump seal", "slurry seal wear", "85% seals fail before wearing out", "pre-installation verification", "wear pattern diagnosis" |
 | chemical-pump-mechanical-seal-corrosion-protection | "temperature-first corrosion protection", "18F = 2x corrosion rate", "environment first materials second", "Oceaneering 40-pump study", "heat soak calculation" |
+| marine-seawater-pump-seal-corrosion-prevention | "galvanic corrosion in seawater seals", "80% galvanic failure statistic", "0.15V voltage threshold", "10:1 area ratio rule", "material unification vs upgrade", "graphite prohibition in seawater" |
+| hvac-chiller-pump-mechanical-seal-troubleshooting-guide | "chiller pump seal troubleshooting", "glycol chemistry issues", "thermal cycling stress", "seasonal startup procedures", "60% glycol threshold", "elastomer glass transition", "system-first diagnostic approach" |
 
 ### Selection
 | Topic | Linkable Anchors |
 |-------|------------------|
 | select-mechanical-seal | "seal selection", "how to select seal", "choose mechanical seal" |
 | mechanical-seal-selection-water-treatment | "water treatment seal selection", "water quality and seals", "flush water quality", "59% failures from water quality", "3-50 micron danger zone" |
+| high-temperature-mechanical-seal-selection-boiler-feed-pumps | "BFW seal selection", "boiler feed pump seals", "SiC mounting temperature limits", "65C viscosity threshold", "Plan 23 lifecycle cost", "API 682 Type A/B/C selection", "thermal cycling solutions" |
 | how-to-select-a-mechanical-seal-for-a-high-pressure-pump | "high pressure seal", "pressure seal selection" |
 | how-to-select-mechanical-seals-for-high-temperature | "high temperature seal", "hot service seal" |
+
+### Industry Standards
+| Topic | Linkable Anchors |
+|-------|------------------|
+| api-mechanical-seal-and-non-api-mechanical-seal | "API mechanical seal", "API 682", "industrial seal standards" |
+| sanitary-mechanical-seal-standards | "sanitary seal standards", "3-A standards", "EHEDG certification", "FDA 21 CFR 177.2600", "hygienic mechanical seal", "food-grade seal", "CIP/SIP compatibility" |
+| gmp-mechanical-seal-pharmaceutical | "GMP mechanical seal", "pharmaceutical seal requirements", "FDA 21 CFR Part 211", "ASME BPE surface finish", "USP Class VI", "IQ/OQ/PQ validation", "gas-lubricated seals for pharma" |
+| api-682-mechanical-seals-oil-gas-guide | "API 682 guide", "API 682 seal categories", "API 682 Type A/B/C", "API 682 arrangements", "API 682 piping plans", "8-field seal code", "3-year reliability target", "25,000 hours", "face-to-back MTBF improvement" |
 
 ### Support Systems
 | Topic | Linkable Anchors |
@@ -483,10 +522,421 @@ Articles that need updates to add backlinks to newer content:
 | chemical-pump-mechanical-seal-corrosion-protection | mechanical-seal-flushing-plan | "corrosive service plan selection" | Pending |
 | chemical-pump-mechanical-seal-corrosion-protection | what-are-metal-bellow-mechanical-seals | "bellows for chemical service" | Pending |
 | chemical-pump-mechanical-seal-corrosion-protection | api-plan-23 | "corrosive service temperature control" | Pending |
+| sanitary-mechanical-seal-standards | mechanical-seal-material | "FDA-approved material requirements" | Pending |
+| sanitary-mechanical-seal-standards | what-is-elastomer-in-mechanical-seal | "FDA 21 CFR 177.2600 elastomer categories" | Pending |
+| sanitary-mechanical-seal-standards | select-mechanical-seal | "sanitary application selection criteria" | Pending |
+| gmp-mechanical-seal-pharmaceutical | sanitary-mechanical-seal-standards | "pharmaceutical vs sanitary standards" | Pending |
+| gmp-mechanical-seal-pharmaceutical | mechanical-seal-material | "USP Class VI material requirements" | Pending |
+| gmp-mechanical-seal-pharmaceutical | what-is-elastomer-in-mechanical-seal | "FDA 21 CFR 177.2600 pharmaceutical elastomers" | Pending |
+| gmp-mechanical-seal-pharmaceutical | what-are-metal-bellow-mechanical-seals | "bellows for pharmaceutical dual seals" | Pending |
+| high-temperature-mechanical-seal-selection-boiler-feed-pumps | how-to-select-mechanical-seals-for-high-temperature | "BFW-specific seal selection" | Pending |
+| high-temperature-mechanical-seal-selection-boiler-feed-pumps | api-plan-23 | "Plan 23 lifecycle cost for BFW" | Pending |
+| high-temperature-mechanical-seal-selection-boiler-feed-pumps | balanced-vs-unbalanced-mechanical-seal | "balance ratio for BFW service" | Pending |
+| high-temperature-mechanical-seal-selection-boiler-feed-pumps | mechanical-seal-material | "SiC mounting material effects" | Pending |
+| marine-seawater-pump-seal-corrosion-prevention | 15-reasons-for-mechanical-seal-failure | "marine galvanic corrosion as failure mode" | Pending |
+| marine-seawater-pump-seal-corrosion-prevention | mechanical-seal-material | "seawater galvanic compatibility" | Pending |
+| marine-seawater-pump-seal-corrosion-prevention | silicon-carbide-vs-tungsten-carbide-mechanical-seal | "galvanic inertness of SiC" | Pending |
+| marine-seawater-pump-seal-corrosion-prevention | what-are-metal-bellow-mechanical-seals | "Hastelloy bellows for seawater" | Pending |
+| hvac-chiller-pump-mechanical-seal-troubleshooting-guide | 15-reasons-for-mechanical-seal-failure | "HVAC chiller-specific failure modes" | Pending |
+| hvac-chiller-pump-mechanical-seal-troubleshooting-guide | common-causes-of-pump-seal-failure | "glycol effects on seals" | Pending |
+| hvac-chiller-pump-mechanical-seal-troubleshooting-guide | do-mechanical-seals-need-cooling | "chiller pump seal cooling" | Pending |
+| power-plant-pump-mechanical-seal-best-practices | install-mechanical-seals | "power plant-specific installation procedures" | Pending |
+| power-plant-pump-mechanical-seal-best-practices | high-temperature-mechanical-seal-selection-boiler-feed-pumps | "power plant pump maintenance best practices" | Pending |
+| power-plant-pump-mechanical-seal-best-practices | api-plan-23 | "power plant seal flush applications" | Pending |
+| agitator-reactor-mechanical-seal-selection-guide | types-of-agitator-seal | "agitator seal selection guide" | Pending |
+| agitator-reactor-mechanical-seal-selection-guide | what-is-agitator-mechanical-seal | "how to select agitator seals" | Pending |
+| api-682-mechanical-seals-oil-gas-guide | api-mechanical-seal-and-non-api-mechanical-seal | "complete API 682 guide" | Pending |
+| api-682-mechanical-seals-oil-gas-guide | mechanical-seal-flushing-plan | "API 682 flush plan requirements" | Pending |
+| api-682-mechanical-seals-oil-gas-guide | component-vs-cartridge-mechanical-seals | "API 682 cartridge seal requirements" | Pending |
 
 ---
 
 ## Recent Article Details
+
+### api-682-mechanical-seals-oil-gas-guide (2026-01-03)
+
+**Type:** Informational
+**Audience:** Practitioner / Implementer (intermediate to advanced)
+**Depth:** Technical details
+**Thesis:** N/A - informational article, no thesis required
+**Stance:** N/A
+**Hook:** Problem (seal failure consequences + 260-page specification complexity)
+**Conclusion:** Synthesis (API 682 framework + next step for specification)
+**Persona:** Senior Seal Application Engineer
+
+**Differentiators:**
+- Complete coverage of all four API 682 pillars (Type/Arrangement/Category/Plans) with practical selection guidance
+- 6x MTBF improvement case study (fiber contamination, face-to-back arrangement)
+- Dowtherm degradation at "safe" temperatures insight
+- 8-field seal code with complete worked example (31B-LIN-075-53A)
+- Plan 53A vs 53B selection criteria (10.34 bar/150 psig threshold)
+- Task force composition context (25 members including oil majors)
+- Temperature limit explanation (cycling/degradation, not just material capability)
+- Quick selection guidance for common O&G applications
+
+**Internal Links Used:**
+- what-is-the-difference-between-api-610-and-api-682 (required - cluster pillar)
+- api-mechanical-seal-and-non-api-mechanical-seal (required - related article)
+- mechanical-seal-flushing-plan (recommended - high)
+- api-plan-52 (recommended - high)
+- api-plan-54 (recommended - high)
+- double-mechanical-seal-vs-single-mechanical-seal (recommended - high)
+- what-is-double-mechanical-seal (recommended - medium)
+- balanced-vs-unbalanced-mechanical-seal (recommended - medium)
+- component-vs-cartridge-mechanical-seals (recommended - medium)
+- mechanical-seal-material (recommended - medium)
+
+**Linkable Anchors Created:**
+- "API 682 guide"
+- "API 682 seal categories"
+- "API 682 Type A/B/C"
+- "API 682 arrangements"
+- "API 682 piping plans"
+- "8-field seal code"
+- "3-year reliability target"
+- "25,000 hours"
+- "face-to-back MTBF improvement"
+- "Plan 53A vs 53B selection"
+
+**Data Verification Notes:**
+- All statistics verified against sources.md
+- No fuzzy conversions required - all data points verified
+- 260 pages verified via Pumps & Systems
+- 25,000 hours/3 years target verified via multiple sources
+- Temperature limits (350F/750F) verified via Wikipedia/API 682
+- Plan thresholds verified via Swagelok, Flexaseal
+- MTBF case verified via Seal FAQs with specific conditions
+
+---
+
+### agitator-reactor-mechanical-seal-selection-guide (2026-01-03)
+
+**Type:** Informational
+**Audience:** Practitioner / Implementer (intermediate to advanced)
+**Depth:** Technical details
+**Thesis:** N/A - informational article, no thesis required
+**Stance:** N/A
+**Hook:** Direct (FSA inches vs feet analogy - explains why pump seals fail in mixers)
+**Conclusion:** Key-takeaways (synthesis of 5 selection criteria)
+**Persona:** Senior Seal Application Engineer
+
+**Differentiators:**
+- FSA inches vs feet analogy (no competitor uses) - explains geometric difference
+- 15-75x runout difference quantified (0.002" pump vs 0.03-0.150" mixer)
+- DIN 28138/28154 and PIP RESM003 standards (no competitor mentions)
+- EKATO pressure/temp/speed specification tables
+- Domtar Nekoosa Mill case: $82,000/year to $8,000 = $74,000 savings
+- FSA quote on API 682 unnecessary expense for mixers
+- 10 bar (145 PSI) balanced vs unbalanced threshold
+- Nitrogen consumption monitoring thresholds (1 scfh/inch single, 2 scfh/inch dual)
+
+**Internal Links Used:**
+- what-is-agitator-mechanical-seal (required - cluster pillar)
+- types-of-agitator-seal (required - related article)
+- balanced-vs-unbalanced-mechanical-seal (recommended - high)
+- double-mechanical-seal-vs-single-mechanical-seal (recommended - high)
+- mechanical-seal-material (recommended - high)
+
+**Linkable Anchors Created:**
+- "agitator seal selection"
+- "reactor seal selection"
+- "15-75x runout difference"
+- "inches vs feet analogy"
+- "DIN 28138/28154"
+- "PIP RESM003"
+- "10 bar balanced threshold"
+- "API 682 for mixers"
+- "Domtar $74,000 savings"
+
+**Data Verification Notes:**
+- All statistics verified against sources.md
+- FSA quotes verified from Pumps & Systems article
+- EKATO specifications verified from manufacturer website
+- Domtar cost data verified from Empowering Pumps case study
+- No fuzzy conversions required - all data points verified
+- EPDM temperature range included as industry knowledge (not explicitly sourced in research)
+
+---
+
+### power-plant-pump-mechanical-seal-best-practices (2026-01-03)
+
+**Type:** Tutorial
+**Audience:** Practitioner / Implementer (intermediate to advanced)
+**Depth:** Technical details
+**Thesis:** Pre-installation verification prevents the majority of power plant seal failures - industry data shows 20% from installation errors alone, with additional failures from undetected shaft runout, misalignment, and flush system issues
+**Stance:** Challenge
+**Hook:** Surprising-stat ("One in five mechanical seal failures traces directly back to installation errors")
+**Conclusion:** Action-checklist (5-point pre-installation verification checklist)
+**Persona:** Senior Field Service Engineer / Technical Trainer
+
+**Differentiators:**
+- Power plant-specific focus (continuous duty, high temp, boiler feed) vs generic industrial guides
+- 20% installation failure statistic (Azibert/Burke, Plant Engineering)
+- MTBF <12 months = installation problem (Forsthoffer, Turbomachinery Mag)
+- Nuclear plant case: 50/50 startup failure to near-zero with verification
+- Oceaneering North Sea study: 12 root causes from installation variance
+- German power plant: MTBF doubled 20-40 months with structured program
+- Hot water is hardest to seal insight (Eng-Tips)
+- Specific tolerances: shaft runout 0.002-0.005", TIR <0.005", alignment 0.001-0.002"
+
+**Internal Links Used:**
+- install-mechanical-seals (required - cluster pillar)
+- 15-reasons-for-mechanical-seal-failure (required - failure context)
+- common-mechanical-seal-installation-mistakes (recommended - high)
+- api-plan-23 (recommended - high)
+- how-to-measure-pump-shaft-runout-before-seal-installation (recommended - high)
+
+**Linkable Anchors Created:**
+- "power plant seal best practices"
+- "pre-installation verification checklist"
+- "20% installation failures"
+- "MTBF <12 months installation problem"
+- "shaft runout tolerances for power plant pumps"
+- "hot water hardest to seal"
+- "nuclear plant 50/50 to near-zero startup failures"
+- "German power plant MTBF doubled with structured program"
+
+**Data Verification Notes:**
+- 20% installation failure statistic verified via Plant Engineering (Azibert/Burke)
+- 50/50 startup failure verified via Flexaseal nuclear plant case
+- MTBF <12 months quote verified via Turbomachinery Mag (Forsthoffer)
+- All tolerance specs verified via sources.md (QM Seals, Turbomachinery Mag)
+- 80C hot water threshold verified via Eng-Tips
+- German MTBF improvement (20-40 months) verified via Power Magazine
+- "$50,000/hr lost generation" converted to fuzzy language - not in sources
+
+---
+
+### hvac-chiller-pump-mechanical-seal-troubleshooting-guide (2026-01-03)
+
+**Type:** Tutorial
+**Audience:** Practitioner / Implementer (intermediate to advanced)
+**Depth:** Technical details
+**Thesis:** Most chiller pump seal failures can be traced to three root cause patterns: glycol chemistry issues, thermal cycling stress, and seasonal startup procedures - addressing these prevents the majority of premature failures
+**Stance:** Nuance
+**Hook:** Practitioner-quote ("Even after replacing a seal, the new seal started leaking a few weeks later")
+**Conclusion:** Next-step (test glycol before ordering replacement seals)
+**Persona:** Senior Field Service Engineer / Technical Trainer
+
+**Differentiators:**
+- HVAC chiller-specific troubleshooting (vs generic pump seal guides)
+- Glycol chemistry: 60% concentration threshold, propylene vs ethylene surface tension
+- Thermal cycling: elastomer glass transition behavior, temperature-sensitive leak pattern
+- Seasonal startup: venting as root cause, VFD soft-start benefits
+- North Sea 40-pump study - incomplete venting as top failure cause
+- Multistack Chiller case study - additive plating from non-industrial glycol
+- Spurlock Station case - automatic air release valve solution
+- System-first diagnostic approach
+
+**Internal Links Used:**
+- 15-reasons-for-mechanical-seal-failure (required - cluster pillar)
+- mechanical-seal-inspection (required - high priority)
+- common-causes-of-pump-seal-failure (recommended - high)
+- what-is-elastomer-in-mechanical-seal (recommended - medium)
+- can-you-run-a-mechanical-seal-dry (recommended - medium)
+
+**Linkable Anchors Created:**
+- "chiller pump seal troubleshooting"
+- "glycol chemistry issues"
+- "60% glycol concentration threshold"
+- "thermal cycling stress"
+- "elastomer glass transition behavior"
+- "seasonal startup procedures"
+- "system-first diagnostic approach"
+- "propylene vs ethylene glycol sealing"
+
+**Data Verification Notes:**
+- 60-70% seal maintenance statistic verified via Seal FAQs
+- 60% glycol threshold verified via Seal FAQs
+- Conductivity/pH limits verified via Deppmann
+- Seal life expectations (2-3 years) verified via Pumps & Systems
+- Temperature-sensitive leak pattern verified via Eng-Tips forum
+- North Sea 40-pump study verified via Oceaneering
+- Spurlock Station venting solution verified via Pumps & Systems
+- 4.5x corrosion claim converted to fuzzy language - exact multiplier not found in accessible source
+
+---
+
+### marine-seawater-pump-seal-corrosion-prevention (2026-01-02)
+
+**Type:** Tutorial
+**Audience:** Practitioner / Implementer (intermediate to advanced)
+**Depth:** Technical details
+**Thesis:** Galvanic corrosion between dissimilar metals in seal assemblies causes more marine seawater pump failures than chloride attack alone - standardizing component metals can prevent the majority of corrosion-related seal failures
+**Stance:** Challenge
+**Hook:** Surprising-stat (80% of structural failures from galvanic corrosion - DoD study)
+**Conclusion:** Action-checklist (5-point galvanic corrosion prevention checklist)
+**Persona:** Senior Seal Application Engineer
+
+**Differentiators:**
+- 80% galvanic failure statistic (DoD study) - challenges chloride-first assumption
+- 0.15V voltage threshold for seawater galvanic compatibility
+- 10:1 area ratio rule (ASSDA)
+- WC nickel binder galvanic attack mechanism (McNally Institute)
+- 8 seal failures in one year case study (ScienceDirect)
+- North Sea graphite gasket failures
+- Gold plating tie-layer failure case
+- Material unification vs material upgrade approach
+- Hastelloy C-276 zero galvanic effect
+
+**Internal Links Used:**
+- 15-reasons-for-mechanical-seal-failure (required - cluster pillar)
+- mechanical-seal-material (required - high priority)
+- silicon-carbide-vs-tungsten-carbide-mechanical-seal (recommended - high)
+- what-are-metal-bellow-mechanical-seals (recommended - medium)
+- what-is-elastomer-in-mechanical-seal (recommended - medium)
+
+**Linkable Anchors Created:**
+- "80% galvanic failure statistic"
+- "0.15V voltage threshold for seawater"
+- "10:1 area ratio rule"
+- "galvanic corrosion in seawater seals"
+- "material unification vs upgrade"
+- "WC nickel binder galvanic attack"
+- "graphite prohibition in seawater"
+
+**Data Verification Notes:**
+- 80% DoD statistic verified via web search (2019 DoD-Allied Nations Technical Corrosion Conference)
+- 10:1 area ratio rule verified against ASSDA source
+- 0.15V threshold verified against Corrosionpedia
+- 60C SCC threshold verified against SSINA
+- McNally Institute source returned 522 error - row count claims converted to fuzzy language
+- ScienceDirect 8-failure case accessible via abstract only (paywall)
+- North Sea researcher names (Strandmyr/Hagerup) removed - source incomplete
+- "Every 10C doubles corrosion rate" claim converted to fuzzy language - no primary source
+
+---
+
+### high-temperature-mechanical-seal-selection-boiler-feed-pumps (2026-01-02)
+
+**Type:** Informational
+**Audience:** Expert / Specialist (5+ years; deep specialization)
+**Depth:** Comprehensive
+**Thesis:** N/A - informational article, no thesis required
+**Stance:** N/A
+**Hook:** Question ("Why does a seal rated to 800F fail at 200F in your boiler feed pump?")
+**Conclusion:** Synthesis (integration of selection criteria with API 682 service life target)
+**Persona:** Senior Seal Application Engineer
+
+**Differentiators:**
+- SiC mounting material temperature limits (200F in 316SS vs 750F in Alloy 42) - key differentiator
+- 65C/150F threshold with viscosity explanation (0.43 cP, film failure at 71C)
+- Plan 23 vs Plan 21 lifecycle cost (91% savings, $22,470/year per seal)
+- API 682 Type A/B/C temperature classifications (350F vs 750F)
+- Balance ratio specifications (0.75 for water)
+- 8 thermal cycling design solutions
+- 4 case studies with MTBR improvements (German 20-40 mo, Alberta 6-12 to 48+ mo, California 3000 psig/700F, AESSEAL 7-year)
+
+**Internal Links Used:**
+- select-mechanical-seal (required - cluster pillar)
+- how-to-select-mechanical-seals-for-high-temperature (required - related article)
+- mechanical-seal-face-material-combinations (recommended - high)
+- what-are-metal-bellow-mechanical-seals (recommended - medium)
+- balanced-vs-unbalanced-mechanical-seal (recommended - medium)
+- api-plan-23 (recommended - medium)
+- best-mechanical-seal-flushing-plan-for-high-temperature-service (recommended - high)
+- mechanical-seal-material (recommended - conclusion)
+
+**Linkable Anchors Created:**
+- "SiC mounting temperature limits by holder material"
+- "65C viscosity threshold for BFW sealing"
+- "Plan 23 lifecycle cost savings (91%)"
+- "API 682 Type A/B/C selection by temperature"
+- "balance ratio 0.75 for water service"
+- "8 thermal cycling design solutions"
+- "BFW seal MTBR case studies"
+- "thermal management is as critical as material selection"
+
+**Data Verification Notes:**
+- Light band measurement corrected from 0.25 um to 0.3 um per Practical Maintenance source
+- "Hot water hardest to seal" quote paraphrased from Eng-Tips industry consensus (original Water Technology quote not found)
+- Plan 23 installation specs: horizontal distance and tubing length specs removed (not found in EagleBurgmann source)
+- All cost data verified against Pumps & Systems FSA LCC Estimator article
+- All material temperature limits verified against PPC Mechanical Seals source
+- Texas A&M OAKTrust and Wikipedia returned 403 errors; data confirmed via secondary industry sources
+
+---
+
+### gmp-mechanical-seal-pharmaceutical (2026-01-02)
+
+**Type:** Informational
+**Audience:** Expert / Specialist (5+ years; deep specialization)
+**Depth:** Technical details
+**Thesis:** N/A - informational article, no thesis required
+**Stance:** N/A
+**Hook:** Problem (only 3 of 15 carbon grades FDA compliant; visual inspection cannot distinguish compliant from non-compliant)
+**Conclusion:** Synthesis (regulatory framework integration with practical next step)
+**Persona:** Senior Seal Application Engineer
+
+**Differentiators:**
+- Carbon grade FDA compliance (only 3 of ~15 grades)
+- FDA 21 CFR 211.65 dual requirement (contact surfaces + operational substances)
+- Complete ASME BPE SF0-SF6 table with Ra values (corrected from draft)
+- Merck KGaA case study (16 paddle dryers with gas-lubricated seals)
+- USP Class VI material vs part compliance distinction
+- IQ/OQ/PQ validation requirements for mechanical seals
+- Gas-lubricated seal technology depth with Swiss pharma trend
+- EHEDG classification for seal configuration selection
+
+**Internal Links Used:**
+- api-mechanical-seal-and-non-api-mechanical-seal (required - cluster pillar)
+- sanitary-mechanical-seal-standards (required - high priority)
+- mechanical-seal-material (required - high priority)
+- what-is-elastomer-in-mechanical-seal (recommended - high)
+- what-are-metal-bellow-mechanical-seals (recommended - medium)
+
+**Linkable Anchors Created:**
+- "FDA 21 CFR Part 211 equipment requirements"
+- "ASME BPE SF4 electropolished finish"
+- "USP Class VI material vs part compliance"
+- "3 of 15 carbon grades FDA compliant"
+- "EHEDG aseptic class dual seal requirement"
+- "gas-lubricated seals for pharmaceutical dryers"
+- "IQ/OQ/PQ validation for mechanical seals"
+- "material traceability for pharmaceutical seals"
+
+**Data Verification Notes:**
+- ASME BPE table corrected: SF2 = 0.64 um (not 0.51), SF3 = 0.76 um (not 0.38)
+- FDA warning letter statistics (D017, D018) converted to fuzzy language - secondary source lacked primary FDA citation
+- All critical data points live-verified against source URLs
+
+---
+
+### sanitary-mechanical-seal-standards (2026-01-02)
+
+**Type:** Informational
+**Audience:** Expert / Specialist (5+ years; deep specialization)
+**Depth:** Technical details
+**Thesis:** N/A - informational article, no thesis required
+**Stance:** N/A
+**Hook:** Practitioner-quote ("There is a shocking lack of awareness of the full implications of several pieces of legislation")
+**Conclusion:** Action-checklist (5-step decision framework for standard selection)
+**Persona:** Senior Seal Application Engineer
+
+**Differentiators:**
+- FDA 21 CFR 177.2600 extraction limits by food type (20 mg vs 175 mg)
+- 3-A vs EHEDG prescriptive vs outcome-based comparison
+- EHEDG three-tier classification with seal architecture implications
+- TPV evolution story (2003, 27 CCEs)
+- CIP conditions with specific concentrations and temperatures
+- Material temperature limits with specific numbers
+- ASME BPE SF classifications for pharmaceutical crossover
+
+**Internal Links Used:**
+- mechanical-seal-material (required - high priority)
+- api-mechanical-seal-and-non-api-mechanical-seal (required - cluster pillar)
+- what-is-elastomer-in-mechanical-seal (recommended - high)
+- what-are-metal-bellow-mechanical-seals (recommended - medium)
+
+**Linkable Anchors Created:**
+- "FDA 21 CFR 177.2600 extraction limits"
+- "3-A vs EHEDG comparison"
+- "EHEDG three-tier classification"
+- "CIP/SIP material compatibility"
+- "certification vs compliance"
+- "sanitary seal standards decision framework"
+
+---
 
 ### chemical-pump-mechanical-seal-corrosion-protection (2026-01-02)
 
@@ -615,4 +1065,13 @@ Articles that need updates to add backlinks to newer content:
 - 2026-01-01: Added mechanical-seal-selection-water-treatment - water treatment industry-specific selection guide
 - 2026-01-01: Added chemical-pump-mechanical-seal-corrosion-protection-guide - architecture-first approach to chemical service
 - 2026-01-02: Added chemical-pump-mechanical-seal-corrosion-protection - temperature-first approach, replaces architecture-first article
-- NOTE: Next article should avoid "surprising-stat" hook type (just used 3x in last 4 articles)
+- 2026-01-02: Added sanitary-mechanical-seal-standards - comprehensive sanitary standards guide for food & beverage industry (expert audience)
+- 2026-01-02: Added gmp-mechanical-seal-pharmaceutical - pharmaceutical GMP requirements guide (expert audience)
+- 2026-01-02: Added high-temperature-mechanical-seal-selection-boiler-feed-pumps - comprehensive BFW seal selection guide with LCC data and 4 case studies
+- 2026-01-02: Added marine-seawater-pump-seal-corrosion-prevention - galvanic corrosion focus, challenges chloride-first approach
+- 2026-01-03: Added hvac-chiller-pump-mechanical-seal-troubleshooting-guide - HVAC chiller-specific troubleshooting with glycol chemistry focus
+- 2026-01-03: Added power-plant-pump-mechanical-seal-best-practices - power plant-specific installation/maintenance, pre-installation verification focus
+- 2026-01-03: Added agitator-reactor-mechanical-seal-selection-guide - mixer/reactor seal selection with DIN/PIP standards, FSA insights, Domtar case study
+- 2026-01-03: Added api-682-mechanical-seals-oil-gas-guide - comprehensive API 682 guide covering all four pillars with practical selection guidance
+- NOTE: Problem hook used - good diversity (not used since 2026-01-02)
+- NOTE: Synthesis conclusion used - fills coverage gap noted in article-history

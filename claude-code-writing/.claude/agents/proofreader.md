@@ -115,6 +115,20 @@ Flag paragraphs with: zero first-person + zero opinions, pure definition, encycl
 | Cliché | "The good news is that...", "Let me explain..." | Delete, state directly |
 | Empty | "isn't difficult once you understand X" | Replace with specifics |
 
+### Placeholder Sentences for Links (DELETE ENTIRE SENTENCE)
+
+**Test:** Remove the link—does the sentence still add value? If not, delete the entire sentence.
+
+| Pattern | Example | Action |
+|---------|---------|--------|
+| "Understanding X helps..." | "Understanding [link] helps contextualize how Y works" | DELETE |
+| "For a broader overview..." | "For a broader overview of [link], this provides context" | DELETE |
+| "To learn more about..." | "To learn more about X, see [link]" | DELETE |
+| "For more information..." | "For more information on X, check out [link]" | DELETE |
+| "X provides valuable context" | "[Link] provides valuable context for understanding Y" | DELETE |
+
+**Never inject links using these patterns.** If no natural integration point exists, leave the article without that internal link.
+
 ### Material Usage Verification
 
 **1. Differentiator Coverage (P0.5):**
@@ -340,13 +354,14 @@ Scan the final article and generate 5-10 image suggestions. Mix photos and diagr
 2. **No unverified data** - Convert to fuzzy or remove
 3. **Verify thesis execution** - Must be in intro + conclusion (skip for informational)
 4. **Verify persona consistency** - No voice breaks
-5. **Delete forced links** - Test: paragraph still makes sense without sentence?
-6. **Delete meta-commentary** - "Competitors rarely...", "Unlike other sources..."
-7. **Live verify sources** - WebFetch each URL
-8. **Write all output files** - Article, sources, images required
-9. **All differentiators must appear** - Flag if any `materials.differentiators` missing
-10. **Cases must be narratives** - Not summaries; context→problem→solution→lesson
-11. **Expert analogies must be attributed** - "As Dr. X explains..." not just facts
-12. **Review skipped materials** - Weak skip reasons = missed opportunity
-13. **⚡ PARALLEL READ/WRITE** - Read all files in one message, write all outputs in one message
-14. **⚡ PARALLEL DETECTION, SERIAL FIX** - Detect issues in parallel, apply fixes serially to avoid conflicts
+5. **Delete forced links** - Test: remove link, does sentence still add value? If not, delete entire sentence
+6. **Delete placeholder sentences** - "Understanding X helps...", "For a broader overview...", "To learn more..." → DELETE
+7. **Delete meta-commentary** - "Competitors rarely...", "Unlike other sources..."
+8. **Live verify sources** - WebFetch each URL (optimization mode only)
+9. **Write all output files** - Article, sources, images required
+10. **All differentiators must appear** - Flag if any `materials.differentiators` missing
+11. **Cases must be narratives** - Not summaries; context→problem→solution→lesson
+12. **Expert analogies must be attributed** - "As Dr. X explains..." not just facts
+13. **Review skipped materials** - Weak skip reasons = missed opportunity
+14. **⚡ PARALLEL READ/WRITE** - Read all files in one message, write all outputs in one message
+15. **⚡ PARALLEL DETECTION, SERIAL FIX** - Detect issues in parallel, apply fixes serially to avoid conflicts

@@ -39,25 +39,37 @@ SEO 文章写作工作流。两种模式：新文章写作、旧文章优化。
 
 3. **意图-公司匹配检查**:
    - B2B 意图 + B2B 公司 → 继续
-   - B2C 意图 + B2B 公司 → 提示用户（见 @.claude/data/display-templates.md）
+   - B2C 意图 + B2B 公司 → 提示用户（见下方 Display Templates）
    - 混合 → 让用户选择目标受众类型
 
 4. **读取公司文档**: `.claude/data/companies/[selected]/about-us.md`
 
-5. **收集用户选择**（展示格式见 @.claude/data/display-templates.md）:
+5. **内链缓存检查**:
+   - 读取 `internal-links.md`，提取 `Last Updated` 日期
+   - 显示: `内链缓存: [日期] ([X]天前) - 刷新? [N(默认)/Y]`
+   - 用户选 Y → 执行刷新:
+     ```
+     1. Read about-us.md → 提取 sitemap URL (post-sitemap.xml)
+     2. WebFetch sitemap → 提取所有 <loc> URLs
+     3. Write internal-links.md:
+        - 更新 Last Updated 为今天
+        - 格式: `- [Title](URL)` 每行一个
+     ```
+
+6. **收集用户选择**（展示格式见下方 Display Templates）:
    - 受众 + 深度（一次询问）
    - 文章类型
    - 作者人设
 
-6. **确定输出语言**: `semrush → 中文, others → English`
+7. **确定输出语言**: `semrush → 中文, others → English`
 
-7. **Launch config-creator**:
+8. **Launch config-creator**:
    ```
    Task: subagent_type="config-creator"
    Prompt: Create config for [company], [topic], [audience], [depth], [articleType], [persona], [language]
    ```
 
-8. **验证**: `config/[topic-title]-core.json` 存在
+9. **验证**: `config/[topic-title]-core.json` 存在
 
 ### Step 2: Competitor Analysis
 
@@ -72,9 +84,16 @@ Prompt: Phase 1 - Competitor Analysis for: [topic-title]
 
 ### Step 3: Select Writing Angle
 
-1. 读取 `research.json` 的 `recommendedTheses`，翻译展示给用户（格式见 @.claude/data/display-templates.md）
-2. 用户选择后更新 `core.json`: `writingAngle.thesis`, `writingAngle.stance`
-3. 信息型文章跳过此步骤
+1. 读取 `research.json` 的 `recommendedTheses`，翻译展示给用户（格式见下方 Display Templates）
+2. 用户选择后，**main workflow 直接 Edit** `core.json`:
+   ```
+   Edit core.json:
+   - "writingAngle.thesis": "[选中的 thesis]"
+   - "writingAngle.stance": "[对应的 stance]"
+   - "writingAngle.pending": false
+   - 如果深度不匹配: "writingAngle.depthMismatchAcknowledged": true
+   ```
+3. 信息型文章跳过此步骤（`pending` 已为 false）
 
 ### Step 4: Evidence Collection
 
@@ -206,3 +225,117 @@ imports/[topic]-analysis.md   ← Workflow 2 Step 0 only
 **Completion**: Workflow 1 = 9 files, Workflow 2 = 10 files
 
 **Naming**: kebab-case (`steel-heat-treatment`)
+
+---
+
+## Display Templates
+
+展示选项时的格式模板。直接在对话中输出，不使用 AskUserQuestion 工具。
+
+### 意图不匹配提示
+
+```
+⚠️ 意图不匹配提示
+
+该主题的典型搜索者是 [DIY爱好者/消费者]，
+但 [公司名] 是 B2B 公司，User Types 针对专业受众设计。
+
+建议选择：
+1. 调整目标受众 → 将 "DIY爱好者" 调整为 "小型创业者/小型生产商"
+2. 更换主题 → 选择更匹配 B2B 的主题
+3. 继续使用通用 B2C 指导 → 文章将缺乏公司特色
+```
+
+### 受众 + 深度选项
+
+**格式规则：**
+- 基于意图推荐的受众标 `(推荐)`
+- 其他选项用 `△ 适合场景:` 说明
+- 用户回复数字组合（如 "1, 1"）
+
+**B2B 意图示例：**
+```
+请选择目标受众：
+
+1. 工程师 (推荐)
+   负责工艺设计和参数优化的技术人员
+   ✓ 匹配原因：B2B主题，典型搜索者是需要技术规格的专业人员
+
+2. 生产经理
+   △ 适合场景：关注效率、成本、产能的决策内容
+
+3. 采购人员
+   △ 适合场景：关注供应商选择、性价比的采购指南
+
+请选择内容深度：
+
+1. 技术细节 (推荐)
+   ✓ 匹配原因：工程师通常需要可直接应用的技术信息
+
+2. 概述
+   △ 适合场景：快速了解新领域，或作为决策参考
+```
+
+### 文章类型选项
+
+```
+请选择文章类型：
+
+1. 对比型 (推荐)
+   ✓ 匹配原因：主题 "A vs B" 天然适合对比分析
+
+2. 观点型
+   △ 适合场景：想要挑战某个常见误区或强调某个被忽视的要点
+
+3. 信息型
+   △ 适合场景：纯粹的知识科普，不需要表达立场
+
+4. 教程型
+   △ 适合场景：主题是 "how to" 类型
+```
+
+### 作者人设选项
+
+从公司 about-us.md Part 5 读取预设：
+
+```
+请选择作者人设：
+
+1. 技术专家 (推荐)
+   "热处理车间主任，15年一线经验"
+   ✓ 匹配原因：观点型文章需要实践权威，技术细节深度需要专业背景
+
+2. 实践导师
+   △ 适合场景：教程型文章、入门深度
+
+3. 行业观察者
+   △ 适合场景：对比型文章、采购决策者
+```
+
+### 写作角度选项（Step 3）
+
+从 `research.json` 的 `recommendedTheses` 读取，翻译后展示：
+
+**术语翻译：**
+| 英文 | 中文 |
+|-----|------|
+| challenge | 挑战型 |
+| confirm | 强化型 |
+| nuance | 细化型 |
+
+**展示格式：**
+```
+基于竞品分析，推荐以下写作角度：
+
+1. 预热步骤是被低估的关键环节 (推荐)
+   立场: 挑战型 | 适合深度: 入门/进阶
+   ✓ 匹配原因：差异化强，数据充足，深度兼容
+
+2. 温度控制比时间控制更重要
+   立场: 细化型 | 适合深度: 技术细节
+   △ 匹配度：差异化中等，深度匹配
+
+3. 传统温度曲线计算存在系统误差
+   立场: 挑战型 | 适合深度: 专家级
+   ⚠️ 注意：深度不匹配（需专家级，已选技术细节）
+```

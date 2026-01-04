@@ -140,11 +140,9 @@ Identify: prerequisites, next topics, CTAs matching funnel stage.
 
 ## Step 6: Internal Links
 
-| Status | Action |
-|--------|--------|
-| autoRefresh: false | Use existing cache |
-| Cache < 7 days | Use existing |
-| Cache expired | Fetch sitemap, create internal-links.md |
+Use existing `internal-links.md` cache. No auto-refresh.
+
+If file doesn't exist: create empty template (main workflow handles refresh prompt).
 
 ---
 

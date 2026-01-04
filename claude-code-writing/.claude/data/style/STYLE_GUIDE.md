@@ -1,6 +1,6 @@
 # STYLE_GUIDE.md
 
-**Purpose:** Core writing rules for article content. For detailed examples, see `STYLE_EXAMPLES.md`.
+**Purpose:** Core writing rules for article content.
 
 Write in a clear, accessible style. Answer questions directly. Explain concepts as an expert writing for non-experts.
 
@@ -21,6 +21,11 @@ The first sentence of a section must directly answer the question in the subhead
 Every paragraph must directly answer the heading's question. If it doesn't belong, DELETE or MOVE it.
 
 **Validation Test:** "Does this paragraph answer the question in my heading?"
+
+**Example - Heading: "What Does the Input Shaft Do?"**
+- ✅ BELONGS: "The input shaft receives rotational energy and transfers it into the gear train."
+- ❌ WRONG: "Manufacturers build input shafts from 4140 steel." → Answers "What is it MADE OF?"
+- ❌ WRONG: "Input shafts typically cost $50-$200." → Answers "How much does it COST?"
 
 ### 1.4 Short Paragraphs
 1-3 sentences per paragraph. One idea per paragraph.
@@ -43,8 +48,11 @@ Mix short, medium, and occasional longer sentences. Avoid monotonous patterns.
 
 ### 2.1 Be Concrete and Specific
 Avoid vague descriptors. Use numbers, specs, and tangible attributes.
-- ❌ "significantly improved productivity"
-- ✅ "saved 3 hours every week"
+
+**Quick conversions:**
+- ❌ "significantly improved productivity" → ✅ "saved 3 hours every week"
+- ❌ "This approach has many benefits" → ✅ "This approach cuts writing time in half"
+- ❌ "The tool worked well in different conditions" → ✅ "The battery lasted through our entire 8-hour trek"
 
 ### 2.2 Use Synonyms
 No more than 2-3 uses of the same key term per paragraph. Use semantic variations.
@@ -76,6 +84,10 @@ Every H2 section needs at least ONE:
 - Practical warning
 - Clear preference
 
+**Examples:**
+- ❌ Neutral: "Both approaches have their merits" → ✅ "I prefer the second approach because it's simpler"
+- ❌ Neutral: "This may be worth considering" → ✅ "You should definitely try this if you have the same problem"
+
 ### 3.2 Opinion Patterns
 
 | Type | Pattern |
@@ -94,6 +106,10 @@ Every H2 section needs at least ONE:
 | Moderate evidence | "I recommend X" |
 | Limited evidence | "Based on experience, X tends to..." |
 | Conflicting | "When [condition], choose X; otherwise Y" |
+
+**Example:**
+- ❌ Unsupported: "Helical gears are always the best choice for industrial applications."
+- ✅ Evidence-based: "For applications above 1000 RPM, helical gears outperform spur gears in noise reduction. Below that speed, the cost premium often isn't justified."
 
 ### 3.4 Golden Insight Prominence
 Golden Insights from research must be PROMINENT, not buried.
@@ -166,6 +182,18 @@ Challenge at least one common assumption per article.
 - Insights, warnings, recommendations
 - Anything requiring context or nuance
 
+**Example - Good table (consistent, specific):**
+| Gear Type | Efficiency | Noise Level | Best For |
+|-----------|------------|-------------|----------|
+| Spur | 94-98% | High | Low-speed, high-load |
+| Helical | 94-98% | Low | Smooth, quiet operation |
+
+**Example - Bad table (vague, unhelpful):**
+| Feature | Details |
+|---------|---------|
+| Material | Varies by application |
+| Cost | Call for quote |
+
 **Density guideline:** Avoid consecutive tables. Separate with 2-3 paragraphs of prose.
 
 **Format rules:** Brief cells (1-5 words), consistent units, left-align text, right-align numbers
@@ -199,38 +227,53 @@ Challenge at least one common assumption per article.
 | Problem-Solving | Problem Statement (PAS) | Prevention or next consideration |
 | Comparison / Decision | Surprising Fact (AIDA) | Clear verdict |
 
+**Hook Examples:**
+- **Direct Answer:** "Gear ratio equals driven teeth divided by driving teeth. A 60-tooth gear driven by a 20-tooth gear gives you 3:1."
+- **Problem Statement:** "Gearbox overheating destroys bearings and seals within weeks. Left unchecked, you're looking at a full rebuild."
+- **Surprising Fact:** "Helical gears aren't always quieter than spur gears—it depends entirely on the application speed."
+
 **Opening Rule:** Never start with definitions, history, or "In this article..."
 **Closing Rule:** End naturally. Sometimes summarize, sometimes guide to next step.
 
-### 5.1 Conclusion: Natural Closure
+### 5.1 Conclusion: Add Value, Never Repeat
 
-The conclusion should feel like a natural ending, not a forced template.
+**Core principle:** Readers who finish the article already know what you covered. Repeating it wastes their time.
 
-**Choose based on article content:**
+**AVOID (zero value):**
+- "Key Takeaways" bullet lists that summarize H2 headers
+- "In conclusion, we covered..." recaps
+- Any summary that just repeats article content
 
-| When... | Natural Ending |
-|---------|----------------|
-| Article is actionable (How-to, Tutorial) | Next step for reader |
-| Article is informational (What is, Technical) | Brief synthesis + practical takeaway |
-| Article solved a problem | Verification method or next consideration |
-| Reader compared options | Clear verdict or decision criteria |
+**PREFER (adds value):**
 
-**Core principles:**
-1. **Be brief** - 2-4 sentences maximum
-2. **Add value** - Don't just repeat H2 headers
-3. **Match the tone** - Informational → calm close; Decision → confident recommendation
+| Type | Description | When to Use |
+|------|-------------|-------------|
+| next-step | What reader should do now | How-to, Tutorial |
+| verdict | Clear recommendation | Comparison, Decision |
+| prevention | Critical mistake to avoid | Problem-solving |
+| final-insight | New angle not fully covered | Informational |
+| common-mistake | What most people get wrong | Technical |
 
-**Avoid:**
-- "In conclusion", "In summary", "To wrap up"
-- Mechanical recap of every section
-- Forcing a CTA when none fits naturally
+**Examples:**
 
 ```
-❌ WRONG: "In conclusion, we covered the types of forging, their advantages..."
-❌ WRONG: Forcing "Contact us!" when article is purely informational
-✅ RIGHT: "The choice between hot and cold forging comes down to your tolerance requirements. For parts under 0.5mm tolerance, cold forging eliminates post-machining."
-✅ RIGHT: "Ready to discuss your forging requirements? Our engineering team can help."
+❌ WRONG (repeats content):
+"Key Takeaways:
+- Categories define operating envelope
+- Types address temperature capability
+- Arrangements determine containment..."
+
+✅ RIGHT (next-step):
+"Start with the 8-field code to define your baseline requirements. Once you have that, engage seal manufacturers for application-specific recommendations."
+
+✅ RIGHT (common-mistake):
+"The most common failure I see: engineers specify the right seal but ignore piping plan execution. A correctly specified Plan 53B with a stuck check valve delivers the same 7-month MTBF as a wrong specification."
+
+✅ RIGHT (final-insight):
+"API 682 gets credit for seal reliability, but the real gains come from what it forces: systematic documentation of operating conditions before purchase. That discipline, not the seal specifications, prevents most failures."
 ```
+
+**Length:** 2-4 sentences. If you need more, you're probably repeating.
 
 ---
 
@@ -246,6 +289,10 @@ The conclusion should feel like a natural ending, not a forced template.
 **Filler:**
 - "Here's the thing:", "The good news?", "The truth is..."
 - "Let me be honest:", "The bottom line?", "Long story short..."
+
+**Examples:**
+- ❌ "Here's the thing: without understanding these components, you'll struggle." → ✅ "Without understanding these components, you'll struggle."
+- ❌ "The good news? The concept is surprisingly simple." → ✅ "The concept is simple once you see how it works."
 
 **Announcing phrases (say it, don't announce it):**
 
@@ -296,5 +343,3 @@ Examples:
 8. **No filler phrases** - If deletable, delete it
 9. **Golden Insights prominent** - Not buried in paragraphs
 10. **Contrarian positioning** - Challenge one assumption per article
-
-**For detailed examples, see:** `STYLE_EXAMPLES.md`

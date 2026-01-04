@@ -87,6 +87,15 @@ Read by: outline-writer, proofreader
   "research": {
     "status": "completed",
     "completedAt": "[ISO timestamp]",
+    "urlCache": ["url1", "url2", "url3"],
+    "competitorContent": {
+      "url1": {
+        "structure": ["H2-1", "H2-2"],
+        "stances": ["position on X"],
+        "dataPoints": ["stat from this competitor"],
+        "gaps": ["what they missed"]
+      }
+    },
     "summary": {
       "sourceCount": 0,
       "dataPointCount": 0,
@@ -231,26 +240,6 @@ Read by: outline-writer, proofreader
           "suggestedUse": "hook/example/evidence"
         }
       ]
-    },
-    "visualStrategy": {
-      "competitorVisuals": {
-        "dominantType": "stock photos/original diagrams/data charts/mixed",
-        "quality": "low/medium/high",
-        "gaps": ["concepts competitors don't visualize"]
-      },
-      "requiredVisuals": [
-        {
-          "concept": "concept needing visualization",
-          "reason": "complex process/data comparison/abstract idea",
-          "suggestedType": "flowchart/comparison-table/diagram/infographic/chart",
-          "placement": "H2 section name",
-          "differentiator": true,
-          "canUseMarkdownTable": false
-        }
-      ],
-      "differentiationOpportunity": "how visuals can set us apart",
-      "originalNeeded": ["concepts requiring custom diagrams"],
-      "stockAcceptable": ["concepts where stock photos work"]
     },
     "authorityStrategy": {
       "sourcesFound": {
@@ -486,33 +475,6 @@ Read by: proofreader
           {"category": "Category", "reason": "why skipped"}
         ],
         "count": 0
-      },
-      "visualPlan": {
-        "totalPlanned": 0,
-        "imagesNeeded": [
-          {
-            "concept": "concept from visualStrategy.requiredVisuals",
-            "type": "flowchart/diagram/chart/infographic",
-            "placement": "H2 section name",
-            "description": "what image should show",
-            "differentiator": true,
-            "priority": "high/medium/low"
-          }
-        ],
-        "markdownTablesUsed": [
-          {
-            "concept": "concept that used markdown table instead of image",
-            "placement": "H2 section name",
-            "reason": "simple comparison data"
-          }
-        ],
-        "stockPhotoSuggestions": [
-          {
-            "placement": "H2 section name",
-            "keywords": "search keywords for stock photo",
-            "purpose": "illustrative/decorative"
-          }
-        ]
       }
     }
   }
@@ -541,6 +503,8 @@ Read by: proofreader
 
 | Field Path | Used By | Purpose |
 |------------|---------|---------|
+| `research.urlCache` | web-researcher (Phase 2) | 跳过已 Fetch 的 URL，避免重复请求 |
+| `research.competitorContent` | web-researcher (Phase 2) | 复用 Phase 1 竞品数据，无需再次 Fetch |
 | `articleType` | all agents | 决定是否需要 thesis 验证 |
 | `writingAngle.pending` | web-researcher (Phase 1) | true = 需要生成 recommendedTheses |
 | `writingAngle.depthMismatchAcknowledged` | outline-writer | Adjust argumentation for depth gap |
@@ -557,7 +521,6 @@ Read by: proofreader
 | `writing.decisions.depthAdaptation` | proofreader | Verify argumentation matches depth |
 | `writing.decisions.sectionsToWatch.weak` | proofreader | Focus verification here |
 | `writing.decisions.hookUsed` | proofreader | Verify hook delivers |
-| `writing.decisions.visualPlan.markdownTablesUsed` | proofreader | Skip image generation |
 | `research.materials.byPlacement` | outline-writer | Which materials to use where |
 | `research.materials.differentiators` | outline-writer | Prioritize these materials |
 | `research.materialMix.targetMix` | outline-writer | Target material distribution |
