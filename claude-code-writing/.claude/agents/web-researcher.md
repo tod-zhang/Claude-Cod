@@ -117,16 +117,49 @@ Prompt for each: `"Analyze: STRUCTURE (H2s), STANCE (recommendations), DATA (sta
 
 **Do NOT fetch sequentially.** All 3 competitors can be analyzed simultaneously.
 
-### 1.3 Generate Report
+### 1.3 Assess Innovation Space
+
+Before generating thesis recommendations, evaluate how much room exists for unique angles:
+
+**Signals to check:**
+
+| Signal | Low | Medium | High |
+|--------|-----|--------|------|
+| Content Variance | Competitors nearly identical | Some variation in approach | Very different structures/angles |
+| Answer Uniqueness | One correct answer | Few valid approaches | Many valid approaches |
+| Judgment Required | Follow steps | Some decisions | Significant tradeoffs |
+
+**Decision logic:**
+
+```
+IF all competitors say the same thing AND steps are fixed:
+  → level: low, strategy: execution, skipThesis: true
+
+ELSE IF some variation but core is similar:
+  → level: medium, strategy: both, skipThesis: false
+
+ELSE IF significant disagreement OR multiple valid approaches:
+  → level: high, strategy: angle, skipThesis: false
+```
+
+**For low innovation space**, also assess execution differentiation opportunities:
+- **Depth**: Are competitors surface-level? Where can we go deeper?
+- **Coverage**: What edge cases, alternatives, failure modes do they miss?
+- **Practical value**: What real examples, common mistakes, troubleshooting do they lack?
+
+### 1.4 Generate Report
 
 | Section | Content |
 |---------|---------|
 | Coverage Matrix | Topic × Competitor coverage |
 | Stance Analysis | Positions + Our response |
 | Data Sourcing | Claim quality + opportunities |
+| Innovation Space | Level assessment + strategy |
 | Differentiation | Gaps, stance diff, quality diff |
 
-### 1.4 Generate Thesis Recommendations
+### 1.5 Generate Thesis Recommendations
+
+**Skip if `innovationSpace.level: low`** — go directly to execution differentiation.
 
 Create 3 options based on competitive gaps:
 
@@ -140,7 +173,7 @@ Create 3 options based on competitive gaps:
 }
 ```
 
-### 1.5 Phase 1 Output
+### 1.6 Phase 1 Output
 
 Write to: `config/[topic-title]-research.json`
 
@@ -162,8 +195,8 @@ Write to: `config/[topic-title]-research.json`
       "dataPoints": ["stat: 85% failure rate", "study: MIT 2023"],
       "gaps": ["no mention of edge cases", "outdated data from 2019"]
     },
-    "https://competitor2.com/guide": { ... },
-    "https://competitor3.com/post": { ... }
+    "https://competitor2.com/guide": { "..." : "..." },
+    "https://competitor3.com/post": { "..." : "..." }
   },
 
   "competitorAnalysis": {
@@ -179,6 +212,35 @@ Write to: `config/[topic-title]-research.json`
     }
   },
 
+  "innovationSpace": {
+    "level": "low | medium | high",
+    "reason": "competitors nearly identical, fixed installation steps",
+    "signals": {
+      "contentVariance": "low",
+      "answerUniqueness": "single",
+      "judgmentRequired": "none"
+    },
+    "strategy": "execution | angle | both",
+    "skipThesis": true
+  },
+
+  "executionDifferentiation": {
+    "depth": {
+      "competitorLevel": "surface",
+      "ourTarget": "deeper",
+      "specificAreas": ["why each step matters", "underlying mechanism"]
+    },
+    "coverage": {
+      "competitorGaps": ["Windows-specific issues", "version conflicts"],
+      "ourAdditions": ["troubleshooting section", "alternative methods"]
+    },
+    "practicalValue": {
+      "competitorProvides": ["basic steps"],
+      "ourAdditions": ["common mistakes", "verification steps", "real error messages"]
+    },
+    "score": "strong"
+  },
+
   "recommendedTheses": [
     {
       "thesis": "Specific claim based on competitor gaps",
@@ -186,9 +248,7 @@ Write to: `config/[topic-title]-research.json`
       "recommendedDepth": "intermediate",
       "evidenceSummary": "competitor1 data + our unique angle",
       "differentiationScore": "strong"
-    },
-    { ... },
-    { ... }
+    }
   ],
 
   "differentiation": {
@@ -465,15 +525,26 @@ Write to: `config/[topic-title]-research.json`
 ```
 ## 竞品分析完成 (Phase 1)
 
+### 创新空间评估
+- 创新空间: [low/medium/high] — [reason]
+- 差异化策略: [execution/angle/both]
+
 ### 分析结果
 - 竞争对手: [X] 个
 - 观点共识: [positions]
 - 差异化强度: [score]
 
-### 推荐角度 (3个)
+### [如果 skipThesis: false] 推荐角度 (3个)
 [列出 thesis + stance + 差异化评分]
 
 ⏳ 等待用户选择角度
+
+### [如果 skipThesis: true] 执行差异化方向
+- 深度: [ourTarget] — [specificAreas]
+- 覆盖: [ourAdditions]
+- 实用价值: [ourAdditions]
+
+✅ 跳过角度选择，直接进入 Phase 2
 ```
 
 ---

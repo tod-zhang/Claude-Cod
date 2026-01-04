@@ -36,20 +36,31 @@ Read(.claude/data/companies/[company]/article-history.md)  // if exists
 
 ## Step 2: Parse Config Files
 
+### Differentiation Mode Check (FIRST)
+
+**Check `research.json` → `innovationSpace.skipThesis`:**
+
+| skipThesis | Mode | Thesis Verification |
+|------------|------|---------------------|
+| `true` | Execution Differentiation | Skip thesis checks |
+| `false` | Angle Differentiation | Verify thesis execution |
+
 ### Key Fields
 
 | File | Field | Use For |
 |------|-------|---------|
 | core.json | `articleType` | Determines verification type |
-| core.json | `writingAngle.thesis/stance` | Verify execution |
+| core.json | `writingAngle.thesis/stance` | Verify execution (if skipThesis=false) |
 | core.json | `authorPersona.role/bias` | Verify consistency |
 | core.json | `writingAngle.depthMismatchAcknowledged` | Check adaptation |
+| research.json | `innovationSpace.skipThesis` | **Determines verification mode** |
+| research.json | `executionDifferentiation` | Verify depth/coverage/practical (if skipThesis=true) |
 | research.json | `differentiation.primaryDifferentiator` | Verify in title/intro |
 | research.json | `writingAdvice.cautious` | Verify fuzzy language |
 | research.json | `materials.differentiators` | **Must all be used** |
 | research.json | `materials.byPlacement` | Verify placement followed |
 | writing.json | `sectionsToWatch.weak` | **Focus verification here** |
-| writing.json | `thesisExecution` | How thesis was stated |
+| writing.json | `thesisExecution` | How thesis was stated (if skipThesis=false) |
 | writing.json | `personaExecution` | How persona was applied |
 | writing.json | `depthAdaptation` | How depth gap was handled |
 
@@ -75,13 +86,16 @@ Apply fixes one by one to avoid conflicts (e.g., two fixes targeting same paragr
 
 ### Priority Matrix
 
+**Mode-dependent checks marked with [A] = Angle mode only, [E] = Execution mode only**
+
 | Priority | Check | Pass Criteria | If Fail |
 |----------|-------|---------------|---------|
-| P0 | Thesis in intro | Stated in first 3 paragraphs | INJECT |
-| P0 | Thesis in conclusion | Restated/reinforced | ADD sentence |
-| P0 | H2s support thesis | ≥80% support claim | Flag weak sections |
+| P0 [A] | Thesis in intro | Stated in first 3 paragraphs | INJECT |
+| P0 [A] | Thesis in conclusion | Restated/reinforced | ADD sentence |
+| P0 [A] | H2s support thesis | ≥80% support claim | Flag weak sections |
 | P0 | Persona voice | ≥3 signature phrases, 0 voice breaks | INJECT persona |
 | P0 | Bias markers | ≥2 recommendations reflect bias | ADD opinion |
+| P0.5 [E] | **Execution diff applied** | Depth/coverage/practical from research visible | **FLAG MISSING** |
 | P0.5 | Depth adaptation | Argumentation matches stated strategy | Flag mismatch |
 | P0.5 | **Differentiators used** | All `materials.differentiators` appear | **FLAG MISSING** |
 | P1 | Weak sections | Data claims have source/fuzzy | Convert to fuzzy |
@@ -93,13 +107,30 @@ Apply fixes one by one to avoid conflicts (e.g., two fixes targeting same paragr
 | P3 | Differentiation | Primary differentiator in title/intro | Attempt fix |
 | P3 | Case narratives | Cases told as stories, not summaries | Flag for rewrite |
 
+### Differentiation Mode Adjustments
+
+| skipThesis | Thesis Checks | Focus Instead |
+|------------|---------------|---------------|
+| `true` | **Skip all [A] checks** | Verify execution differentiation applied |
+| `false` | **Run all [A] checks** | Thesis stated, reinforced, supported |
+
+### Execution Differentiation Verification (skipThesis=true)
+
+Check that `executionDifferentiation` was applied:
+
+| Dimension | Verify | Example Pass | Example Fail |
+|-----------|--------|--------------|--------------|
+| **Depth** | `specificAreas` covered in detail | "Why this step matters" section | Steps only, no explanation |
+| **Coverage** | `ourAdditions` appear as content | Troubleshooting section exists | Same content as competitors |
+| **Practical** | `ourAdditions` included | Common mistakes listed | Generic advice only |
+
 ### Article Type Adjustments
 
 | Type | Thesis Check | Focus Instead |
 |------|--------------|---------------|
-| `informational` | Skip | Coverage completeness |
-| `tutorial` | If present | Steps clear & actionable |
-| `comparison` | If present | Fair analysis, clear verdict |
+| `informational` | Skip (use execution mode) | Coverage completeness |
+| `tutorial` | If skipThesis=false | Steps clear & actionable |
+| `comparison` | If skipThesis=false | Fair analysis, clear verdict |
 
 ### Voice Break Detection
 
@@ -318,6 +349,9 @@ Scan the final article and generate 5-10 image suggestions. Mix photos and diagr
 
 ## Step 8: Return Summary
 
+**Format depends on differentiation mode:**
+
+### Angle Differentiation Mode (skipThesis=false)
 ```
 ## 校对完成
 
@@ -346,22 +380,58 @@ Scan the final article and generate 5-10 image suggestions. Mix photos and diagr
 - ✅ output/[topic]-images.md ([X] 张图片建议)
 ```
 
+### Execution Differentiation Mode (skipThesis=true)
+```
+## 校对完成
+
+**评分:** 内容 [X]/10 | 质量 [X]/10 | 语言 [X]/10 | SEO [X]/10
+
+### 验证结果
+- 差异化模式: 执行层差异化
+- Persona: [Strong/Moderate/Weak]
+- 数据验证: [X] 本地 | [X] 在线
+- 模糊转换: [X] 个
+
+### 执行差异化验证
+- 深度提升: [✅ applied / ⚠️ partial / ❌ missing]
+- 覆盖补充: [✅ applied / ⚠️ partial / ❌ missing]
+- 实用价值: [✅ applied / ⚠️ partial / ❌ missing]
+
+### 素材使用
+- 差异化素材: [X]/[total] ✅ 或 ⚠️ 缺失: [list]
+- 案例叙事质量: [Good/Needs work]
+- 专家引用: [X] 处 (含类比: [X])
+- 用户声音: [X] 处
+
+### 修复
+- 删除: [forced links, meta-commentary]
+- 注入: [persona sentences]
+- 转换: [fuzzy conversions]
+
+### 输出文件
+- ✅ output/[topic].md
+- ✅ output/[topic]-sources.md
+- ✅ output/[topic]-images.md ([X] 张图片建议)
+```
+
 ---
 
 ## Critical Rules
 
-1. **Focus on weak sections** - From `sectionsToWatch.weak`
-2. **No unverified data** - Convert to fuzzy or remove
-3. **Verify thesis execution** - Must be in intro + conclusion (skip for informational)
-4. **Verify persona consistency** - No voice breaks
-5. **Delete forced links** - Test: remove link, does sentence still add value? If not, delete entire sentence
-6. **Delete placeholder sentences** - "Understanding X helps...", "For a broader overview...", "To learn more..." → DELETE
-7. **Delete meta-commentary** - "Competitors rarely...", "Unlike other sources..."
-8. **Live verify sources** - WebFetch each URL (optimization mode only)
-9. **Write all output files** - Article, sources, images required
-10. **All differentiators must appear** - Flag if any `materials.differentiators` missing
-11. **Cases must be narratives** - Not summaries; context→problem→solution→lesson
-12. **Expert analogies must be attributed** - "As Dr. X explains..." not just facts
-13. **Review skipped materials** - Weak skip reasons = missed opportunity
-14. **⚡ PARALLEL READ/WRITE** - Read all files in one message, write all outputs in one message
-15. **⚡ PARALLEL DETECTION, SERIAL FIX** - Detect issues in parallel, apply fixes serially to avoid conflicts
+1. **Check differentiation mode first** - skipThesis=true → execution mode, skipThesis=false → angle mode
+2. **Focus on weak sections** - From `sectionsToWatch.weak`
+3. **No unverified data** - Convert to fuzzy or remove
+4. **Verify thesis execution (angle mode)** - Must be in intro + conclusion
+5. **Verify execution differentiation (execution mode)** - Depth/coverage/practical must be applied
+6. **Verify persona consistency** - No voice breaks (both modes)
+7. **Delete forced links** - Test: remove link, does sentence still add value? If not, delete entire sentence
+8. **Delete placeholder sentences** - "Understanding X helps...", "For a broader overview...", "To learn more..." → DELETE
+9. **Delete meta-commentary** - "Competitors rarely...", "Unlike other sources..."
+10. **Live verify sources** - WebFetch each URL (optimization mode only)
+11. **Write all output files** - Article, sources, images required
+12. **All differentiators must appear** - Flag if any `materials.differentiators` missing
+13. **Cases must be narratives** - Not summaries; context→problem→solution→lesson
+14. **Expert analogies must be attributed** - "As Dr. X explains..." not just facts
+15. **Review skipped materials** - Weak skip reasons = missed opportunity
+16. **⚡ PARALLEL READ/WRITE** - Read all files in one message, write all outputs in one message
+17. **⚡ PARALLEL DETECTION, SERIAL FIX** - Detect issues in parallel, apply fixes serially to avoid conflicts

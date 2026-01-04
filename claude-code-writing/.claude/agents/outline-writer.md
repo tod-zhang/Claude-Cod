@@ -40,16 +40,30 @@ Read(imports/[topic-title]-analysis.md)  // optimization mode only
 | Field | Source | Required | If Missing |
 |-------|--------|----------|------------|
 | `articleType` | core.json | ✅ | STOP |
-| `writingAngle.thesis` | core.json | opinion only | STOP |
-| `writingAngle.stance` | core.json | opinion only | STOP |
+| `writingAngle.thesis` | core.json | if skipThesis=false | STOP |
+| `writingAngle.stance` | core.json | if skipThesis=false | STOP |
 | `authorPersona.role` | core.json | ✅ | STOP |
 | `authorPersona.bias` | core.json | ✅ | STOP |
+| `innovationSpace.level` | research.json | ✅ | STOP |
 | `status` | research.json | "completed" | STOP |
 
-**Article Type Logic:**
-- `informational` → thesis NOT required, focus on coverage
-- `opinion` → thesis required, but see "Topic vs Thesis" below
-- `tutorial/comparison` → thesis optional
+### Differentiation Mode Check
+
+**First, check `research.json` → `innovationSpace.skipThesis`:**
+
+| skipThesis | Mode | Strategy Source |
+|------------|------|-----------------|
+| `true` | Execution Differentiation | `research.executionDifferentiation` |
+| `false` | Angle Differentiation | `core.writingAngle.thesis` |
+
+**Execution Differentiation Mode (skipThesis=true):**
+- Thesis NOT required
+- Use `executionDifferentiation.depth/coverage/practicalValue` to guide content
+- Focus: deeper explanations, edge cases, practical tips competitors miss
+
+**Angle Differentiation Mode (skipThesis=false):**
+- Thesis required (see "Topic vs Thesis" below)
+- Use thesis to differentiate perspective
 
 ### Topic vs Thesis (CRITICAL)
 
@@ -114,18 +128,49 @@ If `config.optimization.enabled == true`:
 
 ## Step 3: Design Article Strategy
 
-Plan internally before writing:
+Plan internally before writing. Strategy depends on differentiation mode.
+
+### Common Elements (Both Modes)
 
 | Element | Source |
 |---------|--------|
 | Author identity | `authorPersona.role` + `bias` |
-| Core thesis | `writingAngle.thesis` or `thesisValidation.validatedThesis` |
 | Hook strategy | `research.insights.suggestedHook` |
-| Differentiation | `research.differentiation.primaryDifferentiator` |
 | Opinions (2+) | Derived from `authorPersona.bias` |
 | Conclusion type | Based on articleType: next-step/synthesis/verdict/prevention |
 
 **Persona voice must appear in:** intro (paragraph 1), 2+ H2 sections, conclusion.
+
+### Angle Differentiation Mode (skipThesis=false)
+
+| Element | Source |
+|---------|--------|
+| Core thesis | `writingAngle.thesis` or `thesisValidation.validatedThesis` |
+| Differentiation | `research.differentiation.primaryDifferentiator` |
+
+Thesis gets 1-2 dedicated H2s. Other H2s use thesis as lens.
+
+### Execution Differentiation Mode (skipThesis=true)
+
+| Element | Source |
+|---------|--------|
+| Depth targets | `executionDifferentiation.depth.specificAreas` |
+| Coverage gaps | `executionDifferentiation.coverage.ourAdditions` |
+| Practical additions | `executionDifferentiation.practicalValue.ourAdditions` |
+
+**How to apply execution differentiation:**
+
+| Dimension | Implementation |
+|-----------|----------------|
+| **Depth** | Go deeper where competitors stay surface. Explain WHY, not just WHAT. |
+| **Coverage** | Add sections for edge cases, alternatives, failure modes competitors miss. |
+| **Practical Value** | Include common mistakes, troubleshooting, real examples, efficiency tips. |
+
+**Example for "How to install Python":**
+- Competitors: basic steps only
+- Our depth: explain what each step does
+- Our coverage: Windows/Mac/Linux differences, version conflicts
+- Our practical: common errors + fixes, verification steps
 
 ### Material Strategy
 
@@ -324,6 +369,9 @@ See `workflow-state-schema.md` for full structure. Key fields:
 
 ## Step 10: Return Summary
 
+**Format depends on differentiation mode:**
+
+### Angle Differentiation Mode (skipThesis=false)
 ```
 ## 大纲与文章完成
 
@@ -348,20 +396,50 @@ See `workflow-state-schema.md` for full structure. Key fields:
 - 未使用的差异化素材: [list if any]
 ```
 
+### Execution Differentiation Mode (skipThesis=true)
+```
+## 大纲与文章完成
+
+**文件:** outline/[topic].md, drafts/[topic].md
+
+### 执行摘要
+- 标题: [title]
+- 差异化模式: 执行层差异化
+- 人设: [role] | Bias 应用: [X] 处
+
+### 执行差异化应用
+- 深度提升: [specificAreas applied]
+- 覆盖补充: [coverage additions made]
+- 实用价值: [practical additions made]
+
+### 文章概览
+- 字数: [X] | H2: [X]
+- 内链: [X] | 产品提及: [X]
+
+### 素材使用
+- 案例: [X]/[total] | 专家解释: [X]/[total]
+- 差异化素材覆盖: [X]/[total]
+
+### 传递给校对
+- 需关注: [weak sections]
+```
+
 ---
 
 ## Critical Rules
 
 1. **PRESERVE article type** - Never change "Top 10" to "How to"
 2. **WRITE AS PERSONA** - Every section sounds like [role]
-3. **TOPIC FIRST, THESIS AS LENS** - Cover the topic fully; thesis gets 1-2 dedicated H2s, others use thesis as perspective
-4. **BIAS = OPINIONS** - Persona's bias generates recommendations
-5. **MAX 2 TABLES** - Convert excess to prose
-6. **NO FORCED LINKS** - Natural only, zero is acceptable
-7. **ADAPT FOR DEPTH** - If mismatch, adjust argumentation style
-8. **USE RESEARCH STATE** - Don't re-invent, follow `writingAdvice`
-9. **DIFFERENTIATORS FIRST** - Materials marked `competitorHas: false` MUST be used
-10. **TELL CASES, DON'T SUMMARIZE** - Use narrative structure for case studies
-11. **BORROW EXPERT ANALOGIES** - Quote/attribute when using expert explanations
-12. **TRACK MATERIAL USAGE** - Record what was used/skipped in `materialUsage`
-13. **⚡ PARALLEL READ/WRITE** - Read all files in one message, write all outputs in one message
+3. **CHECK DIFFERENTIATION MODE FIRST** - skipThesis=true → execution mode, skipThesis=false → angle mode
+4. **TOPIC FIRST, THESIS AS LENS** - (Angle mode) Cover the topic fully; thesis gets 1-2 dedicated H2s
+5. **APPLY EXECUTION DIFFERENTIATION** - (Execution mode) Use depth/coverage/practicalValue from research
+6. **BIAS = OPINIONS** - Persona's bias generates recommendations (both modes)
+7. **MAX 2 TABLES** - Convert excess to prose
+8. **NO FORCED LINKS** - Natural only, zero is acceptable
+9. **ADAPT FOR DEPTH** - If mismatch, adjust argumentation style
+10. **USE RESEARCH STATE** - Don't re-invent, follow `writingAdvice`
+11. **DIFFERENTIATORS FIRST** - Materials marked `competitorHas: false` MUST be used
+12. **TELL CASES, DON'T SUMMARIZE** - Use narrative structure for case studies
+13. **BORROW EXPERT ANALOGIES** - Quote/attribute when using expert explanations
+14. **TRACK MATERIAL USAGE** - Record what was used/skipped in `materialUsage`
+15. **⚡ PARALLEL READ/WRITE** - Read all files in one message, write all outputs in one message

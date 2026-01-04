@@ -77,6 +77,44 @@ Read by: all agents
 
 ---
 
+## Innovation Space Assessment
+
+Added by: **web-researcher** (Phase 1)
+Read by: main workflow, outline-writer, proofreader
+
+Not all topics have room for unique angles. Some topics have fixed answers or standardized processes where "differentiation" means execution quality, not novel perspectives.
+
+**innovationSpace.level explained:**
+- `low`: Fixed steps, single correct answer, competitors content is nearly identical
+  - Examples: "How to install Python", "What is HTTP", "How to boil an egg"
+  - Strategy: execution differentiation (depth, coverage, practical value)
+- `medium`: Some variation possible, but core content is similar
+  - Examples: "Best practices for X", "Common mistakes in Y"
+  - Strategy: both (light thesis + execution differentiation)
+- `high`: Multiple valid approaches, requires judgment, room for disagreement
+  - Examples: "How to choose a framework", "Best architecture for X"
+  - Strategy: angle differentiation (thesis required)
+
+**innovationSpace.signals explained:**
+- `contentVariance`: How much do competitors differ? (low = nearly identical, high = very different)
+- `answerUniqueness`: How many valid answers exist? (single = one right way, many = depends on context)
+- `judgmentRequired`: Does the reader need to make decisions? (none = follow steps, significant = evaluate tradeoffs)
+
+**innovationSpace.skipThesis:**
+- When `true`, main workflow skips Step 3 (thesis selection)
+- Set automatically when `level: low` or `articleType: informational`
+- When skipped, `executionDifferentiation` becomes the primary differentiation strategy
+
+**executionDifferentiation explained:**
+- Used when `innovationSpace.strategy` includes "execution"
+- Three dimensions:
+  - **depth**: Go deeper than competitors on technical explanations
+  - **coverage**: Cover edge cases, alternatives, failure modes they miss
+  - **practicalValue**: Add real-world examples, common mistakes, troubleshooting
+- Each has `competitorLevel/Provides` (what they do) and `ourTarget/Additions` (what we'll do better)
+
+---
+
 ## workflowState.research
 
 Added by: **web-researcher**
@@ -173,6 +211,33 @@ Read by: outline-writer, proofreader
         }
       ],
       "avoidList": ["what competitors do that we should NOT copy"]
+    },
+    "innovationSpace": {
+      "level": "low | medium | high",
+      "reason": "why this level - e.g., fixed steps, single answer, or multiple valid approaches",
+      "signals": {
+        "contentVariance": "low/medium/high - how much competitors differ",
+        "answerUniqueness": "single/few/many - number of valid answers",
+        "judgmentRequired": "none/some/significant - decision-making needed"
+      },
+      "strategy": "execution | angle | both",
+      "skipThesis": false
+    },
+    "executionDifferentiation": {
+      "depth": {
+        "competitorLevel": "surface | moderate | deep",
+        "ourTarget": "match | deeper | much-deeper",
+        "specificAreas": ["areas where we go deeper than competitors"]
+      },
+      "coverage": {
+        "competitorGaps": ["edge cases", "alternative methods", "failure modes"],
+        "ourAdditions": ["specific topics we'll cover that they miss"]
+      },
+      "practicalValue": {
+        "competitorProvides": ["basic steps", "general advice"],
+        "ourAdditions": ["common mistakes", "efficiency tips", "real examples", "troubleshooting"]
+      },
+      "score": "strong | moderate | weak"
     },
     "gaps": {
       "data": ["missing data areas"],
@@ -506,6 +571,13 @@ Read by: proofreader
 | `research.urlCache` | web-researcher (Phase 2) | 跳过已 Fetch 的 URL，避免重复请求 |
 | `research.competitorContent` | web-researcher (Phase 2) | 复用 Phase 1 竞品数据，无需再次 Fetch |
 | `articleType` | all agents | 决定是否需要 thesis 验证 |
+| `research.innovationSpace.level` | main, outline-writer | low/medium/high 决定差异化策略 |
+| `research.innovationSpace.skipThesis` | main workflow | true = 跳过 Step 3 角度选择 |
+| `research.innovationSpace.strategy` | outline-writer | execution/angle/both 决定差异化类型 |
+| `research.executionDifferentiation` | outline-writer | 执行层差异化的具体方向 |
+| `research.executionDifferentiation.depth` | outline-writer | 比竞品更深入的领域 |
+| `research.executionDifferentiation.coverage` | outline-writer | 竞品遗漏的边界情况 |
+| `research.executionDifferentiation.practicalValue` | outline-writer | 竞品缺少的实用价值 |
 | `writingAngle.pending` | web-researcher (Phase 1) | true = 需要生成 recommendedTheses |
 | `writingAngle.depthMismatchAcknowledged` | outline-writer | Adjust argumentation for depth gap |
 | `research.recommendedTheses` | main (Step 3) | Phase 1 输出的角度推荐 |

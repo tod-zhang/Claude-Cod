@@ -78,12 +78,34 @@ Task: subagent_type="web-researcher"
 Prompt: Phase 1 - Competitor Analysis for: [topic-title]
 ```
 
-**输出**: `config/[topic-title]-research.json` (含 `recommendedTheses`)
+**输出**: `config/[topic-title]-research.json` (含 `innovationSpace`, `executionDifferentiation`)
 
-**验证**: research.json 有 `recommendedTheses`
+**验证**: research.json 有 `innovationSpace.level`
 
-### Step 3: Select Writing Angle
+### Step 3: Select Writing Angle (条件执行)
 
+**检查 `research.json` 的 `innovationSpace.skipThesis`**:
+
+| skipThesis | 处理 |
+|------------|------|
+| `true` | 跳过 Step 3，显示执行差异化摘要，直接进入 Step 4 |
+| `false` | 执行角度选择流程 |
+
+**如果 skipThesis = true**:
+```
+显示：
+创新空间: [level] — [reason]
+差异化策略: 执行层差异化
+
+将通过以下方式超越竞品：
+- 深度: [executionDifferentiation.depth.specificAreas]
+- 覆盖: [executionDifferentiation.coverage.ourAdditions]
+- 实用价值: [executionDifferentiation.practicalValue.ourAdditions]
+
+→ 跳过角度选择，进入素材收集
+```
+
+**如果 skipThesis = false**:
 1. 读取 `research.json` 的 `recommendedTheses`，翻译展示给用户（格式见下方 Display Templates）
 2. 用户选择后，**main workflow 直接 Edit** `core.json`:
    ```
@@ -93,7 +115,6 @@ Prompt: Phase 1 - Competitor Analysis for: [topic-title]
    - "writingAngle.pending": false
    - 如果深度不匹配: "writingAngle.depthMismatchAcknowledged": true
    ```
-3. 信息型文章跳过此步骤（`pending` 已为 false）
 
 ### Step 4: Evidence Collection
 
@@ -166,14 +187,24 @@ Prompt: Import and analyze article from: [URL]
 | 工程师/技术人员 | 技术细节 |
 | 生产经理/采购人员 | 概述 |
 
-### 文章类型→角度要求
+### 角度选择逻辑
 
-| 类型 | 角度要求 |
-|------|----------|
-| 观点型 | 必须选 |
-| 教程型 | 可选 |
-| 信息型 | 跳过 |
-| 对比型 | 可选 |
+角度选择现在由 **创新空间评估** 决定，而非单纯基于文章类型：
+
+| 创新空间 | skipThesis | 差异化策略 |
+|---------|------------|-----------|
+| low | true | 执行差异化（深度、覆盖、实用价值） |
+| medium | false | 轻量角度 + 执行差异化 |
+| high | false | 观点差异化（必须选 thesis） |
+
+**典型映射**（但由竞品分析动态决定）：
+
+| 文章类型 | 常见创新空间 |
+|---------|-------------|
+| 观点型 | high（有争议空间） |
+| 教程型 | low-medium（步骤通常固定） |
+| 信息型 | low（答案通常唯一） |
+| 对比型 | medium-high（需要判断） |
 
 ### 人设→场景匹配
 
@@ -196,7 +227,9 @@ Schema: @.claude/data/workflow-state-schema.md
 - `authorPersona.role/bias`: WHO writes, with what perspective
 
 **research.json** (web-researcher → outline-writer, proofreader):
-- `recommendedTheses` → Step 3 角度选择
+- `innovationSpace.level/skipThesis` → 决定 Step 3 是否执行
+- `executionDifferentiation` → 低创新空间的差异化方向
+- `recommendedTheses` → Step 3 角度选择（如果需要）
 - `thesisValidation` → outline-writer 使用
 - `writingAdvice.cautious` → 需模糊处理的区域
 
