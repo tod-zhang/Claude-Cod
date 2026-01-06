@@ -74,6 +74,7 @@ Read: `config/[topic-title]-core.json`
 | Field | Ph1 | Ph2 | If Missing |
 |-------|-----|-----|------------|
 | `articleType` | ✅ | ✅ | STOP |
+| `articleLength` | ✅ | ✅ | Default: standard |
 | `authorPersona.role` | ✅ | ✅ | STOP |
 | `searchIntent.coreQuestion` | ✅ | ✅ | STOP |
 | `writingAngle.thesis` | - | ✅* | STOP if opinion |
@@ -86,6 +87,7 @@ Read: `config/[topic-title]-core.json`
 - `audience.knowledge.needsToLearn` → prioritize
 - `audience.knowledge.alreadyKnows` → skip basics
 - `authorPersona` → shapes what sources to trust
+- `articleLength` → adjust case search volume (see "Case Search by Article Length")
 
 ### Optimization Mode
 
@@ -304,6 +306,26 @@ Different article types need different material emphasis:
 **Tutorial articles:** Heavy on user voices (match language) and data (precision)
 **Informational articles:** Heavy on experts and data (credibility)
 **Comparison articles:** Balanced, with debates showing multiple perspectives
+
+### Case Search by Article Length
+
+**Adjust Round 2B (Cases) fetch count based on `config.articleLength`:**
+
+| Article Length | Cases Needed | Search Target | Reason |
+|---------------|--------------|---------------|--------|
+| short | 1 | 2 | +1 buffer for selection |
+| standard | 1-2 | 2-3 | +1 buffer for selection |
+| deep | 2-3 | 3-4 | +1 buffer for selection |
+
+**How to apply:** Use the smaller of:
+1. Article type target (from Fetch Volume table below)
+2. Article length target (from table above)
+
+**Example:**
+- `articleType: opinion` (wants 3 cases) + `articleLength: short` (needs 1) → search 2
+- `articleType: informational` (wants 1 case) + `articleLength: deep` (needs 2-3) → search 3
+
+**Token savings:** ~25% reduction in case-related fetches for short/standard articles.
 
 ### Source Selection (WebSearch → WebFetch)
 
@@ -666,3 +688,4 @@ Set `status: "completed"` and add all research fields.
 7. **🔄 URL CACHE** - Check `urlCache` before every Fetch. Never fetch same URL twice. Reuse `competitorContent` from Phase 1 when relevant.
 8. **📊 FETCH BY TYPE** - Use article-type-specific fetch counts (11-12 total), not fixed 20. Opinion → more cases, Tutorial → more user voices, Informational → more data/experts.
 9. **🚫 PRE-FETCH FILTER** - Skip Pinterest/Instagram, navigation URLs (/tag/, /category/), pure product pages. But keep "Top X" titles and Quora (may have value).
+10. **📦 CASE BY LENGTH** - Adjust Round 2B case searches based on `articleLength`: short=2, standard=2-3, deep=3-4. Saves ~25% on case fetches while keeping selection quality.

@@ -38,17 +38,16 @@ Read by: all agents
 - `comparison`: Comparing options, thesis optional (can be neutral or have preference)
 
 **articleLength explained:**
-- `short`: 600-800 words, 2-3 H2s, 1 case study max
+- `short`: 900-1100 words
   - Use for: clear-answer informational articles, quick guides
-- `standard`: 900-1200 words, 3-4 H2s, 1-2 case studies (DEFAULT)
+- `standard`: 1200-1500 words (DEFAULT)
   - Use for: most articles
-- `deep`: 1500-2000 words, 5-6 H2s, 2-3 case studies
+- `deep`: 1800-2300 words
   - Use for: comprehensive tutorials, detailed technical analysis
 
-**Budget enforcement by outline-writer:**
-- Count H2s before writing — reject if exceeds limit
-- One case per 500 words maximum
-- Merge related topics rather than creating separate H2s
+**H2 and case study counts:**
+- Determined by topic structure and content needs, not word count
+- outline-writer decides based on natural subtopics and evidence requirements
 
 **writingAngle.thesis is the ANGLE, not the TOPIC:**
 - **Topic** = what the article covers (from user's search intent)

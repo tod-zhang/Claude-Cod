@@ -70,6 +70,26 @@ Read(.claude/data/companies/[company]/article-history.md)  // if exists
 
 **Strategy: Detect all issues in parallel, then fix serially to avoid conflicts.**
 
+### Outline Compliance Check (FIRST)
+
+Compare draft against outline to verify planning was followed:
+
+**From `outline/[topic-title].md`, extract and verify:**
+
+| Outline Element | Verify In Draft | If Mismatch |
+|-----------------|-----------------|-------------|
+| H2 titles | All H2s match outline | Flag missing/extra H2s |
+| H2 order | Sequence matches | Flag if reordered without reason |
+| H3s planned | H3s appear under correct H2 | Flag missing H3s |
+| Reader questions | Each H2 answers its planned question | Flag if H2 drifts off-topic |
+| Material placement | Cases/Data/Expert in planned locations | Flag if material moved or missing |
+| Introduction plan | Hook type and thesis placement match | Flag if intro deviates |
+| Conclusion plan | Conclusion type matches (next-step/verdict/etc) | Flag if wrong type |
+
+**Acceptable deviations:** Minor wording changes in H2/H3 titles. Flag but don't fail.
+
+**Unacceptable deviations:** Missing H2s, wrong H2 order, missing planned materials, wrong conclusion type.
+
 ### Phase 3.1: Parallel Detection
 
 Run all checks simultaneously to identify issues:
@@ -90,20 +110,24 @@ Apply fixes one by one to avoid conflicts (e.g., two fixes targeting same paragr
 
 | Priority | Check | Pass Criteria | If Fail |
 |----------|-------|---------------|---------|
+| P0 | **Outline compliance** | H2s, H3s, materials match outline | Flag deviations |
 | P0 [A] | Thesis in intro | Stated in first 3 paragraphs | INJECT |
 | P0 [A] | Thesis in conclusion | Restated/reinforced | ADD sentence |
 | P0 [A] | H2s support thesis | ≥80% support claim | Flag weak sections |
 | P0 | Persona voice | ≥3 signature phrases, 0 voice breaks | INJECT persona |
 | P0 | Bias markers | ≥2 recommendations reflect bias | ADD opinion |
+| P0.5 | **Introduction structure** | Has hook + context + thesis/scope | Flag missing components |
+| P0.5 | **H2 logical flow** | Order follows content type pattern | Flag broken flow |
 | P0.5 [E] | **Execution diff applied** | Depth/coverage/practical from research visible | **FLAG MISSING** |
 | P0.5 | Depth adaptation | Argumentation matches stated strategy | Flag mismatch |
 | P0.5 | **Differentiators used** | All `materials.differentiators` appear | **FLAG MISSING** |
 | P1 | Weak sections | Data claims have source/fuzzy | Convert to fuzzy |
 | P1 | Forced links | Sentences exist just for link | DELETE sentence |
-| P1 | Material placement | Follows `byPlacement` suggestions | Note deviation |
+| P1 | Material placement | Follows outline's material plan | Note deviation |
 | P2 | Duplicate links | Same URL twice | Remove duplicate |
 | P2 | Meta-commentary | References competitors | DELETE sentence |
 | P2 | Announcing phrases | "The key insight:" etc | Remove prefix |
+| P2 | Intro anti-patterns | Definition/history/self-reference start | Flag for rewrite |
 | P3 | Differentiation | Primary differentiator in title/intro | Attempt fix |
 | P3 | Case narratives | Cases told as stories, not summaries | Flag for rewrite |
 
@@ -131,6 +155,49 @@ Check that `executionDifferentiation` was applied:
 | `informational` | Skip (use execution mode) | Coverage completeness |
 | `tutorial` | If skipThesis=false | Steps clear & actionable |
 | `comparison` | If skipThesis=false | Fair analysis, clear verdict |
+
+### Introduction Structure Verification
+
+Introduction must have 4 components (from outline's Introduction Plan):
+
+| Component | Verify | If Missing |
+|-----------|--------|------------|
+| **Hook** | First 1-2 sentences grab attention (case/stat/question) | Flag: "Intro lacks hook" |
+| **Context** | Bridge from hook to topic (1-2 sentences) | Flag: "No context bridge" |
+| **Thesis/Angle** | Thesis stated (angle mode) or scope defined (execution mode) | INJECT thesis statement |
+| **Article scope** | Reader knows what they'll learn | Flag if completely missing |
+
+**Introduction anti-patterns to flag:**
+- ❌ Starts with definition ("X is a process that...")
+- ❌ Starts with history ("For centuries...")
+- ❌ Self-reference ("In this article, we will...")
+- ❌ Generic statement ("Quality is important...")
+
+**Word count check:**
+- Short article: 80-120 words
+- Standard article: 100-150 words
+- Deep article: 150-200 words
+
+Flag if intro exceeds budget by >20%.
+
+### H2 Logical Flow Verification
+
+Verify H2 order follows content type pattern (from outline's H2 Logical Flow Patterns):
+
+| Content Type | Expected Flow | Flag If |
+|--------------|---------------|---------|
+| Troubleshooting | Problem → Diagnosis → Solutions → Prevention | Solutions before Problem |
+| Comparison | Context → Criteria → Options → Verdict | Verdict before Options |
+| Tutorial | Overview → Steps → Warnings → Verify | Warnings before Steps |
+| Guide | Concept → Mechanism → Application | Application before Concept |
+| Opinion | Problem → Evidence → Counterarguments → Recommendation | Recommendation before Evidence |
+
+**Flow validation questions:**
+1. Does each H2 build on previous? (No unexplained concepts)
+2. Is there logical progression? (simple→complex, problem→solution)
+3. Would reader feel confused by the order?
+
+**If flow broken:** Flag with specific issue (e.g., "H2-3 discusses solutions before H2-2 explains the problem").
 
 ### Voice Break Detection
 
@@ -420,20 +487,24 @@ Scan the final article and generate 5-10 image suggestions. Mix photos and diagr
 
 ## Critical Rules
 
-1. **Check differentiation mode first** - skipThesis=true → execution mode, skipThesis=false → angle mode
-2. **Focus on weak sections** - From `sectionsToWatch.weak`
-3. **No unverified data** - Convert to fuzzy or remove
-4. **Verify thesis execution (angle mode)** - Must be in intro + conclusion
-5. **Verify execution differentiation (execution mode)** - Depth/coverage/practical must be applied
-6. **Verify persona consistency** - No voice breaks (both modes)
-7. **Delete forced links** - Test: remove link, does sentence still add value? If not, delete entire sentence
-8. **Delete placeholder sentences** - "Understanding X helps...", "For a broader overview...", "To learn more..." → DELETE
-9. **Delete meta-commentary** - "Competitors rarely...", "Unlike other sources..."
-10. **Live verify sources** - WebFetch each URL (optimization mode only)
-11. **Write all output files** - Article, sources, images required
-12. **All differentiators must appear** - Flag if any `materials.differentiators` missing
-13. **Cases must be narratives** - Not summaries; context→problem→solution→lesson
-14. **Expert analogies must be attributed** - "As Dr. X explains..." not just facts
-15. **Review skipped materials** - Weak skip reasons = missed opportunity
-16. **⚡ PARALLEL READ/WRITE** - Read all files in one message, write all outputs in one message
-17. **⚡ PARALLEL DETECTION, SERIAL FIX** - Detect issues in parallel, apply fixes serially to avoid conflicts
+1. **Verify outline compliance first** - Compare draft against outline for H2s, H3s, materials
+2. **Check differentiation mode** - skipThesis=true → execution mode, skipThesis=false → angle mode
+3. **Focus on weak sections** - From `sectionsToWatch.weak`
+4. **No unverified data** - Convert to fuzzy or remove
+5. **Verify thesis execution (angle mode)** - Must be in intro + conclusion
+6. **Verify execution differentiation (execution mode)** - Depth/coverage/practical must be applied
+7. **Verify persona consistency** - No voice breaks (both modes)
+8. **Verify introduction structure** - Must have hook + context + thesis/scope
+9. **Verify H2 logical flow** - Order follows content type pattern
+10. **Delete forced links** - Test: remove link, does sentence still add value? If not, delete entire sentence
+11. **Delete placeholder sentences** - "Understanding X helps...", "For a broader overview...", "To learn more..." → DELETE
+12. **Delete meta-commentary** - "Competitors rarely...", "Unlike other sources..."
+13. **Flag intro anti-patterns** - Definition/history/self-reference starts
+14. **Live verify sources** - WebFetch each URL (optimization mode only)
+15. **Write all output files** - Article, sources, images required
+16. **All differentiators must appear** - Flag if any `materials.differentiators` missing
+17. **Cases must be narratives** - Not summaries; context→problem→solution→lesson
+18. **Expert analogies must be attributed** - "As Dr. X explains..." not just facts
+19. **Review skipped materials** - Weak skip reasons = missed opportunity
+20. **⚡ PARALLEL READ/WRITE** - Read all files in one message, write all outputs in one message
+21. **⚡ PARALLEL DETECTION, SERIAL FIX** - Detect issues in parallel, apply fixes serially to avoid conflicts

@@ -3,7 +3,7 @@
 This document tracks all published articles for cross-referencing, internal linking, and content strategy.
 
 **Last Updated:** 2026-01-06
-**Total Articles:** ~105
+**Total Articles:** ~106
 
 ---
 
@@ -22,6 +22,7 @@ This document tracks all published articles for cross-referencing, internal link
 |- how-to-calculate-roi-for-aluminum-foil-container-machine
 |- average-cost-to-repair-an-aluminum-foil-container-machine
 |- aluminum-container-production-cost-breakdown (COMPLETED - 2026-01-06)
+|- aluminum-container-startup-cost-guide (NEW - 2026-01-06)
 |- [GAP] aluminum-foil-container-machine-buying-guide
 ```
 
@@ -204,31 +205,31 @@ Conclusion Rules:
 ### Hook Distribution (All Time)
 | Hook Type | Total Count | Last Used | Status |
 |-----------|-------------|-----------|--------|
-| surprising-stat | 4 | 2026-01-05 | Available |
+| surprising-stat | 5 | 2026-01-06 | BLOCKED next |
 | practitioner-quote | 1 | 2026-01-05 | Available |
-| question | 3 | 2026-01-06 | BLOCKED next |
+| question | 3 | 2026-01-06 | Available |
 | problem | 3 | 2026-01-05 | Available |
 | direct | 1 | 2025-12-31 | Available |
 
 ### Recent Hook Sequence (Last 10)
 | # | Article | Hook Type | Date |
 |---|---------|-----------|------|
-| 1 | aluminum-container-production-cost-breakdown (v2) | question | 2026-01-06 |
-| 2 | aluminum-container-production-cost-breakdown | surprising-stat | 2026-01-05 |
-| 3 | aluminum-vs-cpet-tray | problem | 2026-01-05 |
-| 4 | aluminum-vs-paper-container | surprising-stat | 2026-01-05 |
-| 5 | edge-burr-problems-aluminum-foil-containers | practitioner-quote | 2026-01-05 |
-| 6 | lubrication-oil-types-for-aluminum-foil-container-stamping | problem | 2026-01-02 |
-| 7 | lacquered-vs-plain-aluminum-foil-for-food-containers | surprising-stat | 2025-12-31 |
-| 8 | pre-lubricated-vs-non-lubricated-aluminum-foil-for-stamping-presses | surprising-stat | 2025-12-31 |
-| 9 | aluminum-alloy-3003-vs-8011-for-foil-containers | question | 2025-12-31 |
-| 10 | how-to-achieve-wrinkles-in-aluminum-foil-container-dies | problem | 2025-12-30 |
+| 1 | aluminum-container-startup-cost-guide | surprising-stat | 2026-01-06 |
+| 2 | aluminum-container-production-cost-breakdown (v2) | question | 2026-01-06 |
+| 3 | aluminum-container-production-cost-breakdown | surprising-stat | 2026-01-05 |
+| 4 | aluminum-vs-cpet-tray | problem | 2026-01-05 |
+| 5 | aluminum-vs-paper-container | surprising-stat | 2026-01-05 |
+| 6 | edge-burr-problems-aluminum-foil-containers | practitioner-quote | 2026-01-05 |
+| 7 | lubrication-oil-types-for-aluminum-foil-container-stamping | problem | 2026-01-02 |
+| 8 | lacquered-vs-plain-aluminum-foil-for-food-containers | surprising-stat | 2025-12-31 |
+| 9 | pre-lubricated-vs-non-lubricated-aluminum-foil-for-stamping-presses | surprising-stat | 2025-12-31 |
+| 10 | aluminum-alloy-3003-vs-8011-for-foil-containers | question | 2025-12-31 |
 
 ### Conclusion Distribution (All Time)
 | Conclusion Type | Total Count | Last Used | Status |
 |-----------------|-------------|-----------|--------|
 | next-journey-step | 3 | 2026-01-06 | Available |
-| action-checklist | 1 | 2026-01-05 | Available |
+| action-checklist | 2 | 2026-01-06 | Available |
 | key-takeaways | 3 | 2026-01-02 | Available |
 | contact-cta | 0 | - | Available |
 | verdict | 5 | 2026-01-05 | Available |
@@ -236,21 +237,21 @@ Conclusion Rules:
 ### Recent Conclusion Sequence (Last 10)
 | # | Article | Conclusion Type | Date |
 |---|---------|-----------------|------|
-| 1 | aluminum-container-production-cost-breakdown (v2) | next-journey-step | 2026-01-06 |
-| 2 | aluminum-container-production-cost-breakdown | next-journey-step | 2026-01-05 |
-| 3 | aluminum-vs-cpet-tray | verdict | 2026-01-05 |
-| 4 | aluminum-vs-paper-container | verdict | 2026-01-05 |
-| 5 | edge-burr-problems-aluminum-foil-containers | action-checklist | 2026-01-05 |
-| 6 | lubrication-oil-types-for-aluminum-foil-container-stamping | key-takeaways | 2026-01-02 |
-| 7 | lacquered-vs-plain-aluminum-foil-for-food-containers | verdict | 2025-12-31 |
-| 8 | pre-lubricated-vs-non-lubricated-aluminum-foil-for-stamping-presses | verdict | 2025-12-31 |
-| 9 | aluminum-alloy-3003-vs-8011-for-foil-containers | verdict | 2025-12-31 |
-| 10 | how-to-achieve-wrinkles-in-aluminum-foil-container-dies | next-journey-step | 2025-12-30 |
+| 1 | aluminum-container-startup-cost-guide | action-checklist | 2026-01-06 |
+| 2 | aluminum-container-production-cost-breakdown (v2) | next-journey-step | 2026-01-06 |
+| 3 | aluminum-container-production-cost-breakdown | next-journey-step | 2026-01-05 |
+| 4 | aluminum-vs-cpet-tray | verdict | 2026-01-05 |
+| 5 | aluminum-vs-paper-container | verdict | 2026-01-05 |
+| 6 | edge-burr-problems-aluminum-foil-containers | action-checklist | 2026-01-05 |
+| 7 | lubrication-oil-types-for-aluminum-foil-container-stamping | key-takeaways | 2026-01-02 |
+| 8 | lacquered-vs-plain-aluminum-foil-for-food-containers | verdict | 2025-12-31 |
+| 9 | pre-lubricated-vs-non-lubricated-aluminum-foil-for-stamping-presses | verdict | 2025-12-31 |
+| 10 | aluminum-alloy-3003-vs-8011-for-foil-containers | verdict | 2025-12-31 |
 
 ### Audience Distribution (All Time)
 | Audience | Total Count | Last Used |
 |----------|-------------|-----------|
-| beginner | 1 | 2025-12-28 |
+| beginner | 2 | 2026-01-06 |
 | intermediate | 5 | 2026-01-05 |
 | practitioner | 2 | 2026-01-05 |
 | expert | 2 | 2026-01-02 |
@@ -267,6 +268,7 @@ Conclusion Rules:
 | fully-automatic-vs-semi-automatic | "automatic vs semi-automatic", "machine types" |
 | pneumatic-vs-mechanical | "pneumatic machine", "mechanical press" |
 | aluminum-container-production-cost-breakdown | "LME 70/25/5 breakdown", "15,000-20,000 automation threshold", "12-18 month payback", "production cost structure" |
+| aluminum-container-startup-cost-guide | "startup equipment costs", "hidden infrastructure costs", "3-phase electrical installation", "working capital requirements" |
 
 ### Containers
 | Topic | Linkable Anchors |
@@ -349,6 +351,8 @@ Conclusion Rules:
 | aluminum-vs-cpet-tray | can-you-microwave-aluminum-foil-containers | "aluminum vs CPET for microwave use" | Pending |
 | aluminum-container-production-cost-breakdown | how-to-calculate-roi-for-aluminum-foil-container-machine | "detailed cost breakdown inputs" | Pending |
 | aluminum-container-production-cost-breakdown | how-to-choose-the-right-aluminum-foil-container-machine-for-my-business | "cost implications of equipment selection" | Pending |
+| aluminum-container-startup-cost-guide | how-to-calculate-roi-for-aluminum-foil-container-machine | "initial investment baseline" | Pending |
+| aluminum-container-startup-cost-guide | how-to-choose-the-right-aluminum-foil-container-machine-for-my-business | "budget planning before machine selection" | Pending |
 
 ---
 
@@ -367,6 +371,7 @@ Conclusion Rules:
 - 2026-01-05: Added aluminum-vs-cpet-tray to Comparisons cluster (Intermediate audience, problem hook, verdict conclusion - heating method framework differentiation)
 - 2026-01-05: Added aluminum-container-production-cost-breakdown to Machine cluster (Strategic Decision-Maker audience, surprising-stat hook, next-journey-step conclusion - execution differentiation via controllability framework, fills cost analysis gap)
 - 2026-01-06: COMPLETED aluminum-container-production-cost-breakdown v2 (Strategic Decision-Maker audience, question hook, next-journey-step conclusion - complete rewrite with LME breakdown, case studies, automation threshold framework - execution differentiation mode)
+- 2026-01-06: NEW aluminum-container-startup-cost-guide (Complete Beginner audience, surprising-stat hook, action-checklist conclusion - execution differentiation with hidden costs focus: electrical infrastructure, molds, shipping, working capital - differentiates from production-cost-breakdown by targeting beginners vs strategic decision-makers)
 - Good balance of machine content and consumer/usage content
 - Strong coverage of safety and usage questions
 - Consider adding more B2B manufacturing content

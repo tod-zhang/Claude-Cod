@@ -154,9 +154,13 @@ Challenge at least one common assumption per article.
 
 ### 4.1 Heading Hierarchy
 - **H2 (##)**: Main sections
-- **H3 (###)**: Subsections
+- **H3 (###)**: Subsections within H2 (see below)
 - **H4 (####)**: Rarely needed
 - Never skip levels. Keep under 60 characters.
+
+**H3 Usage:** Plan H3 in outline, not as post-writing fix.
+- Use when H2 has parallel sub-concepts, process steps, or multi-angle analysis
+- Don't use when H2 content is singular and doesn't need subdivision
 
 ### 4.2 Lists
 - **Bullets**: Unordered items, 3-7 items per list
