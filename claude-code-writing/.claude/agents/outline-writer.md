@@ -107,10 +107,35 @@ If `writingAngle.depthMismatchAcknowledged == true`:
 - ❌ "根据热力学第二定律..."
 - ✅ "我见过工厂严格按教科书操作，废品率却居高不下。问题在于..."
 
+### Word Count Budget (MANDATORY)
+
+Read `articleLength` from core.json and enforce these limits:
+
+| Length | Word Count | H2 Limit | Cases | Data Points |
+|--------|------------|----------|-------|-------------|
+| short | 600-800 | 2-3 | 1 | 2-3 |
+| standard | 900-1200 | 3-4 | 1-2 | 3-5 |
+| deep | 1500-2000 | 5-6 | 2-3 | 5-8 |
+
+**Budget Allocation per Section:**
+
+| Length | Intro | Per H2 | Conclusion |
+|--------|-------|--------|------------|
+| short | 80-100 | 150-200 | 50-80 |
+| standard | 100-150 | 200-280 | 80-120 |
+| deep | 150-200 | 250-350 | 100-150 |
+
+**Enforcement Rules:**
+- Count H2s in outline phase — reject if exceeds limit
+- One case study per 500 words maximum
+- Merge related topics into single H2 rather than creating separate sections
+- Cut redundant examples; keep only the strongest one per point
+
 ### Key Config Fields
 
 | Field | Source | Use For |
 |-------|--------|---------|
+| `articleLength` | core.json | Word count budget |
 | `writingAngle.thesis` | core.json | Core claim to prove |
 | `authorPersona.bias` | core.json | Shapes all recommendations |
 | `differentiation.primaryDifferentiator` | research.json | Lead intro with this |
@@ -212,6 +237,21 @@ research.materialMix.targetMix → target distribution by type
 
 ## Step 4: Create Outline
 
+### Word Count Gate (CHECK FIRST)
+
+Before creating outline, verify H2 count against `articleLength`:
+
+| articleLength | Max H2s | If exceeds |
+|---------------|---------|------------|
+| short | 3 | Merge sections or cut least essential |
+| standard | 4 | Merge or prioritize core questions |
+| deep | 6 | Allowed for comprehensive coverage |
+
+**Outline Validation:**
+1. Count planned H2s
+2. If > limit: identify which H2s can be merged or cut
+3. Prioritize: core question answer > thesis proof > supporting details
+
 ### Article Type Fidelity (MANDATORY)
 
 **NEVER change the article type from user's topic:**
@@ -230,6 +270,7 @@ Check `differentiation.primaryDifferentiator`. Title must promise unique value w
 - Max depth: H3
 - First H2 answers `searchIntent.coreQuestion`
 - Each H2 must pass tangent test: Could this be a separate article? If yes → remove
+- **Word budget per H2**: See Word Count Budget table above
 
 **Topic Coverage First:**
 - Outline H2s based on **topic** (user's search intent), not thesis
@@ -428,18 +469,20 @@ See `workflow-state-schema.md` for full structure. Key fields:
 
 ## Critical Rules
 
-1. **PRESERVE article type** - Never change "Top 10" to "How to"
-2. **WRITE AS PERSONA** - Every section sounds like [role]
-3. **CHECK DIFFERENTIATION MODE FIRST** - skipThesis=true → execution mode, skipThesis=false → angle mode
-4. **TOPIC FIRST, THESIS AS LENS** - (Angle mode) Cover the topic fully; thesis gets 1-2 dedicated H2s
-5. **APPLY EXECUTION DIFFERENTIATION** - (Execution mode) Use depth/coverage/practicalValue from research
-6. **BIAS = OPINIONS** - Persona's bias generates recommendations (both modes)
-7. **MAX 2 TABLES** - Convert excess to prose
-8. **NO FORCED LINKS** - Natural only, zero is acceptable
-9. **ADAPT FOR DEPTH** - If mismatch, adjust argumentation style
-10. **USE RESEARCH STATE** - Don't re-invent, follow `writingAdvice`
-11. **DIFFERENTIATORS FIRST** - Materials marked `competitorHas: false` MUST be used
-12. **TELL CASES, DON'T SUMMARIZE** - Use narrative structure for case studies
-13. **BORROW EXPERT ANALOGIES** - Quote/attribute when using expert explanations
-14. **TRACK MATERIAL USAGE** - Record what was used/skipped in `materialUsage`
-15. **⚡ PARALLEL READ/WRITE** - Read all files in one message, write all outputs in one message
+1. **ENFORCE WORD COUNT** - Check `articleLength` first; never exceed H2 limit or word budget
+2. **PRESERVE article type** - Never change "Top 10" to "How to"
+3. **WRITE AS PERSONA** - Every section sounds like [role]
+4. **CHECK DIFFERENTIATION MODE FIRST** - skipThesis=true → execution mode, skipThesis=false → angle mode
+5. **TOPIC FIRST, THESIS AS LENS** - (Angle mode) Cover the topic fully; thesis gets 1-2 dedicated H2s
+6. **APPLY EXECUTION DIFFERENTIATION** - (Execution mode) Use depth/coverage/practicalValue from research
+7. **BIAS = OPINIONS** - Persona's bias generates recommendations (both modes)
+8. **MAX 2 TABLES** - Convert excess to prose
+9. **NO FORCED LINKS** - Natural only, zero is acceptable
+10. **ADAPT FOR DEPTH** - If mismatch, adjust argumentation style
+11. **USE RESEARCH STATE** - Don't re-invent, follow `writingAdvice`
+12. **DIFFERENTIATORS FIRST** - Materials marked `competitorHas: false` MUST be used
+13. **TELL CASES, DON'T SUMMARIZE** - Use narrative structure for case studies
+14. **BORROW EXPERT ANALOGIES** - Quote/attribute when using expert explanations
+15. **TRACK MATERIAL USAGE** - Record what was used/skipped in `materialUsage`
+16. **⚡ PARALLEL READ/WRITE** - Read all files in one message, write all outputs in one message
+17. **ONE CASE PER 500 WORDS** - Maximum case study density; cut redundant cases

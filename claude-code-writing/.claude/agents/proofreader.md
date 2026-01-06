@@ -152,11 +152,13 @@ Flag paragraphs with: zero first-person + zero opinions, pure definition, encycl
 
 | Pattern | Example | Action |
 |---------|---------|--------|
-| "Understanding X helps..." | "Understanding [link] helps contextualize how Y works" | DELETE |
+| "Understanding X helps/provides..." | "Understanding [link] provides the foundation for optimizing Y" | DELETE |
+| "Selecting/Choosing X requires..." | "Selecting the appropriate [link] requires matching A to B" | DELETE |
 | "For a broader overview..." | "For a broader overview of [link], this provides context" | DELETE |
 | "To learn more about..." | "To learn more about X, see [link]" | DELETE |
 | "For more information..." | "For more information on X, check out [link]" | DELETE |
 | "X provides valuable context" | "[Link] provides valuable context for understanding Y" | DELETE |
+| "X provides the foundation..." | "[Link] provides the foundation for understanding Y" | DELETE |
 
 **Never inject links using these patterns.** If no natural integration point exists, leave the article without that internal link.
 

@@ -277,9 +277,72 @@ Challenge at least one common assumption per article.
 
 ---
 
-## 6. What to Avoid
+## 6. Content Economy
 
-### 6.1 Banned Phrases
+Keep articles lean. Every element must earn its place.
+
+### 6.1 One Case Per Point
+
+Each claim or argument gets ONE supporting case maximum.
+
+| Scenario | Action |
+|----------|--------|
+| Multiple cases support same point | Keep strongest, cut others |
+| Case already used earlier | Reference briefly, don't retell |
+| Case is "nice to have" | Cut it |
+
+```
+❌ "CloudKitchens had 3.2% leak rate... FitMeals saved $76K... SkyChef improved 20%..."
+   (Three cases making the same point: design matters)
+
+✅ "FitMeals redesigned containers for shipping density, saving $76K annually."
+   (One case, strongest proof)
+```
+
+### 6.2 Data Restraint
+
+Only include data the reader needs for decisions. Cut "interesting but not essential" numbers.
+
+| Keep | Cut |
+|------|-----|
+| Decision-critical thresholds | Regional price variations |
+| Actionable benchmarks | Historical context |
+| Cost impact percentages | Precise per-unit breakdowns |
+
+```
+❌ "US Midwest buyers face $210/ton premium. Japan CIF adds $180/ton. Europe..."
+✅ "Regional premiums add 5-12% to base cost depending on location."
+```
+
+**Test:** Would removing this data change the reader's decision? No → cut it.
+
+### 6.3 No Repetition
+
+Each fact, case, or concept appears ONCE at its most relevant location.
+
+| Pattern | Fix |
+|---------|-----|
+| "As mentioned earlier..." | Delete the reference |
+| Restating a stat in conclusion | Just draw the implication |
+| Same example in multiple H2s | Pick one H2, remove from others |
+
+```
+❌ H2-1: "Raw materials are 60-70% of cost"
+   H2-4: "Given that raw materials dominate at 60-70%..."
+   Conclusion: "Remember, raw materials are 60-70%..."
+
+✅ H2-1: "Raw materials are 60-70% of cost"
+   H2-4: "This cost structure means..."
+   Conclusion: "Focus procurement efforts where they matter most."
+```
+
+**Exception:** Thesis reinforcement in conclusion (one sentence, not data rehash).
+
+---
+
+## 7. What to Avoid
+
+### 7.1 Banned Phrases
 
 **Clichés:**
 - "In conclusion", "In summary", "In today's world"
@@ -314,12 +377,12 @@ Examples:
 - "In this article, we will discuss..."
 - "As mentioned in the previous section..."
 
-### 6.2 Writing Anti-Patterns
+### 7.2 Writing Anti-Patterns
 - Overloaded sentences with multiple claims
 - Unanchored claims ("cutting-edge" without specifics)
 - Weak hedging when evidence is strong
 
-### 6.3 Data Integrity
+### 7.3 Data Integrity
 
 **All data must be fact-based or research-sourced.**
 
@@ -343,3 +406,6 @@ Examples:
 8. **No filler phrases** - If deletable, delete it
 9. **Golden Insights prominent** - Not buried in paragraphs
 10. **Contrarian positioning** - Challenge one assumption per article
+11. **One case per point** - Multiple cases for same argument → keep strongest
+12. **Data restraint** - Only decision-critical data; cut "nice to know"
+13. **No repetition** - Each fact/case appears once at most relevant location

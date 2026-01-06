@@ -12,6 +12,7 @@ Read by: all agents
 ```json
 {
   "articleType": "opinion | tutorial | informational | comparison",
+  "articleLength": "short | standard | deep",
   "writingAngle": {
     "thesis": "The ONE claim this article proves (null until Step 3)",
     "stance": "challenge | confirm | nuance (null until Step 3)",
@@ -35,6 +36,19 @@ Read by: all agents
 - `tutorial`: How-to guide, thesis optional (e.g., "the simplest method")
 - `informational`: Objective explanation, no thesis needed
 - `comparison`: Comparing options, thesis optional (can be neutral or have preference)
+
+**articleLength explained:**
+- `short`: 600-800 words, 2-3 H2s, 1 case study max
+  - Use for: clear-answer informational articles, quick guides
+- `standard`: 900-1200 words, 3-4 H2s, 1-2 case studies (DEFAULT)
+  - Use for: most articles
+- `deep`: 1500-2000 words, 5-6 H2s, 2-3 case studies
+  - Use for: comprehensive tutorials, detailed technical analysis
+
+**Budget enforcement by outline-writer:**
+- Count H2s before writing — reject if exceeds limit
+- One case per 500 words maximum
+- Merge related topics rather than creating separate H2s
 
 **writingAngle.thesis is the ANGLE, not the TOPIC:**
 - **Topic** = what the article covers (from user's search intent)
@@ -555,6 +569,7 @@ Read by: proofreader
 | Field Path | Set By | Used By | Purpose |
 |------------|--------|---------|---------|
 | `articleType` | config-creator | all | opinion/tutorial/informational/comparison |
+| `articleLength` | config-creator | outline-writer | short/standard/deep - controls H2 count and word budget |
 | `writingAngle.thesis` | main (Step 3) | all | The ONE claim to prove (null until Step 3) |
 | `writingAngle.stance` | main (Step 3) | all | challenge/confirm/nuance (null until Step 3) |
 | `writingAngle.pending` | config-creator | web-researcher, main | true = thesis 待选择 |

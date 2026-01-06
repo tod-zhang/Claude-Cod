@@ -59,6 +59,7 @@ SEO 文章写作工作流。两种模式：新文章写作、旧文章优化。
 6. **收集用户选择**（展示格式见下方 Display Templates）:
    - 受众 + 深度（一次询问）
    - 文章类型
+   - 文章长度（简短/标准/深度）
    - 作者人设
 
 7. **确定输出语言**: `semrush → 中文, others → English`
@@ -66,7 +67,7 @@ SEO 文章写作工作流。两种模式：新文章写作、旧文章优化。
 8. **Launch config-creator**:
    ```
    Task: subagent_type="config-creator"
-   Prompt: Create config for [company], [topic], [audience], [depth], [articleType], [persona], [language]
+   Prompt: Create config for [company], [topic], [audience], [depth], [articleType], [articleLength], [persona], [language]
    ```
 
 9. **验证**: `config/[topic-title]-core.json` 存在
@@ -343,6 +344,24 @@ imports/[topic]-analysis.md   ← Workflow 2 Step 0 only
 
 3. 行业观察者
    △ 适合场景：对比型文章、采购决策者
+```
+
+### 文章长度选项
+
+```
+请选择文章长度：
+
+1. 标准 (推荐)
+   900-1200 词 | 3-4 个 H2 | 1-2 个案例
+   ✓ 适合大多数文章
+
+2. 简短
+   600-800 词 | 2-3 个 H2 | 1 个案例
+   △ 适合场景：答案明确的信息型文章、快速指南
+
+3. 深度
+   1500-2000 词 | 5-6 个 H2 | 2-3 个案例
+   △ 适合场景：需要详细论证的技术文章、完整教程
 ```
 
 ### 写作角度选项（Step 3）
