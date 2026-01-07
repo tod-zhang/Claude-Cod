@@ -158,6 +158,12 @@ Challenge at least one common assumption per article.
 - **H4 (####)**: Rarely needed
 - Never skip levels. Keep under 60 characters.
 
+**H2 Title Style:**
+- Simple question or statement (no length restriction)
+- ❌ No colon subtitles: "Equipment Costs: Your Largest Investment"
+- ❌ No modifiers/commentary: "Hidden Costs Most Beginners Miss"
+- ✅ Simple: "Equipment Costs", "What Are the Hidden Costs?", "How Scale Affects Unit Cost"
+
 **H3 Usage:** Plan H3 in outline, not as post-writing fix.
 - Use when H2 has parallel sub-concepts, process steps, or multi-angle analysis
 - Don't use when H2 content is singular and doesn't need subdivision

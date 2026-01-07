@@ -124,10 +124,15 @@ Apply fixes one by one to avoid conflicts (e.g., two fixes targeting same paragr
 | P1 | Weak sections | Data claims have source/fuzzy | Convert to fuzzy |
 | P1 | Forced links | Sentences exist just for link | DELETE sentence |
 | P1 | Material placement | Follows outline's material plan | Note deviation |
+| P1.5 | **AI sentence patterns** | "-ing helps", "Three X. First..." | Rewrite structure |
+| P1.5 | **AI vocabulary** | represent, significantly, dramatically | Replace with human words |
+| P2 | AI filler phrases | "It's important to note..." | Delete phrase |
+| P2 | AI over-structure | Multiple "First/Second/Third" lists | Vary one |
 | P2 | Duplicate links | Same URL twice | Remove duplicate |
 | P2 | Meta-commentary | References competitors | DELETE sentence |
 | P2 | Announcing phrases | "The key insight:" etc | Remove prefix |
 | P2 | Intro anti-patterns | Definition/history/self-reference start | Flag for rewrite |
+| P2 | H2 title bloat | Colon subtitles, modifiers/commentary | Simplify title |
 | P3 | Differentiation | Primary differentiator in title/intro | Attempt fix |
 | P3 | Case narratives | Cases told as stories, not summaries | Flag for rewrite |
 
@@ -212,6 +217,73 @@ Flag paragraphs with: zero first-person + zero opinions, pure definition, encycl
 | Prefix | "The result:", "The key insight:", "The truth is:" | Remove prefix |
 | Cliché | "The good news is that...", "Let me explain..." | Delete, state directly |
 | Empty | "isn't difficult once you understand X" | Replace with specifics |
+
+### AI Writing Patterns Detection
+
+Scan article for patterns that signal AI-generated content. Fix or flag each occurrence.
+
+**P1: Sentence Structure Patterns (Must Fix)**
+
+| Pattern | Example | Fix |
+|---------|---------|-----|
+| "-ing + helps/allows/enables" | "Understanding X helps you Y" | Rewrite: "See X to learn Y" or "X shows you Y" |
+| "Three X. First... Second... Third..." | "Three factors drive this. First..." | Remove count, use "And" to connect |
+| "This ensures that..." | "This ensures consistent quality" | Rewrite directly: "Quality stays consistent" |
+| "Whether you're X or Y..." | "Whether you're a beginner or expert..." | Delete or simplify |
+| "When it comes to..." | "When it comes to cost..." | Delete phrase, state directly |
+
+**P1: Formal/Academic Vocabulary (Replace)**
+
+| AI Word | Human Alternative |
+|---------|-------------------|
+| represent | are, make up, account for |
+| significantly | widely, much, a lot |
+| dramatically | much, sharply, steeply |
+| utilize | use |
+| implement | set up, add, create |
+| facilitate | help, enable, let |
+| comprehensive | full, complete, thorough |
+| substantial | large, big, major |
+| leverage | use, take advantage of |
+| optimize | improve, fine-tune |
+| streamline | simplify, speed up |
+| robust | strong, solid, reliable |
+
+**P2: Filler Phrases (Delete)**
+
+| Delete | Note |
+|--------|------|
+| "It's important to note that..." | State the thing directly |
+| "It's worth mentioning that..." | Just mention it |
+| "In order to..." | Replace with "to..." |
+| "plays a crucial role" | "matters", "affects", "shapes" |
+| "a wide range of" | "many", "various" |
+| "In today's..." | Delete entirely |
+| "First and foremost" | Delete |
+| "Last but not least" | Delete |
+
+**P2: Over-Structured Lists**
+
+| Pattern | Problem | Fix |
+|---------|---------|-----|
+| Multiple "X. First... Second... Third..." in same article | Too mechanical | Keep one, vary others |
+| Every H2 ends with numbered list | Template-like | Mix formats |
+| Identical sentence structures in list items | Robotic | Vary structure |
+
+**Detection Commands:**
+
+```
+Grep("-ing + helps/enables/allows" patterns)
+Grep("three X. First" patterns)
+Grep(AI vocabulary list)
+Grep(filler phrases)
+```
+
+**Fix Priority:**
+1. Sentence structure patterns (most obvious AI tell)
+2. Formal vocabulary (make text sound human)
+3. Filler phrases (tighten prose)
+4. Over-structured content (add variety)
 
 ### Placeholder Sentences for Links (DELETE ENTIRE SENTENCE)
 
@@ -442,6 +514,7 @@ Scan the final article and generate 5-10 image suggestions. Mix photos and diagr
 - 删除: [forced links, meta-commentary]
 - 注入: [persona sentences]
 - 转换: [fuzzy conversions]
+- AI模式: [X] 句式重写 | [X] 词汇替换 | [X] 填充词删除
 
 ### 输出文件
 - ✅ output/[topic].md
@@ -476,6 +549,7 @@ Scan the final article and generate 5-10 image suggestions. Mix photos and diagr
 - 删除: [forced links, meta-commentary]
 - 注入: [persona sentences]
 - 转换: [fuzzy conversions]
+- AI模式: [X] 句式重写 | [X] 词汇替换 | [X] 填充词删除
 
 ### 输出文件
 - ✅ output/[topic].md
@@ -506,5 +580,9 @@ Scan the final article and generate 5-10 image suggestions. Mix photos and diagr
 17. **Cases must be narratives** - Not summaries; context→problem→solution→lesson
 18. **Expert analogies must be attributed** - "As Dr. X explains..." not just facts
 19. **Review skipped materials** - Weak skip reasons = missed opportunity
-20. **⚡ PARALLEL READ/WRITE** - Read all files in one message, write all outputs in one message
-21. **⚡ PARALLEL DETECTION, SERIAL FIX** - Detect issues in parallel, apply fixes serially to avoid conflicts
+20. **Detect AI writing patterns** - "-ing helps", "Three X. First...", formal vocabulary
+21. **Replace AI vocabulary** - represent→are, significantly→widely, dramatically→much
+22. **Delete AI filler phrases** - "It's important to note...", "In order to..."
+23. **Vary over-structured content** - Multiple First/Second/Third lists = too mechanical
+24. **⚡ PARALLEL READ/WRITE** - Read all files in one message, write all outputs in one message
+25. **⚡ PARALLEL DETECTION, SERIAL FIX** - Detect issues in parallel, apply fixes serially to avoid conflicts
