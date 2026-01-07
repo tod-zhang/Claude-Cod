@@ -2,8 +2,8 @@
 
 This document tracks all published articles for cross-referencing, internal linking, and content strategy.
 
-**Last Updated:** 2025-12-27
-**Total Articles:** ~70
+**Last Updated:** 2026-01-07
+**Total Articles:** ~73
 
 ---
 
@@ -110,6 +110,21 @@ This document tracks all published articles for cross-referencing, internal link
 └── how-to-clean-synthetic-leather-vinyl-upholstery-to-reduce-plasticizer-migration
 ```
 
+#### Cluster: PVC Weathering/Durability (NEW)
+```
+├── does-pvc-need-uv-protection (NEW - 2026-01-07)
+├── can-pvc-be-left-outside (NEW - 2026-01-07)
+└── [GAP] plasticizer-selection-for-outdoor-applications
+└── [GAP] weathering-resistance-testing-methods
+```
+
+#### Cluster: PVC DIY/Homeowner (NEW)
+```
+├── pvc-pipe-size-identification (NEW - 2026-01-07)
+└── [GAP] how-to-cut-and-join-pvc-pipe
+└── [GAP] pvc-vs-cpvc-differences
+```
+
 #### Cluster: Plasticizer Comparisons
 ```
 ├── dotp-vs-dehp-technical-comparison
@@ -168,18 +183,18 @@ Conclusion Rules:
 ### Hook Distribution (All Time)
 | Hook Type | Total Count | Last Used | Status |
 |-----------|-------------|-----------|--------|
-| surprising-stat | 0 | - | - |
+| surprising-stat | 1 | 2026-01-07 | - |
 | practitioner-quote | 0 | - | - |
-| question | 0 | - | - |
-| problem | 0 | - | - |
+| question | 1 | 2026-01-07 | - |
+| problem | 1 | 2026-01-07 | - |
 | direct | 0 | - | - |
 
 ### Recent Hook Sequence (Last 10)
 | # | Article | Hook Type | Date |
 |---|---------|-----------|------|
-| 1 | - | - | - |
-| 2 | - | - | - |
-| 3 | - | - | - |
+| 1 | pvc-pipe-size-identification | question | 2026-01-07 |
+| 2 | can-pvc-be-left-outside | surprising-stat | 2026-01-07 |
+| 3 | does-pvc-need-uv-protection | problem | 2026-01-07 |
 | 4 | - | - | - |
 | 5 | - | - | - |
 
@@ -187,24 +202,25 @@ Conclusion Rules:
 | Conclusion Type | Total Count | Last Used | Status |
 |-----------------|-------------|-----------|--------|
 | next-journey-step | 0 | - | - |
-| action-checklist | 0 | - | - |
+| action-checklist | 2 | 2026-01-07 | - |
 | key-takeaways | 0 | - | - |
 | contact-cta | 0 | - | - |
+| final-insight | 1 | 2026-01-07 | - |
 
 ### Recent Conclusion Sequence (Last 10)
 | # | Article | Conclusion Type | Date |
 |---|---------|-----------------|------|
-| 1 | - | - | - |
-| 2 | - | - | - |
-| 3 | - | - | - |
+| 1 | pvc-pipe-size-identification | action-checklist | 2026-01-07 |
+| 2 | can-pvc-be-left-outside | action-checklist | 2026-01-07 |
+| 3 | does-pvc-need-uv-protection | final-insight | 2026-01-07 |
 | 4 | - | - | - |
 | 5 | - | - | - |
 
 ### Audience Distribution (All Time)
 | Audience | Total Count | Last Used |
 |----------|-------------|-----------|
-| beginner | 0 | - |
-| intermediate | 0 | - |
+| beginner | 2 | 2026-01-07 |
+| intermediate | 1 | 2026-01-07 |
 | practitioner | 0 | - |
 | expert | 0 | - |
 
@@ -263,13 +279,28 @@ Conclusion Rules:
 | what-is-plasticizer-migration | "plasticizer migration", "plasticizer leaching" |
 | how-to-reduce-plasticizer-migration | "prevent migration", "reduce leaching" |
 
+### PVC Weathering (NEW)
+| Topic | Linkable Anchors |
+|-------|------------------|
+| does-pvc-need-uv-protection | "UV protection for PVC", "PVC UV degradation", "dehydrochlorination", "HALS fail in PVC", "fracture strain" |
+| can-pvc-be-left-outside | "PVC outdoors", "outdoor PVC durability", "PVC temperature limits", "UV damage to PVC", "rigid vs flexible PVC" |
+
+### PVC DIY/Homeowner (NEW)
+| Topic | Linkable Anchors |
+|-------|------------------|
+| pvc-pipe-size-identification | "PVC pipe size", "nominal pipe size", "pipe sizing", "OD vs ID measurement" |
+
 ---
 
 ## Backlink Queue
 
 | Target Article | Source Article | Suggested Anchor | Status |
 |----------------|----------------|------------------|--------|
-| (empty) | | | |
+| what-causes-plasticizer-migration-in-pvc | does-pvc-need-uv-protection | "UV exposure as migration accelerator" | Pending |
+| does-pvc-need-uv-protection | can-pvc-be-left-outside | "UV protection for PVC" | Completed |
+| what-is-plasticizer-migration | can-pvc-be-left-outside | "plasticizer migration" | Completed |
+| what-is-the-difference-between-upvc-and-pvc | can-pvc-be-left-outside | "difference between uPVC and PVC" | Completed |
+| what-is-upvc | pvc-pipe-size-identification | "uPVC" | Completed |
 
 ---
 
@@ -279,3 +310,6 @@ Conclusion Rules:
 - Strong coverage of phthalate and non-phthalate plasticizers
 - Good comparison content between plasticizer types
 - Consider adding more regulatory/compliance content
+- 2026-01-07: Added does-pvc-need-uv-protection - starts new PVC Weathering/Durability cluster
+- 2026-01-07: Added can-pvc-be-left-outside - beginner-level article on outdoor PVC durability, links to UV protection and migration articles
+- 2026-01-07: Added pvc-pipe-size-identification - beginner DIY article on pipe sizing, starts new PVC DIY/Homeowner cluster, links to uPVC article

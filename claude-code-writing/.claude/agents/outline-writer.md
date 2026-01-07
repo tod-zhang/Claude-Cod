@@ -472,6 +472,7 @@ Priority:
 **Forbidden patterns (DELETE if written):**
 - "For more information, see..."
 - "For a deeper look, see..."
+- "For deeper understanding of..."
 - "Learn more about [X]"
 - "To learn more, check out..."
 - "See our guide on..."
@@ -505,8 +506,9 @@ If `productContext.hasProductData == false` → Skip.
 - [ ] Core question answered in first H2
 - [ ] Each H2 has opinion/recommendation
 - [ ] Max 2 tables
-- [ ] NO meta-commentary ("competitors rarely mention...")
+- [ ] NO meta-commentary ("Most articles...", "What competitors miss...", "They overlook...") — internal analysis, not for readers
 - [ ] NO announcing phrases ("The key insight:")
+- [ ] NO educational fluff ("Understanding X helps you Y", "Knowing this allows you to Z") — DELETE these bridge sentences
 - [ ] Persona voice consistent throughout
 
 ---

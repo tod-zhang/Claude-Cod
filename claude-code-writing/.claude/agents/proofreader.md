@@ -129,7 +129,7 @@ Apply fixes one by one to avoid conflicts (e.g., two fixes targeting same paragr
 | P2 | AI filler phrases | "It's important to note..." | Delete phrase |
 | P2 | AI over-structure | Multiple "First/Second/Third" lists | Vary one |
 | P2 | Duplicate links | Same URL twice | Remove duplicate |
-| P2 | Meta-commentary | References competitors | DELETE sentence |
+| P1 | Meta-commentary | References competitors, "what others miss" | DELETE sentence |
 | P2 | Announcing phrases | "The key insight:" etc | Remove prefix |
 | P2 | Intro anti-patterns | Definition/history/self-reference start | Flag for rewrite |
 | P2 | H2 title bloat | Colon subtitles, modifiers/commentary | Simplify title |
@@ -226,11 +226,31 @@ Scan article for patterns that signal AI-generated content. Fix or flag each occ
 
 | Pattern | Example | Fix |
 |---------|---------|-----|
-| "-ing + helps/allows/enables" | "Understanding X helps you Y" | Rewrite: "See X to learn Y" or "X shows you Y" |
+| "-ing + helps/allows/enables" | "Understanding X helps you Y" | DELETE sentence (教育性空话) |
+| "Learning/Knowing X helps..." | "Knowing the mechanism helps you select" | DELETE sentence |
+| "X helps you understand/select/choose" | "This helps you understand the process" | DELETE sentence |
 | "Three X. First... Second... Third..." | "Three factors drive this. First..." | Remove count, use "And" to connect |
 | "This ensures that..." | "This ensures consistent quality" | Rewrite directly: "Quality stays consistent" |
 | "Whether you're X or Y..." | "Whether you're a beginner or expert..." | Delete or simplify |
 | "When it comes to..." | "When it comes to cost..." | Delete phrase, state directly |
+
+**P1: 教育性空话 (Educational Fluff) - DELETE ENTIRELY**
+
+These sentences tell readers they should learn something but teach nothing. They waste words announcing content instead of delivering it.
+
+| Pattern | Example | Why Delete |
+|---------|---------|------------|
+| "Understanding X helps you Y" | "Understanding the mechanism helps you select the right protection strategy" | Announces learning, doesn't teach |
+| "Knowing X is essential for Y" | "Knowing these factors is essential for making the right choice" | Empty bridge sentence |
+| "Learning X allows you to Y" | "Learning the basics allows you to troubleshoot effectively" | Just transition, no content |
+| "Grasping X enables Y" | "Grasping these principles enables better decision-making" | Academic-sounding fluff |
+| "By understanding X, you can Y" | "By understanding degradation, you can prevent failures" | Circular reasoning |
+| "With knowledge of X, Y becomes easier" | "With knowledge of chemistry, formulation becomes easier" | States the obvious |
+| "Familiarity with X helps in Y" | "Familiarity with testing standards helps in quality control" | No actionable content |
+
+**Detection:** Grep for patterns: `Understanding .* helps`, `Knowing .* is essential`, `Learning .* allows`, `By understanding`, `With knowledge of`
+
+**Action:** DELETE the entire sentence. The next H2 or paragraph should teach directly without announcing.
 
 **P1: Formal/Academic Vocabulary (Replace)**
 
@@ -294,12 +314,42 @@ Grep(filler phrases)
 | "Understanding X helps/provides..." | "Understanding [link] provides the foundation for optimizing Y" | DELETE |
 | "Selecting/Choosing X requires..." | "Selecting the appropriate [link] requires matching A to B" | DELETE |
 | "For a broader overview..." | "For a broader overview of [link], this provides context" | DELETE |
+| "For deeper understanding..." | "For deeper understanding of X, see [link]" | DELETE |
 | "To learn more about..." | "To learn more about X, see [link]" | DELETE |
 | "For more information..." | "For more information on X, check out [link]" | DELETE |
 | "X provides valuable context" | "[Link] provides valuable context for understanding Y" | DELETE |
 | "X provides the foundation..." | "[Link] provides the foundation for understanding Y" | DELETE |
 
 **Never inject links using these patterns.** If no natural integration point exists, leave the article without that internal link.
+
+### Meta-Commentary Detection (DELETE ENTIRE SENTENCE)
+
+Meta-commentary = talking ABOUT competitors/other articles instead of talking TO readers. This is internal analysis that leaked into the article.
+
+**Detection patterns:**
+
+| Pattern | Example | Why Delete |
+|---------|---------|------------|
+| "Most articles/guides..." | "Most articles about outdoor PVC focus entirely on sunlight" | Reader doesn't care what other articles do |
+| "What others/competitors miss..." | "Here's what competitors miss: temperature limits" | Arrogant; just state the fact directly |
+| "Unlike other sources..." | "Unlike other sources, we'll cover..." | Self-promotional meta-commentary |
+| "They miss/overlook/ignore..." | "They miss a critical factor" | Reader doesn't know who "they" are |
+| "What's rarely mentioned..." | "What's rarely mentioned is that..." | Just mention it |
+| "Few guides explain..." | "Few guides explain why this matters" | Just explain it |
+
+**Fix approach:** Delete the meta-commentary, keep the actual content.
+
+```
+❌ "Most articles about outdoor PVC focus entirely on sunlight. They miss a critical factor: temperature limits."
+
+✅ "Temperature limits matter as much as UV exposure."
+
+❌ "Here's what competitors miss: direct sunlight can heat a pipe's surface 50F or more above air temperature."
+
+✅ "Direct sunlight can heat a pipe's surface 50F or more above air temperature."
+```
+
+**Detection:** Grep for `Most articles`, `Most guides`, `competitors miss`, `others miss`, `rarely mentioned`, `often overlooked`, `few guides`.
 
 ### Material Usage Verification
 
