@@ -3,7 +3,7 @@
 This document tracks all published articles for cross-referencing, internal linking, and content strategy.
 
 **Last Updated:** 2026-01-07
-**Total Articles:** ~73
+**Total Articles:** ~75
 
 ---
 
@@ -18,6 +18,7 @@ This document tracks all published articles for cross-referencing, internal link
 ├── what-are-non-phthalate-plasticizers
 ├── what-are-natural-plasticizers
 ├── choosing-the-right-plasticizer-for-pvc
+├── high-vs-low-molecular-weight-plasticizers (NEW - 2026-01-07)
 └── [GAP] plasticizer-selection-flowchart
 ```
 
@@ -134,7 +135,8 @@ This document tracks all published articles for cross-referencing, internal link
 ├── txib-vs-dotp-comprehensive-plasticizer-comparison
 ├── txib-vs-dinp-understanding-plasticizers-and-their-safety
 ├── what-is-the-difference-between-dehp-and-deht
-└── what-is-the-difference-between-dbp-and-dop
+├── what-is-the-difference-between-dbp-and-dop
+└── phthalate-vs-non-phthalate-plasticizers (NEW - 2026-01-07)
 ```
 
 #### Cluster: Specialty Plasticizers
@@ -154,7 +156,6 @@ This document tracks all published articles for cross-referencing, internal link
 - Plasticizer selection flowchart/decision tree
 - PVC resin K-value explained
 - Bio-based plasticizers comprehensive guide
-- Plasticizer regulatory compliance by region (EU, US, Asia)
 - Plasticizer testing methods comparison
 - Plasticizer for food-contact applications
 
@@ -162,6 +163,9 @@ This document tracks all published articles for cross-referencing, internal link
 - Citrate plasticizers
 - Epoxidized plasticizers
 - Polymeric plasticizers
+
+**Recently addressed:**
+- Plasticizer regulatory compliance by region (EU, US, Asia) - partially covered in phthalate-vs-non-phthalate-plasticizers
 
 ---
 
@@ -183,44 +187,45 @@ Conclusion Rules:
 ### Hook Distribution (All Time)
 | Hook Type | Total Count | Last Used | Status |
 |-----------|-------------|-----------|--------|
-| surprising-stat | 1 | 2026-01-07 | - |
+| surprising-stat | 2 | 2026-01-07 | - |
 | practitioner-quote | 0 | - | - |
 | question | 1 | 2026-01-07 | - |
 | problem | 1 | 2026-01-07 | - |
-| direct | 0 | - | - |
+| direct | 1 | 2026-01-07 | - |
 
 ### Recent Hook Sequence (Last 10)
 | # | Article | Hook Type | Date |
 |---|---------|-----------|------|
-| 1 | pvc-pipe-size-identification | question | 2026-01-07 |
-| 2 | can-pvc-be-left-outside | surprising-stat | 2026-01-07 |
-| 3 | does-pvc-need-uv-protection | problem | 2026-01-07 |
-| 4 | - | - | - |
-| 5 | - | - | - |
+| 1 | phthalate-vs-non-phthalate-plasticizers | direct | 2026-01-07 |
+| 2 | high-vs-low-molecular-weight-plasticizers | surprising-stat | 2026-01-07 |
+| 3 | pvc-pipe-size-identification | question | 2026-01-07 |
+| 4 | can-pvc-be-left-outside | surprising-stat | 2026-01-07 |
+| 5 | does-pvc-need-uv-protection | problem | 2026-01-07 |
 
 ### Conclusion Distribution (All Time)
 | Conclusion Type | Total Count | Last Used | Status |
 |-----------------|-------------|-----------|--------|
-| next-journey-step | 0 | - | - |
+| next-journey-step | 1 | 2026-01-07 | - |
 | action-checklist | 2 | 2026-01-07 | - |
 | key-takeaways | 0 | - | - |
 | contact-cta | 0 | - | - |
 | final-insight | 1 | 2026-01-07 | - |
+| verdict | 1 | 2026-01-07 | - |
 
 ### Recent Conclusion Sequence (Last 10)
 | # | Article | Conclusion Type | Date |
 |---|---------|-----------------|------|
-| 1 | pvc-pipe-size-identification | action-checklist | 2026-01-07 |
-| 2 | can-pvc-be-left-outside | action-checklist | 2026-01-07 |
-| 3 | does-pvc-need-uv-protection | final-insight | 2026-01-07 |
-| 4 | - | - | - |
-| 5 | - | - | - |
+| 1 | phthalate-vs-non-phthalate-plasticizers | next-journey-step | 2026-01-07 |
+| 2 | high-vs-low-molecular-weight-plasticizers | verdict | 2026-01-07 |
+| 3 | pvc-pipe-size-identification | action-checklist | 2026-01-07 |
+| 4 | can-pvc-be-left-outside | action-checklist | 2026-01-07 |
+| 5 | does-pvc-need-uv-protection | final-insight | 2026-01-07 |
 
 ### Audience Distribution (All Time)
 | Audience | Total Count | Last Used |
 |----------|-------------|-----------|
 | beginner | 2 | 2026-01-07 |
-| intermediate | 1 | 2026-01-07 |
+| intermediate | 3 | 2026-01-07 |
 | practitioner | 0 | - |
 | expert | 0 | - |
 
@@ -234,6 +239,7 @@ Conclusion Rules:
 | what-are-plasticizers | "plasticizer", "what is a plasticizer", "plasticizers in PVC" |
 | types-of-plasticizers | "types of plasticizers", "plasticizer classification" |
 | choosing-the-right-plasticizer | "plasticizer selection", "how to choose plasticizer" |
+| high-vs-low-molecular-weight-plasticizers | "500 g/mol threshold", "10x migration rate difference", "MW selection", "molecular weight plasticizers" |
 
 ### DOP/DEHP
 | Topic | Linkable Anchors |
@@ -290,6 +296,11 @@ Conclusion Rules:
 |-------|------------------|
 | pvc-pipe-size-identification | "PVC pipe size", "nominal pipe size", "pipe sizing", "OD vs ID measurement" |
 
+### Plasticizer Comparisons (NEW)
+| Topic | Linkable Anchors |
+|-------|------------------|
+| phthalate-vs-non-phthalate-plasticizers | "phthalate vs non-phthalate", "phthalate phase-out", "DEHP alternatives", "non-phthalate transition", "California AB 2300" |
+
 ---
 
 ## Backlink Queue
@@ -301,6 +312,14 @@ Conclusion Rules:
 | what-is-plasticizer-migration | can-pvc-be-left-outside | "plasticizer migration" | Completed |
 | what-is-the-difference-between-upvc-and-pvc | can-pvc-be-left-outside | "difference between uPVC and PVC" | Completed |
 | what-is-upvc | pvc-pipe-size-identification | "uPVC" | Completed |
+| what-is-plasticizer-migration | high-vs-low-molecular-weight-plasticizers | "plasticizer migration" | Completed |
+| what-is-trioctyl-trimellitate-totm | high-vs-low-molecular-weight-plasticizers | "TOTM" | Completed |
+| choosing-the-right-plasticizer-for-pvc | high-vs-low-molecular-weight-plasticizers | "plasticizer selection" | Completed |
+| how-to-reduce-plasticizer-migration | high-vs-low-molecular-weight-plasticizers | "reducing plasticizer migration" | Completed |
+| what-are-non-phthalate-plasticizers | phthalate-vs-non-phthalate-plasticizers | "non-phthalate plasticizers" | Completed |
+| what-is-dotp | phthalate-vs-non-phthalate-plasticizers | "DOTP" | Completed |
+| what-is-dop | phthalate-vs-non-phthalate-plasticizers | "DEHP (DOP)" | Completed |
+| dotp-vs-dehp-technical-comparison | phthalate-vs-non-phthalate-plasticizers | "non-phthalate options" | Completed |
 
 ---
 
@@ -313,3 +332,5 @@ Conclusion Rules:
 - 2026-01-07: Added does-pvc-need-uv-protection - starts new PVC Weathering/Durability cluster
 - 2026-01-07: Added can-pvc-be-left-outside - beginner-level article on outdoor PVC durability, links to UV protection and migration articles
 - 2026-01-07: Added pvc-pipe-size-identification - beginner DIY article on pipe sizing, starts new PVC DIY/Homeowner cluster, links to uPVC article
+- 2026-01-07: Added high-vs-low-molecular-weight-plasticizers - intermediate technical article on MW-based selection framework, fills gap in Plasticizer Fundamentals cluster, links to migration and TOTM articles
+- 2026-01-07: Added phthalate-vs-non-phthalate-plasticizers - intermediate comparison article with 2024 regulatory data (CA AB 2300, REACH updates), cost analysis, selection framework. Thesis: phase-out accelerating faster than procurement teams realize. Hook: direct. Conclusion: next-journey-step. Links to 4 internal articles (what-are-non-phthalate-plasticizers, what-is-dotp, what-is-dop, dotp-vs-dehp-technical-comparison). Contributes to Plasticizer Comparisons cluster.
