@@ -100,6 +100,25 @@ Run all checks simultaneously to identify issues:
 
 Collect all issues into a fix queue.
 
+### Phase 3.1.5: Mandatory Grep Checks (⚡ Execute ALL)
+
+**REQUIRED:** Run these Grep commands on the draft. Do NOT skip - AI patterns are easy to miss by reading.
+
+```
+Grep("Understanding .* helps", drafts/[topic].md) ||
+Grep("Knowing .* (is essential|allows|enables)", drafts/[topic].md) ||
+Grep("By understanding", drafts/[topic].md) ||
+Grep("For (a )?(deeper|more|broader|complete)", drafts/[topic].md) ||
+Grep("To learn more|Learn more about|See our guide", drafts/[topic].md)
+```
+
+**For each match found:**
+1. Evaluate: Does sentence have value without the educational/link purpose?
+2. If NO value → DELETE entire sentence
+3. If some value → REWRITE to remove the pattern
+
+**This step is BLOCKING** - do not proceed to Phase 3.2 until all grep patterns are checked and fixed.
+
 ### Phase 3.2: Serial Fix
 
 Apply fixes one by one to avoid conflicts (e.g., two fixes targeting same paragraph).
@@ -522,7 +541,18 @@ Group external links by H2 section for easy WordPress insertion:
 
 **File 3:** `output/[topic-title]-images.md`
 
-Scan the final article and generate 5-10 image suggestions. Mix photos and diagrams based on content type.
+Scan the final article **in order** and generate 5-10 image suggestions. Images must follow article flow.
+
+**Image Order Rule (MANDATORY):**
+- Image 1 = first visual opportunity in article
+- Image 2 = second visual opportunity, etc.
+- Order must match article reading sequence (intro → H2-1 → H2-2 → ... → conclusion)
+
+**Placement Precision:**
+- Can be H2 section name (e.g., "How to Identify the Blooming Type")
+- Can be specific paragraph (e.g., "H2-1, paragraph 3 - wipe test description")
+- Can be after a specific element (e.g., "After the diagnostic table in H2-1")
+- Choose the most helpful location for reader comprehension
 
 **Use Photo for:**
 - Equipment, tools, materials (real objects)
@@ -546,17 +576,17 @@ Scan the final article and generate 5-10 image suggestions. Mix photos and diagr
 **Exact format (no other sections):**
 
 ```markdown
-### Image 1: [Concept Name]
-- **Placement:** [H2 section name]
-- **Type:** Photo or Diagram (based on content type above)
-- **AI Prompt:** "[Detailed photo description: subject, angle, lighting, context]"
+### Image 1
+- **Placement:** [H2 section name OR specific paragraph location]
+- **Type:** Photo or Diagram
+- **AI Prompt:** "[Detailed description: subject, angle, lighting, context]"
 - **Alt Text:** "[Descriptive alt text]"
 
-### Image 2: [Concept Name]
+### Image 2
 ...
 ```
 
-**Do NOT include:** Title headers, metadata, Priority field, summaries, or implementation notes.
+**Do NOT include:** Concept names in titles, metadata, Priority field, summaries, or implementation notes.
 
 **File 4:** Update `article-history.md` (if exists)
 

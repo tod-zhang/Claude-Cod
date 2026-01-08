@@ -429,6 +429,42 @@ Introduction has 4 components. Plan in outline, execute in writing.
 - ❌ Self-reference ("In this article, we will...")
 - ❌ Generic statements ("Quality is important...")
 
+### Conclusion Structure (MANDATORY H2)
+
+**Conclusion MUST be an H2 section.** Title options based on content type:
+- "Conclusion" (neutral, always acceptable)
+- "Next Steps" (for tutorial/how-to)
+- "The Bottom Line" (for comparison/decision)
+- "Key Takeaways" (for informational)
+- Custom title reflecting content (e.g., "Making the Right Choice")
+
+| Component | Purpose | Length |
+|-----------|---------|--------|
+| **Thesis reinforcement** | Restate main point in new words | 1-2 sentences |
+| **Practical takeaway** | What reader should DO or REMEMBER | 1-2 sentences |
+| **Forward look** (optional) | Next step, or broader implication | 0-1 sentence |
+
+**Conclusion types by articleType:**
+
+| Article Type | Conclusion Type | Focus |
+|--------------|-----------------|-------|
+| Tutorial | next-step | What to do after completing the steps |
+| Comparison | verdict | Clear recommendation or decision framework |
+| Troubleshooting | prevention | How to prevent the problem in future |
+| Opinion | final-insight | Strongest restatement of thesis |
+| Informational | key-takeaways | Core facts to remember |
+
+**Conclusion word budget:**
+- Short article: 50-80 words
+- Standard article: 80-120 words
+- Deep article: 100-150 words
+
+**What NOT to do:**
+- ❌ Start with "In conclusion" or "To summarize"
+- ❌ Introduce new information not covered in body
+- ❌ Generic call-to-action ("Contact us today!")
+- ❌ Write conclusion as plain paragraph without H2 heading
+
 ### Persona-First Writing
 
 Before each section: "How would [role] with [bias] explain this?"
@@ -505,6 +541,7 @@ If `productContext.hasProductData == false` → Skip.
 
 - [ ] Core question answered in first H2
 - [ ] Each H2 has opinion/recommendation
+- [ ] **Conclusion is an H2 section** (not plain paragraph)
 - [ ] Max 2 tables
 - [ ] NO meta-commentary ("Most articles...", "What competitors miss...", "They overlook...") — internal analysis, not for readers
 - [ ] NO announcing phrases ("The key insight:")

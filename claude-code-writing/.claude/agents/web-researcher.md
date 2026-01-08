@@ -1,6 +1,6 @@
 ---
 name: web-researcher
-description: Two-phase research agent. Phase 1: competitor analysis → recommendedTheses. Phase 2: evidence collection → sources.md.
+description: Two-phase research agent. Phase 1 (competitor analysis) outputs recommendedTheses. Phase 2 (evidence collection) outputs sources.md.
 tools: WebSearch, WebFetch, Read, Write, Bash
 model: opus
 ---
