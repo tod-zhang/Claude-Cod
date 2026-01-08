@@ -222,6 +222,30 @@ Flag paragraphs with: zero first-person + zero opinions, pure definition, encycl
 
 Scan article for patterns that signal AI-generated content. Fix or flag each occurrence.
 
+**P0.5: Sentence Structure Anti-Patterns (High Priority - Obvious AI Tells)**
+
+| Pattern | Example | Problem | Fix |
+|---------|---------|---------|-----|
+| **Long gerund subject + simple verb** | "Understanding what X means, what Y is acceptable, and what signals Z separates A from B" | 超长主语读起来费力，是 AI 模板句 | REWRITE to short subject or DELETE |
+| **"Each X tells/reveals/provides..."** | "Each parameter tells a different part of the quality story" | 空洞总结，没有实际信息 | DELETE or rewrite concretely |
+| **"Beyond X, ..."** transitions | "Beyond individual parameters, evaluate..." | AI 常用过渡句式 | Rewrite: "The TDS itself also tells you something" |
+| **"X separates/distinguishes Y from Z"** | "This knowledge separates experts from beginners" | 哲理总结句，AI 模板 | DELETE or state concretely |
+| **Fabricated compounds** | "structurally unequal", "operationally deficient" | 生造词，不自然 | Replace with plain English |
+| **Abstract metaphors** | "quality story", "success journey", "learning curve" | 空洞比喻 | DELETE the metaphor, state directly |
+| **"Missing any one leaves gaps..."** | "Missing any one leaves gaps in your assessment" | 明显的填充句 | Rewrite concretely or DELETE |
+
+**Detection patterns for grep:**
+```
+"Understanding .* separates"
+"Knowing .* separates"
+"Each .* tells .* story"
+"Each .* reveals"
+"Beyond .*, "
+"separates .* from"
+"distinguishes .* from"
+"Missing any .* leaves"
+```
+
 **P1: Sentence Structure Patterns (Must Fix)**
 
 | Pattern | Example | Fix |
@@ -634,5 +658,11 @@ Scan the final article and generate 5-10 image suggestions. Mix photos and diagr
 21. **Replace AI vocabulary** - represent→are, significantly→widely, dramatically→much
 22. **Delete AI filler phrases** - "It's important to note...", "In order to..."
 23. **Vary over-structured content** - Multiple First/Second/Third lists = too mechanical
-24. **⚡ PARALLEL READ/WRITE** - Read all files in one message, write all outputs in one message
-25. **⚡ PARALLEL DETECTION, SERIAL FIX** - Detect issues in parallel, apply fixes serially to avoid conflicts
+24. **Detect long gerund subjects** - "Understanding X, Y, and Z separates..." → REWRITE or DELETE
+25. **Delete "Each X tells/reveals" summaries** - Empty conclusions, no actual info
+26. **Rewrite "Beyond X, ..." transitions** - AI transition pattern
+27. **Remove "X separates Y from Z" philosophizing** - Template wisdom sentences
+28. **Fix fabricated compounds** - "structurally unequal" → plain English
+29. **Delete abstract metaphors** - "quality story", "success journey" → state directly
+30. **⚡ PARALLEL READ/WRITE** - Read all files in one message, write all outputs in one message
+31. **⚡ PARALLEL DETECTION, SERIAL FIX** - Detect issues in parallel, apply fixes serially to avoid conflicts

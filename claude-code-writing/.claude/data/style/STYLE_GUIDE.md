@@ -392,7 +392,37 @@ Examples:
 - Unanchored claims ("cutting-edge" without specifics)
 - Weak hedging when evidence is strong
 
-### 7.3 Data Integrity
+### 7.3 AI Sentence Patterns (AVOID)
+
+These patterns are obvious AI tells. Never write them.
+
+**Long gerund subjects + simple verbs:**
+- ❌ "Understanding what X means, what Y is acceptable, and what Z signals separates informed purchasing from costly surprises."
+- ✅ "Knowing the difference prevents this kind of failure."
+
+**"Each X tells/reveals..." empty summaries:**
+- ❌ "Each parameter tells a different part of the quality story."
+- ✅ "Skip any of these, and you're flying blind on that aspect of quality."
+
+**"Beyond X, ..." transitions:**
+- ❌ "Beyond individual parameters, evaluate TDS documentation quality."
+- ✅ "The TDS document itself also tells you something."
+
+**"X separates/distinguishes Y from Z" philosophizing:**
+- ❌ "This knowledge separates experts from beginners."
+- ✅ (DELETE - adds nothing)
+
+**Fabricated compound words:**
+- ❌ "structurally unequal", "operationally deficient"
+- ✅ "never had enough plasticizer", "not working properly"
+
+**Abstract metaphors:**
+- ❌ "quality story", "success journey", "learning curve"
+- ✅ State the actual content directly
+
+**Rule:** If a sentence sounds like a fortune cookie or motivational poster, delete it.
+
+### 7.4 Data Integrity
 
 **All data must be fact-based or research-sourced.**
 
