@@ -548,11 +548,12 @@ Scan the final article **in order** and generate 5-10 image suggestions. Images 
 - Image 2 = second visual opportunity, etc.
 - Order must match article reading sequence (intro → H2-1 → H2-2 → ... → conclusion)
 
-**Placement Precision:**
-- Can be H2 section name (e.g., "How to Identify the Blooming Type")
-- Can be specific paragraph (e.g., "H2-1, paragraph 3 - wipe test description")
-- Can be after a specific element (e.g., "After the diagnostic table in H2-1")
-- Choose the most helpful location for reader comprehension
+**Placement Precision (MANDATORY - exact sentence):**
+- Format: `[H2 name] - [exact sentence from article]`
+- Example: `Correcting Lubricant Bloom - Temperature decrease had reduced compatibility, promoting exudation - but the effect was reversible.`
+- For tables: `[H2 name] - after table`
+- For bullet lists: `[H2 name] - after bullet list ending with "[last bullet text]"`
+- Image placed AFTER the specified sentence/element
 
 **Use Photo for:**
 - Equipment, tools, materials (real objects)
