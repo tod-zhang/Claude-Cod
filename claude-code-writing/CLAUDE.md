@@ -47,20 +47,53 @@ SEO 文章写作工作流。两种模式：新文章写作、旧文章优化。
 5. **内链缓存检查**:
    - 读取 `internal-links.md`，提取 `Last Updated` 日期
    - 显示: `内链缓存: [日期] ([X]天前) - 刷新? [N(默认)/Y]`
-   - 用户选 Y → 执行刷新:
-     ```bash
-     # 使用 Bash 脚本直接处理（不使用 AI）
-     1. Read about-us.md → 提取 sitemap index URL
-     2. Bash: .claude/scripts/refresh-internal-links.sh [company] [sitemap-url]
+   - 用户选 Y → 执行**增量深度刷新**:
 
-     # 脚本自动完成：
-     # - 获取 sitemap index → 提取所有子 sitemap URL
-     # - 依次 curl 获取每个子 sitemap
-     # - 提取所有 <loc> URLs
-     # - 过滤非英语链接: grep -v -E '/(fr|it|de|es|pt|nl|pl|ja|ko|zh)/'
-     # - 排序去重: sort -u
-     # - URL → Title 转换
-     # - 写入 internal-links.md（Last Updated: 今天）
+     ```bash
+     # Step 1: 计算差异
+     .claude/scripts/refresh-internal-links.sh [company] [sitemap-url] --diff-only
+     # 输出到 .claude/data/companies/[company]/.internal-links-diff/
+     #   - new_urls.txt (新增)
+     #   - deleted_urls.txt (删除)
+     #   - unchanged_urls.txt (不变)
+     ```
+
+     ```
+     # Step 2: 深度刷新新增 URLs (Haiku 并行处理)
+     Task: subagent_type="general-purpose", model="haiku"
+     Prompt: |
+       Deep refresh internal links for [company].
+
+       Read: .claude/data/companies/[company]/.internal-links-diff/new_urls.txt
+
+       For each URL (parallel, batch of 10):
+       1. WebFetch the URL
+       2. Extract: actual title, one-sentence summary (in English)
+       3. Format: - [Actual Title](URL)\n  > Summary
+
+       Read existing: .claude/data/companies/[company]/internal-links.md
+       - Keep entries for unchanged URLs (from unchanged_urls.txt)
+       - Remove entries for deleted URLs (from deleted_urls.txt)
+       - Add new entries with title + summary
+
+       Write updated internal-links.md with:
+       - <!-- Last Updated: [today] -->
+       - <!-- Deep Refresh: [count] URLs fetched -->
+     ```
+
+     **缓存格式** (deep refresh 后):
+     ```markdown
+     # Internal Links Cache
+
+     <!-- Last Updated: 2026-01-10 -->
+     <!-- Deep Refresh: 15 URLs fetched -->
+
+     ## Articles
+     - [15 Reasons For Mechanical Seal Failure](https://cowseal.com/...)
+       > Common causes of seal failure including dry running, installation errors, and material incompatibility.
+
+     - [API Plan 11](https://cowseal.com/api-plan-11/)
+       > Single seal flush plan using process fluid from pump discharge.
      ```
 
 6. **收集用户选择**（展示格式见下方 Display Templates）:
