@@ -52,12 +52,10 @@ This document serves as a pre-writing reference for educational/informational co
 - Rigorous quality inspection at each stage
 - Prototype development through large-scale production runs
 
-**Sitemap URLs** (for internal linking):
-- autoRefresh: true
+**Sitemap URL** (for internal linking):
 - Index: https://metal-castings.com/sitemap_index.xml
-- Posts: https://metal-castings.com/post-sitemap.xml (Primary - articles)
-- Products: https://metal-castings.com/product-sitemap.xml (Secondary)
-- Pages: https://metal-castings.com/page-sitemap.xml
+- 子 sitemap 自动从 index 获取 (post-sitemap, page-sitemap, product-sitemap 等)
+- 非英语链接自动过滤 (/fr/, /it/, /de/ 等路径)
 
 ---
 

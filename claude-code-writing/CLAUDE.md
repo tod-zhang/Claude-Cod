@@ -48,12 +48,19 @@ SEO 文章写作工作流。两种模式：新文章写作、旧文章优化。
    - 读取 `internal-links.md`，提取 `Last Updated` 日期
    - 显示: `内链缓存: [日期] ([X]天前) - 刷新? [N(默认)/Y]`
    - 用户选 Y → 执行刷新:
-     ```
-     1. Read about-us.md → 提取 sitemap URL (post-sitemap.xml)
-     2. WebFetch sitemap → 提取所有 <loc> URLs
-     3. Write internal-links.md:
-        - 更新 Last Updated 为今天
-        - 格式: `- [Title](URL)` 每行一个
+     ```bash
+     # 使用 Bash 脚本直接处理（不使用 AI）
+     1. Read about-us.md → 提取 sitemap index URL
+     2. Bash: .claude/scripts/refresh-internal-links.sh [company] [sitemap-url]
+
+     # 脚本自动完成：
+     # - 获取 sitemap index → 提取所有子 sitemap URL
+     # - 依次 curl 获取每个子 sitemap
+     # - 提取所有 <loc> URLs
+     # - 过滤非英语链接: grep -v -E '/(fr|it|de|es|pt|nl|pl|ja|ko|zh)/'
+     # - 排序去重: sort -u
+     # - URL → Title 转换
+     # - 写入 internal-links.md（Last Updated: 今天）
      ```
 
 6. **收集用户选择**（展示格式见下方 Display Templates）:

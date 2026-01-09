@@ -41,12 +41,10 @@ This document serves as a pre-writing reference for educational/informational co
 - Advanced machining and parts production capabilities
 - Multiple ISO certifications
 
-**Sitemap URLs** (for internal linking):
-- autoRefresh: true
+**Sitemap URL** (for internal linking):
 - Index: https://www.soontact.com/sitemap_index.xml
-- Posts: https://www.soontact.com/post-sitemap.xml (Primary - articles)
-- Products: https://www.soontact.com/product-sitemap.xml (Secondary)
-- Pages: https://www.soontact.com/page-sitemap.xml
+- 子 sitemap 自动从 index 获取 (post-sitemap, page-sitemap, product-sitemap 等)
+- 非英语链接自动过滤 (/fr/, /it/, /de/ 等路径)
 
 ---
 

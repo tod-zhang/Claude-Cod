@@ -2,8 +2,8 @@
 
 This document tracks all published articles for cross-referencing, internal linking, and content strategy.
 
-**Last Updated:** 2026-01-07
-**Total Articles:** ~75
+**Last Updated:** 2026-01-09
+**Total Articles:** ~78
 
 ---
 
@@ -76,7 +76,8 @@ This document tracks all published articles for cross-referencing, internal link
 ├── what-is-trioctyl-trimellitate-tintm
 ├── the-synthesis-process-of-trioctyl-trimellitate
 ├── tintm-vs-totm-trimellitate-plasticizers-comparison
-└── tintm-vs-dop-plasticizer-comparison
+├── tintm-vs-dop-plasticizer-comparison
+└── automotive-interior-pvc-plasticizer-heat-resistance (NEW - 2026-01-09)
 ```
 
 #### Cluster: TXIB (Pillar: txib-vs-dotp-comprehensive-plasticizer-comparison)
@@ -126,6 +127,14 @@ This document tracks all published articles for cross-referencing, internal link
 └── [GAP] pvc-vs-cpvc-differences
 ```
 
+#### Cluster: PVC Processing / Quality Control (NEW)
+```
+├── fish-eye-defects-pvc (NEW - 2026-01-08)
+└── [GAP] pvc-gelation-testing-guide
+└── [GAP] pvc-extrusion-troubleshooting
+└── [GAP] pvc-compounding-best-practices
+```
+
 #### Cluster: Plasticizer Comparisons
 ```
 ├── dotp-vs-dehp-technical-comparison
@@ -148,6 +157,20 @@ This document tracks all published articles for cross-referencing, internal link
 └── how-to-calculate-plasticizer-concentration-in-a-compound
 ```
 
+#### Cluster: Regulatory Compliance (NEW)
+```
+├── fda-compliance-guide-food-contact-plasticizers (NEW - 2026-01-09)
+└── [GAP] reach-compliance-plasticizers
+└── [GAP] plasticizer-regulations-by-region
+```
+
+#### Cluster: Automotive Applications (NEW)
+```
+├── automotive-interior-pvc-plasticizer-heat-resistance (NEW - 2026-01-09)
+└── [GAP] automotive-plasticizer-fogging-prevention
+└── [GAP] plasticizer-selection-wire-cable-automotive
+```
+
 ---
 
 ## Coverage Gaps
@@ -157,7 +180,6 @@ This document tracks all published articles for cross-referencing, internal link
 - PVC resin K-value explained
 - Bio-based plasticizers comprehensive guide
 - Plasticizer testing methods comparison
-- Plasticizer for food-contact applications
 
 **Thin coverage on:**
 - Citrate plasticizers
@@ -166,6 +188,9 @@ This document tracks all published articles for cross-referencing, internal link
 
 **Recently addressed:**
 - Plasticizer regulatory compliance by region (EU, US, Asia) - partially covered in phthalate-vs-non-phthalate-plasticizers
+- PVC processing defects - started with fish-eye-defects-pvc
+- FDA food contact compliance - ADDRESSED with fda-compliance-guide-food-contact-plasticizers
+- Automotive applications - STARTED with automotive-interior-pvc-plasticizer-heat-resistance
 
 ---
 
@@ -187,47 +212,53 @@ Conclusion Rules:
 ### Hook Distribution (All Time)
 | Hook Type | Total Count | Last Used | Status |
 |-----------|-------------|-----------|--------|
-| surprising-stat | 2 | 2026-01-07 | - |
-| practitioner-quote | 0 | - | - |
+| surprising-stat | 3 | 2026-01-09 | - |
+| practitioner-quote | 1 | 2026-01-08 | - |
 | question | 1 | 2026-01-07 | - |
 | problem | 1 | 2026-01-07 | - |
-| direct | 1 | 2026-01-07 | - |
+| direct | 2 | 2026-01-09 | - |
 
 ### Recent Hook Sequence (Last 10)
 | # | Article | Hook Type | Date |
 |---|---------|-----------|------|
-| 1 | phthalate-vs-non-phthalate-plasticizers | direct | 2026-01-07 |
-| 2 | high-vs-low-molecular-weight-plasticizers | surprising-stat | 2026-01-07 |
-| 3 | pvc-pipe-size-identification | question | 2026-01-07 |
-| 4 | can-pvc-be-left-outside | surprising-stat | 2026-01-07 |
-| 5 | does-pvc-need-uv-protection | problem | 2026-01-07 |
+| 1 | automotive-interior-pvc-plasticizer-heat-resistance | surprising-stat | 2026-01-09 |
+| 2 | fda-compliance-guide-food-contact-plasticizers | direct | 2026-01-09 |
+| 3 | fish-eye-defects-pvc | practitioner-quote | 2026-01-08 |
+| 4 | phthalate-vs-non-phthalate-plasticizers | direct | 2026-01-07 |
+| 5 | high-vs-low-molecular-weight-plasticizers | surprising-stat | 2026-01-07 |
+| 6 | pvc-pipe-size-identification | question | 2026-01-07 |
+| 7 | can-pvc-be-left-outside | surprising-stat | 2026-01-07 |
+| 8 | does-pvc-need-uv-protection | problem | 2026-01-07 |
 
 ### Conclusion Distribution (All Time)
 | Conclusion Type | Total Count | Last Used | Status |
 |-----------------|-------------|-----------|--------|
 | next-journey-step | 1 | 2026-01-07 | - |
-| action-checklist | 2 | 2026-01-07 | - |
-| key-takeaways | 0 | - | - |
+| action-checklist | 3 | 2026-01-09 | - |
+| key-takeaways | 1 | 2026-01-08 | - |
 | contact-cta | 0 | - | - |
-| final-insight | 1 | 2026-01-07 | - |
+| final-insight | 2 | 2026-01-09 | - |
 | verdict | 1 | 2026-01-07 | - |
 
 ### Recent Conclusion Sequence (Last 10)
 | # | Article | Conclusion Type | Date |
 |---|---------|-----------------|------|
-| 1 | phthalate-vs-non-phthalate-plasticizers | next-journey-step | 2026-01-07 |
-| 2 | high-vs-low-molecular-weight-plasticizers | verdict | 2026-01-07 |
-| 3 | pvc-pipe-size-identification | action-checklist | 2026-01-07 |
-| 4 | can-pvc-be-left-outside | action-checklist | 2026-01-07 |
-| 5 | does-pvc-need-uv-protection | final-insight | 2026-01-07 |
+| 1 | automotive-interior-pvc-plasticizer-heat-resistance | final-insight | 2026-01-09 |
+| 2 | fda-compliance-guide-food-contact-plasticizers | action-checklist | 2026-01-09 |
+| 3 | fish-eye-defects-pvc | key-takeaways | 2026-01-08 |
+| 4 | phthalate-vs-non-phthalate-plasticizers | next-journey-step | 2026-01-07 |
+| 5 | high-vs-low-molecular-weight-plasticizers | verdict | 2026-01-07 |
+| 6 | pvc-pipe-size-identification | action-checklist | 2026-01-07 |
+| 7 | can-pvc-be-left-outside | action-checklist | 2026-01-07 |
+| 8 | does-pvc-need-uv-protection | final-insight | 2026-01-07 |
 
 ### Audience Distribution (All Time)
 | Audience | Total Count | Last Used |
 |----------|-------------|-----------|
 | beginner | 2 | 2026-01-07 |
 | intermediate | 3 | 2026-01-07 |
-| practitioner | 0 | - |
-| expert | 0 | - |
+| practitioner | 2 | 2026-01-09 |
+| expert | 1 | 2026-01-09 |
 
 ---
 
@@ -272,12 +303,13 @@ Conclusion Rules:
 |-------|------------------|
 | what-is-totm | "TOTM", "trioctyl trimellitate", "high temperature plasticizer" |
 | what-is-tintm | "TINTM", "triisononyl trimellitate" |
+| automotive-interior-pvc-plasticizer-heat-resistance | "automotive plasticizer heat resistance", "dashboard plasticizer", "VDA 278", "DIN 75201", "plasticizer temperature tier" |
 
 ### PVC
 | Topic | Linkable Anchors |
 |-------|------------------|
-| how-is-pvc-resin-made | "PVC resin", "PVC manufacturing", "polyvinyl chloride" |
-| different-grades-of-pvc-resin | "PVC grades", "PVC K-value" |
+| how-is-pvc-resin-made | "PVC resin", "PVC manufacturing", "polyvinyl chloride", "PVC resin production" |
+| different-grades-of-pvc-resin | "PVC grades", "PVC K-value", "different PVC resin grades" |
 
 ### Migration
 | Topic | Linkable Anchors |
@@ -301,6 +333,21 @@ Conclusion Rules:
 |-------|------------------|
 | phthalate-vs-non-phthalate-plasticizers | "phthalate vs non-phthalate", "phthalate phase-out", "DEHP alternatives", "non-phthalate transition", "California AB 2300" |
 
+### PVC Processing / Quality Control (NEW)
+| Topic | Linkable Anchors |
+|-------|------------------|
+| fish-eye-defects-pvc | "fish eye defects", "PVC gelation", "K-value viscosity", "85-95% gelation target", "DSC testing", "fish eye prevention" |
+
+### Regulatory Compliance (NEW)
+| Topic | Linkable Anchors |
+|-------|------------------|
+| fda-compliance-guide-food-contact-plasticizers | "FDA food contact compliance", "21 CFR requirements", "FCN process", "food contact plasticizer testing", "phthalate CAS numbers", "tiered toxicology" |
+
+### Automotive Applications (NEW)
+| Topic | Linkable Anchors |
+|-------|------------------|
+| automotive-interior-pvc-plasticizer-heat-resistance | "automotive plasticizer heat resistance", "dashboard plasticizer selection", "VDA 278 test", "DIN 75201 fogging", "plasticizer temperature tier", "OEM test specifications" |
+
 ---
 
 ## Backlink Queue
@@ -320,6 +367,15 @@ Conclusion Rules:
 | what-is-dotp | phthalate-vs-non-phthalate-plasticizers | "DOTP" | Completed |
 | what-is-dop | phthalate-vs-non-phthalate-plasticizers | "DEHP (DOP)" | Completed |
 | dotp-vs-dehp-technical-comparison | phthalate-vs-non-phthalate-plasticizers | "non-phthalate options" | Completed |
+| how-is-pvc-resin-made | fish-eye-defects-pvc | "PVC resin production" | Completed |
+| different-grades-of-pvc-resin | fish-eye-defects-pvc | "different PVC resin grades" | Completed |
+| what-are-non-phthalate-plasticizers | fda-compliance-guide-food-contact-plasticizers | "non-phthalate plasticizers" | Completed |
+| what-is-dotp | fda-compliance-guide-food-contact-plasticizers | "DOTP" | Completed |
+| how-do-you-test-for-plasticizer-migration | fda-compliance-guide-food-contact-plasticizers | "plasticizer migration testing" | Completed |
+| what-is-trioctyl-trimellitate-totm | automotive-interior-pvc-plasticizer-heat-resistance | "TOTM" | Completed |
+| tintm-vs-totm-trimellitate-plasticizers-comparison | automotive-interior-pvc-plasticizer-heat-resistance | "TINTM vs TOTM comparison" | Completed |
+| what-causes-plasticizer-migration-in-pvc | automotive-interior-pvc-plasticizer-heat-resistance | "Plasticizer migration" | Completed |
+| what-are-non-phthalate-plasticizers | automotive-interior-pvc-plasticizer-heat-resistance | "non-phthalate" | Completed |
 
 ---
 
@@ -334,3 +390,6 @@ Conclusion Rules:
 - 2026-01-07: Added pvc-pipe-size-identification - beginner DIY article on pipe sizing, starts new PVC DIY/Homeowner cluster, links to uPVC article
 - 2026-01-07: Added high-vs-low-molecular-weight-plasticizers - intermediate technical article on MW-based selection framework, fills gap in Plasticizer Fundamentals cluster, links to migration and TOTM articles
 - 2026-01-07: Added phthalate-vs-non-phthalate-plasticizers - intermediate comparison article with 2024 regulatory data (CA AB 2300, REACH updates), cost analysis, selection framework. Thesis: phase-out accelerating faster than procurement teams realize. Hook: direct. Conclusion: next-journey-step. Links to 4 internal articles (what-are-non-phthalate-plasticizers, what-is-dotp, what-is-dop, dotp-vs-dehp-technical-comparison). Contributes to Plasticizer Comparisons cluster.
+- 2026-01-08: Added fish-eye-defects-pvc - practitioner-level informational article on fish eye defects in PVC. Execution differentiation mode (skipThesis=true). Hook: practitioner-quote. Conclusion: key-takeaways. Links to 2 internal articles (how-is-pvc-resin-made, different-grades-of-pvc-resin). Starts new PVC Processing / Quality Control cluster. Key differentiators: K-value viscosity formula (K^3.4), 85-95% gelation target, testing method comparison table, prevention hierarchy.
+- 2026-01-09: Added fda-compliance-guide-food-contact-plasticizers - expert-level informational article on FDA food contact compliance. Execution differentiation mode (skipThesis=true). Hook: direct. Conclusion: action-checklist. Links to 3 internal articles (what-are-non-phthalate-plasticizers, what-is-dotp, how-do-you-test-for-plasticizer-migration). Starts new Regulatory Compliance cluster. Key differentiators: Complete 8-phthalate CAS number table, tiered toxicology requirements by CEDI, FCN process details with Form 3480, Prop 65 specific limits. Fills major gap in food-contact plasticizer coverage.
+- 2026-01-09: Added automotive-interior-pvc-plasticizer-heat-resistance - practitioner-level informational article on heat resistance requirements for automotive interior plasticizers. Execution differentiation mode (skipThesis=true). Hook: surprising-stat (200F dashboard). Conclusion: final-insight. Links to 4 internal articles (what-is-trioctyl-trimellitate-totm x2, tintm-vs-totm-trimellitate-plasticizers-comparison, what-causes-plasticizer-migration-in-pvc, what-are-non-phthalate-plasticizers). Starts new Automotive Applications cluster. Key differentiators: Temperature requirements table by interior zone, plasticizer comparison table with volatility/heat aging data, test method parameters (VDA 278, DIN 75201), 10C migration doubling rule. Strengthens Trimellitate Plasticizers cluster.

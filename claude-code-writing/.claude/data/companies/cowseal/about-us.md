@@ -34,11 +34,10 @@ This document serves as a pre-writing reference for educational/informational co
 - In-house machining capabilities for custom seal production
 - Quality-focused manufacturing with precision engineering
 
-**Sitemap URLs** (for internal linking):
-- autoRefresh: true
+**Sitemap URL** (for internal linking):
 - Index: https://cowseal.com/sitemap_index.xml
-- Posts: https://cowseal.com/post-sitemap.xml (Primary - articles)
-- Pages: https://cowseal.com/page-sitemap.xml
+- 子 sitemap 自动从 index 获取 (post-sitemap, page-sitemap, product-sitemap 等)
+- 非英语链接自动过滤 (/fr/, /it/, /de/ 等路径)
 
 ---
 

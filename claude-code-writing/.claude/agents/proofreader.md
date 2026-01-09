@@ -109,7 +109,9 @@ Grep("Understanding .* helps", drafts/[topic].md) ||
 Grep("Knowing .* (is essential|allows|enables)", drafts/[topic].md) ||
 Grep("By understanding", drafts/[topic].md) ||
 Grep("For (a )?(deeper|more|broader|complete)", drafts/[topic].md) ||
-Grep("To learn more|Learn more about|See our guide", drafts/[topic].md)
+Grep("To learn more|Learn more about|See our guide", drafts/[topic].md) ||
+Grep("The relationship between .* determines", drafts/[topic].md) ||
+Grep("How .* (works|affects) .* (determines|influences)", drafts/[topic].md)
 ```
 
 **For each match found:**
@@ -247,11 +249,13 @@ Scan article for patterns that signal AI-generated content. Fix or flag each occ
 |---------|---------|---------|-----|
 | **Long gerund subject + simple verb** | "Understanding what X means, what Y is acceptable, and what signals Z separates A from B" | 超长主语读起来费力，是 AI 模板句 | REWRITE to short subject or DELETE |
 | **"Each X tells/reveals/provides..."** | "Each parameter tells a different part of the quality story" | 空洞总结，没有实际信息 | DELETE or rewrite concretely |
+| **"Each has (distinct/unique/its own) advantages/benefits"** | "Each has distinct advantages." | 预告空话，表格/列表已经展示内容 | DELETE |
 | **"Beyond X, ..."** transitions | "Beyond individual parameters, evaluate..." | AI 常用过渡句式 | Rewrite: "The TDS itself also tells you something" |
 | **"X separates/distinguishes Y from Z"** | "This knowledge separates experts from beginners" | 哲理总结句，AI 模板 | DELETE or state concretely |
 | **Fabricated compounds** | "structurally unequal", "operationally deficient" | 生造词，不自然 | Replace with plain English |
 | **Abstract metaphors** | "quality story", "success journey", "learning curve" | 空洞比喻 | DELETE the metaphor, state directly |
 | **"Missing any one leaves gaps..."** | "Missing any one leaves gaps in your assessment" | 明显的填充句 | Rewrite concretely or DELETE |
+| **"X matters for Y"** | "The TINTM vs TOTM comparison matters for high-temperature applications" | 空洞断言，不说明为什么/如何重要 | DELETE or state concrete impact |
 
 **Detection patterns for grep:**
 ```
@@ -259,10 +263,12 @@ Scan article for patterns that signal AI-generated content. Fix or flag each occ
 "Knowing .* separates"
 "Each .* tells .* story"
 "Each .* reveals"
+"Each has (distinct|unique|its own)"
 "Beyond .*, "
 "separates .* from"
 "distinguishes .* from"
 "Missing any .* leaves"
+".* matters for"
 ```
 
 **P1: Sentence Structure Patterns (Must Fix)**
@@ -362,6 +368,8 @@ Grep(filler phrases)
 | "For more information..." | "For more information on X, check out [link]" | DELETE |
 | "X provides valuable context" | "[Link] provides valuable context for understanding Y" | DELETE |
 | "X provides the foundation..." | "[Link] provides the foundation for understanding Y" | DELETE |
+| "The relationship between [link] and Y determines/affects..." | "The relationship between [PVC resin production] conditions and final porosity determines how the resin behaves" | DELETE |
+| "How [link] works/affects..." (vague bridge) | "How [heat treatment] works affects the final properties" | DELETE |
 
 **Never inject links using these patterns.** If no natural integration point exists, leave the article without that internal link.
 

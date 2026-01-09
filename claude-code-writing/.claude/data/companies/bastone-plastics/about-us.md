@@ -25,12 +25,10 @@ This document serves as a pre-writing reference for educational/informational co
 1. Plasticizers (softening agents for PVC and other polymers)
 2. PVC Resin (base polymer material)
 
-**Sitemap URLs** (for internal linking):
-- autoRefresh: true
+**Sitemap URL** (for internal linking):
 - Index: https://bastone-plastics.com/sitemap_index.xml
-- Posts: https://bastone-plastics.com/post-sitemap.xml (Primary - articles)
-- Products: https://bastone-plastics.com/product-sitemap.xml (Secondary)
-- Pages: https://bastone-plastics.com/page-sitemap.xml
+- 子 sitemap 自动从 index 获取 (post-sitemap, page-sitemap, product-sitemap 等)
+- 非英语链接自动过滤 (/fr/, /it/, /de/ 等路径)
 
 ---
 

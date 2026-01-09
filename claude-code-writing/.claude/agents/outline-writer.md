@@ -512,7 +512,12 @@ Priority:
 - "Learn more about [X]"
 - "To learn more, check out..."
 - "See our guide on..."
+- "Understanding [X] helps you..."
+- "Knowing [X] helps you..."
+- "The relationship between [X] and Y determines..."
 - Any sentence whose PRIMARY purpose is to insert a link
+
+**Test before writing any link:** Remove the link text—does the sentence still teach something concrete? If it's just announcing that knowledge is useful, DELETE and find a natural placement instead.
 
 **Correct approach:** Embed links in content that would exist anyway.
 

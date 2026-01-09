@@ -20,12 +20,10 @@ This document serves as a pre-writing reference for educational/informational co
 
 **Key Products/Services**: [List 3-5 main offerings]
 
-**Sitemap URLs** (for internal linking):
-- autoRefresh: true   ← Set to `false` to disable automatic sitemap refresh
+**Sitemap URL** (for internal linking):
 - Index: [https://example.com/sitemap_index.xml]
-- Posts: [https://example.com/post-sitemap.xml] (Primary - articles)
-- Products: [https://example.com/product-sitemap.xml] (Secondary - if applicable)
-- Pages: [https://example.com/page-sitemap.xml] (Optional)
+- 子 sitemap 自动从 index 获取 (post-sitemap, page-sitemap, product-sitemap 等)
+- 非英语链接自动过滤 (/fr/, /it/, /de/ 等路径)
 
 ---
 

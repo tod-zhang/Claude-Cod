@@ -41,12 +41,10 @@ This document serves as a pre-writing reference for educational/informational co
 - National High-Tech Enterprise designation (2018)
 - National Torch Program participant
 
-**Sitemap URLs** (for internal linking):
-- autoRefresh: true
+**Sitemap URL** (for internal linking):
 - Index: https://mtedmachinery.com/sitemap_index.xml
-- Posts: https://mtedmachinery.com/post-sitemap.xml (Primary - articles)
-- Products: https://mtedmachinery.com/product-sitemap.xml (Secondary)
-- Pages: https://mtedmachinery.com/page-sitemap.xml
+- 子 sitemap 自动从 index 获取 (post-sitemap, page-sitemap, product-sitemap 等)
+- 非英语链接自动过滤 (/fr/, /it/, /de/ 等路径)
 
 ---
 

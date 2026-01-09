@@ -37,12 +37,10 @@ This document serves as a pre-writing reference for educational/informational co
 - ISO 9001 (Quality Management)
 - ISO 14001 (Environmental Management)
 
-**Sitemap URLs** (for internal linking):
-- autoRefresh: true
+**Sitemap URL** (for internal linking):
 - Index: https://tanhon.com/sitemap_index.xml
-- Posts: https://tanhon.com/post-sitemap.xml (Primary - articles)
-- Products: https://tanhon.com/product-sitemap.xml (Secondary)
-- Pages: https://tanhon.com/page-sitemap.xml
+- 子 sitemap 自动从 index 获取 (post-sitemap, page-sitemap, product-sitemap 等)
+- 非英语链接自动过滤 (/fr/, /it/, /de/ 等路径)
 
 ---
 

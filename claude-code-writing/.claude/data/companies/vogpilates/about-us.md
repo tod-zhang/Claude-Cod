@@ -40,12 +40,10 @@ This document serves as a pre-writing reference for educational/informational co
 - 98% customer satisfaction rate
 - Premium maple wood and aluminum construction options
 
-**Sitemap URLs** (for internal linking):
-- autoRefresh: true
+**Sitemap URL** (for internal linking):
 - Index: https://cn.vogpilates.com/sitemap_index.xml
-- Posts: https://cn.vogpilates.com/post-sitemap.xml (Primary - articles)
-- Products: https://cn.vogpilates.com/product-sitemap.xml (Secondary)
-- Pages: https://cn.vogpilates.com/page-sitemap.xml
+- 子 sitemap 自动从 index 获取 (post-sitemap, page-sitemap, product-sitemap 等)
+- 非英语链接自动过滤 (/fr/, /it/, /de/ 等路径)
 
 ---
 

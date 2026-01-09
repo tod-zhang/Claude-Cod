@@ -26,12 +26,10 @@ This document serves as a pre-writing reference for educational/informational co
 - Control devices (remote controls, wireless receivers, wall switches)
 - Hardware accessories (racks, clamping wheels)
 
-**Sitemap URLs** (for internal linking):
-- autoRefresh: true
+**Sitemap URL** (for internal linking):
 - Index: https://at-gateopener.com/sitemap_index.xml
-- Posts: https://at-gateopener.com/post-sitemap.xml (Primary - articles)
-- Products: https://at-gateopener.com/product-sitemap.xml (Secondary - products)
-- Pages: https://at-gateopener.com/page-sitemap.xml (Optional)
+- 子 sitemap 自动从 index 获取 (post-sitemap, page-sitemap, product-sitemap 等)
+- 非英语链接自动过滤 (/fr/, /it/, /de/ 等路径)
 
 ---
 
