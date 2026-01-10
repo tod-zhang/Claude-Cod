@@ -59,34 +59,32 @@ SEO 文章写作工作流。两种模式：新文章写作、旧文章优化。
      ```
 
      ```
-     # Step 2: 深度刷新新增 URLs (Haiku 并行处理)
-     Task: subagent_type="general-purpose", model="haiku"
-     Prompt: |
-       Deep refresh internal links for [company].
-
-       Read: .claude/data/companies/[company]/.internal-links-diff/new_urls.txt
-
-       For each URL (parallel, batch of 10):
-       1. WebFetch the URL
-       2. Extract: actual title, one-sentence summary (in English)
-       3. Format: - [Actual Title](URL)\n  > Summary
-
-       Read existing: .claude/data/companies/[company]/internal-links.md
-       - Keep entries for unchanged URLs (from unchanged_urls.txt)
-       - Remove entries for deleted URLs (from deleted_urls.txt)
-       - Add new entries with title + summary
-
-       Write updated internal-links.md with:
-       - <!-- Last Updated: [today] -->
-       - <!-- Deep Refresh: [count] URLs fetched -->
+     # Step 2: 处理新增 URLs (Main workflow 直接执行)
+     1. Read: .claude/data/companies/[company]/.internal-links-diff/new_urls.txt
+     2. For each URL:
+        - Extract title from URL slug (e.g., /mechanical-seal-failure/ → "Mechanical Seal Failure")
+        - Infer search intent and write one-sentence summary in English
+        - Format: - [Title From Slug](URL)\n  > Search intent summary
+     3. Read existing: .claude/data/companies/[company]/internal-links.md
+        - Keep entries for unchanged URLs (from unchanged_urls.txt)
+        - Remove entries for deleted URLs (from deleted_urls.txt)
+        - Add new entries with title + summary
+     4. Write updated internal-links.md with:
+        - <!-- Last Updated: [today] -->
+        - <!-- Deep Refresh: [count] URLs processed -->
      ```
+
+     **URL slug 转标题规则**:
+     - `/api-plan-11/` → "API Plan 11"
+     - `/mechanical-seal-failure/` → "Mechanical Seal Failure"
+     - 保留数字和缩写的大写
 
      **缓存格式** (deep refresh 后):
      ```markdown
      # Internal Links Cache
 
      <!-- Last Updated: 2026-01-10 -->
-     <!-- Deep Refresh: 15 URLs fetched -->
+     <!-- Deep Refresh: 15 URLs processed -->
 
      ## Articles
      - [15 Reasons For Mechanical Seal Failure](https://cowseal.com/...)
