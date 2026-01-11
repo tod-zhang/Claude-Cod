@@ -11,6 +11,7 @@ Read by: all agents
 
 ```json
 {
+  "audienceFramework": "b2b | b2c",
   "articleType": "opinion | tutorial | informational | comparison",
   "articleLength": "short | standard | deep",
   "writingAngle": {
@@ -18,7 +19,7 @@ Read by: all agents
     "stance": "challenge | confirm | nuance (null until Step 3)",
     "pending": true,
     "proofPoints": ["evidence 1", "evidence 2", "evidence 3"],
-    "recommendedDepth": "beginner | intermediate | expert | all",
+    "recommendedDepth": "B2B: 入门基础|进阶技巧|技术细节|概述|专家级 | B2C: 极简|实用|对比 | all",
     "depthMismatchAcknowledged": false
   },
   "authorPersona": {
@@ -67,9 +68,20 @@ Read by: all agents
 - Examples: "宁可过度设计，不要临界运行", "标准流程优于个人经验"
 
 **writingAngle.recommendedDepth explained:**
-- `beginner`: Thesis can be proven with simple examples, analogies, case studies
-- `intermediate`: Requires some technical background to support
-- `expert`: Requires deep technical analysis to prove convincingly
+
+B2B depths:
+- `入门基础`: Thesis uses simple examples, analogies, case studies
+- `进阶技巧`: Requires industry context and selection frameworks
+- `技术细节`: Specific parameters, procedures, standards references
+- `概述`: Value and cost focus, no technical depth needed
+- `专家级`: Highest complexity, research and standards citations
+
+B2C depths:
+- `极简`: Conversational, 3-5 min read, core question only
+- `实用`: Problem → diagnosis → solution → when to call pro
+- `对比`: Features as benefits, comparison tables, recommendations
+
+Special:
 - `all`: Flexible thesis that works at any depth level
 
 **writingAngle.pending:**
@@ -82,10 +94,11 @@ Read by: all agents
 - Set to `false` for informational articles (no thesis needed)
 
 **writingAngle.depthMismatchAcknowledged:**
-- Set to `true` when user chooses a thesis whose `recommendedDepth` differs from `config.depth`
+- Set to `true` when user chooses a thesis whose `recommendedDepth` differs from selected article depth
 - When `true`, outline-writer must adjust argumentation strategy:
-  - Expert thesis + Beginner depth → use simplified explanations, analogies, practical examples
-  - Beginner thesis + Expert depth → add technical depth while keeping core argument accessible
+  - B2B: 专家级 thesis + 入门基础 depth → use simplified explanations, analogies
+  - B2B: 入门基础 thesis + 技术细节 depth → add technical depth while keeping core argument accessible
+  - B2C: Mismatches rare (User Type typically determines both depth and thesis suitability)
 - This is an intentional choice, not an error - can be a differentiation strategy
 
 ---
@@ -262,7 +275,7 @@ Read by: outline-writer, proofreader
       {
         "thesis": "specific claim based on research data",
         "stance": "challenge | confirm | nuance",
-        "recommendedDepth": "beginner | intermediate | expert | all",
+        "recommendedDepth": "B2B: 入门基础|进阶技巧|技术细节|概述|专家级 | B2C: 极简|实用|对比 | all",
         "evidenceSummary": "key data points supporting this thesis",
         "differentiationScore": "strong | moderate | weak"
       }
@@ -499,8 +512,8 @@ Read by: proofreader
       },
       "depthAdaptation": {
         "applied": false,
-        "originalRecommendedDepth": "expert | intermediate | beginner | all",
-        "actualDepth": "beginner | intermediate | expert",
+        "originalRecommendedDepth": "B2B: 入门基础|进阶技巧|技术细节|概述|专家级 | B2C: 极简|实用|对比 | all",
+        "actualDepth": "B2B: 入门基础|进阶技巧|技术细节|概述|专家级 | B2C: 极简|实用|对比",
         "strategy": "how argumentation was adjusted to bridge the gap"
       },
       "hookUsed": {
@@ -567,6 +580,7 @@ Read by: proofreader
 
 | Field Path | Set By | Used By | Purpose |
 |------------|--------|---------|---------|
+| `audienceFramework` | config-creator | all | b2b/b2c - determines User Types, depths, personas sources |
 | `articleType` | config-creator | all | opinion/tutorial/informational/comparison |
 | `articleLength` | config-creator | outline-writer | short/standard/deep - controls H2 count and word budget |
 | `writingAngle.thesis` | main (Step 3) | all | The ONE claim to prove (null until Step 3) |

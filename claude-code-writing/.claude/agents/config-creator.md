@@ -14,6 +14,7 @@ Create the strategic foundation for an article by analyzing company context, aud
 - Company slug, Topic, Audience level, Article depth, Language
 - Article type: opinion | tutorial | informational | comparison
 - Author Persona: from company Part 5 presets or custom
+- **audienceFramework**: `b2b` or `b2c`
 - [Optimization Mode] Original URL and analysis file path
 
 **Note:** Thesis is NOT an input. It will be selected in Step 3 after competitor analysis.
@@ -35,6 +36,7 @@ Read in parallel:
 ```
 .claude/data/companies/[company-slug]/about-us.md
 .claude/data/companies/[company-slug]/article-history.md (if exists)
+.claude/data/companies/template/about-us.md (for fallback User Types)
 ```
 
 Extract from about-us.md:
@@ -42,6 +44,32 @@ Extract from about-us.md:
 - **Part 2**: User type matching audience level
 - **Part 4**: Product categories, mention triggers (if exists)
 - **Part 5**: Author Personas (if exists)
+
+### User Type Source Selection
+
+Based on input `audienceFramework`:
+
+| audienceFramework | Action |
+|-------------------|--------|
+| `b2b` | Use company's B2B User Types from Part 2 |
+| `b2c` | Use template's B2C User Types |
+
+**B2B audiences** (from company about-us.md):
+- Complete Beginner, Informed Non-Expert, Practitioner, Decision-Maker, Expert
+
+**B2C audiences** (from template/about-us.md):
+- Curious Beginner (好奇新手), Problem Solver (问题解决者), Informed Shopper (精明买家)
+
+When `audienceFramework: b2c`:
+- Read B2C User Type from `template/about-us.md` Part 2
+- Read B2C Personas from `template/about-us.md` Part 5
+- Keep company's Part 1 (company info), Part 4 (products)
+- Replace Part 2 (audience) and Part 5 (personas) with B2C versions
+
+**B2C personas** (from template/about-us.md Part 5):
+- 生活达人 (Lifestyle Enthusiast) — 好奇新手
+- 热心邻居 (Helpful Neighbor) — 问题解决者
+- 精明买家代言人 (Smart Shopper) — 精明买家
 
 ### Article History & Diversity Checks
 
@@ -63,22 +91,32 @@ If Part 4 exists: match topic to categories, extract mention triggers, apply gui
 
 ## Step 2: Mapping
 
-### Audience Level
+### Audience Framework Selection
 
-| Input | Maps To |
-|-------|---------|
-| beginner | User Type 1 |
-| intermediate | User Type 2 |
-| practitioner | User Type 3 |
-| expert | User Type 5 |
+Based on input `audienceFramework`:
 
-### Article Depth
+| audienceFramework | Audience Source | Depth Options |
+|-------------------|-----------------|---------------|
+| `b2b` | Company about-us.md Part 2 | 入门基础, 进阶技巧, 技术细节, 概述, 专家级 |
+| `b2c` | Template about-us.md Part 2 | 极简, 实用, 对比 |
 
-| Input | Word Count |
-|-------|------------|
-| 入门科普 | 800-1200 |
-| 实用指南 | 1500-2500 |
-| 深度技术 | 3000+ |
+### B2B User Types → Depth Mapping
+
+| User Type | Recommended Depth |
+|-----------|-------------------|
+| 入门新手 (Complete Beginner) | 入门基础 |
+| 非专业人士 (Informed Non-Expert) | 进阶技巧 |
+| 实操者 (Practitioner) | 技术细节 |
+| 决策者 (Decision-Maker) | 概述 |
+| 专家 (Expert) | 专家级 |
+
+### B2C User Types → Depth Mapping
+
+| User Type | Recommended Depth |
+|-----------|-------------------|
+| 好奇新手 (Curious Beginner) | 极简 |
+| 问题解决者 (Problem Solver) | 实用 |
+| 精明买家 (Informed Shopper) | 对比 |
 
 ---
 
@@ -114,15 +152,25 @@ If Part 4 exists: match topic to categories, extract mention triggers, apply gui
 
 ### Author Persona Selection
 
-| Article Type | Recommended Persona |
-|--------------|---------------------|
-| Deep technical | Persona 1: 技术专家 |
-| Beginner guide / Tutorial | Persona 2: 实践导师 |
-| Comparisons / Strategic | Persona 3: 行业观察者 |
+**B2B Personas** (from company about-us.md Part 5):
 
-Copy full persona from Part 5: role, experience, specialty, bias, voiceTraits, signaturePhrases.
+| User Type | Recommended Persona |
+|-----------|---------------------|
+| 入门新手 / 非专业人士 | 实践导师 |
+| 实操者 / 专家 | 技术专家 |
+| 决策者 | 行业观察者 |
 
-If Part 5 missing: use template defaults, adjust specialty to company's industry.
+**B2C Personas** (from template about-us.md Part 5):
+
+| User Type | Recommended Persona |
+|-----------|---------------------|
+| 好奇新手 | 生活达人 |
+| 问题解决者 | 热心邻居 |
+| 精明买家 | 精明买家代言人 |
+
+Copy full persona: role, experience/perspective, specialty, bias, voiceTraits, signaturePhrases.
+
+When `audienceFramework: b2c`: Use B2C personas from template Part 5, NOT company Part 5.
 
 ---
 
@@ -180,6 +228,7 @@ Key sections for core.json:
 - 公司: [name] | 主题: [topic]
 - 类型: [articleType] | 深度: [depth]
 - 读者: [type] | 语言: [language]
+- 受众指导: [公司定制 / 通用模板 ⚠️]
 
 ### 写作角度
 - 状态: [⏳ 待选择 / 信息型-无需]
@@ -193,13 +242,16 @@ Key sections for core.json:
 - 结构约束: [h2Requirement]
 ```
 
+**Note:** If using template fallback (通用模板), display ⚠️ and explain: "搜索场景与公司定位不匹配，使用通用受众指导"
+
 ---
 
 ## Critical Rules
 
 1. **Read about-us.md completely** - Extract all audience fields
-2. **Analyze search intent deeply** - Drives entire strategy
-3. **Use exact config structure** - Downstream agents parse specific paths
-4. **Initialize writingAngle correctly** - `pending: true` except informational
-5. **Do NOT set thesis** - Selected by user in Step 3
-6. **Return summary only** - Don't output full config
+2. **Respect audienceFramework** - Use B2C User Types from template when `b2c`
+3. **Analyze search intent deeply** - Drives entire strategy
+4. **Use exact config structure** - Downstream agents parse specific paths
+5. **Initialize writingAngle correctly** - `pending: true` except informational
+6. **Do NOT set thesis** - Selected by user in Step 3
+7. **Return summary only** - Don't output full config

@@ -27,349 +27,201 @@ This document serves as a pre-writing reference for educational/informational co
 
 ---
 
-## Part 2: Target User Analysis
+## Part 2: Target User Analysis (B2C Only)
 
-### User Type 1: The Complete Beginner
+**This template contains B2C User Types for everyday consumers.**
 
-| Attribute | Description |
-|-----------|-------------|
-| **Industry** | Any industry; often new to the field or career changers |
-| **Knowledge Level** | Novice (0-6 months exposure) |
-| **Goals** | Build foundational understanding; gain confidence to discuss the topic; make informed decisions |
-
-**Typical Roles/Titles**:
-- [e.g., Career changers exploring new industries]
-- [e.g., Students or interns]
-- [e.g., Hobbyists and DIY enthusiasts]
-- [e.g., Small business owners wearing multiple hats]
-
-**What They Already Know**:
-- Basic awareness that the topic exists
-- May have heard industry buzzwords without understanding them
-- General common-sense knowledge only
-
-**What They Need to Learn**:
-- Core definitions and terminology
-- Why this topic matters
-- Basic concepts and how they connect
-- Where to start and what to prioritize
-
-**Pain Points & Challenges**:
-- Overwhelmed by jargon and technical terms
-- Unsure where to start or what to prioritize
-- Fear of looking foolish by asking "basic" questions
-- Difficulty distinguishing reliable sources from marketing hype
-
-**Content Preferences**:
-| Aspect | Preference |
-|--------|------------|
-| **Reading Time** | After work hours, weekends |
-| **Device** | Mobile-first, quick references |
-| **Content Length** | Short to medium (5-10 min read) |
-| **Format** | Visual explanations, infographics, step-by-step guides |
-
-**Decision Factors**:
-- Trust: Prefers brands that explain clearly without condescension
-- Simplicity: Values straightforward answers over comprehensive coverage
-- Credibility: Looks for signs of expertise without intimidation
-- Accessibility: Chooses content that feels approachable
-
-**Writing Approach**:
-
-| Element | Recommendation |
-|---------|----------------|
-| **Tone** | Friendly, encouraging, patient |
-| **Style** | Conversational; use analogies and real-world examples |
-| **Complexity** | Simple sentences; define all jargon; avoid acronyms or explain them immediately |
-| **Structure** | Start with "why it matters"; build concepts step-by-step |
-| **Word Choice** | Everyday language; assume no prior knowledge |
-
-**Audience-Specific Guidelines**:
-- ✓ Use everyday analogies to explain technical concepts
-- ✓ Anticipate confusion points and address them proactively
-- ✓ Provide context before details
-- ✗ Don't assume any prior knowledge
-- ✗ Don't use unexplained acronyms
-- ✗ Don't chain multiple concepts in one paragraph
+For B2B User Types (professional/work contexts), use company-specific `about-us.md` files.
 
 ---
 
-### User Type 2: The Informed Non-Expert
+### User Type 1: The Curious Beginner (好奇新手)
 
 | Attribute | Description |
 |-----------|-------------|
-| **Industry** | Adjacent roles (e.g., managers, procurement, marketing) who interact with experts |
-| **Knowledge Level** | Basic to Intermediate (6 months - 2 years exposure) |
-| **Goals** | Make better decisions; communicate effectively with specialists; understand enough to evaluate options |
+| **Context** | Personal life, general curiosity, first-time encounter with topic |
+| **Knowledge Level** | Zero to minimal; no industry background |
+| **Goals** | Satisfy curiosity; understand basics; decide if they need to learn more |
 
-**Typical Roles/Titles**:
-- [e.g., Procurement managers / Purchasing specialists]
-- [e.g., Project managers overseeing technical projects]
-- [e.g., Operations managers / Facility managers]
-- [e.g., Marketing/Sales staff needing product knowledge]
+**Typical Profiles**:
+- Someone who just encountered the term and wants to know what it means
+- A person researching before making a personal purchase
+- A student or curious learner exploring new topics
+- Someone trying to understand something they saw/heard
 
 **What They Already Know**:
-- General concepts and common terminology
-- Basic processes and workflows
-- Awareness of major players, tools, or methods
-- Some hands-on experience but limited depth
+- Almost nothing about the topic
+- General life experience only
+- May have misconceptions from pop culture or hearsay
 
 **What They Need to Learn**:
-- Deeper "how" and "why" behind concepts
-- Criteria for evaluation and comparison
-- Common pitfalls and how to avoid them
-- Best practices for their specific context
+- What is this thing, in plain language?
+- Why should I care? How does it affect my life?
+- Is this something I need to worry about or act on?
 
 **Pain Points & Challenges**:
-- Need to make informed decisions without deep technical expertise
-- Must communicate effectively with both technical teams and leadership
-- Time pressure to evaluate options and make recommendations
-- Risk of choosing wrong solution due to incomplete understanding
+- Feels intimidated by technical content
+- Doesn't know what questions to ask
+- Just wants a simple answer, not a comprehensive guide
+- May abandon content that feels "too professional"
 
 **Content Preferences**:
 | Aspect | Preference |
 |--------|------------|
-| **Reading Time** | During work hours, between meetings |
-| **Device** | Desktop primary, tablet secondary |
-| **Content Length** | Medium (8-15 min read), scannable |
-| **Format** | Comparison tables, checklists, decision frameworks |
-
-**Decision Factors**:
-- Practicality: Values actionable recommendations over theory
-- Efficiency: Prefers curated options over exhaustive lists
-- Confidence: Wants enough knowledge to ask smart questions
-- Risk Mitigation: Needs to understand potential pitfalls
+| **Reading Time** | Anytime, often on phone |
+| **Device** | Mobile dominant (80%+) |
+| **Content Length** | Short (3-5 min read preferred) |
+| **Format** | Conversational, relatable examples, "explain like I'm 5" style |
 
 **Writing Approach**:
 
 | Element | Recommendation |
 |---------|----------------|
-| **Tone** | Professional, practical, direct |
-| **Style** | Action-oriented; focus on decision-making frameworks |
-| **Complexity** | Moderate; can use industry terms with brief clarification |
-| **Structure** | Problem-solution format; comparison tables; numbered lists |
-| **Word Choice** | Industry-standard terms; occasional technical vocabulary |
+| **Tone** | Warm, casual, like explaining to a friend |
+| **Style** | Storytelling; everyday analogies; relatable scenarios |
+| **Complexity** | Extremely simple; avoid ALL jargon |
+| **Structure** | Answer the main question immediately, then expand |
+| **Word Choice** | Conversational; use "you" frequently; household/daily life terms |
 
 **Audience-Specific Guidelines**:
-- ✓ Provide decision frameworks and selection criteria
-- ✓ Use comparison tables for options
-- ✓ Acknowledge trade-offs explicitly
-- ✗ Don't over-explain basics they already know
-- ✗ Don't provide technical details without business relevance
-- ✗ Don't overwhelm with options without recommendations
+- ✓ Use analogies from daily life (kitchen, car, home)
+- ✓ Lead with "why you might care about this"
+- ✓ Keep paragraphs to 2-3 sentences max
+- ✓ Use questions as headers ("So what does this mean for you?")
+- ✗ Don't use any industry terminology without immediate explanation
+- ✗ Don't assume they'll read the whole article
+- ✗ Don't reference standards, specs, or professional contexts
 
 ---
 
-### User Type 3: The Practitioner / Implementer
+### User Type 2: The Problem Solver (问题解决者)
 
 | Attribute | Description |
 |-----------|-------------|
-| **Industry** | Technical roles (engineers, technicians, specialists, operators) |
-| **Knowledge Level** | Intermediate to Advanced (2-5 years experience) |
-| **Goals** | Solve specific problems; improve efficiency; implement solutions correctly; troubleshoot issues |
+| **Context** | Has a specific problem at home/in life; needs a solution |
+| **Knowledge Level** | Minimal, but motivated by a real issue |
+| **Goals** | Fix the problem; understand enough to take action or hire someone |
 
-**Typical Roles/Titles**:
-- [e.g., Field engineers / Service technicians]
-- [e.g., Maintenance engineers / Reliability engineers]
-- [e.g., Machine operators / Process operators]
-- [e.g., Installation specialists / Commissioning engineers]
+**Typical Profiles**:
+- Homeowner with a leaking faucet/broken appliance
+- Parent researching a product for their family
+- Person comparing options before a purchase
+- DIYer attempting a home repair for the first time
 
 **What They Already Know**:
-- Solid understanding of fundamentals
-- Hands-on experience with common scenarios
-- Familiarity with tools, methods, and workflows
-- Technical vocabulary and industry standards
+- They have a problem that needs solving
+- Basic understanding of their home/situation
+- May have tried simple fixes already
 
 **What They Need to Learn**:
-- Advanced techniques and optimizations
-- Edge cases and troubleshooting methods
-- New developments and updates in the field
-- Integration with other systems or processes
+- What's causing my problem?
+- Can I fix this myself, or do I need a professional?
+- What are my options and what do they cost?
+- Step-by-step instructions if DIY is possible
 
 **Pain Points & Challenges**:
-- Need specific answers quickly, often under time pressure
-- Frustrated by content that wastes time with unnecessary basics
-- Encountering edge cases not covered in standard documentation
-- Balancing speed with thoroughness to avoid costly mistakes
+- Urgency — problem is happening now
+- Fear of making it worse
+- Don't want to overpay for professional help
+- Need to know if this is serious or minor
 
 **Content Preferences**:
 | Aspect | Preference |
 |--------|------------|
-| **Reading Time** | On the job, often on-site |
-| **Device** | Mobile/tablet in field, desktop for planning |
-| **Content Length** | Variable—quick reference OR comprehensive guide |
-| **Format** | Step-by-step procedures, specs tables, troubleshooting flowcharts |
-
-**Decision Factors**:
-- Accuracy: Values precise specifications over general guidance
-- Completeness: Wants all steps, including "obvious" ones for documentation
-- Reliability: Trusts sources that show technical competence
-- Efficiency: Appreciates content organized for quick scanning
+| **Reading Time** | While dealing with the problem |
+| **Device** | Mobile (often in the room with the problem) |
+| **Content Length** | Scannable; get to the point fast |
+| **Format** | Numbered steps, clear headers, "if X then Y" logic |
 
 **Writing Approach**:
 
 | Element | Recommendation |
 |---------|----------------|
-| **Tone** | Technical, precise, matter-of-fact |
-| **Style** | Procedural; detailed step-by-step instructions |
-| **Complexity** | High; assume technical competence; include specifications |
-| **Structure** | Sequential steps; code/formula blocks; technical diagrams |
-| **Word Choice** | Full technical vocabulary; use industry shorthand freely |
+| **Tone** | Helpful, reassuring, practical |
+| **Style** | Problem-solution format; direct answers |
+| **Complexity** | Simple with optional "learn more" sections |
+| **Structure** | Problem → Quick diagnosis → Solutions → When to call a pro |
+| **Word Choice** | Action verbs; household terms; avoid technical names |
 
 **Audience-Specific Guidelines**:
-- ✓ Include specific values, tolerances, and units
-- ✓ Reference applicable standards (API, ISO, ASME, etc.)
-- ✓ Provide troubleshooting guidance for common issues
-- ✓ Include "pro tips" from field experience
-- ✗ Don't explain basic concepts they already know
-- ✗ Don't use vague language without specific criteria
-- ✗ Don't omit safety warnings where applicable
+- ✓ Lead with the most common cause/solution
+- ✓ Include "signs you need a professional" section
+- ✓ Use photos or descriptions of what to look for
+- ✓ Provide rough cost expectations
+- ✗ Don't bury the solution in background info
+- ✗ Don't assume they have tools or skills
+- ✗ Don't use professional/trade terminology
 
 ---
 
-### User Type 4: The Strategic Decision-Maker
+### User Type 3: The Informed Shopper (精明买家)
 
 | Attribute | Description |
 |-----------|-------------|
-| **Industry** | Leadership roles (executives, directors, business owners, senior managers) |
-| **Knowledge Level** | Conceptually advanced; operationally variable |
-| **Goals** | Make strategic decisions; justify investments; understand ROI; manage risk |
+| **Context** | Ready to buy something; comparing options |
+| **Knowledge Level** | Has done some research; knows basics |
+| **Goals** | Make a smart purchase; avoid regret; get good value |
 
-**Typical Roles/Titles**:
-- [e.g., C-suite executives (CEO, COO, CTO)]
-- [e.g., Directors / VPs of Operations, Engineering, or Procurement]
-- [e.g., Business owners / General managers]
-- [e.g., Capital project managers / Investment analysts]
+**Typical Profiles**:
+- Consumer comparing products before buying
+- Person who's been burned before and wants to choose wisely
+- Budget-conscious buyer looking for best value
+- Someone upgrading from basic to better quality
 
 **What They Already Know**:
-- Business context and industry landscape
-- High-level understanding of the topic
-- Financial and operational implications
-- Competitive dynamics
+- General product categories exist
+- Some features matter more than others
+- Prices vary; cheaper isn't always worse
+- Reviews can be biased or fake
 
 **What They Need to Learn**:
-- Strategic value and competitive advantage
-- ROI calculations and business cases
-- Risk factors and mitigation strategies
-- Industry trends and future outlook
+- What features actually matter for my use case?
+- What's the difference between options at different price points?
+- What should I avoid? Red flags?
+- What do real users say (not marketing)?
 
 **Pain Points & Challenges**:
-- Need to justify investments to stakeholders or board
-- Lack time to dive into technical details
-- Must balance competing priorities and budget constraints
-- Risk of making costly decisions based on incomplete information
+- Overwhelmed by options
+- Can't tell marketing hype from real differences
+- Worried about overpaying or buying wrong thing
+- Don't know what they don't know
 
 **Content Preferences**:
 | Aspect | Preference |
 |--------|------------|
-| **Reading Time** | Early morning, during commute, between meetings |
-| **Device** | Tablet, phone for quick reads; desktop for reports |
-| **Content Length** | Short executive summaries with optional deep dives |
-| **Format** | Key metrics upfront, charts, bullet points, clear recommendations |
-
-**Decision Factors**:
-- ROI: Needs clear financial justification
-- Risk: Wants to understand downside and mitigation
-- Competitive Position: How does this affect market standing?
-- Implementation: What resources/timeline required?
+| **Reading Time** | Active shopping mode, may be at store |
+| **Device** | Mobile and desktop equally |
+| **Content Length** | Medium; comprehensive enough to decide |
+| **Format** | Comparison tables, pros/cons, "best for X" categories |
 
 **Writing Approach**:
 
 | Element | Recommendation |
 |---------|----------------|
-| **Tone** | Authoritative, strategic, confident |
-| **Style** | Executive summary format; data-driven; outcome-focused |
-| **Complexity** | Conceptually sophisticated but technically accessible |
-| **Structure** | Lead with conclusions; support with evidence; use metrics |
-| **Word Choice** | Business vocabulary; industry context; avoid deep technical details |
+| **Tone** | Honest, trustworthy, like a knowledgeable friend |
+| **Style** | Comparative; opinionated but fair; buyer-focused |
+| **Complexity** | Moderate; explain technical features in benefit terms |
+| **Structure** | Quick answer up top → detailed comparison → recommendations by use case |
+| **Word Choice** | Benefits over features; "good for..." phrasing |
 
 **Audience-Specific Guidelines**:
-- ✓ Lead with key takeaways and recommendations
-- ✓ Quantify everything possible (ROI, payback period, risk reduction)
-- ✓ Connect technical choices to business outcomes
-- ✓ Include risk assessment and mitigation strategies
-- ✗ Don't bury the lead—put conclusions first
-- ✗ Don't include technical details without business translation
-- ✗ Don't use hedging language that undermines confidence
-
----
-
-### User Type 5: The Expert / Specialist
-
-| Attribute | Description |
-|-----------|-------------|
-| **Industry** | Deep specialists, researchers, consultants, or senior technical professionals |
-| **Knowledge Level** | Expert (5+ years; deep specialization) |
-| **Goals** | Stay current; discover nuances; validate knowledge; find authoritative references |
-
-**Typical Roles/Titles**:
-- [e.g., Principal engineers / Technical fellows]
-- [e.g., R&D scientists / Research engineers]
-- [e.g., Technical consultants / Subject matter experts]
-- [e.g., Standards committee members / Industry authors]
-
-**What They Already Know**:
-- Comprehensive understanding of the field
-- Historical context and evolution
-- Multiple approaches and their trade-offs
-- Current limitations and open questions
-
-**What They Need to Learn**:
-- Latest developments and research
-- Nuanced analysis and edge cases
-- Alternative perspectives and debates
-- Advanced applications and innovations
-
-**Pain Points & Challenges**:
-- Difficulty finding content that goes beyond basics
-- Frustrated by oversimplified or inaccurate information
-- Need to stay current with rapidly evolving field
-- Seeking validation or alternative perspectives on complex issues
-
-**Content Preferences**:
-| Aspect | Preference |
-|--------|------------|
-| **Reading Time** | Dedicated research time, evenings |
-| **Device** | Desktop for research, print for deep reading |
-| **Content Length** | Long-form preferred; depth over brevity |
-| **Format** | Technical papers, cited references, data tables, equations |
-
-**Decision Factors**:
-- Authority: Values peer-reviewed sources and recognized experts
-- Depth: Prefers comprehensive analysis to quick summaries
-- Novelty: Interested in new findings, emerging techniques
-- Accuracy: Zero tolerance for technical errors or oversimplification
-
-**Writing Approach**:
-
-| Element | Recommendation |
-|---------|----------------|
-| **Tone** | Peer-to-peer, analytical, nuanced |
-| **Style** | Thorough analysis; acknowledge complexity and trade-offs |
-| **Complexity** | Highest; assume full domain knowledge |
-| **Structure** | Thesis-driven; comprehensive coverage; cite sources |
-| **Word Choice** | Expert vocabulary; reference standards and research |
-
-**Audience-Specific Guidelines**:
-- ✓ Cite specific sources, standards, and research
-- ✓ Acknowledge limitations and edge cases
-- ✓ Present multiple perspectives on debated topics
-- ✓ Offer original analysis or synthesis
-- ✗ Don't oversimplify—experts will notice and lose trust
-- ✗ Don't state the obvious or explain well-known concepts
-- ✗ Don't make claims without evidence or citations
+- ✓ Translate features into benefits ("X means you get Y")
+- ✓ Include "skip this if you..." guidance
+- ✓ Be honest about when cheap options are fine
+- ✓ Mention what real buyers complain about
+- ✗ Don't list specs without explaining why they matter
+- ✗ Don't be afraid to recommend specific choices
+- ✗ Don't sound like marketing copy
 
 ---
 
 ## Part 3: Quick Reference Summary
 
-| User Type | Knowledge Level | Primary Goal | Tone | Complexity |
-|-----------|-----------------|--------------|------|------------|
-| Complete Beginner | Novice | Understand basics | Friendly, patient | Simple |
-| Informed Non-Expert | Basic-Intermediate | Make decisions | Professional, practical | Moderate |
-| Practitioner | Intermediate-Advanced | Implement solutions | Technical, precise | High |
-| Decision-Maker | Conceptually advanced | Strategic planning | Authoritative, strategic | Conceptually high |
-| Expert | Expert | Stay current | Peer-to-peer, analytical | Highest |
+| User Type | Context | Primary Goal | Tone | Complexity |
+|-----------|---------|--------------|------|------------|
+| 好奇新手 (Curious Beginner) | General curiosity | Satisfy curiosity | Warm, casual | Extremely simple |
+| 问题解决者 (Problem Solver) | Has a problem to fix | Fix the problem | Helpful, reassuring | Simple, actionable |
+| 精明买家 (Informed Shopper) | Ready to purchase | Make smart purchase | Honest, trustworthy | Moderate, benefit-focused |
 
 ---
 
@@ -456,87 +308,73 @@ This document serves as a pre-writing reference for educational/informational co
 
 ---
 
-## Part 5: Author Personas
+## Part 5: Author Personas (B2C)
 
-**Purpose:** Define consistent "voices" for content. Each persona has a role, experience, bias, and speaking style. Writers select a persona at the start of each article.
+**Purpose:** Define consistent "voices" for B2C content targeting everyday consumers. These personas speak as regular people, not industry experts.
 
-### Persona 1: 技术专家 / Technical Expert
+---
+
+### Persona 1: 生活达人 / Lifestyle Enthusiast
 
 | Attribute | Description |
 |-----------|-------------|
-| **Best For** | Deep technical articles, industry analysis, comprehensive guides |
-| **Role** | Senior Engineer / Technical Consultant |
-| **Experience** | 15+ years hands-on industry experience |
-| **Specialty** | [Customize: e.g., Process optimization, Equipment selection, System design] |
-| **Bias** | Data-driven decisions; prioritizes reliability over cutting-edge; skeptical of marketing claims |
-| **Voice Traits** | Practical, direct, uses real examples, occasionally shares "lessons learned" |
+| **Best For** | 好奇新手；解释基础概念；满足好奇心 |
+| **Role** | 有经验的家居博主 / 生活方式分享者 |
+| **Perspective** | 普通人视角，曾经也是新手，现在略懂一些 |
+| **Bias** | 简单实用优先；不追求专业深度；够用就好 |
+| **Voice Traits** | 轻松、友好、像朋友聊天、用生活化比喻 |
 
 **Signature Phrases:**
-- "In my experience..."
-- "The data shows..."
-- "What most guides miss is..."
-- "I've seen this fail when..."
+- "说实话，我一开始也不懂..."
+- "简单来说就是..."
+- "你可以把它想象成..."
+- "其实没那么复杂..."
 
 ---
 
-### Persona 2: 实践导师 / Practical Mentor
+### Persona 2: 热心邻居 / Helpful Neighbor
 
 | Attribute | Description |
 |-----------|-------------|
-| **Best For** | Beginner guides, tutorials, how-to content, training materials |
-| **Role** | Senior Technical Trainer / Workshop Instructor |
-| **Experience** | 10+ years teaching and training |
-| **Specialty** | [Customize: e.g., Hands-on implementation, Troubleshooting, Best practices] |
-| **Bias** | Fundamentals before shortcuts; standard procedures before improvisation; clarity over comprehensiveness |
-| **Voice Traits** | Patient, step-by-step, uses analogies, anticipates confusion |
+| **Best For** | 问题解决者；家庭维修指导；实用建议 |
+| **Role** | 懂点技术的普通人 / 有经验的业主 |
+| **Perspective** | 自己踩过坑，愿意分享经验帮别人避坑 |
+| **Bias** | 安全第一；知道何时该找专业人士；不鼓励冒险 |
+| **Voice Traits** | 热心、实在、直接给建议、会说"我当时就是这样" |
 
 **Signature Phrases:**
-- "Before we dive in, let's make sure..."
-- "Think of it like..."
-- "The most common mistake I see is..."
-- "Here's a tip that saves time..."
+- "我之前也遇到过这个问题..."
+- "先别急，我们一步步来看..."
+- "这种情况最好还是找专业人士..."
+- "有个小技巧可以试试..."
 
 ---
 
-### Persona 3: 行业观察者 / Industry Analyst
+### Persona 3: 精明买家代言人 / Smart Shopper
 
 | Attribute | Description |
 |-----------|-------------|
-| **Best For** | Trend analysis, market comparisons, strategic overviews, thought leadership |
-| **Role** | Industry Analyst / Strategic Consultant |
-| **Experience** | Cross-company consulting experience, industry-wide perspective |
-| **Specialty** | [Customize: e.g., Market trends, Technology evaluation, Strategic planning] |
-| **Bias** | Long-term value over short-term gains; evidence over hype; balanced perspective |
-| **Voice Traits** | Objective, insightful, comparative, forward-looking |
+| **Best For** | 精明买家；产品对比；购买建议 |
+| **Role** | 研究过很多产品的消费者 / 购物达人 |
+| **Perspective** | 花过冤枉钱，现在会做功课再买 |
+| **Bias** | 性价比优先；警惕营销话术；关注真实用户评价 |
+| **Voice Traits** | 诚实、客观、会说优缺点、像朋友推荐 |
 
 **Signature Phrases:**
-- "Looking across the industry..."
-- "The trend we're seeing is..."
-- "While many claim X, the data suggests..."
-- "The key question for decision-makers is..."
+- "我对比了好几个品牌后发现..."
+- "商家不会告诉你的是..."
+- "如果预算有限，其实可以..."
+- "这个功能听起来高级，但实际上..."
 
 ---
 
-### Persona Selection Guide
+### Persona Selection Guide (B2C)
 
-| Article Type | Recommended Persona |
-|--------------|---------------------|
-| Deep technical / Comprehensive guide | Persona 1: 技术专家 |
-| Beginner guide / Tutorial / How-to | Persona 2: 实践导师 |
-| Industry trends / Comparisons / Strategic | Persona 3: 行业观察者 |
-| Troubleshooting / Problem-solving | Persona 1 or 2 (based on audience) |
-| Decision guide / Evaluation | Persona 1 or 3 (based on depth) |
-
----
-
-### Customizing Personas
-
-When adapting this template for a specific company:
-
-1. **Adjust specialties** to match company's domain
-2. **Refine biases** to align with company values
-3. **Add signature phrases** that fit company voice
-4. **Consider adding** a 4th persona if needed (e.g., "Customer Success Manager" for SaaS)
+| 受众 | 推荐人设 |
+|-----|---------|
+| 好奇新手 | Persona 1: 生活达人 |
+| 问题解决者 | Persona 2: 热心邻居 |
+| 精明买家 | Persona 3: 精明买家代言人 |
 
 ---
 

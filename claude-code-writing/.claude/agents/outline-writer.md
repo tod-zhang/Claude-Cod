@@ -97,13 +97,22 @@ Read(imports/[topic-title]-analysis.md)  // optimization mode only
 
 If `writingAngle.depthMismatchAcknowledged == true`:
 
+**B2B Depth Mismatches:**
+
 | Scenario | Strategy |
 |----------|----------|
-| Expert thesis → Beginner depth | Simplify proof: analogies, cases, examples (not technical jargon) |
-| Expert thesis → Intermediate | Balance theory + practice |
-| Beginner thesis → Expert depth | Add rigor: data, mechanisms, technical backing |
+| 专家级 thesis → 入门基础 depth | Simplify proof: analogies, cases, examples (not technical jargon) |
+| 专家级 thesis → 进阶技巧 depth | Balance theory + practice |
+| 入门基础 thesis → 技术细节 depth | Add rigor: data, mechanisms, technical backing |
 
-**Example:** Expert thesis + Beginner depth
+**B2C Depth Mismatches:** (rare - User Type usually determines both depth and thesis suitability)
+
+| Scenario | Strategy |
+|----------|----------|
+| 对比 thesis → 极简 depth | Focus on one clear recommendation |
+| 极简 thesis → 实用 depth | Expand with practical steps |
+
+**Example:** 专家级 thesis + 入门基础 depth (B2B)
 - ❌ "根据热力学第二定律..."
 - ✅ "我见过工厂严格按教科书操作，废品率却居高不下。问题在于..."
 
