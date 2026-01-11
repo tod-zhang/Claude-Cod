@@ -121,20 +121,43 @@ For each problem found:
 
 ### 4.1 Audience Level Inference
 
+**B2B Articles:**
+
 | If Article Has... | Inferred Level |
 |-------------------|----------------|
-| Jargon without explanation, assumes knowledge | Expert |
-| Technical detail with some explanation | Practitioner |
-| Balanced explanation, some assumed knowledge | Intermediate |
-| Everything explained, basic concepts covered | Beginner |
+| Jargon without explanation, assumes deep knowledge | 专家 |
+| Technical detail with some explanation, operational focus | 实操者 |
+| Business/cost focus, avoids technical depth | 决策者 |
+| Balanced explanation, some assumed knowledge | 非专业人士 |
+| Everything explained, basic concepts covered | 入门新手 |
+
+**B2C Articles:**
+
+| If Article Has... | Inferred Level |
+|-------------------|----------------|
+| Comparison focus, buying advice, pros/cons | 精明买家 |
+| Problem-solution structure, DIY guidance | 问题解决者 |
+| Simple explanations, curiosity-driven, basic intro | 好奇新手 |
 
 ### 4.2 Depth Inference
 
+**B2B Depth:**
+
 | If Article Has... | Inferred Depth |
 |-------------------|----------------|
-| < 1200 words, surface coverage | 入门科普 |
-| 1200-2500 words, practical focus | 实用指南 |
-| > 2500 words, comprehensive coverage | 深度技术 |
+| Standards/research citations, complex analysis | 专家级 |
+| Specific parameters, procedures, specs | 技术细节 |
+| Industry terms, selection frameworks | 进阶技巧 |
+| Cost/value focus, executive summary style | 概述 |
+| Analogies, no assumed knowledge | 入门基础 |
+
+**B2C Depth:**
+
+| If Article Has... | Inferred Depth |
+|-------------------|----------------|
+| Comparison tables, buying recommendations | 对比 |
+| Problem → diagnosis → solution structure | 实用 |
+| Quick answer, minimal detail | 极简 |
 
 ### 4.3 Thesis Suggestions
 
@@ -235,12 +258,12 @@ Write: imports/[topic-title]-analysis.md
 ### Inferred Settings
 | Setting | Recommendation | Confidence | Reason |
 |---------|---------------|------------|--------|
-| Intent Type | [B2C/B2B/Mixed] | High/Medium/Low | [why] |
-| Audience | [level] | High/Medium/Low | [why] |
-| Depth | [depth] | High/Medium/Low | [why] |
+| Audience Framework | [B2B/B2C] | High/Medium/Low | [why] |
+| Audience | [level - 根据 B2B/B2C 使用对应术语] | High/Medium/Low | [why] |
+| Depth | [depth - 根据 B2B/B2C 使用对应术语] | High/Medium/Low | [why] |
 | Language | [lang] | High | [based on original] |
 
-**Intent Type Note:** [If original article's framing differs from topic's natural intent, note here]
+**Framework Note:** [If original article's framing differs from topic's natural intent, note here]
 
 ### Suggested Thesis Options
 1. **[Thesis 1]** ⭐ Recommended
@@ -283,17 +306,17 @@ Write: imports/[topic-title]-analysis.md
   "optimizationMode": true,
   "originalUrl": "[URL]",
   "originalTitle": "[title]",
-  "inferredIntentType": "B2C | B2B | Mixed",
-  "intentTypeMismatch": false,
-  "inferredAudience": "[level]",
-  "inferredDepth": "[depth]",
+  "audienceFramework": "b2b | b2c",
+  "frameworkMismatch": false,
+  "inferredAudience": "[level - 使用对应框架的术语]",
+  "inferredDepth": "[depth - 使用对应框架的术语]",
   "suggestedThesis": "[recommended thesis]",
   "criticalIssues": ["issue1", "issue2"],
   "dataPointsToVerify": ["D001", "D002"]
 }
 ```
 
-**Note:** Set `intentTypeMismatch: true` if the original article's audience framing differs from the topic's natural search intent (e.g., B2B article for a naturally B2C topic).
+**Note:** Set `frameworkMismatch: true` if the original article's audience framing differs from the topic's natural search intent (e.g., B2B framing for a naturally B2C topic).
 
 ---
 
@@ -321,9 +344,9 @@ Write: imports/[topic-title]-analysis.md
 3. [Third issue]
 
 ### 推荐设置
-- **搜索意图类型:** [B2C/B2B/Mixed] [⚠️ 与原文定位不符 - 如果 mismatch]
-- **受众:** [level] (置信度: [X])
-- **深度:** [depth] (置信度: [X])
+- **受众框架:** [B2B/B2C] [⚠️ 与原文定位不符 - 如果 mismatch]
+- **受众:** [level - 对应框架术语] (置信度: [X])
+- **深度:** [depth - 对应框架术语] (置信度: [X])
 - **建议 Thesis:** "[thesis]"
 
 ### 可复用内容

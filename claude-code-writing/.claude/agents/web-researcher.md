@@ -169,7 +169,7 @@ Create 3 options based on competitive gaps:
 {
   "thesis": "specific claim",
   "stance": "challenge | confirm | nuance",
-  "recommendedDepth": "beginner | intermediate | expert | all",
+  "recommendedDepth": "B2B: 入门基础|进阶技巧|技术细节|概述|专家级 | B2C: 极简|实用|对比 | all",
   "evidenceSummary": "available evidence",
   "differentiationScore": "strong | moderate | weak"
 }
@@ -247,7 +247,7 @@ Write to: `config/[topic-title]-research.json`
     {
       "thesis": "Specific claim based on competitor gaps",
       "stance": "challenge",
-      "recommendedDepth": "intermediate",
+      "recommendedDepth": "进阶技巧",
       "evidenceSummary": "competitor1 data + our unique angle",
       "differentiationScore": "strong"
     }
@@ -396,7 +396,7 @@ Before any Fetch in Phase 2:
 
 Queries: "what is", "how does X work", "best practices"
 
-Adjust: Expert → minimize basics. Beginner → emphasize fundamentals.
+Adjust: 专家/技术细节深度 → minimize basics. 入门/极简深度 → emphasize fundamentals.
 
 **Fetch:** Up to 3 URLs in parallel within this round.
 
