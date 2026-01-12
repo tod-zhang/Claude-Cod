@@ -534,9 +534,18 @@ Priority:
 ❌ "For a deeper look at API standards, see our comparison of API and non-API seals."
    (Sentence exists only to hold a link)
 
+❌ "The [broader comparison between X and Y](url) follows similar logic. Each material serves specific purposes well."
+   (Weak connector + empty follow-up sentence = link wrapper disguised as content)
+
 ✅ "API standards matter for refinery applications, while general industrial use can work with non-API designs."
    (Link on "non-API designs" — sentence has standalone value)
 ```
+
+**Link placement rules:**
+- Links belong in the BODY of article where topic naturally arises
+- NEVER place links in conclusion section (disrupts decision/summary flow)
+- NEVER add a "related reading" sentence after finishing a section
+- If you can't find a natural placement, SKIP the link entirely
 
 ---
 

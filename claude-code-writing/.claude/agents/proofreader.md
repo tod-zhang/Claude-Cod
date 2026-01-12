@@ -111,7 +111,9 @@ Grep("By understanding", drafts/[topic].md) ||
 Grep("For (a )?(deeper|more|broader|complete)", drafts/[topic].md) ||
 Grep("To learn more|Learn more about|See our guide", drafts/[topic].md) ||
 Grep("The relationship between .* determines", drafts/[topic].md) ||
-Grep("How .* (works|affects) .* (determines|influences)", drafts/[topic].md)
+Grep("How .* (works|affects) .* (determines|influences)", drafts/[topic].md) ||
+Grep("follows similar logic|works the same way|uses the same principle", drafts/[topic].md) ||
+Grep("Each .* serves .* purposes", drafts/[topic].md)
 ```
 
 **For each match found:**
@@ -370,8 +372,15 @@ Grep(filler phrases)
 | "X provides the foundation..." | "[Link] provides the foundation for understanding Y" | DELETE |
 | "The relationship between [link] and Y determines/affects..." | "The relationship between [PVC resin production] conditions and final porosity determines how the resin behaves" | DELETE |
 | "How [link] works/affects..." (vague bridge) | "How [heat treatment] works affects the final properties" | DELETE |
+| **"[Link] follows similar logic"** + empty follow-up | "The [broader comparison](url) follows similar logic. Each X serves specific purposes." | DELETE both sentences |
+| **Link in conclusion/recommendation section** | Any link placed after "When Should You..." or before "The Bottom Line" | DELETE - disrupts decision flow |
 
 **Never inject links using these patterns.** If no natural integration point exists, leave the article without that internal link.
+
+**Link placement violations to flag:**
+- Links in conclusion section (H2 before final H2)
+- Links as "related reading" tacked onto end of section
+- Weak connectors: "follows similar logic", "works the same way", "uses the same principle"
 
 ### Meta-Commentary Detection (DELETE ENTIRE SENTENCE)
 
