@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "analytics-mcp": {
+      "command": "/opt/homebrew/bin/pipx",
+      "args": ["run", "analytics-mcp"],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "/Users/todd/.config/gcloud/application_default_credentials.json",
+        "GOOGLE_PROJECT_ID": "graceful-alpha-472906-e0"
+      }
+    },
+    "gsc-server": {
+      "command": "/Users/todd/Desktop/Claude-Cod/分析/mcp-gsc/.venv/bin/python",
+      "args": ["/Users/todd/Desktop/Claude-Cod/分析/mcp-gsc/gsc_server.py"],
+      "env": {
+        "GSC_OAUTH_CLIENT_SECRETS_FILE": "/Users/todd/Desktop/Claude-Cod/分析/mcp-gsc/client_secrets.json"
+      }
+    }
+  }
+}
