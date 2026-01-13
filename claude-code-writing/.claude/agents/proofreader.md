@@ -108,7 +108,7 @@ Collect all issues into a fix queue.
 Grep("Understanding .* helps", drafts/[topic].md) ||
 Grep("Knowing .* (is essential|allows|enables)", drafts/[topic].md) ||
 Grep("By understanding", drafts/[topic].md) ||
-Grep("For (a )?(deeper|more|broader|complete)", drafts/[topic].md) ||
+Grep("For (a )?(deeper|more|broader|complete|background)", drafts/[topic].md) ||
 Grep("To learn more|Learn more about|See our guide", drafts/[topic].md) ||
 Grep("The relationship between .* determines", drafts/[topic].md) ||
 Grep("How .* (works|affects) .* (determines|influences)", drafts/[topic].md) ||
@@ -365,6 +365,7 @@ Grep(filler phrases)
 | "Understanding X helps/provides..." | "Understanding [link] provides the foundation for optimizing Y" | DELETE |
 | "Selecting/Choosing X requires..." | "Selecting the appropriate [link] requires matching A to B" | DELETE |
 | "For a broader overview..." | "For a broader overview of [link], this provides context" | DELETE |
+| "For background on..." | "For background on how X differs, see [link]" | DELETE |
 | "For deeper understanding..." | "For deeper understanding of X, see [link]" | DELETE |
 | "To learn more about..." | "To learn more about X, see [link]" | DELETE |
 | "For more information..." | "For more information on X, check out [link]" | DELETE |

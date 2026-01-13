@@ -518,6 +518,7 @@ Priority:
 - "For more information, see..."
 - "For a deeper look, see..."
 - "For deeper understanding of..."
+- "For background on..."
 - "Learn more about [X]"
 - "To learn more, check out..."
 - "See our guide on..."
@@ -525,6 +526,7 @@ Priority:
 - "Knowing [X] helps you..."
 - "The relationship between [X] and Y determines..."
 - Any sentence whose PRIMARY purpose is to insert a link
+- Any sentence that could be removed without losing concrete information
 
 **Test before writing any link:** Remove the link text—does the sentence still teach something concrete? If it's just announcing that knowledge is useful, DELETE and find a natural placement instead.
 

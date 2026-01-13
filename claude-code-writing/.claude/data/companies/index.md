@@ -8,4 +8,5 @@
 | mtedmachinery | 铝箔餐盒设备制造商 |
 | soontact | 自动化包装机械制造商 |
 | tanhon | 工业传动设备制造商，减速机和齿轮电机 |
+| vistalumo | 眼镜OEM/ODM制造商，醋酸纤维/钛金属/TR90镜框 |
 
