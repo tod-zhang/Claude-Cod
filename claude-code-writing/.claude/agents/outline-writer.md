@@ -530,6 +530,17 @@ Priority:
 
 **Test before writing any link:** Remove the link text—does the sentence still teach something concrete? If it's just announcing that knowledge is useful, DELETE and find a natural placement instead.
 
+**Concept level check (before placing any link):**
+- Does the linked article cover the SAME concept level?
+  - ❌ gear → gearbox (part → assembly)
+  - ❌ seal face → mechanical seal (component → system)
+  - ✅ helical gear → spur gear (same level comparison)
+- If levels differ, find a more relevant link or skip entirely
+
+**"Selection guide" trap:**
+- NEVER use "selection guide", "detailed guide", "comprehensive guide" as link description
+- These phrases signal the sentence exists only to hold a link
+
 **Correct approach:** Embed links in content that would exist anyway.
 
 ```

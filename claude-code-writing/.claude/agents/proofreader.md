@@ -375,6 +375,8 @@ Grep(filler phrases)
 | "How [link] works/affects..." (vague bridge) | "How [heat treatment] works affects the final properties" | DELETE |
 | **"[Link] follows similar logic"** + empty follow-up | "The [broader comparison](url) follows similar logic. Each X serves specific purposes." | DELETE both sentences |
 | **Link in conclusion/recommendation section** | Any link placed after "When Should You..." or before "The Bottom Line" | DELETE - disrupts decision flow |
+| **"selection/detailed/comprehensive guide"** | "For a detailed selection guide, see [link]" | DELETE - phrase signals link-wrapper sentence |
+| **Concept level mismatch** | Linking gear article to gearbox article (part → assembly) | DELETE - causes reader confusion |
 
 **Never inject links using these patterns.** If no natural integration point exists, leave the article without that internal link.
 
