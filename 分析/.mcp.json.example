@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "analytics-mcp": {
+      "command": "<YOUR_PATH>/analytics-mcp-venv/Scripts/analytics-mcp.exe",
+      "args": [],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "<YOUR_PATH>/client_secret_xxx.apps.googleusercontent.com.json",
+        "GOOGLE_PROJECT_ID": "<YOUR_PROJECT_ID>"
+      }
+    },
+    "gsc-server": {
+      "command": "<YOUR_PATH>/mcp-gsc/.venv/Scripts/python.exe",
+      "args": ["<YOUR_PATH>/mcp-gsc/gsc_server.py"],
+      "env": {
+        "GSC_OAUTH_CLIENT_SECRETS_FILE": "<YOUR_PATH>/client_secret_xxx.apps.googleusercontent.com.json"
+      }
+    }
+  }
+}
