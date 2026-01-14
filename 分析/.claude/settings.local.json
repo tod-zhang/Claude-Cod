@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__gsc-server__list_properties",
+      "mcp__analytics-mcp__get_account_summaries"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "analytics-mcp",
+    "gsc-server"
+  ]
+}
