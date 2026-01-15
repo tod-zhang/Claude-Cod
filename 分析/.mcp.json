@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "dataforseo": {
+      "command": "/Users/todd/.npm-global/bin/dataforseo-mcp-server",
+      "args": [],
+      "env": {
+        "DATAFORSEO_USERNAME": "hello@cowseal.com",
+        "DATAFORSEO_PASSWORD": "bb2d29f1fb7033a6",
+        "ENABLED_MODULES": "BACKLINKS,SERP,ONPAGE"
+      }
+    },
+    "analytics-mcp": {
+      "command": "/opt/homebrew/bin/pipx",
+      "args": ["run", "analytics-mcp"],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "/Users/todd/.config/gcloud/application_default_credentials.json",
+        "GOOGLE_PROJECT_ID": "graceful-alpha-472906-e0"
+      }
+    },
+    "gsc-server": {
+      "command": "/Users/todd/.local/bin/mcp-gsc",
+      "args": [],
+      "env": {
+        "GSC_OAUTH_CLIENT_SECRETS_FILE": "/Users/todd/.config/mcp-gsc/client_secrets.json"
+      }
+    }
+  }
+}
