@@ -50,38 +50,6 @@
 
 ---
 
-## User Personas
-
-### Factory Owner / Business Owner
-- **Experience**: Runs food manufacturing or processing business
-- **Goals**: Automate packaging to reduce labor costs, increase production capacity, improve packaging consistency
-- **Pain Points**: High labor costs, inconsistent manual packaging, production bottlenecks, worker availability issues
-- **Decision Factors**: Total automation ROI, machine reliability, production speed increase, labor reduction
-- **Search Behavior**: "automatic packaging machine", "food packaging automation cost", "replace manual packaging"
-
-### Production Manager / Operations Manager
-- **Experience**: Manages food production operations
-- **Goals**: Increase packaging line efficiency, reduce downtime, improve product quality consistency
-- **Pain Points**: Machine breakdowns, changeover time, operator errors, packaging defects
-- **Decision Factors**: Machine uptime, changeover speed, ease of operation, maintenance requirements
-- **Search Behavior**: "packaging machine efficiency", "VFFS machine troubleshooting", "reduce packaging line downtime"
-
-### Engineering Manager / Technical Manager
-- **Experience**: Technical background, evaluates equipment purchases
-- **Goals**: Select optimal packaging solution, ensure technical compatibility, validate machine specifications
-- **Pain Points**: Unclear machine specifications, difficulty comparing options, integration with existing lines
-- **Decision Factors**: Technical specifications, control system compatibility, customization options, engineering support
-- **Search Behavior**: "VFFS machine specifications", "packaging machine PLC", "servo vs pneumatic packaging machine"
-
-### Procurement Manager
-- **Experience**: Sources equipment for food companies
-- **Goals**: Find reliable packaging machine supplier, negotiate competitive pricing, ensure after-sales support
-- **Pain Points**: Comparing international suppliers, total cost calculation, warranty and support concerns
-- **Decision Factors**: Machine price, warranty terms, spare parts availability, installation support, supplier reputation
-- **Search Behavior**: "packaging machine supplier China", "VFFS machine price", "automatic packing machine manufacturer"
-
----
-
 ## Target Industries
 - Food & Beverage
 - Bakery & Confectionery

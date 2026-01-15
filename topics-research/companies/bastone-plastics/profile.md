@@ -31,38 +31,6 @@
 
 ---
 
-## User Personas
-
-### Procurement Manager
-- **Experience**: 5-10 years in chemical/plastics supply chain
-- **Goals**: Find reliable plasticizer supplier, negotiate competitive pricing, ensure consistent supply
-- **Pain Points**: Price volatility, quality inconsistency between batches, long lead times, communication barriers with overseas suppliers
-- **Decision Factors**: Price per ton, MOQ flexibility, payment terms, delivery reliability, supplier track record
-- **Search Behavior**: "plasticizer supplier China", "bulk DOP price", "DOTP manufacturer"
-
-### Formulation Engineer / R&D Chemist
-- **Experience**: Technical background in polymer science or chemical engineering
-- **Goals**: Find plasticizers meeting specific performance requirements, get technical data sheets, understand material compatibility
-- **Pain Points**: Incomplete technical documentation, suppliers lacking technical expertise, difficulty comparing products
-- **Decision Factors**: Technical specifications, purity levels, test certificates, DFM support, sample availability
-- **Search Behavior**: "DOP vs DOTP comparison", "plasticizer for food grade PVC", "ESBO technical data sheet"
-
-### Quality/Regulatory Compliance Manager
-- **Experience**: Background in quality assurance or regulatory affairs
-- **Goals**: Ensure plasticizers meet REACH, FDA, RoHS requirements; verify certifications; manage supplier audits
-- **Pain Points**: Non-compliant materials, missing documentation, changing regulations
-- **Decision Factors**: Certifications (REACH, FDA, RoHS), COA availability, traceability, audit cooperation
-- **Search Behavior**: "REACH compliant plasticizer", "FDA approved PVC additive", "non-phthalate plasticizer"
-
-### Production Manager
-- **Experience**: Runs PVC processing operations
-- **Goals**: Maintain production without material shortages, optimize formulation costs, reduce waste
-- **Pain Points**: Material shortages disrupting production, quality variations affecting output, high inventory costs
-- **Decision Factors**: Delivery reliability, batch consistency, technical support, inventory management options
-- **Search Behavior**: "plasticizer dosage for PVC", "PVC processing problems", "plasticizer migration issues"
-
----
-
 ## Target Industries
 - Plastic Products Manufacturing
 - Construction (pipes, waterproofing)

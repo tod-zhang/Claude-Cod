@@ -42,38 +42,6 @@
 
 ---
 
-## User Personas
-
-### Mechanical Engineer / Design Engineer
-- **Experience**: Designs machines requiring power transmission
-- **Goals**: Select correct gearbox for application, get technical specifications, ensure proper sizing
-- **Pain Points**: Unclear specifications from suppliers, difficulty calculating gear ratios, limited application support
-- **Decision Factors**: Technical accuracy, sizing tools/calculators, application engineering support, CAD drawings availability
-- **Search Behavior**: "gearbox sizing calculator", "helical vs planetary gearbox", "gear reducer selection guide"
-
-### Maintenance Engineer / Plant Engineer
-- **Experience**: Maintains industrial equipment with gearboxes
-- **Goals**: Find replacement gearboxes quickly, reduce downtime, improve equipment reliability
-- **Pain Points**: Difficulty finding equivalent replacements, long lead times, compatibility concerns
-- **Decision Factors**: Compatibility with existing equipment, delivery speed, price vs OEM, warranty
-- **Search Behavior**: "gearbox replacement", "reducer maintenance", "gearbox oil change interval"
-
-### Procurement Manager
-- **Experience**: Sources mechanical components for manufacturing
-- **Goals**: Find reliable gearbox supplier, reduce component costs, consolidate vendors
-- **Pain Points**: Quality inconsistency, long lead times, difficulty comparing specifications across brands
-- **Decision Factors**: Price competitiveness, MOQ flexibility, delivery reliability, supplier track record
-- **Search Behavior**: "gearbox supplier China", "industrial reducer manufacturer", "bulk gearbox pricing"
-
-### OEM Equipment Manufacturer
-- **Experience**: Builds machines that incorporate gearboxes
-- **Goals**: Source reliable gearboxes for production, establish long-term supply relationship, customize for specific applications
-- **Pain Points**: Quality variation between batches, capacity constraints, IP protection concerns
-- **Decision Factors**: Custom design capability, quality certifications, production capacity, pricing stability
-- **Search Behavior**: "OEM gearbox supplier", "custom gear reducer manufacturer", "private label gearbox"
-
----
-
 ## Target Industries
 - Steel Metallurgy (钢铁冶金)
 - Mining (矿业)

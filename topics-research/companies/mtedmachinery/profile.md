@@ -40,38 +40,6 @@
 
 ---
 
-## User Personas
-
-### Entrepreneur / Startup Owner
-- **Experience**: Business background, new to food packaging manufacturing
-- **Goals**: Start a profitable foil container business, understand equipment investment, minimize startup risk
-- **Pain Points**: Lack of industry knowledge, uncertainty about ROI, concerns about machine operation complexity
-- **Decision Factors**: Total investment cost, training/support provided, machine ease of operation, profit potential
-- **Search Behavior**: "how to start aluminum foil container business", "foil container machine price", "food packaging business profit margin"
-
-### Factory Owner / Business Owner (Existing)
-- **Experience**: Runs food packaging or related manufacturing business
-- **Goals**: Expand production capacity, add new product lines, upgrade aging equipment
-- **Pain Points**: Production bottlenecks, high labor costs, equipment downtime, quality inconsistency
-- **Decision Factors**: Production speed, reliability, ROI timeline, compatibility with existing operations
-- **Search Behavior**: "aluminum container machine capacity", "upgrade foil container production line", "high speed container machine"
-
-### Production Manager
-- **Experience**: Manages manufacturing operations
-- **Goals**: Increase output efficiency, reduce waste, minimize machine downtime
-- **Pain Points**: Frequent changeovers, machine breakdowns, quality defects, operator skill gaps
-- **Decision Factors**: Machine reliability, changeover time, maintenance requirements, operator training
-- **Search Behavior**: "foil container machine troubleshooting", "container production efficiency", "machine maintenance schedule"
-
-### Procurement Manager
-- **Experience**: Sources equipment for manufacturing companies
-- **Goals**: Find reliable machine supplier, negotiate best price, ensure after-sales support
-- **Pain Points**: Difficulty comparing suppliers, concerns about overseas equipment purchase, unclear total cost
-- **Decision Factors**: Machine price, warranty, spare parts availability, supplier reputation, installation support
-- **Search Behavior**: "aluminum foil container machine supplier", "China packaging machinery manufacturer", "container machine comparison"
-
----
-
 ## Target Industries
 - Food Packaging Manufacturing
 - Restaurant Supply

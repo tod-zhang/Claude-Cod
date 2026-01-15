@@ -32,38 +32,6 @@
 
 ---
 
-## User Personas
-
-### Maintenance Manager / Maintenance Engineer
-- **Experience**: 5-15 years in industrial maintenance
-- **Goals**: Minimize pump downtime, find reliable replacement seals quickly, reduce maintenance costs
-- **Pain Points**: Seal failures causing unexpected downtime, difficulty finding exact replacements, long lead times for OEM parts
-- **Decision Factors**: Compatibility with existing pumps, delivery speed, price vs OEM, seal quality/lifespan
-- **Search Behavior**: "Grundfos pump seal replacement", "mechanical seal for [pump model]", "seal failure causes"
-
-### Plant Engineer / Reliability Engineer
-- **Experience**: Technical background, responsible for equipment reliability
-- **Goals**: Improve seal MTBF, select optimal seal materials, reduce overall seal-related costs
-- **Pain Points**: Recurring seal failures, material compatibility issues, lack of technical support from suppliers
-- **Decision Factors**: Seal material selection, API 682 compliance, technical documentation, supplier expertise
-- **Search Behavior**: "mechanical seal material selection", "API 682 seal requirements", "double vs single mechanical seal"
-
-### Procurement Manager
-- **Experience**: Industrial purchasing background
-- **Goals**: Find cost-effective seal suppliers, consolidate vendors, negotiate better pricing
-- **Pain Points**: High OEM seal prices, inconsistent quality from aftermarket suppliers, long procurement cycles
-- **Decision Factors**: Price comparison to OEM, MOQ, payment terms, supplier reliability, warranty
-- **Search Behavior**: "mechanical seal supplier China", "bulk pump seals", "Burgmann seal equivalent"
-
-### OEM Equipment Manufacturer
-- **Experience**: Designs or assembles pumps/rotating equipment
-- **Goals**: Source reliable seals for new equipment, develop long-term supplier relationships, customize seals for specific applications
-- **Pain Points**: Finding suppliers capable of custom designs, quality consistency at volume, IP protection concerns
-- **Decision Factors**: Custom manufacturing capability, quality certifications, production capacity, pricing at volume
-- **Search Behavior**: "OEM mechanical seal manufacturer", "custom pump seal design", "seal manufacturer China"
-
----
-
 ## Target Industries
 - Water Treatment
 - Chemical Processing

@@ -38,38 +38,6 @@
 
 ---
 
-## User Personas
-
-### Design Engineer / Product Engineer
-- **Experience**: Mechanical engineering background, designs components requiring casting
-- **Goals**: Find foundry that understands DFM, get castings meeting tight tolerances, reduce design iterations
-- **Pain Points**: Foundries rejecting designs, poor communication on manufacturability, castings not meeting specs
-- **Decision Factors**: DFM support, tolerance capabilities, material expertise, sample quality, engineering responsiveness
-- **Search Behavior**: "custom metal casting design", "sand casting vs investment casting", "casting tolerance standards"
-
-### Procurement / Supply Chain Manager
-- **Experience**: 5-10 years in manufacturing procurement
-- **Goals**: Find reliable casting supplier, reduce per-part costs, ensure on-time delivery
-- **Pain Points**: Quality inconsistency, delivery delays, hidden costs (tooling, shipping), supplier communication issues
-- **Decision Factors**: Price per piece, tooling costs, lead time, MOQ, payment terms, supplier track record
-- **Search Behavior**: "metal casting supplier China", "custom casting manufacturer", "iron casting foundry"
-
-### Project Manager / Operations Manager
-- **Experience**: Manages product development or manufacturing operations
-- **Goals**: Get castings delivered on schedule, manage supplier relationships, control project costs
-- **Pain Points**: Unexpected delays, quality issues causing rework, difficulty coordinating with overseas suppliers
-- **Decision Factors**: Communication responsiveness, project management capability, quality systems, delivery reliability
-- **Search Behavior**: "casting lead time", "foundry quality control", "China foundry audit"
-
-### OEM / Contract Manufacturer
-- **Experience**: Produces equipment requiring cast components
-- **Goals**: Establish long-term casting supply partnership, ensure consistent quality, protect proprietary designs
-- **Pain Points**: IP protection concerns, quality variation between batches, capacity constraints
-- **Decision Factors**: NDA willingness, quality certifications, production capacity, long-term pricing stability
-- **Search Behavior**: "OEM casting services", "contract casting manufacturer", "foundry partner China"
-
----
-
 ## Target Industries
 - Automotive
 - Construction & Infrastructure

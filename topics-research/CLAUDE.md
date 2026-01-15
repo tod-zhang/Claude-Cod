@@ -1,127 +1,239 @@
 # Topics Research - SEO Keyword Generator
 
-## Overview
+为 B2B 制造业公司生成以用户为中心的关键词和话题。
 
-Generate user-centric keywords for B2B manufacturing companies based on the "Grounding AI for SEO" methodology.
-
-**Content Language**: English only
-
-## Companies
-
-| Company | Industry | Profile |
-|---------|----------|---------|
-| bastone-plastics | Plasticizers & PVC Additives | `companies/bastone-plastics/profile.md` |
-| cowseal | Mechanical Seals | `companies/cowseal/profile.md` |
-| metal-castings | Sand & Investment Casting | `companies/metal-castings/profile.md` |
-| mtedmachinery | Aluminum Foil Container Machines | `companies/mtedmachinery/profile.md` |
-| soontact | Packaging Machinery | `companies/soontact/profile.md` |
-| tanhon | Gearboxes & Reducers | `companies/tanhon/profile.md` |
+**业务模式**: B2B 生产工厂（非零售、非消费者）
+**内容语言**: English only
 
 ---
 
-## Usage
-
-### Mode 1: Company-Based Keyword Generation
+## 工作流程
 
 ```
-Generate keywords for [company-name]
-Topic: [product or topic]
-```
-
-Example:
-```
-Generate keywords for cowseal
-Topic: mechanical seal failure
-```
-
-### Mode 2: Direct Keyword Expansion
-
-```
-Expand keyword: [seed keyword]
-Industry: [optional context]
-```
-
-Example:
-```
-Expand keyword: plasticizer
-Industry: PVC manufacturing
+┌─────────────────────────────────────────────────────────────────┐
+│  Step 1: 基础关键词                                              │
+│  用户提供种子关键词 + 公司名称                                    │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  Step 2: 读取公司档案 (缓存)                                     │
+│  从 companies/[company]/profile.md 加载：                        │
+│  - 产品/服务                                                     │
+│  - 目标行业                                                      │
+│  - 竞争优势                                                      │
+│  - 核心关键词                                                    │
+│  ⚠️ 不加载固定画像，画像在 Step 3 动态生成                        │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  Step 3: 动态生成用户画像                                        │
+│  根据 基础关键词 + 公司信息 → 生成针对性 B2B 用户画像             │
+│  - 谁会搜索这个关键词？                                          │
+│  - 他们的环境背景是什么？（地区、行业、规模、采购阶段）            │
+│  - 他们的真实痛点是什么？                                        │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  Step 4: Query Fan Out - 关键词衍生                              │
+│  从每个画像角度重写基础关键词                                     │
+│  1个关键词 → 几十个自然搜索词                                     │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  Step 5: PAA 问题收集                                            │
+│  询问用户提供 People Also Ask 列表                                │
+│  (可选：先用工具抓取，用户补充)                                    │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  Step 6: 生成话题列表                                            │
+│  综合 关键词 + 画像 + PAA 生成潜在话题                            │
+│  输出到 output/[company]-topics-research.md                      │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Keyword Generation Process
+## 公司档案 (缓存)
 
-### Step 1: Load User Personas
+| 公司 | 行业 | 档案路径 |
+|------|------|----------|
+| bastone-plastics | 增塑剂 & PVC 添加剂 | `companies/bastone-plastics/profile.md` |
+| cowseal | 机械密封 | `companies/cowseal/profile.md` |
+| metal-castings | 砂铸 & 熔模铸造 | `companies/metal-castings/profile.md` |
+| mtedmachinery | 铝箔容器机械 | `companies/mtedmachinery/profile.md` |
+| soontact | 包装机械 | `companies/soontact/profile.md` |
+| tanhon | 减速机 & 齿轮箱 | `companies/tanhon/profile.md` |
 
-Each company profile contains 4 user personas with:
-- Experience level
-- Goals
-- Pain Points
-- Decision Factors
-- Search Behavior
-
-### Step 2: Transform by Search Intent
-
-For each persona, generate keywords by intent:
-
-| Intent | Pattern | Example |
-|--------|---------|---------|
-| Informational | "what is...", "how does...", "types of..." | "what causes mechanical seal failure" |
-| Commercial | "best...", "top... suppliers", "... vs ..." | "best plasticizer for PVC film" |
-| Transactional | "... manufacturer", "buy...", "... supplier" | "gearbox manufacturer China" |
-
-### Step 3: Generate PAA Questions
-
-Create "People Also Ask" style questions:
-- What/Why/How/Where questions
-- Comparison questions
-- Problem-solution questions
-
-### Step 4: Output Format
+### 档案内容（缓存项）
 
 ```markdown
-## Keywords for: [topic]
+## Basic Information
+公司名、网站、行业、地点
 
-### Informational Intent
-- keyword 1
-- keyword 2
+## Products & Services
+产品线、关键材料、服务项目
 
-### Commercial Intent
-- keyword 1
-- keyword 2
+## Target Industries
+目标行业列表
 
-### Transactional Intent
-- keyword 1
-- keyword 2
+## Competitive Advantages
+核心竞争优势
 
-### PAA Questions
-- question 1
-- question 2
+## Core Keywords
+核心关键词列表
+```
+
+⚠️ **用户画像不缓存**，每次根据关键词动态生成
+
+---
+
+## B2B 用户画像 - 动态生成
+
+### 约束条件
+
+所有画像必须是 **B2B 企业买家**，不是消费者：
+
+| 典型角色 | 说明 |
+|----------|------|
+| Maintenance Manager/Engineer | 设备维护、故障排除 |
+| Plant/Reliability Engineer | 设备选型、可靠性改进 |
+| Procurement Manager | 采购决策、供应商管理 |
+| OEM Equipment Manufacturer | 设备制造商、配套采购 |
+| Distributor/Reseller | 分销商、代理商 |
+| Technical Consultant | 技术顾问、设计院 |
+| Quality/Compliance Manager | 质量合规、认证需求 |
+
+### 环境细分维度
+
+| 维度 | 影响搜索意图 |
+|------|--------------|
+| **地理位置** | 北美/欧洲(严格合规) vs 东南亚(价格敏感) vs 中东(高规格) |
+| **行业垂直** | 化工、水处理、油气、制药、食品等不同需求 |
+| **公司规模** | 大型跨国(供应链稳定) vs 中小企业(价格导向) |
+| **技术成熟度** | 工业4.0(智能监测) vs 传统(可靠耐用) |
+| **采购阶段** | 紧急维修 vs 计划采购 vs 新项目招标 vs 供应商审核 |
+| **预算约束** | 充足(质量优先) vs 有限(性价比优先) |
+| **合规要求** | API, FDA, ATEX, ISO, CE 等 |
+
+### 动态生成示例
+
+**输入**: cowseal + "mechanical seal failure"
+
+**生成画像**:
+1. 北美化工厂维护经理 - 关注 EPA 合规、预防性维护
+2. 东南亚水厂设备主管 - 紧急维修、寻找快速方案
+3. 中东炼厂可靠性工程师 - API 682 标准、根因分析
+4. 中国泵厂技术支持 - 帮客户解决售后问题
+
+**输入**: cowseal + "seal for hydrogen compressor"
+
+**生成画像**:
+1. 欧洲氢能项目工程师 - 新兴应用、材料兼容性
+2. 日本气体公司采购 - 高纯度要求、供应商认证
+3. 美国压缩机OEM设计师 - 配套选型、技术参数
+
+---
+
+## Query Fan Out - 关键词衍生
+
+从每个画像角度，将基础关键词转化为自然搜索词：
+
+### 按搜索意图分类
+
+| 意图 | 模式 | 示例 |
+|------|------|------|
+| **信息型** | "what is...", "how to...", "why does..." | "what causes mechanical seal failure" |
+| **商业型** | "best...", "... vs ...", "top suppliers" | "best seal for sulfuric acid pump" |
+| **交易型** | "... manufacturer", "buy...", "... price" | "API 682 seal supplier China" |
+
+### 衍生模板
+
+```
+[基础关键词] + [画像环境]
+[基础关键词] + [行业应用]
+[基础关键词] + [问题/痛点]
+[基础关键词] + [合规标准]
+[基础关键词] + [对比/替代]
+[基础关键词] + [地区/来源]
 ```
 
 ---
 
-## Quick Commands
+## 快捷命令
 
-| Command | Action |
-|---------|--------|
-| `list companies` | Show all companies |
-| `keywords for [company] topic: [topic]` | Generate keywords for company |
-| `expand [keyword]` | Expand a seed keyword |
-| `analyze [url]` | Analyze website and create new company profile |
+| 命令 | 说明 |
+|------|------|
+| `list companies` | 列出所有公司 |
+| `[company] 关键词: [keyword]` | 为公司生成关键词衍生 |
+| `expand [keyword]` | 直接扩展种子关键词 |
+| `analyze [url]` | 分析网站，创建新公司档案 |
+
+### 示例用法
+
+```
+cowseal 关键词: mechanical seal failure
+```
+
+```
+expand: plasticizer migration
+行业: PVC manufacturing
+```
 
 ---
 
-## Adding New Company
+## 添加新公司
 
-1. Create directory: `companies/[company-name]/`
-2. Create `profile.md` with sections:
-   - Basic Information
-   - Products & Services
-   - User Personas (4 types with Search Behavior)
-   - Target Industries
-   - Competitive Advantages
-   - Core Keywords
-   - Long-tail Keyword Themes
-   - PAA-Style Questions
-   - Main Competitors
+1. 分析网站: `analyze [company-website-url]`
+2. 系统自动创建 `companies/[company-name]/profile.md`
+3. 档案包含:
+   - 基本信息
+   - 产品/服务
+   - 目标行业
+   - 竞争优势
+   - 核心关键词
+   - ~~用户画像~~ (不缓存，动态生成)
+
+---
+
+## 输出格式
+
+话题研究报告保存到 `output/[company]-topics-research.md`
+
+```markdown
+# [Company] 话题研究报告
+
+**公司**: [Company] (domain.com)
+**行业**: [Industry]
+**研究日期**: YYYY-MM-DD
+**研究方法**: Query Fan Out + 动态画像
+
+---
+
+## 话题分类总览
+
+| 类别 | 话题数 | 目标读者 |
+|------|--------|----------|
+| 故障排除 | X | 维护工程师、技术人员 |
+| 选型指南 | X | 设计工程师、采购经理 |
+| 行业应用 | X | 各行业工程师 |
+| 成本与ROI | X | 企业主、财务、采购决策者 |
+| 法规与认证 | X | 合规人员、HSE经理 |
+
+---
+
+## Category: [类别名称]
+
+**动态画像**: [本次生成的画像描述]
+
+| # | English Title | 中文标题 | 搜索意图 | 关键词 |
+|---|---------------|----------|----------|--------|
+| 1 | [Topic Title] | [话题标题] | Informational | keyword1, keyword2 |
+```
+
+---
+
+## 参考资料
+
+- [Grounding AI for SEO](https://collaborator.pro/blog/grounding-ai-seo)
+- [SEO personas for AI search](https://searchengineland.com/seo-personas-ai-search-461343)
