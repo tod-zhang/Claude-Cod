@@ -10,37 +10,67 @@
 ## Products & Services
 
 ### Main Products
-- **Plasticizers (塑化剂)**: Primary focus, used in PVC processing
-- **Additives (添加剂)**: Various chemical additives for plastics
+- **Plasticizers (塑化剂)**: DOP, DOTP, DINP, ESBO, Chlorinated Paraffin
+- **PVC Additives (添加剂)**: Calcium Zinc Stabilizers, processing aids
 - **PVC Resin**: Supporting products for plastic manufacturing
 
 ### Product Applications
 - PVC food film and packaging materials
 - Water pipes and hoses
 - Waterproof membranes
-- General plastic products manufacturing
+- Wire & cable insulation
+- Flooring materials
+- Artificial leather
+- Footwear
 
 ### Services Offered
 - Bulk chemical supply
-- Custom packaging solutions (drums, IBC containers, flexible packaging)
+- Custom packaging solutions (drums, IBC containers, flexi bags, tank farm)
 - Technical consultation
 - Global logistics support
 
-## Target Customers
+---
 
-### Industries Served
-- [x] Plastic Products Manufacturing
-- [x] Construction (pipes, waterproofing)
-- [x] Packaging Industry
-- [x] Food & Beverage (food-grade films)
-- [x] Wire & Cable
-- [x] Automotive (interior plastics)
-- [x] Footwear & Artificial Leather
+## User Personas
 
-### Customer Profile
-- **Company Size**: SMB / Enterprise / Both
-- **Role of Buyer**: Procurement Manager, Production Manager, R&D Engineer
-- **Geographic Focus**: Global export market
+### Procurement Manager
+- **Experience**: 5-10 years in chemical/plastics supply chain
+- **Goals**: Find reliable plasticizer supplier, negotiate competitive pricing, ensure consistent supply
+- **Pain Points**: Price volatility, quality inconsistency between batches, long lead times, communication barriers with overseas suppliers
+- **Decision Factors**: Price per ton, MOQ flexibility, payment terms, delivery reliability, supplier track record
+- **Search Behavior**: "plasticizer supplier China", "bulk DOP price", "DOTP manufacturer"
+
+### Formulation Engineer / R&D Chemist
+- **Experience**: Technical background in polymer science or chemical engineering
+- **Goals**: Find plasticizers meeting specific performance requirements, get technical data sheets, understand material compatibility
+- **Pain Points**: Incomplete technical documentation, suppliers lacking technical expertise, difficulty comparing products
+- **Decision Factors**: Technical specifications, purity levels, test certificates, DFM support, sample availability
+- **Search Behavior**: "DOP vs DOTP comparison", "plasticizer for food grade PVC", "ESBO technical data sheet"
+
+### Quality/Regulatory Compliance Manager
+- **Experience**: Background in quality assurance or regulatory affairs
+- **Goals**: Ensure plasticizers meet REACH, FDA, RoHS requirements; verify certifications; manage supplier audits
+- **Pain Points**: Non-compliant materials, missing documentation, changing regulations
+- **Decision Factors**: Certifications (REACH, FDA, RoHS), COA availability, traceability, audit cooperation
+- **Search Behavior**: "REACH compliant plasticizer", "FDA approved PVC additive", "non-phthalate plasticizer"
+
+### Production Manager
+- **Experience**: Runs PVC processing operations
+- **Goals**: Maintain production without material shortages, optimize formulation costs, reduce waste
+- **Pain Points**: Material shortages disrupting production, quality variations affecting output, high inventory costs
+- **Decision Factors**: Delivery reliability, batch consistency, technical support, inventory management options
+- **Search Behavior**: "plasticizer dosage for PVC", "PVC processing problems", "plasticizer migration issues"
+
+---
+
+## Target Industries
+- Plastic Products Manufacturing
+- Construction (pipes, waterproofing)
+- Packaging Industry
+- Food & Beverage (food-grade films)
+- Wire & Cable
+- Automotive (interior plastics)
+- Footwear & Artificial Leather
 
 ## Competitive Advantages
 1. Direct manufacturer from China's chemical industry hub
@@ -48,44 +78,9 @@
 3. Commitment to quality and sustainable supply
 4. Comprehensive product range covering plasticizers and additives
 
-## Industry Context for Topic Research
+---
 
-### Core Product Category
-塑化剂 (Plasticizers) - Essential chemical additives for PVC flexibility
-
-### Key Product Types
-- DOP (Dioctyl Phthalate) - 邻苯二甲酸二辛酯
-- DOTP (Dioctyl Terephthalate) - 对苯二甲酸二辛酯
-- DINP (Diisononyl Phthalate) - 邻苯二甲酸二异壬酯
-- ESBO (Epoxidized Soybean Oil) - 环氧大豆油
-- Chlorinated Paraffin - 氯化石蜡
-- Calcium Zinc Stabilizer - 钙锌稳定剂
-
-### Key Application Areas
-- PVC film processing (PVC薄膜加工)
-- Pipe and fitting manufacturing (管材管件制造)
-- Cable and wire insulation (电线电缆绝缘)
-- Flooring materials (地板材料)
-- Artificial leather (人造革)
-
-### Common Industry Topics
-- Plasticizer selection guides
-- Phthalate vs non-phthalate alternatives
-- Regulatory compliance (REACH, FDA, RoHS)
-- Migration and extraction testing
-- PVC processing optimization
-- Environmental and health considerations
-
-## Content Goals
-
-### Primary Topics of Interest
-- Plasticizer types and selection criteria
-- PVC processing and formulation guides
-- Regulatory compliance for different markets
-- Non-phthalate alternatives and trends
-- Application-specific plasticizer recommendations
-
-### Keywords to Target
+## Core Keywords
 - plasticizer
 - PVC plasticizer
 - DOP plasticizer
@@ -96,7 +91,23 @@
 - plasticizer manufacturer
 - plasticizer supplier
 
-### Content Tone
-- [x] Technical & Professional
-- [x] Educational & Helpful
-- [x] Industry Expert
+## Long-tail Keyword Themes
+- "plasticizer + application" (plasticizer for cable, plasticizer for flooring)
+- "plasticizer + compliance" (REACH compliant plasticizer, FDA approved plasticizer)
+- "plasticizer + comparison" (DOP vs DOTP, phthalate vs non-phthalate)
+- "plasticizer + technical" (plasticizer migration, plasticizer dosage)
+
+## PAA-Style Questions
+- What is the difference between DOP and DOTP plasticizer?
+- Is DOTP safer than DOP?
+- What plasticizer is used in food grade PVC?
+- How much plasticizer to add to PVC?
+- What is the best non-phthalate plasticizer?
+- How to reduce plasticizer migration?
+- What is REACH compliant plasticizer?
+
+## Main Competitors
+- Eastman Chemical
+- BASF
+- LG Chem
+- Nan Ya Plastics

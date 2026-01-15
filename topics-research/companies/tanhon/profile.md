@@ -11,9 +11,7 @@
 
 ## Products & Services
 
-### Main Products
-
-#### Standard Gearboxes (6 Series)
+### Standard Gearboxes (6 Series)
 - **Helical Gearboxes**: MD, MJ, MP, MN series - high efficiency helical gear reducers
 - **Heavy-Duty Industrial Gearboxes**: MTB, MTH series - for demanding industrial applications
 - **Planetary Gearboxes**: P series - high torque density, compact design
@@ -21,7 +19,7 @@
 - **Worm Gearboxes**: NMRV series - cost-effective speed reduction
 - **Worm Screw Hoists**: JWM series - lifting and positioning applications
 
-#### Customized Industrial Gearboxes (5 Categories)
+### Customized Industrial Gearboxes (5 Categories)
 - Mixer gearboxes (搅拌器齿轮箱)
 - Textile machinery gearboxes (纺织机械齿轮箱)
 - Wire drawing equipment gearboxes (拉丝设备齿轮箱)
@@ -31,7 +29,7 @@
 ### Services Offered
 - Custom gearbox design and manufacturing
 - OEM/ODM services
-- Technical consultation
+- Technical consultation and selection support
 - After-sales support and maintenance
 - Distributor partnerships
 
@@ -42,28 +40,55 @@
 - **Equipment**: High-precision gear grinding machines, CNC machining centers
 - **Testing**: Gear testing centers, precision measuring instruments
 
-## Target Customers
+---
 
-### Industries Served
-- [x] Steel Metallurgy (钢铁冶金)
-- [x] Mining (矿业)
-- [x] Petrochemical (石化)
-- [x] Wastewater Treatment (污水处理)
-- [x] Food Production (食品生产)
-- [x] Textile (纺织)
-- [x] Construction (建筑)
-- [x] Automobile Inspection (汽车检测)
-- [x] Mechanical Parking (机械停车)
-- [x] Metal Processing (金属加工)
-- [x] Hoisting & Transportation (起重运输)
-- [x] Palm Oil Industry (棕榈油行业)
+## User Personas
 
-### Customer Profile
-- **Company Size**: SMB / Enterprise / Both
-- **Role of Buyer**: Mechanical Engineer, Procurement Manager, Plant Engineer, OEM Buyer
-- **Geographic Focus**: Global (80+ countries including major markets)
+### Mechanical Engineer / Design Engineer
+- **Experience**: Designs machines requiring power transmission
+- **Goals**: Select correct gearbox for application, get technical specifications, ensure proper sizing
+- **Pain Points**: Unclear specifications from suppliers, difficulty calculating gear ratios, limited application support
+- **Decision Factors**: Technical accuracy, sizing tools/calculators, application engineering support, CAD drawings availability
+- **Search Behavior**: "gearbox sizing calculator", "helical vs planetary gearbox", "gear reducer selection guide"
 
-### Major Clients
+### Maintenance Engineer / Plant Engineer
+- **Experience**: Maintains industrial equipment with gearboxes
+- **Goals**: Find replacement gearboxes quickly, reduce downtime, improve equipment reliability
+- **Pain Points**: Difficulty finding equivalent replacements, long lead times, compatibility concerns
+- **Decision Factors**: Compatibility with existing equipment, delivery speed, price vs OEM, warranty
+- **Search Behavior**: "gearbox replacement", "reducer maintenance", "gearbox oil change interval"
+
+### Procurement Manager
+- **Experience**: Sources mechanical components for manufacturing
+- **Goals**: Find reliable gearbox supplier, reduce component costs, consolidate vendors
+- **Pain Points**: Quality inconsistency, long lead times, difficulty comparing specifications across brands
+- **Decision Factors**: Price competitiveness, MOQ flexibility, delivery reliability, supplier track record
+- **Search Behavior**: "gearbox supplier China", "industrial reducer manufacturer", "bulk gearbox pricing"
+
+### OEM Equipment Manufacturer
+- **Experience**: Builds machines that incorporate gearboxes
+- **Goals**: Source reliable gearboxes for production, establish long-term supply relationship, customize for specific applications
+- **Pain Points**: Quality variation between batches, capacity constraints, IP protection concerns
+- **Decision Factors**: Custom design capability, quality certifications, production capacity, pricing stability
+- **Search Behavior**: "OEM gearbox supplier", "custom gear reducer manufacturer", "private label gearbox"
+
+---
+
+## Target Industries
+- Steel Metallurgy (钢铁冶金)
+- Mining (矿业)
+- Petrochemical (石化)
+- Wastewater Treatment (污水处理)
+- Food Production (食品生产)
+- Textile (纺织)
+- Construction (建筑)
+- Automobile Inspection (汽车检测)
+- Mechanical Parking (机械停车)
+- Metal Processing (金属加工)
+- Hoisting & Transportation (起重运输)
+- Palm Oil Industry (棕榈油行业)
+
+## Major Clients
 - COFCO (中粮集团)
 - Siemens (西门子)
 - SANY (三一重工)
@@ -71,12 +96,12 @@
 - Other Fortune 500 companies
 
 ## Competitive Advantages
-1. **35+ years expertise** in gearbox manufacturing and design
-2. **National High-tech Enterprise** designation
-3. **ISO certified** for quality, environmental management, and occupational health/safety
-4. **Comprehensive product range** - 20+ series covering most industrial needs
-5. **Strong R&D** - 98 patents (invention, utility model, design)
-6. **Large production capacity** - 1M+ units annually serving 10,000+ companies
+1. **20+ Years Expertise**: Deep knowledge in gearbox manufacturing and design
+2. **National High-tech Enterprise**: Government-recognized innovation leader
+3. **ISO Certified**: Quality, environmental, and occupational health certifications
+4. **Comprehensive Product Range**: 20+ series covering most industrial needs
+5. **Strong R&D**: 98 patents (invention, utility model, design)
+6. **Large Production Capacity**: 1M+ units annually serving 10,000+ companies
 
 ## Quality & Certifications
 - National High-tech Enterprise (国家高新技术企业)
@@ -85,44 +110,9 @@
 - ISO 14001 Environmental Management System
 - ISO 45001 Occupational Health and Safety
 
-## Industry Context for Topic Research
+---
 
-### Core Product Categories
-- 齿轮箱 (Gearboxes) - Power transmission solutions
-- 减速机 (Gear Reducers) - Speed reduction equipment
-- 齿轮电机 (Gearmotors) - Integrated motor-reducer units
-
-### Key Technical Parameters
-- Gear types: Helical, Planetary, Worm, Bevel
-- Torque range: Various applications from light to heavy-duty
-- Mounting positions: Foot, flange, shaft-mounted
-- Efficiency ratings: Up to 98% for helical gears
-
-### Key Materials Used
-- Alloy Steel (合金钢) - Gears
-- Cast Iron (铸铁) - Housings
-- Bronze (青铜) - Worm wheels
-- Bearing Steel (轴承钢) - Bearings
-
-### Common Industry Topics
-- Gearbox selection guides
-- Reducer sizing calculations
-- Maintenance best practices
-- Gear lubrication
-- Failure analysis
-- Energy efficiency in power transmission
-- Noise reduction techniques
-
-## Content Goals
-
-### Primary Topics of Interest
-- Gearbox selection and sizing for different applications
-- Industrial gear reducer maintenance
-- Comparison of gear types (helical vs planetary vs worm)
-- Energy efficiency in power transmission systems
-- Custom gearbox solutions for specific industries
-
-### Keywords to Target
+## Core Keywords
 - gearbox
 - gear reducer
 - helical gearbox
@@ -133,13 +123,25 @@
 - speed reducer
 - transmission machinery
 
-### Content Tone
-- [x] Technical & Professional
-- [x] Educational & Helpful
-- [x] Industry Expert
+## Long-tail Keyword Themes
+- "gearbox + type" (helical gearbox, planetary reducer, worm gear reducer)
+- "gearbox + application" (mixer gearbox, extruder gearbox, conveyor gearbox)
+- "gearbox + specification" (gearbox ratio, gearbox torque, gearbox efficiency)
+- "gearbox + maintenance" (gearbox oil, gearbox noise, gearbox overheating)
 
-## Contact Information
-- **Purchases**: sales@tanhon.com
-- **Partnerships**: partnerships@tanhon.com
-- **Phone**: +86-0577-65596188, +86-0577-65596588, +86-0577-65598188
-- **Fax**: +86-0577-65596688
+## PAA-Style Questions
+- What is the difference between helical and planetary gearbox?
+- How to select the right gear reducer?
+- What is the efficiency of worm gearbox?
+- How to calculate gearbox ratio?
+- What causes gearbox failure?
+- How often should gearbox oil be changed?
+- What is the difference between gearbox and gear motor?
+- How to reduce gearbox noise?
+
+## Main Competitors
+- SEW-Eurodrive
+- Nord Drivesystems
+- Siemens (Flender)
+- Bonfiglioli
+- Sumitomo
