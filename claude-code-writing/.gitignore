@@ -12,7 +12,6 @@ config/*.json
 drafts/*.md
 knowledge/*.md
 outline/*.md
-output/*.md
 imports/*.md
 
 # Keep folders with .gitkeep
