@@ -163,17 +163,40 @@ ELSE IF significant disagreement OR multiple valid approaches:
 
 **Skip if `innovationSpace.level: low`** — go directly to execution differentiation.
 
+#### Topic Alignment Check (CRITICAL)
+
+Before generating theses, understand the distinction:
+
+| Type | Definition | Example (Topic: "How to calculate OEE") |
+|------|------------|------------------------------------------|
+| **Perspective** ✅ | Thesis provides a unique ANGLE on the same topic | "预热步骤是被低估的关键环节" — still teaches OEE calculation, but emphasizes one aspect |
+| **Topic-Shift** ⚠️ | Thesis changes WHAT the article covers | "数据配置比公式更重要" — shifts from "how to calculate" to "how to ensure accuracy" |
+
+**Validation questions for each thesis:**
+1. Does the article still answer the user's original search query?
+2. Would a reader searching for the original topic feel satisfied?
+3. Is the thesis a LENS for viewing the topic, or a REPLACEMENT for the topic?
+
+**If thesis is topic-shift:**
+- Mark `topicAlignment: "topic-shift"`
+- Note what original content would be missing
+- Suggest: either (a) keep as 1-2 H2s within full topic coverage, or (b) recommend changing article title
+
 Create 3 options based on competitive gaps:
 
 ```json
 {
   "thesis": "specific claim",
   "stance": "challenge | confirm | nuance",
+  "topicAlignment": "perspective | topic-shift",
+  "alignmentNote": "if topic-shift: what original intent is not covered",
   "recommendedDepth": "B2B: 入门基础|进阶技巧|技术细节|概述|专家级 | B2C: 极简|实用|对比 | all",
   "evidenceSummary": "available evidence",
   "differentiationScore": "strong | moderate | weak"
 }
 ```
+
+**Preference order:** Perspective theses > Topic-shift theses. Only recommend topic-shift if no good perspective angles exist.
 
 ### 1.6 Phase 1 Output
 

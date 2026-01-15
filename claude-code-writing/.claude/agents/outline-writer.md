@@ -116,6 +116,51 @@ If `writingAngle.depthMismatchAcknowledged == true`:
 - ❌ "根据热力学第二定律..."
 - ✅ "我见过工厂严格按教科书操作，废品率却居高不下。问题在于..."
 
+### Topic-Shift Handling (CRITICAL)
+
+Check `writingAngle.topicAlignment` in core.json:
+
+| topicAlignment | topicShiftHandling | Action |
+|----------------|-------------------|--------|
+| `perspective` | - | Normal: thesis as lens on topic |
+| `topic-shift` | `partial-coverage` | **MUST cover original intent** |
+| `topic-shift` | `title-change` | Thesis becomes new topic |
+
+**If `topicAlignment: topic-shift` AND `topicShiftHandling: partial-coverage`:**
+
+This means user chose a topic-shifting thesis BUT wants to keep the original title. You MUST:
+
+1. **Check `searchIntent.coreQuestion`** in core.json
+2. **Ensure H2 structure answers that question**
+3. **Thesis gets 1-2 dedicated H2s, NOT the entire article**
+
+**Validation before outlining:**
+
+| Check | Pass | Fail |
+|-------|------|------|
+| Does outline answer `searchIntent.coreQuestion`? | Continue | **STOP - restructure** |
+| Can reader accomplish original goal after reading? | Continue | **STOP - add missing H2s** |
+| Is thesis confined to 1-2 H2s? | Continue | **STOP - thesis is dominating** |
+
+**Example:**
+- Original topic: "How to calculate OEE"
+- Topic-shift thesis: "Data collection matters more than formulas"
+- `topicShiftHandling: partial-coverage`
+
+**Correct structure:**
+1. H2: OEE formula and three components ← **original intent**
+2. H2: Setting up data collection ← **thesis focus**
+3. H2: Calculating each component ← **original intent**
+4. H2: Common calculation mistakes ← **original intent + thesis lens**
+5. H2: Verifying your results ← **original intent**
+
+**Wrong structure (thesis dominates):**
+1. H2: Why formulas don't matter ← thesis
+2. H2: Data collection setup ← thesis
+3. H2: Sensor configuration ← thesis
+4. H2: Validation methods ← thesis
+→ Reader learns nothing about OEE calculation!
+
 ### Word Count Budget (MANDATORY)
 
 Read `articleLength` from core.json and enforce these limits:
@@ -256,6 +301,25 @@ Topic: "Quenching oil selection for steel hardening"
 | "How do I maintain the oil?" | Oil Maintenance and Testing |
 
 **Validation:** If you can't articulate what question an H2 answers → the H2 is unfocused or unnecessary.
+
+### H2 Title Anti-Patterns (MUST AVOID)
+
+| Pattern | Example | Problem | Fix |
+|---------|---------|---------|-----|
+| **Colon + conclusion** | "Speed: When Volume Actually Matters" | Spoils the section's conclusion in title | "Throughput Comparison" |
+| **Colon + verdict** | "Flexibility: Where Reciprocating Wins" | Reader knows answer before reading | "Changeover Speed and Flexibility" |
+| **Symmetric templates** | Multiple H2s with same structure | Looks AI-generated | Vary sentence patterns |
+| **Commentary subtitles** | "Cost: Why It's Not What You Think" | Editorializing belongs in content | "Cost Comparison" |
+
+**Principle:** H2 titles state the TOPIC. Section content delivers the CONCLUSION.
+
+```
+❌ "Material Selection: Why Grade Matters More Than Brand"
+   → Conclusion in title; reader skips section
+
+✅ "Material Selection Criteria"
+   → Reader must read to learn why grade matters
+```
 
 ### Outline Validation Checklist
 
@@ -530,6 +594,17 @@ Priority:
 
 **Test before writing any link:** Remove the link text—does the sentence still teach something concrete? If it's just announcing that knowledge is useful, DELETE and find a natural placement instead.
 
+**MANDATORY SELF-CHECK (before finishing Step 6):**
+Scan YOUR output for these regex patterns. If ANY sentence matches, DELETE it immediately:
+- `Understanding .* helps`
+- `Knowing .* (is essential|allows|enables|helps)`
+- `provides (the foundation|valuable context|background)`
+- `For (a )?(deeper|broader|complete|full) (look|understanding|overview|range)`
+
+⚠️ Common trap: "Understanding the full range of [X] helps you recognize..." — this MATCHES the forbidden pattern even though it sounds informative. DELETE IT.
+
+If you cannot place a required link without creating a wrapper sentence, SKIP the link entirely. Zero links is acceptable.
+
 **Concept level check (before placing any link):**
 - Does the linked article cover the SAME concept level?
   - ❌ gear → gearbox (part → assembly)
@@ -559,6 +634,13 @@ Priority:
 - NEVER place links in conclusion section (disrupts decision/summary flow)
 - NEVER add a "related reading" sentence after finishing a section
 - If you can't find a natural placement, SKIP the link entirely
+
+**Conclusion link trap (COMMON MISTAKE):**
+Writers often try to add remaining required links in conclusion. This ALWAYS produces wrapper sentences like:
+- ❌ "For a complete selection framework, see our guide on [X]"
+- ❌ "To explore all options, check out [Y]"
+
+These sentences serve NO purpose except holding a link. If a required link wasn't placed naturally in the body, DO NOT force it into the conclusion. Skip it entirely.
 
 ---
 

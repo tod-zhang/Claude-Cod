@@ -20,7 +20,9 @@ Read by: all agents
     "pending": true,
     "proofPoints": ["evidence 1", "evidence 2", "evidence 3"],
     "recommendedDepth": "B2B: 入门基础|进阶技巧|技术细节|概述|专家级 | B2C: 极简|实用|对比 | all",
-    "depthMismatchAcknowledged": false
+    "depthMismatchAcknowledged": false,
+    "topicAlignment": "perspective | topic-shift",
+    "topicShiftHandling": "partial-coverage | title-change (only when topicAlignment=topic-shift)"
   },
   "authorPersona": {
     "role": "热处理车间主任",
@@ -61,6 +63,14 @@ Read by: all agents
 - `challenge`: Disagree with common belief ("Most guides are wrong about X")
 - `confirm`: Reinforce with new evidence ("X is important, here's proof")
 - `nuance`: Add complexity ("X depends on Y, here's when each applies")
+
+**writingAngle.topicAlignment explained:**
+- `perspective`: Thesis provides a unique ANGLE on the same topic (good)
+- `topic-shift`: Thesis changes WHAT the article covers (requires handling)
+
+**writingAngle.topicShiftHandling explained (only when topicAlignment=topic-shift):**
+- `partial-coverage`: Keep original title, thesis gets 1-2 H2s, rest covers original intent
+- `title-change`: Change title to match new content direction, thesis becomes new topic
 
 **authorPersona.bias is critical:**
 - This is what makes the article NOT neutral
@@ -275,6 +285,8 @@ Read by: outline-writer, proofreader
       {
         "thesis": "specific claim based on research data",
         "stance": "challenge | confirm | nuance",
+        "topicAlignment": "perspective | topic-shift",
+        "alignmentNote": "if topic-shift: what original intent is not covered",
         "recommendedDepth": "B2B: 入门基础|进阶技巧|技术细节|概述|专家级 | B2C: 极简|实用|对比 | all",
         "evidenceSummary": "key data points supporting this thesis",
         "differentiationScore": "strong | moderate | weak"
@@ -588,6 +600,8 @@ Read by: proofreader
 | `writingAngle.pending` | config-creator | web-researcher, main | true = thesis 待选择 |
 | `writingAngle.recommendedDepth` | main (Step 3) | outline-writer | Thesis 最佳深度 |
 | `writingAngle.depthMismatchAcknowledged` | main (Step 3) | outline-writer | 需要调整论证策略 |
+| `writingAngle.topicAlignment` | main (Step 3) | outline-writer | perspective/topic-shift |
+| `writingAngle.topicShiftHandling` | main (Step 3) | outline-writer | partial-coverage/title-change (仅 topic-shift) |
 | `authorPersona.role` | config-creator | all | WHO is writing |
 | `authorPersona.bias` | config-creator | all | Non-neutral perspective |
 | `authorPersona.voiceTraits` | config-creator | outline-writer | HOW to express ideas |
@@ -608,6 +622,8 @@ Read by: proofreader
 | `research.executionDifferentiation.practicalValue` | outline-writer | 竞品缺少的实用价值 |
 | `writingAngle.pending` | web-researcher (Phase 1) | true = 需要生成 recommendedTheses |
 | `writingAngle.depthMismatchAcknowledged` | outline-writer | Adjust argumentation for depth gap |
+| `writingAngle.topicAlignment` | outline-writer | perspective = normal, topic-shift = 需检查覆盖 |
+| `writingAngle.topicShiftHandling` | outline-writer | partial-coverage = 必须覆盖原始意图 |
 | `research.recommendedTheses` | main (Step 3) | Phase 1 输出的角度推荐 |
 | `research.thesisValidation.validatedThesis` | outline-writer | Adjusted thesis if original lacked evidence |
 | `research.thesisValidation.personaFraming` | outline-writer | How persona would express thesis |

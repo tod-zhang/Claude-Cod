@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "dataforseo": {
-      "command": "/Users/todd/.npm-global/bin/dataforseo-mcp-server",
+      "command": "C:\\Users\\zmd88\\AppData\\Roaming\\npm\\dataforseo-mcp-server.cmd",
       "args": [],
       "env": {
         "DATAFORSEO_USERNAME": "hello@cowseal.com",
@@ -10,18 +10,18 @@
       }
     },
     "analytics-mcp": {
-      "command": "/opt/homebrew/bin/pipx",
-      "args": ["run", "analytics-mcp"],
+      "command": "python",
+      "args": ["-m", "pipx", "run", "analytics-mcp"],
       "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "/Users/todd/.config/gcloud/application_default_credentials.json",
+        "GOOGLE_APPLICATION_CREDENTIALS": "C:\\Users\\zmd88\\AppData\\Roaming\\gcloud\\application_default_credentials.json",
         "GOOGLE_PROJECT_ID": "graceful-alpha-472906-e0"
       }
     },
     "gsc-server": {
-      "command": "/Users/todd/.local/bin/mcp-gsc",
+      "command": "C:\\Users\\zmd88\\.local\\bin\\mcp-gsc.exe",
       "args": [],
       "env": {
-        "GSC_OAUTH_CLIENT_SECRETS_FILE": "/Users/todd/.config/mcp-gsc/client_secrets.json"
+        "GSC_OAUTH_CLIENT_SECRETS_FILE": "C:\\Users\\zmd88\\.config\\mcp-gsc\\client_secrets.json"
       }
     }
   }

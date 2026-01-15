@@ -141,12 +141,19 @@ Prompt: Phase 1 - Competitor Analysis for: [topic-title]
 
 **如果 skipThesis = false**:
 1. 读取 `research.json` 的 `recommendedTheses`，翻译展示给用户（格式见下方 Display Templates）
-2. 用户选择后，**main workflow 直接 Edit** `core.json`:
+2. **Topic Alignment 检查**：
+   - 如果 thesis 的 `topicAlignment: "topic-shift"`，显示警告（见 Display Templates）
+   - 用户选择 topic-shift 角度时，询问处理方式：
+     - A: 保持原标题，thesis 作为1-2个H2，其余H2覆盖原始搜索意图
+     - B: 修改标题以匹配新内容方向
+3. 用户选择后，**main workflow 直接 Edit** `core.json`:
    ```
    Edit core.json:
    - "writingAngle.thesis": "[选中的 thesis]"
    - "writingAngle.stance": "[对应的 stance]"
    - "writingAngle.pending": false
+   - "writingAngle.topicAlignment": "perspective | topic-shift"
+   - "writingAngle.topicShiftHandling": "partial-coverage | title-change" (仅 topic-shift 时)
    - 如果深度不匹配: "writingAngle.depthMismatchAcknowledged": true
    ```
 
@@ -546,6 +553,8 @@ imports/[topic]-analysis.md   ← Workflow 2 Step 0 only
 | challenge | 挑战型 |
 | confirm | 强化型 |
 | nuance | 细化型 |
+| perspective | 视角型 ✅ |
+| topic-shift | 话题偏移 ⚠️ |
 
 **展示格式：**
 ```
@@ -559,7 +568,48 @@ imports/[topic]-analysis.md   ← Workflow 2 Step 0 only
    立场: 细化型 | 适合深度: 技术细节
    △ 匹配度：差异化中等，深度匹配
 
-3. 传统温度曲线计算存在系统误差
-   立场: 挑战型 | 适合深度: 专家级
-   ⚠️ 注意：深度不匹配（需专家级，已选技术细节）
+3. 数据配置比公式更重要
+   立场: 挑战型 | 适合深度: 技术细节
+   ⚠️ 话题偏移：此角度会改变文章内容方向
+   原始意图「如何计算OEE」将无法完整覆盖
 ```
+
+**Topic-Shift 处理流程：**
+
+用户选择带 ⚠️ 话题偏移 标记的角度时，先提供分析，再追问：
+
+```
+此角度会改变文章内容方向：
+- 原始话题：[如何计算OEE]
+- 新方向：[如何确保OEE数据准确]
+
+---
+📊 内容策略分析：
+
+| 维度 | 原始话题 | 新角度 |
+|------|---------|--------|
+| 搜索意图 | [教程型：学习计算方法] | [问题解决：诊断数据问题] |
+| 目标受众 | [OEE新手] | [已在用OEE但数据不准的人] |
+| 搜索量预估 | [较高：基础教程需求大] | [中等：进阶问题] |
+| 内容重叠 | - | [约20%：都涉及数据采集基础] |
+
+💡 建议：这两个方向可以写成独立的两篇文章，互相内链：
+- 文章1：[如何计算OEE]（基础教程）→ 内链到文章2
+- 文章2：[如何确保OEE数据准确]（进阶诊断）→ 内链到文章1
+---
+
+请选择处理方式：
+A. 保持原标题，thesis 作为重点章节（1-2个H2），其余内容仍覆盖原始搜索意图
+B. 修改标题以匹配新内容方向，只写一篇
+C. 写两篇文章：先完成原始话题，再用新角度写第二篇
+```
+
+**选项说明：**
+- **A**：适合新角度只是原话题的补充视角
+- **B**：适合新角度比原话题更有价值，且搜索意图有人搜
+- **C**：适合两个方向都有独立搜索量，可形成内容矩阵
+
+**选 C 时的后续流程：**
+1. 先完成原始话题文章（无 thesis 或选其他 perspective 角度）
+2. 记录新角度到待写列表
+3. 后续启动新文章时，两篇互相添加内链

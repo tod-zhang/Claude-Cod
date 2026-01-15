@@ -105,15 +105,29 @@ Collect all issues into a fix queue.
 **REQUIRED:** Run these Grep commands on the draft. Do NOT skip - AI patterns are easy to miss by reading.
 
 ```
+// AI educational fluff patterns
 Grep("Understanding .* helps", drafts/[topic].md) ||
+Grep("Understanding the full range", drafts/[topic].md) ||
 Grep("Knowing .* (is essential|allows|enables)", drafts/[topic].md) ||
 Grep("By understanding", drafts/[topic].md) ||
-Grep("For (a )?(deeper|more|broader|complete|background)", drafts/[topic].md) ||
-Grep("To learn more|Learn more about|See our guide", drafts/[topic].md) ||
+Grep("For (a )?(deeper|more|broader|complete|full|background)", drafts/[topic].md) ||
+Grep("To learn more|Learn more about|See our guide|see our guide on", drafts/[topic].md) ||
+Grep("For a (complete|full|comprehensive) .* (framework|guide|overview)", drafts/[topic].md) ||
 Grep("The relationship between .* determines", drafts/[topic].md) ||
 Grep("How .* (works|affects) .* (determines|influences)", drafts/[topic].md) ||
 Grep("follows similar logic|works the same way|uses the same principle", drafts/[topic].md) ||
-Grep("Each .* serves .* purposes", drafts/[topic].md)
+Grep("Each .* serves .* purposes", drafts/[topic].md) ||
+
+// Meta-commentary patterns (internal research leaked into article)
+Grep("(Most|Every|All|Other) (articles?|guides?|competitors?)", drafts/[topic].md) ||
+Grep("competitors? (miss|ignore|overlook|gloss)", drafts/[topic].md) ||
+Grep("(rarely|often|seldom) (mentioned|discussed|covered|explained)", drafts/[topic].md) ||
+Grep("(few|most) guides (explain|cover|mention|ignore)", drafts/[topic].md) ||
+Grep("they (miss|ignore|overlook|gloss over)", drafts/[topic].md) ||
+Grep("Unlike other (sources|articles|guides)", drafts/[topic].md) ||
+
+// Announcing prefix patterns (remove prefix, keep content)
+Grep("The (critical point|key insight|bottom line|truth is|result is):", drafts/[topic].md)
 ```
 
 **For each match found:**
@@ -122,6 +136,21 @@ Grep("Each .* serves .* purposes", drafts/[topic].md)
 3. If some value → REWRITE to remove the pattern
 
 **This step is BLOCKING** - do not proceed to Phase 3.2 until all grep patterns are checked and fixed.
+
+**MANDATORY REPORTING:** In your final summary, you MUST include a "Grep 检查" subsection showing:
+```
+### Grep 检查
+AI教育性空话:
+- "Understanding .* helps": [0 matches] 或 [X matches → DELETED]
+- "Knowing .* (is essential|allows|enables)": [0 matches] 或 [X matches → DELETED]
+- ...
+
+元信息泄漏 (Meta-commentary):
+- "(Most|Every|All|Other) (articles|guides|competitors)": [0 matches] 或 [X matches → DELETED]
+- "competitors (miss|ignore|overlook)": [0 matches] 或 [X matches → DELETED]
+- ...
+```
+If you skip this report, the proofreading is INCOMPLETE.
 
 ### Phase 3.2: Serial Fix
 
@@ -156,6 +185,7 @@ Apply fixes one by one to avoid conflicts (e.g., two fixes targeting same paragr
 | P2 | Announcing phrases | "The key insight:" etc | Remove prefix |
 | P2 | Intro anti-patterns | Definition/history/self-reference start | Flag for rewrite |
 | P2 | H2 title bloat | Colon subtitles, modifiers/commentary | Simplify title |
+| P2 | H2 conclusion spoiler | "Topic: Why X Matters" / "Topic: Where X Wins" | Remove subtitle, keep topic only |
 | P3 | Differentiation | Primary differentiator in title/intro | Attempt fix |
 | P3 | Case narratives | Cases told as stories, not summaries | Flag for rewrite |
 
@@ -237,7 +267,7 @@ Flag paragraphs with: zero first-person + zero opinions, pure definition, encycl
 
 | Type | Examples | Action |
 |------|----------|--------|
-| Prefix | "The result:", "The key insight:", "The truth is:" | Remove prefix |
+| Prefix | "The result:", "The key insight:", "The truth is:", "The critical point:", "The bottom line:" | Remove prefix |
 | Cliché | "The good news is that...", "Let me explain..." | Delete, state directly |
 | Empty | "isn't difficult once you understand X" | Replace with specifics |
 
@@ -394,11 +424,15 @@ Meta-commentary = talking ABOUT competitors/other articles instead of talking TO
 | Pattern | Example | Why Delete |
 |---------|---------|------------|
 | "Most articles/guides..." | "Most articles about outdoor PVC focus entirely on sunlight" | Reader doesn't care what other articles do |
+| "Every/All competitor(s)..." | "Every competitor article explains it" | Internal research note leaked into article |
+| "Other articles/guides..." | "Other articles focus on X" | Reader doesn't know or care what others write |
 | "What others/competitors miss..." | "Here's what competitors miss: temperature limits" | Arrogant; just state the fact directly |
 | "Unlike other sources..." | "Unlike other sources, we'll cover..." | Self-promotional meta-commentary |
 | "They miss/overlook/ignore..." | "They miss a critical factor" | Reader doesn't know who "they" are |
 | "What's rarely mentioned..." | "What's rarely mentioned is that..." | Just mention it |
 | "Few guides explain..." | "Few guides explain why this matters" | Just explain it |
+| "What they gloss over..." | "What they gloss over is that..." | Competitive framing leaked |
+| "...that most guides ignore" | "ambiguity that most guides ignore" | Subtle competitive reference |
 
 **Fix approach:** Delete the meta-commentary, keep the actual content.
 
@@ -410,9 +444,17 @@ Meta-commentary = talking ABOUT competitors/other articles instead of talking TO
 ❌ "Here's what competitors miss: direct sunlight can heat a pipe's surface 50F or more above air temperature."
 
 ✅ "Direct sunlight can heat a pipe's surface 50F or more above air temperature."
+
+❌ "Every competitor article explains it. What they gloss over is that the formula is the easy part."
+
+✅ "The formula is the easy part."
+
+❌ "...categorization ambiguity that most guides ignore."
+
+✅ "...categorization ambiguity that is easy to overlook."
 ```
 
-**Detection:** Grep for `Most articles`, `Most guides`, `competitors miss`, `others miss`, `rarely mentioned`, `often overlooked`, `few guides`.
+**Detection:** Grep for `Most articles`, `Most guides`, `Every competitor`, `All competitor`, `Other articles`, `competitors miss`, `others miss`, `rarely mentioned`, `often overlooked`, `few guides`, `they gloss over`, `guides ignore`.
 
 ### Material Usage Verification
 
