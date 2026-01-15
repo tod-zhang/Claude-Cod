@@ -198,38 +198,19 @@ expand: plasticizer migration
 
 ## 输出格式
 
-话题研究报告保存到 `output/[company]-topics-research.md`
+话题列表保存到 `output/[company]-[keyword]-topics.txt`
 
-```markdown
-# [Company] 话题研究报告
+**格式要求**: 纯英文标题，每行一个，方便批量复制
 
-**公司**: [Company] (domain.com)
-**行业**: [Industry]
-**研究日期**: YYYY-MM-DD
-**研究方法**: Query Fan Out + 动态画像
-
----
-
-## 话题分类总览
-
-| 类别 | 话题数 | 目标读者 |
-|------|--------|----------|
-| 故障排除 | X | 维护工程师、技术人员 |
-| 选型指南 | X | 设计工程师、采购经理 |
-| 行业应用 | X | 各行业工程师 |
-| 成本与ROI | X | 企业主、财务、采购决策者 |
-| 法规与认证 | X | 合规人员、HSE经理 |
-
----
-
-## Category: [类别名称]
-
-**动态画像**: [本次生成的画像描述]
-
-| # | English Title | 中文标题 | 搜索意图 | 关键词 |
-|---|---------------|----------|----------|--------|
-| 1 | [Topic Title] | [话题标题] | Informational | keyword1, keyword2 |
 ```
+What Is a Mechanical Seal? Complete Beginner's Guide
+How Does a Mechanical Seal Work? Working Principle Explained
+Mechanical Seal Components: Parts and Functions
+...
+```
+
+**文件命名**: `[company]-[keyword]-topics.txt`
+- 示例: `cowseal-mechanical-seals-topics.txt`
 
 ---
 
