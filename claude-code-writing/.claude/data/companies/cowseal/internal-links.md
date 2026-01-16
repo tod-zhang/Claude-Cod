@@ -1,12 +1,18 @@
 # Internal Links Cache
 
-<!-- Last Updated: 2026-01-10 -->
-<!-- Deep Refresh: 201 URLs fetched -->
+<!-- Last Updated: 2026-01-16 -->
+<!-- Deep Refresh: 226 URLs processed -->
 
 ## Articles
 
 - [15 Reasons For Mechanical Seal Failure](https://cowseal.com/15-reasons-for-mechanical-seal-failure/)
   > This article examines ten primary reasons mechanical seals fail in industrial applications, including "dry running, improper installation, contamination, and more," offering diagnostic guidance for equipment maintenance professionals.
+
+- [Agitator Reactor Mechanical Seal Selection Guide](https://cowseal.com/agitator-reactor-mechanical-seal-selection-guide/)
+  > Guide for selecting mechanical seals in agitator and reactor applications, covering seal configurations, material selection, and operating condition considerations.
+
+- [API 682 Mechanical Seals Oil Gas Guide](https://cowseal.com/api-682-mechanical-seals-oil-gas-guide/)
+  > Technical guide explaining API 682 standard requirements for mechanical seals in oil and gas refinery and petrochemical applications.
 
 - [API Mechanical Seal and Non-API Mechanical Seal](https://cowseal.com/api-mechanical-seal-and-non-api-mechanical-seal/)
   > API mechanical seals adhere to rigorous American Petroleum Institute standards for demanding industrial applications, while non-API seals offer more flexible designs suited for less critical applications.
@@ -83,6 +89,9 @@
 - [Carbon vs Silicon Carbide Mechanical Seal](https://cowseal.com/carbon-vs-silicon-carbide-mechanical-seal/)
   > This article compares two mechanical seal materials, explaining that carbon seals offer affordability and good thermal conductivity, while silicon carbide seals provide superior hardness and temperature resistance for demanding industrial applications.
 
+- [Chemical Pump Mechanical Seal Corrosion Protection: Why Temperature Control Beats Material Upgrades](https://cowseal.com/chemical-pump-mechanical-seal-corrosion-protection-why-temperature-control-beats-material-upgrades/)
+  > Analysis of corrosion protection strategies for chemical pump seals, arguing that temperature management through proper flush plans is often more effective than material upgrades alone.
+
 - [Commissioning Procedure for Seal Pot Systems](https://cowseal.com/commissioning-procedure-for-seal-pot-systems/)
   > This guide provides detailed instructions for installing, filling, pressurizing, and starting seal pot systems used with mechanical pumps, including pre-commissioning checks and operational validation procedures.
 
@@ -119,9 +128,6 @@
 - [Do Mechanical Seals Require Seal Water](https://cowseal.com/do-mechanical-seals-require-seal-water/)
   > The article explains that while not all mechanical seals require seal water, many do depending on fluid temperature, cleanliness, and operating conditions—with hot, dirty, or abrasive fluids nearly always needing it for cooling and protection.
 
-- [Does Stainless Steel Rust in Saltwater](https://cowseal.com/does-stainless-steel-rust-in-saltwater/)
-  > Stainless steel can corrode in saltwater environments depending on the grade used, with higher-grade alloys like 316L and duplex stainless steel offering superior protection against chloride-induced corrosion.
-
 - [Double Mechanical Seal vs Single Mechanical Seal](https://cowseal.com/double-mechanical-seal-vs-single-mechanical-seal/)
   > This guide explains how single mechanical seals work for non-hazardous applications versus double seals with barrier fluids for toxic or regulated environments, comparing their costs, reliability, and appropriate uses.
 
@@ -130,6 +136,9 @@
 
 - [Dry Gas Seal vs Wet Gas Seal](https://cowseal.com/dry-gas-seal-vs-wet-gas-seal/)
   > This article explains how dry gas seals and wet mechanical seals function differently, comparing their performance characteristics and guiding readers on when to use each type based on specific applications.
+
+- [Fugitive Emission Control Mechanical Seals](https://cowseal.com/fugitive-emission-control-mechanical-seals/)
+  > Overview of mechanical seal technologies and strategies for controlling fugitive emissions in industrial applications to meet environmental regulations.
 
 - [FFKM vs EPDM: How to Choose the Right Elastomer for Your Mechanical Seal](https://cowseal.com/ffkm-vs-epdm-how-to-choose-the-right-elastomer-for-your-mechanical-seal/)
   > This article compares two elastomer materials used in mechanical seals, examining their chemical resistance, temperature capabilities, mechanical properties, and cost to help engineers select the appropriate material for specific applications.
@@ -181,9 +190,6 @@
 
 - [How Long Do Mechanical Seals Last](https://cowseal.com/how-long-do-mechanical-seals-last/)
   > This article examines the typical lifespan of mechanical seals, which ranges from 1-10+ years depending on seal type, and discusses key factors affecting durability including operating conditions, seal design, and materials used.
-
-- [How Long Will a Stop Leak Last](https://cowseal.com/how-long-will-a-stop-leak-last/)
-  > This article examines the longevity of stop leak products across various automotive applications, explaining that effectiveness typically ranges from "a few weeks to several years" depending on leak severity and product type.
 
 - [How Many Mechanical Seals Does a Pump Have](https://cowseal.com/how-many-mechanical-seals-does-a-pump-have/)
   > The article explains that most pumps use a single mechanical seal, while specialized applications like chemical processing may require dual seals for enhanced leak protection.
@@ -317,6 +323,9 @@
 - [Labyrinth Seal vs Mechanical Seal](https://cowseal.com/labyrinth-seal-vs-mechanical-seal/)
   > This article compares two seal types for rotating equipment, explaining how labyrinth seals use maze-like passages to throttle flow without contact, while mechanical seals rely on precision-fitted faces under pressure to achieve near-zero leakage.
 
+- [Marine Seawater Pump Mechanical Seal Corrosion Prevention Guide](https://cowseal.com/marine-seawater-pump-mechanical-seal-corrosion-prevention-guide/)
+  > Guide for preventing corrosion in mechanical seals used in marine and seawater pump applications, covering material selection and protective strategies.
+
 - [Maintenance Checklist for Dry Gas Seal Systems](https://cowseal.com/maintenance-checklist-for-dry-gas-seal-systems/)
   > This guide provides a comprehensive maintenance program for dry gas seal systems, covering daily, monthly, quarterly, and annual inspection procedures to prevent equipment failures and ensure reliable operation.
 
@@ -370,6 +379,9 @@
 
 - [Parts of a Mechanical Seal](https://cowseal.com/parts-of-mechanical-seal/)
   > This article explains the four main components of mechanical seals—primary seal faces, secondary seals, springs, and hardware—and discusses material selection for optimal pump performance.
+
+- [Power Plant Pump Mechanical Seal Best Practices](https://cowseal.com/power-plant-pump-mechanical-seal-best-practices/)
+  > Best practices for selecting, installing, and maintaining mechanical seals in power plant pump applications including boiler feed, condensate, and cooling water pumps.
 
 - [Procedure for Upgrading a Pump from Single to Double Seal](https://cowseal.com/procedure-for-upgrading-a-pump-from-single-to-double-seal-a-complete-step-by-step-guide/)
   > This comprehensive guide provides detailed instructions for upgrading mechanical pump seals from single to dual configuration, covering assessment, installation, and commissioning procedures.
