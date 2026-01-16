@@ -127,7 +127,7 @@ Grep("they (miss|ignore|overlook|gloss over)", drafts/[topic].md) ||
 Grep("Unlike other (sources|articles|guides)", drafts/[topic].md) ||
 
 // Announcing prefix patterns (remove prefix, keep content)
-Grep("The (critical point|key insight|bottom line|truth is|result is):", drafts/[topic].md)
+Grep("The (critical point|key insight|bottom line|truth is|result is|result|threshold|takeaway|lesson|point|answer|solution|key|finding|implication):", drafts/[topic].md)
 ```
 
 **For each match found:**
@@ -267,7 +267,7 @@ Flag paragraphs with: zero first-person + zero opinions, pure definition, encycl
 
 | Type | Examples | Action |
 |------|----------|--------|
-| Prefix | "The result:", "The key insight:", "The truth is:", "The critical point:", "The bottom line:" | Remove prefix |
+| Prefix | "The result:", "The key insight:", "The truth is:", "The critical point:", "The bottom line:", "The threshold:", "The takeaway:", "The lesson:", "The answer:", "The solution:", "The finding:", "The implication:" | Remove prefix, keep content |
 | Cliché | "The good news is that...", "Let me explain..." | Delete, state directly |
 | Empty | "isn't difficult once you understand X" | Replace with specifics |
 
@@ -287,7 +287,19 @@ Scan article for patterns that signal AI-generated content. Fix or flag each occ
 | **Fabricated compounds** | "structurally unequal", "operationally deficient" | 生造词，不自然 | Replace with plain English |
 | **Abstract metaphors** | "quality story", "success journey", "learning curve" | 空洞比喻 | DELETE the metaphor, state directly |
 | **"Missing any one leaves gaps..."** | "Missing any one leaves gaps in your assessment" | 明显的填充句 | Rewrite concretely or DELETE |
-| **"X matters for Y"** | "The TINTM vs TOTM comparison matters for high-temperature applications" | 空洞断言，不说明为什么/如何重要 | DELETE or state concrete impact |
+| **"X matters for Y"** | "The TINTM vs TOTM comparison matters for high-temperature applications" | 空洞断言，不说明为什么/如何重要 | DELETE or REWRITE (see below) |
+| **"X matters (more than Y)"** | "Lead time consistency matters more than absolute speed" | 宣告重要性而非展示，AI 模板句 | DELETE or REWRITE (see below) |
+| **"X matters just as much as Y"** | "Material science expertise matters just as much as certifications" | 比较级宣告，空洞 | DELETE or REWRITE (see below) |
+
+**"X matters" 处理决策树：**
+
+| 情况 | 处理 | 示例 |
+|------|------|------|
+| 后句已含证据/后果 | **DELETE** 宣告句 | "R&D investment matters. Suppliers spending 7%+..." → 删除第一句 |
+| 后句纯描述，无后果 | **REWRITE** 为后果 | "X matters" → "X causes/disrupts/costs/breaks Y" |
+| 段落需要过渡 | **REWRITE** 为具体陈述 | "Lead time consistency matters more than absolute speed" → "Unpredictable delivery dates disrupt maintenance windows more than slow but steady ones" |
+
+**改写原则：** 把 "X matters" 变成 "X causes/disrupts/costs/breaks Y" — 用动词展示影响，而非形容词宣告重要性
 
 **Detection patterns for grep:**
 ```
@@ -301,6 +313,9 @@ Scan article for patterns that signal AI-generated content. Fix or flag each occ
 "distinguishes .* from"
 "Missing any .* leaves"
 ".* matters for"
+".* matters more than"
+".* matters just as"
+"^[A-Z].* matters\."
 ```
 
 **P1: Sentence Structure Patterns (Must Fix)**

@@ -625,9 +625,25 @@ If you cannot place a required link without creating a wrapper sentence, SKIP th
 ❌ "The [broader comparison between X and Y](url) follows similar logic. Each material serves specific purposes well."
    (Weak connector + empty follow-up sentence = link wrapper disguised as content)
 
+❌ "Proper [VFFS machine maintenance](url) reduces micro-stop frequency."
+   (Tacked-on sentence at end of paragraph — adds no concrete information beyond the link itself)
+
 ✅ "API standards matter for refinery applications, while general industrial use can work with non-API designs."
    (Link on "non-API designs" — sentence has standalone value)
 ```
+
+**Tacked-on sentence trap (COMMON MISTAKE):**
+When a paragraph is complete but no link was placed, writers add a final sentence like:
+- ❌ "Proper [X maintenance](url) helps reduce this problem."
+- ❌ "Regular [calibration](url) minimizes these issues."
+- ❌ "[Component selection](url) affects this outcome."
+
+These sentences:
+1. Add no specific information (just restates that "doing X is good")
+2. Could be deleted without losing any concrete detail
+3. Exist solely to hold a link that didn't fit elsewhere
+
+**Test:** Read the paragraph WITHOUT the final sentence. Did you lose any specific fact, number, method, or insight? If no → DELETE the sentence.
 
 **Link placement rules:**
 - Links belong in the BODY of article where topic naturally arises
