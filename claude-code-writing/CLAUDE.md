@@ -87,8 +87,43 @@ SEO 文章写作工作流。两种模式：新文章写作、旧文章优化。
        > Single seal flush plan using process fluid from pump discharge.
      ```
 
-5. **话题重叠检测**:
-   - 将用户提供的话题与 `internal-links.md` 中已有文章的搜索意图进行比对
+5. **话题分析**（重叠检测 + 簇分析）:
+
+   **必须同时读取两个文件**：
+   - `internal-links.md` → 检测搜索意图重叠
+   - `article-history.md` → 提供簇上下文、识别 GAP
+
+   **执行顺序**：
+   1. 并行读取两个文件
+   2. 分析后合并展示结果
+
+   ---
+
+   **5a. 簇分析**（从 `article-history.md`）:
+   - 查找新话题所属的簇，展示簇内已有文章和 [GAP] 标记
+   - 展示格式：
+
+   ```
+   📊 相关内容簇: [簇名]
+
+   已有文章:
+   ├── [文章1] (pillar)
+   ├── [文章2]
+   ├── [文章3]
+   └── [GAP] [待写话题]  ← 如果新话题正好填补这个空白
+   ```
+
+   **如果新话题匹配 [GAP]**:
+   ```
+   ✅ 此话题将填补「[簇名]」簇的空白
+   ```
+
+   **注意**: 仅在 `article-history.md` 存在且能找到相关簇时显示。
+
+   ---
+
+   **5b. 重叠检测**（从 `internal-links.md`）:
+   - 将用户提供的话题与已有文章的搜索意图进行比对
    - 如果发现**高度相似**的已有文章（搜索意图重叠度高）：
 
    ```
@@ -123,39 +158,15 @@ SEO 文章写作工作流。两种模式：新文章写作、旧文章优化。
 
    - 如果**无重叠**，静默继续下一步
 
-6. **话题簇分析**（可选展示）:
-   - 读取 `article-history.md` 中的 Content Matrix 部分
-   - 查找新话题所属的簇，展示簇内已有文章和 [GAP] 标记
-   - 展示格式：
-
-   ```
-   📊 相关内容簇: [簇名]
-
-   已有文章:
-   ├── [文章1] (pillar)
-   ├── [文章2]
-   ├── [文章3]
-   └── [GAP] [待写话题]  ← 如果新话题正好填补这个空白
-
-   💡 新文章将 [填补空白 / 扩展覆盖]
-   ```
-
-   **如果新话题匹配 [GAP]**:
-   ```
-   ✅ 此话题将填补「[簇名]」簇的空白
-   ```
-
-   **注意**: 仅在 `article-history.md` 存在且能找到相关簇时显示。
-
-7. **收集用户选择**（展示格式见下方 Display Templates）:
+6. **收集用户选择**（展示格式见下方 Display Templates）:
    - 受众 + 深度（一次询问）
    - 文章类型
    - 文章长度（简短/标准/深度）
    - 作者人设
 
-8. **确定输出语言**: `semrush → 中文, others → English`
+7. **确定输出语言**: `semrush → 中文, others → English`
 
-9. **Launch config-creator**:
+8. **Launch config-creator**:
    ```
    Task: subagent_type="config-creator"
    Prompt: Create config for [company], [topic], [audience], [depth], [articleType], [articleLength], [persona], [language], [audienceFramework: b2b|b2c]
@@ -163,7 +174,7 @@ SEO 文章写作工作流。两种模式：新文章写作、旧文章优化。
 
    **audienceFramework** 由 Step 2 用户选择确定
 
-10. **验证**: `config/[topic-title]-core.json` 存在
+9. **验证**: `config/[topic-title]-core.json` 存在
 
 ### Step 2: Competitor Analysis
 

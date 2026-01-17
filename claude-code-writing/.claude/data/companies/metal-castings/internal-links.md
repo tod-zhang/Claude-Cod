@@ -1,7 +1,7 @@
 # Internal Links Cache
 
-<!-- Last Updated: 2026-01-10 -->
-<!-- Deep Refresh: 159 URLs fetched -->
+<!-- Last Updated: 2026-01-17 -->
+<!-- Deep Refresh: 186 URLs processed -->
 
 ## Articles
 
@@ -76,6 +76,9 @@
 
 - [Expendable Mold Casting Vs Investment Casting](https://metal-castings.com/expendable-mold-casting-vs-investment-casting-what-is-the-relationship/)
   > Investment casting is a specialized type of expendable mold casting distinguished by superior precision and surface finish.
+
+- [Getting Started With Sand Casting: What OEMs Need To Know](https://metal-castings.com/getting-started-with-sand-casting-what-oems-need-to-know/)
+  > A buyer's guide for OEM procurement managers and engineers new to sand casting, covering foundry selection, specifications, and ordering process.
 
 - [Green Sand Casting vs Dry Sand Casting](https://metal-castings.com/green-sand-casting-vs-dry-sand-casting-which-method-is-right-for-your-production/)
   > Green sand casting offers faster production and lower costs while dry sand casting delivers superior surface quality and dimensional precision.
