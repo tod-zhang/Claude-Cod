@@ -25,7 +25,7 @@ Read(config/[topic-title]-research.json) ||
 Read(.claude/data/style/STYLE_GUIDE.md) ||
 Read(knowledge/[topic-title]-sources.md) ||
 Read(.claude/data/companies/[company]/internal-links.md) ||
-Read(.claude/data/companies/[company]/article-history.md) ||  // if exists
+Read(.claude/data/companies/[company]/linkable-anchors.md) ||  // if exists, for anchor selection
 Read(imports/[topic-title]-analysis.md)  // optimization mode only
 ```
 

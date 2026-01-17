@@ -356,14 +356,6 @@ Conclusion Rules:
 
 ---
 
-## Backlink Queue
-
-| Target Article | Source Article | Suggested Anchor | Status |
-|----------------|----------------|------------------|--------|
-| (empty) | | | |
-
----
-
 ## Notes
 
 - Initialized 2025-12-27 from sitemap data

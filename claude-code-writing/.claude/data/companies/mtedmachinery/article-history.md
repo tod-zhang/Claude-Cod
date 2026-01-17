@@ -328,34 +328,6 @@ Conclusion Rules:
 
 ---
 
-## Backlink Queue
-
-| Target Article | Source Article | Suggested Anchor | Status |
-|----------------|----------------|------------------|--------|
-| is-aluminium-foil-magnetic | does-aluminum-set-off-metal-detectors | "why aluminum is non-magnetic" | Pending |
-| is-aluminium-foil-magnetic | what-is-aluminum-foil-made-of | "aluminum's magnetic properties" | Pending |
-| how-to-achieve-wrinkles-in-aluminum-foil-container-dies | smoothwall-vs-wrinkle-wall-aluminum-containers | "how wrinkles are formed in production" | Pending |
-| how-to-achieve-wrinkles-in-aluminum-foil-container-dies | types-of-molds-for-aluminum-foil-container-machines | "wrinkle-wall mold parameters" | Pending |
-| aluminum-alloy-3003-vs-8011-for-foil-containers | types-of-aluminum-foil-used-in-container-machines | "detailed 3003 vs 8011 comparison" | Pending |
-| aluminum-alloy-3003-vs-8011-for-foil-containers | raw-material-for-aluminium-foils | "alloy selection for containers" | Pending |
-| pre-lubricated-vs-non-lubricated-aluminum-foil-for-stamping-presses | types-of-aluminum-foil-used-in-container-machines | "lubrication decision for stamping" | Pending |
-| pre-lubricated-vs-non-lubricated-aluminum-foil-for-stamping-presses | lubrication-schedule-for-aluminum-foil-container-machine | "pre-lubricated vs in-line comparison" | Pending |
-| lacquered-vs-plain-aluminum-foil-for-food-containers | foods-not-to-cook-in-aluminum-foil | "pH 4.5 threshold for lacquered containers" | Pending |
-| lubrication-oil-types-for-aluminum-foil-container-stamping | lubrication-schedule-for-aluminum-foil-container-machine | "lubricant type specifications" | Pending |
-| lubrication-oil-types-for-aluminum-foil-container-stamping | maintenance-requirements-for-aluminum-foil-container-machines | "lubricant selection for stamping" | Pending |
-| edge-burr-problems-aluminum-foil-containers | common-problems-with-aluminum-foil-container-machines-and-how-to-fix-them | "edge burr troubleshooting deep dive" | Pending |
-| edge-burr-problems-aluminum-foil-containers | maintenance-requirements-for-aluminum-foil-container-machines | "burr prevention through maintenance" | Pending |
-| aluminum-vs-paper-container | what-is-aluminium-foil-container | "delivery time-based container selection" | Pending |
-| aluminum-vs-paper-container | how-to-recycle-aluminum-foil-containers | "actual recycling rates (34.9%)" | Pending |
-| aluminum-vs-cpet-tray | aluminum-foil-containers-vs-plastic-containers | "specific CPET comparison" | Pending |
-| aluminum-vs-cpet-tray | can-you-microwave-aluminum-foil-containers | "aluminum vs CPET for microwave use" | Pending |
-| aluminum-container-production-cost-breakdown | how-to-calculate-roi-for-aluminum-foil-container-machine | "detailed cost breakdown inputs" | Pending |
-| aluminum-container-production-cost-breakdown | how-to-choose-the-right-aluminum-foil-container-machine-for-my-business | "cost implications of equipment selection" | Pending |
-| aluminum-container-startup-cost-guide | how-to-calculate-roi-for-aluminum-foil-container-machine | "initial investment baseline" | Pending |
-| aluminum-container-startup-cost-guide | how-to-choose-the-right-aluminum-foil-container-machine-for-my-business | "budget planning before machine selection" | Pending |
-
----
-
 ## Notes
 
 - Initialized 2025-12-27 from sitemap data

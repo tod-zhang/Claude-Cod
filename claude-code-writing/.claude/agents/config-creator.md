@@ -78,7 +78,6 @@ If article-history.md exists:
 | Check | Action |
 |-------|--------|
 | Topic overlap | Exact match → STOP. Overlap → list for differentiation |
-| Backlink opportunities | Find articles that could link to this one |
 | Hook diversity | Blocked if same as last; Avoid if 3+ in last 5 |
 | Conclusion diversity | Blocked if same as last 3 |
 | Angle collision | Record angles to avoid |

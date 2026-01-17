@@ -37,7 +37,7 @@ SEO 文章写作工作流。两种模式：新文章写作、旧文章优化。
 
 3. **读取公司文档**: `.claude/data/companies/[selected]/about-us.md`
 
-5. **内链缓存检查**:
+4. **内链缓存检查**:
    - 读取 `internal-links.md`，提取 `Last Updated` 日期
    - 显示: `内链缓存: [日期] ([X]天前) - 刷新? [N(默认)/Y]`
    - 用户选 Y → 执行**增量深度刷新**:
@@ -87,23 +87,83 @@ SEO 文章写作工作流。两种模式：新文章写作、旧文章优化。
        > Single seal flush plan using process fluid from pump discharge.
      ```
 
-6. **收集用户选择**（展示格式见下方 Display Templates）:
+5. **话题重叠检测**:
+   - 将用户提供的话题与 `internal-links.md` 中已有文章的搜索意图进行比对
+   - 如果发现**高度相似**的已有文章（搜索意图重叠度高）：
+
+   ```
+   ⚠️ 发现类似文章：
+
+   - [已有文章标题](URL)
+     > 搜索意图摘要
+
+   新话题「X」与此文章搜索意图重叠度较高。
+   继续写作可能导致：
+   - 内部关键词竞争（keyword cannibalization）
+   - 内容重复，浪费资源
+
+   请选择：
+   A. 继续写作（作为补充角度或不同受众）
+   B. 优化已有文章（进入 Workflow 2）
+   C. 换一个话题
+   ```
+
+   **判断逻辑**：
+   - 比对新话题的**核心搜索意图**与已有文章的 `> 摘要`
+   - 相似判断维度：
+     - 回答的问题相同
+     - 目标关键词重叠
+     - 目标受众相同
+   - 如果仅是**相关但不重叠**（如「机械密封失效原因」vs「如何预防机械密封失效」），不触发警告，但可在后续内链建议中关联
+
+   **选项处理**：
+   - **A**: 用户确认后继续，在 `core.json` 记录 `relatedExisting: [URL]`，outline-writer 确保内容差异化并添加互链
+   - **B**: 切换到 Workflow 2，使用已有文章 URL
+   - **C**: 等待用户提供新话题，重新开始 Step 1
+
+   - 如果**无重叠**，静默继续下一步
+
+6. **话题簇分析**（可选展示）:
+   - 读取 `article-history.md` 中的 Content Matrix 部分
+   - 查找新话题所属的簇，展示簇内已有文章和 [GAP] 标记
+   - 展示格式：
+
+   ```
+   📊 相关内容簇: [簇名]
+
+   已有文章:
+   ├── [文章1] (pillar)
+   ├── [文章2]
+   ├── [文章3]
+   └── [GAP] [待写话题]  ← 如果新话题正好填补这个空白
+
+   💡 新文章将 [填补空白 / 扩展覆盖]
+   ```
+
+   **如果新话题匹配 [GAP]**:
+   ```
+   ✅ 此话题将填补「[簇名]」簇的空白
+   ```
+
+   **注意**: 仅在 `article-history.md` 存在且能找到相关簇时显示。
+
+7. **收集用户选择**（展示格式见下方 Display Templates）:
    - 受众 + 深度（一次询问）
    - 文章类型
    - 文章长度（简短/标准/深度）
    - 作者人设
 
-7. **确定输出语言**: `semrush → 中文, others → English`
+8. **确定输出语言**: `semrush → 中文, others → English`
 
-8. **Launch config-creator**:
+9. **Launch config-creator**:
    ```
    Task: subagent_type="config-creator"
    Prompt: Create config for [company], [topic], [audience], [depth], [articleType], [articleLength], [persona], [language], [audienceFramework: b2b|b2c]
    ```
 
-   **audienceFramework** 由 Step 4 用户选择确定
+   **audienceFramework** 由 Step 2 用户选择确定
 
-9. **验证**: `config/[topic-title]-core.json` 存在
+10. **验证**: `config/[topic-title]-core.json` 存在
 
 ### Step 2: Competitor Analysis
 

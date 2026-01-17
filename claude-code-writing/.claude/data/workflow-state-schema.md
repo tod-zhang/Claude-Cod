@@ -563,9 +563,6 @@ Read by: proofreader
         "differentiatedFrom": [
           {"article": "slug", "theirAngle": "...", "ourAngle": "..."}
         ],
-        "backlinkOpportunitiesCreated": [
-          {"existingArticle": "slug", "concept": "what they can link to"}
-        ],
         "linkableAnchorsCreated": [
           {"phrase": "anchor text", "concept": "what it covers", "location": "H2-X"}
         ]

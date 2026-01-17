@@ -1,53 +1,9 @@
-# Article History
+# Article History - [Company]
 
-This document tracks all published articles for cross-referencing, internal linking, and content strategy.
+内容策略追踪文件。精简版，详细锚点见 `linkable-anchors.md`。
 
 **Last Updated:** [YYYY-MM-DD]
-
----
-
-## How to Use This File
-
-**For Config-Creator:**
-- Check if topic already covered → suggest update vs new article
-- Identify backlink opportunities → which existing articles could link TO new article
-- Check hook diversity → avoid repeating same hook type
-
-**For Outline-Writer:**
-- Use backlinkOpportunities from config
-- Create new linkable anchors for future articles
-- Differentiate from related articles' unique angles
-
-**For Proofreader:**
-- Update this file after completing article
-- Generate backlink request report
-
----
-
-## Published Articles
-
-### [article-slug-example]
-- **Published**: YYYY-MM-DD
-- **URL**: /blog/[article-slug]
-- **Title**: [Full Article Title]
-- **Primary Topic**: [1-2 sentence description of main topic]
-- **Search Intent**: [Informational/Commercial/Transactional] → [Educational/Decision-support/Action-oriented]
-- **Target Audience**: [beginner/intermediate/practitioner/expert]
-- **Core Question Answered**: [The main question this article answers]
-- **Key Concepts Covered**:
-  - [Concept 1]
-  - [Concept 2]
-  - [Concept 3]
-- **Unique Angles Used**:
-  - [Angle/insight that differentiates this article]
-  - [Another unique perspective used]
-- **Hook Type**: [surprising-stat/practitioner-quote/question/problem/direct]
-- **Conclusion Type**: [next-step/synthesis/verdict/prevention/action-checklist]
-- **Internal Links Received**: [X] (from: [article-slug-1], [article-slug-2])
-- **Linkable Anchors** (phrases other articles can link TO this one):
-  - "[anchor phrase 1]"
-  - "[anchor phrase 2]"
-  - "[anchor phrase 3]"
+**Total Articles:** [X]
 
 ---
 
@@ -55,17 +11,24 @@ This document tracks all published articles for cross-referencing, internal link
 
 ### Topic Clusters
 
-#### Cluster: [Main Topic] (Pillar: [pillar-article-slug])
+#### Cluster: [Topic Category] (Pillar: [pillar-article-slug])
 ```
-├── [pillar-article-slug] (pillar) ← X internal links
-├── [supporting-article-1] (supporting) ← X internal links
-├── [supporting-article-2] (supporting) ← X internal links
-└── [GAP] [suggested-article] (not yet written)
+├── [pillar-article-slug] (pillar)
+├── [supporting-article-1]
+├── [supporting-article-2]
+└── [GAP] [suggested-article]
 ```
 
-### Coverage Gaps
-- No content on: [topic 1], [topic 2]
-- Thin coverage on: [topic] (only 1 article, surface-level)
+---
+
+## Coverage Gaps
+
+**No content on:**
+- [Topic 1]
+- [Topic 2]
+
+**Thin coverage on:**
+- [Topic with only 1-2 articles]
 
 ---
 
@@ -99,8 +62,6 @@ Conclusion Rules:
 | 1 | - | - | - |
 | 2 | - | - | - |
 | 3 | - | - | - |
-| 4 | - | - | - |
-| 5 | - | - | - |
 
 ### Conclusion Distribution (All Time)
 | Conclusion Type | Total Count | Last Used | Status |
@@ -117,8 +78,6 @@ Conclusion Rules:
 | 1 | - | - | - |
 | 2 | - | - | - |
 | 3 | - | - | - |
-| 4 | - | - | - |
-| 5 | - | - | - |
 
 ### Audience Distribution (All Time)
 | Audience | Total Count | Last Used |
@@ -130,35 +89,6 @@ Conclusion Rules:
 
 ---
 
-## Anchor Text Usage Tracking
+## Notes
 
-**Purpose:** Track which anchor texts have been used when linking TO each article, to ensure variety.
-
-### Usage by Target Article
-| Target Article | Used Anchors | Available Alternatives |
-|----------------|--------------|------------------------|
-| [article-slug] | "[used anchor 1]", "[used anchor 2]" | "[alt 1]", "[alt 2]" |
-
-**Rules:**
-- Avoid using same anchor text 3+ times for same target
-- Prefer long-tail anchors (2-6 words)
-- Rotate through alternatives
-
----
-
-## Quick Reference: All Linkable Anchors
-
-| Article | Linkable Anchors |
-|---------|------------------|
-| [article-slug] | "[anchor 1]", "[anchor 2]" |
-
----
-
-## Backlink Queue
-
-Articles that need updates to add backlinks to newer content:
-
-| Target Article | Source Article | Suggested Anchor | Status |
-|----------------|----------------|------------------|--------|
-| [new-article] | [old-article] | "[anchor text]" | pending |
-
+- [YYYY-MM-DD]: File initialized

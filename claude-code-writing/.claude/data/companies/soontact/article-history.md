@@ -361,19 +361,6 @@ Conclusion Rules:
 
 ---
 
-## Backlink Queue
-
-| Target Article | Source Article | Suggested Anchor | Status |
-|----------------|----------------|------------------|--------|
-| how-to-shrink-wrap | how-to-wrap-bath-bombs | Bath bomb specific shrink wrap application | Pending |
-| different-types-of-shrink-film | how-to-wrap-bath-bombs | POF recommendation for fizzies | Pending |
-| types-of-sealing-machines | how-to-package-homemade-granola-bars | Home baking sealing upgrade path | Pending |
-| what-are-impulse-sealers-and-how-do-they-work | how-to-package-homemade-granola-bars | Food packaging use case | Pending |
-| what-is-sachet-packaging | what-is-sugar-packaging | Sugar as common sachet application | Pending |
-| what-is-a-stick-pack | what-is-sugar-packaging | Sugar stick packs in foodservice | Pending |
-
----
-
 ## Notes
 
 - Initialized 2025-12-27 from sitemap data

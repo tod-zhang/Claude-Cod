@@ -350,35 +350,6 @@ Conclusion Rules:
 
 ---
 
-## Backlink Queue
-
-| Target Article | Source Article | Suggested Anchor | Status |
-|----------------|----------------|------------------|--------|
-| what-causes-plasticizer-migration-in-pvc | does-pvc-need-uv-protection | "UV exposure as migration accelerator" | Pending |
-| does-pvc-need-uv-protection | can-pvc-be-left-outside | "UV protection for PVC" | Completed |
-| what-is-plasticizer-migration | can-pvc-be-left-outside | "plasticizer migration" | Completed |
-| what-is-the-difference-between-upvc-and-pvc | can-pvc-be-left-outside | "difference between uPVC and PVC" | Completed |
-| what-is-upvc | pvc-pipe-size-identification | "uPVC" | Completed |
-| what-is-plasticizer-migration | high-vs-low-molecular-weight-plasticizers | "plasticizer migration" | Completed |
-| what-is-trioctyl-trimellitate-totm | high-vs-low-molecular-weight-plasticizers | "TOTM" | Completed |
-| choosing-the-right-plasticizer-for-pvc | high-vs-low-molecular-weight-plasticizers | "plasticizer selection" | Completed |
-| how-to-reduce-plasticizer-migration | high-vs-low-molecular-weight-plasticizers | "reducing plasticizer migration" | Completed |
-| what-are-non-phthalate-plasticizers | phthalate-vs-non-phthalate-plasticizers | "non-phthalate plasticizers" | Completed |
-| what-is-dotp | phthalate-vs-non-phthalate-plasticizers | "DOTP" | Completed |
-| what-is-dop | phthalate-vs-non-phthalate-plasticizers | "DEHP (DOP)" | Completed |
-| dotp-vs-dehp-technical-comparison | phthalate-vs-non-phthalate-plasticizers | "non-phthalate options" | Completed |
-| how-is-pvc-resin-made | fish-eye-defects-pvc | "PVC resin production" | Completed |
-| different-grades-of-pvc-resin | fish-eye-defects-pvc | "different PVC resin grades" | Completed |
-| what-are-non-phthalate-plasticizers | fda-compliance-guide-food-contact-plasticizers | "non-phthalate plasticizers" | Completed |
-| what-is-dotp | fda-compliance-guide-food-contact-plasticizers | "DOTP" | Completed |
-| how-do-you-test-for-plasticizer-migration | fda-compliance-guide-food-contact-plasticizers | "plasticizer migration testing" | Completed |
-| what-is-trioctyl-trimellitate-totm | automotive-interior-pvc-plasticizer-heat-resistance | "TOTM" | Completed |
-| tintm-vs-totm-trimellitate-plasticizers-comparison | automotive-interior-pvc-plasticizer-heat-resistance | "TINTM vs TOTM comparison" | Completed |
-| what-causes-plasticizer-migration-in-pvc | automotive-interior-pvc-plasticizer-heat-resistance | "Plasticizer migration" | Completed |
-| what-are-non-phthalate-plasticizers | automotive-interior-pvc-plasticizer-heat-resistance | "non-phthalate" | Completed |
-
----
-
 ## Notes
 
 - Initialized 2025-12-27 from sitemap data

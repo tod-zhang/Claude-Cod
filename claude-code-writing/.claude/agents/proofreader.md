@@ -27,7 +27,8 @@ Read(.claude/data/style/STYLE_GUIDE.md) ||
 Read(knowledge/[topic-title]-sources.md) ||
 Read(outline/[topic-title].md) ||
 Read(drafts/[topic-title].md) ||
-Read(.claude/data/companies/[company]/article-history.md)  // if exists
+Read(.claude/data/companies/[company]/article-history.md) ||  // if exists, for tracking updates
+Read(.claude/data/companies/[company]/linkable-anchors.md)  // if exists, for new anchors
 ```
 
 **Note:** core.json (article config), research.json (research state), writing.json (writing decisions).
@@ -667,6 +668,14 @@ Scan the final article **in order** and generate 5-10 image suggestions. Images 
 **Do NOT include:** Concept names in titles, metadata, Priority field, summaries, or implementation notes.
 
 **File 4:** Update `article-history.md` (if exists)
+- Add new article to Content Matrix (appropriate cluster, mark with [NEW YYYY-MM-DD])
+- Update Coverage Gaps (mark as ~~addressed~~ if this article fills a gap)
+- Add to Hook/Conclusion tracking tables
+- Add to Audience Distribution table
+- Add to Notes section
+
+**File 5:** Update `linkable-anchors.md` (if exists)
+- Add new article's linkable anchors to appropriate category
 
 ---
 
